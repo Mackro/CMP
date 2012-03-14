@@ -1,9 +1,25 @@
 package warborn.model;
 
+import warborn.map.IMap;
+
 public class Model {
 	
-	public Model (){
-		
+	private Player[] players;
+	private Territory[] territories;
+	private IMap currentMap;
+	
+	public Model (Player[] players, Territory[] territories, IMap currentMap){
+		this.players = players;
+		this.territories = territories;
+		this.currentMap = currentMap;
+	}
+	
+	public IMap getMap(){
+		return currentMap;
+	}
+	
+	public Player[] getPlayers(){
+		return players;
 	}
 	
 	public boolean attackCompatible(Territory t1, Territory t2){
