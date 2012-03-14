@@ -7,7 +7,9 @@ import javax.swing.JFrame;
 public class Launcher {
 
 	private JFrame frame;
-
+	/**
+	 * Here is some more javadoc :)
+	 */
 	/**
 	 * Launch the application.
 	 */
