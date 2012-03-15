@@ -1,12 +1,27 @@
 package warborn.controller;
 
-public interface Card {
+import javax.swing.ImageIcon;
+
+public class Card {
 	
-	public  getIcon(){
+	private ImageIcon icon;
+	private String name;
+	private int index;
+	
+	public Card(String troop, ImageIcon icon, int index){
 		
 	}
-	
-	public getName(){
-		
+
+	public ImageIcon getIcon() {
+		return icon;
 	}
+
+	public String getName() {
+		return name;
+	}
+	
+	public int getIndex() {
+		return index;
+	}
+
 }
