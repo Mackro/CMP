@@ -1,6 +1,7 @@
 package warborn.model;
 
 import java.awt.Color;
+import warborn.controller.Card;
 
 public class Player {
 
