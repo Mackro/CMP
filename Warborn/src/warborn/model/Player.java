@@ -39,12 +39,18 @@ public class Player {
 			}
 		}
 	}
-	
+
+
 	public void removeCard(int id){
-		for(int i = id; i < cards.length-1; i++){
-			cards[id] = cards[id+1]
+		for(int i = 0; i < cards.length; i++){
+			if(cards[i].getIndex() == id){
+				for(int j = i; j < cards.length-1; j++){
+					cards[j] = cards[j+1];
+				}
+				cards[cards.length] = null;
+				break;
+			}
 		}
-		cards[cards.length] == null;
 	}
 	
 }
