@@ -1,16 +1,21 @@
 package warborn.main;
 
+import java.awt.Color;
 import java.awt.EventQueue;
 import java.io.*;
 
 import javax.swing.JFrame;
 
-public class Launcher {
+import warborn.map.IMap;
+
+public class LaunchController {
 
 	private JFrame frame;
-	/**
-	 * Here is some more javadoc :)
-	 */
+	private String[] playerNames;
+	private Color[] playerColors;
+	private IMap[] maps;
+	private int mapNumber;
+
 	/**
 	 * Launch the application.
 	 */
@@ -18,7 +23,7 @@ public class Launcher {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Launcher window = new Launcher();
+					LaunchController window = new LaunchController();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -30,7 +35,7 @@ public class Launcher {
 	/**
 	 * Create the application.
 	 */
-	public Launcher() {
+	public LaunchController() {
 		initialize();
 	}
 
@@ -41,6 +46,17 @@ public class Launcher {
 		frame = new MainFrame();
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		initializeMaps();
+	}
+
+	private void initializeMaps() {
+		maps = new IMap[1];
+		maps[0] = new GothenburgMap();
+
+	}
+	
+	public void createGame(){
+		ModelFactory.createModel(playerNames, playerColors, maps[mapNumber].toString());
 	}
 
 }

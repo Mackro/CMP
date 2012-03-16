@@ -6,17 +6,12 @@ public class Model {
 	
 	private Player[] players;
 	private Territory[] territories;
-	private IMap currentMap;
 	
-	public Model (Player[] players, Territory[] territories, IMap currentMap){
+	public Model (Player[] players, Territory[] territories){
 		this.players = players;
 		this.territories = territories;
-		this.currentMap = currentMap;
 	}
 	
-	public IMap getMap(){
-		return currentMap;
-	}
 	
 	public Player[] getPlayers(){
 		return players;
