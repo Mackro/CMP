@@ -5,23 +5,12 @@ public class Territory {
 	private Territory[] connections;
 	private Player owner;
 	private int nbrOfUnits = 0, id;
+	private String name;
 	
 	public Territory(int id){
 		this.id = id;
 		connections = null;
 		owner = null;
-	}
-	
-	public boolean hasConnection(Territory compareTo){
-		if(connections == null){
-			return false;
-		}
-		for(int i = 0; i < connections.length; i++){
-			if(connections[i].equals(compareTo)){
-				return true;
-			}
-		}
-		return false;
 	}
 	
 	public Player getOwner(){
@@ -39,11 +28,29 @@ public class Territory {
 	public int getNbrOfUnits(){
 		return this.nbrOfUnits;
 	}
+	
+	public String getname(){
+		return name;
+	}
 
 	private Object getId() {
 		return id;
 	}
+
 	
+	public boolean hasConnection(Territory compareTo){
+		if(connections == null){
+			return false;
+		}
+		for(int i = 0; i < connections.length; i++){
+			if(connections[i].equals(compareTo)){
+				return true;
+			}
+		}
+		return false;
+	}
+	
+
 	@Override
 	public boolean equals(Object rhs){
 		if(rhs == null || !(rhs.getClass() == this.getClass())){

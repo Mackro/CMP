@@ -19,6 +19,18 @@ public class Player {
 	public int getID(){
 		return id;
 	}
+	
+	public int getNbrOfTerretories(){
+		return nbrOfTerritories;
+	}
+	
+	public Color getColor(){
+		return color;
+	}
+	
+	public String getName(){
+		return name;
+	}
 
 	public void addTerritory(Territory toAdd){
 		toAdd.setOwner(this);
@@ -29,9 +41,6 @@ public class Player {
 		nbrOfTerritories--;
 	}
 	
-	public Color getColor(){
-		return color;
-	}
 	
 	public void addCard(Card newCard){
 		for(int i = 0; i < cards.length; i++){
