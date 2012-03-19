@@ -13,6 +13,14 @@ public class Territory {
 		owner = null;
 	}
 	
+	public String getname(){
+		return name;
+	}
+
+	private Object getId() {
+		return id;
+	}
+	
 	public Player getOwner(){
 		return owner;
 	}
@@ -21,22 +29,13 @@ public class Territory {
 		this.owner = newOwner;
 	}
 	
-	public void setNbrOfUnits(int nbrOfUnits){
-		this.nbrOfUnits = nbrOfUnits;
-	}
-	
 	public int getNbrOfUnits(){
 		return this.nbrOfUnits;
 	}
 	
-	public String getname(){
-		return name;
+	public void setNbrOfUnits(int nbrOfUnits){
+		this.nbrOfUnits = nbrOfUnits;
 	}
-
-	private Object getId() {
-		return id;
-	}
-
 	
 	public boolean hasConnection(Territory compareTo){
 		if(connections == null){
