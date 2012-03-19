@@ -3,18 +3,18 @@ package warborn.main;
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.io.*;
+import java.util.Observable;
+import java.util.Observer;
 
 import javax.swing.JFrame;
 
 import warborn.map.IMap;
+import warborn.model.Model;
 
-public class LaunchController {
+public class Launcher implements Observer{
 
 	private JFrame frame;
-	private String[] playerNames;
-	private Color[] playerColors;
-	private IMap[] maps;
-	private int mapNumber;
+	private Model model;
 
 	/**
 	 * Launch the application.
@@ -23,7 +23,7 @@ public class LaunchController {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					LaunchController window = new LaunchController();
+					Launcher window = new Launcher();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -35,7 +35,7 @@ public class LaunchController {
 	/**
 	 * Create the application.
 	 */
-	public LaunchController() {
+	public Launcher() {
 		initialize();
 	}
 
@@ -46,17 +46,19 @@ public class LaunchController {
 		frame = new MainFrame();
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		initializeMaps();
 	}
 
-	private void initializeMaps() {
-		maps = new IMap[1];
-		maps[0] = new GothenburgMap();
-
-	}
 	
-	public void createGame(){
-		ModelFactory.createModel(playerNames, playerColors, maps[mapNumber].toString());
+	public void createGame(IMap map){
+		
+	}
+
+	@Override
+	public void update(Observable arg0, Object arg1) {
+		if(model.getState() == 1){
+			model.deleteObserver(this);
+			createGame(model.getMap());
+		}
 	}
 
 }
