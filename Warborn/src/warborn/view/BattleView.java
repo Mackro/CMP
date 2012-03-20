@@ -13,7 +13,8 @@ import javax.swing.JTextArea;
 public class BattleView extends Observable implements ActionListener {
 	private int buttonPressed;
 	private JButton btOneAttack;
-
+	private JButton btAutoAttack;
+	private JButton btRetreat;
 	/**
 	 * Create the panel.
 	 */
@@ -33,13 +34,13 @@ public class BattleView extends Observable implements ActionListener {
 		btOneAttack.addActionListener(this);
 		battleView.add(btOneAttack);
 		
-		JButton btAutoAttack = new JButton("Auto Attack");
+		btAutoAttack = new JButton("Auto Attack");
 		btAutoAttack.setFont(new Font("Rod", Font.BOLD | Font.ITALIC, 14));
 		btAutoAttack.setBounds(154, 219, 142, 70);
 		btAutoAttack.addActionListener(this);
 		battleView.add(btAutoAttack);
 		
-		JButton btRetreat = new JButton("Retreat");
+		btRetreat = new JButton("Retreat");
 		btRetreat.setFont(new Font("Rod", Font.BOLD | Font.ITALIC, 14));
 		btRetreat.setBounds(298, 219, 142, 70);
 		btRetreat.addActionListener(this);
@@ -79,7 +80,13 @@ public class BattleView extends Observable implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource() == btOneAttack){
 			buttonPressed = 1;
-			notifyObservers();
 		}
+		if(e.getSource() == btAutoAttack){
+			buttonPressed = 2;
+		}
+		if(e.getSource() == btRetreat){
+			
+		}
+		notifyObservers(buttonPressed);
 	}
 }
