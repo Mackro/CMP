@@ -1,9 +1,11 @@
 package warborn.model;
 
 import java.awt.Color;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Observable;
 
+import warborn.main.TerritoryFactory;
 import warborn.map.GothenburgMap;
 import warborn.map.IMap;
 
@@ -96,6 +98,14 @@ public class Model extends Observable{
 	public void removePlayer(int id){
 		players.remove(id);
 		changed();
+	}
+	
+	public void startGame(){
+		try {
+			territories = TerritoryFactory.getTerritories(getMap().toString());
+		} catch (IOException e) {
+			System.out.println("Selected Map does not exist!");
+		}
 	}
 	
 	public boolean attackCompatible(Territory t1, Territory t2){
