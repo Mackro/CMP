@@ -530,4 +530,26 @@ main()</panel_attributes>
     <panel_attributes>&lt;&lt;create&gt;&gt;</panel_attributes>
     <additional_attributes/>
   </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>480</x>
+      <y>310</y>
+      <w>140</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>30;30;120;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.custom.Text</type>
+    <coordinates>
+      <x>520</x>
+      <y>310</y>
+      <w>80</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;create&gt;&gt;</panel_attributes>
+    <additional_attributes/>
+  </element>
 </diagram>
