@@ -1,6 +1,7 @@
 package warborn.model;
 
 import java.awt.Color;
+import java.util.ArrayList;
 import java.util.Observable;
 
 import warborn.map.GothenburgMap;
@@ -8,14 +9,14 @@ import warborn.map.IMap;
 
 public class Model extends Observable{
 	
-	private Player[] players;
+	private ArrayList<Player> players;
 	private Territory[] territories;
 	private IMap[] maps;
 	private int selectedMap, currentPlayer, selectedTerritory;
 	private int state = 0;
 	
 	public Model (){
-		this.players = new Player[2];
+		this.players = new ArrayList<Player>();
 		this.territories = null;
 		initMaps();
 	}
@@ -24,7 +25,7 @@ public class Model extends Observable{
 	//Getters
 	
 	public Player[] getPlayers(){
-		return players;
+		return (Player[])players.toArray();
 	}
 	
 	public Territory[] getTerritories(){
@@ -57,20 +58,19 @@ public class Model extends Observable{
 	
 	//TODO implement
 	public int getWidth(){
-		return 0;
+		return 800;
 	}
 	
 	public int getHeight(){
-		return 0;
+		return 600;
 	}
 	
 	
 	//Setters:
 	
 	public void setPlayers(String[] names, Color[] colours){
-		players = new Player[names.length];
 		for(int i = 0; i < names.length; i++){
-			players[i] = new Player(names[i], i, colours[i]);
+			players.add(new Player(names[i], i, colours[i]));
 		}
 		changed();
 	}
@@ -78,6 +78,24 @@ public class Model extends Observable{
 
 	public void setSelectedMap(int id){
 		this.selectedMap = id;
+		changed();
+	}
+	
+	//End Setters
+	
+	public void addPlayer(String name, Color colour){
+		players.add(new Player(name, players.size(), colour));
+		changed();
+	}
+	
+	public void removePlayer(){
+		removePlayer(players.size()-1);
+		changed();
+	}
+	
+	public void removePlayer(int id){
+		players.remove(id);
+		changed();
 	}
 	
 	public boolean attackCompatible(Territory t1, Territory t2){
