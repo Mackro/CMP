@@ -15,7 +15,7 @@ public class Model extends Observable{
 	private Territory[] territories;
 	private IMap[] maps;
 	private int selectedMap, currentPlayer, selectedTerritory;
-	private int state = 0;
+	private int state = 0, phase = 0;
 	
 	public Model (){
 		this.players = new ArrayList<Player>();
@@ -44,6 +44,10 @@ public class Model extends Observable{
 	
 	public int getState(){
 		return state;
+	}
+	
+	public int getPhase(){
+		return phase;
 	}
 	
 	public IMap getMap(){
@@ -80,6 +84,19 @@ public class Model extends Observable{
 
 	public void setSelectedMap(int id){
 		this.selectedMap = id;
+		changed();
+	}
+	
+	public void nextState(){
+		this.state++;
+		if(this.state > 3){
+			this.state = 1;
+		}
+		changed();
+	}
+	
+	public void nextPhase(){
+		this.phase = (this.phase+1)%2;
 		changed();
 	}
 	
