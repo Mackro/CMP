@@ -1,12 +1,11 @@
 package warborn.main;
 
-import java.awt.Color;
 import java.awt.EventQueue;
-import java.io.*;
 import java.util.Observable;
 import java.util.Observer;
 
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 import warborn.map.IMap;
 import warborn.model.Model;
@@ -50,7 +49,7 @@ public class Launcher implements Observer{
 
 	
 	public void createGame(IMap map){
-		
+		frame.add((JPanel)map);
 	}
 
 	@Override

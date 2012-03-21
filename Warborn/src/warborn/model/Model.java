@@ -6,19 +6,22 @@ import java.util.ArrayList;
 import java.util.Observable;
 
 import warborn.main.TerritoryFactory;
-import warborn.map.GothenburgMap;
-import warborn.map.IMap;
+import warborn.map.*;
 
 public class Model extends Observable{
 	
 	private ArrayList<Player> players;
 	private Territory[] territories;
 	private IMap[] maps;
+	private Move move;
+	private Battle battle;
 	private int selectedMap, currentPlayer, selectedTerritory;
 	private int state = 0, phase = 0;
 	
 	public Model (){
 		this.players = new ArrayList<Player>();
+		addPlayer("Player 1", Color.BLUE);
+		addPlayer("Player 2", Color.RED);
 		this.territories = null;
 		initMaps();
 	}
@@ -54,12 +57,20 @@ public class Model extends Observable{
 		return maps[selectedMap];
 	}
 	
-	public int getCurrentPlayerIndex(){
-		return currentPlayer;
+	public Player getCurrentPlayer(){
+		return players.get(currentPlayer);
 	}
 	
 	public int getSelectedTerritoryIndex(){
 		return selectedTerritory;
+	}
+	
+	public Move getMove(){
+		return move;
+	}
+	
+	public Battle getBattle(){
+		return battle;
 	}
 	
 	//TODO implement
@@ -87,6 +98,24 @@ public class Model extends Observable{
 		changed();
 	}
 	
+	public void setSelectedTerritory(int id){
+		battle.add(territories[id]);
+		move.add(territories[id]);
+		if(selectedTerritory != -1){
+			nextPhase();
+			selectedTerritory = -1;
+		}else{
+			selectedTerritory = id;
+		}
+	}
+	
+	//End Setters
+	
+	public void addPlayer(String name, Color colour){
+		players.add(new Player(name, players.size(), colour));
+		changed();
+	}
+	
 	public void nextState(){
 		this.state++;
 		if(this.state > 3){
@@ -97,13 +126,6 @@ public class Model extends Observable{
 	
 	public void nextPhase(){
 		this.phase = (this.phase+1)%2;
-		changed();
-	}
-	
-	//End Setters
-	
-	public void addPlayer(String name, Color colour){
-		players.add(new Player(name, players.size(), colour));
 		changed();
 	}
 	
@@ -118,11 +140,16 @@ public class Model extends Observable{
 	}
 	
 	public void startGame(){
+		if(this.state != 0){
+			return;
+		}
 		try {
 			territories = TerritoryFactory.getTerritories(getMap().toString());
 		} catch (IOException e) {
 			System.out.println("Selected Map does not exist!");
 		}
+		this.phase = 0;
+		nextState();
 	}
 	
 	public boolean attackCompatible(Territory t1, Territory t2){
@@ -140,6 +167,7 @@ public class Model extends Observable{
 	}
 	
 	private void initMaps(){
+		selectedMap = 0;
 		maps = new IMap[1];
 		maps[0] = new GothenburgMap();
 	}

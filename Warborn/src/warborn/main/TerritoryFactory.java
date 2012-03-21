@@ -11,7 +11,7 @@ public class TerritoryFactory {
 
 	
 	public static Territory[] getTerritories(String mapName) throws IOException{
-		File file = new File(mapName + ".txt");
+		File file = new File("maps/" + mapName + ".txt");
 		LineNumberReader lnr = new LineNumberReader(new FileReader(file));
 		lnr.skip(file.length()-1);
 		int lines = lnr.getLineNumber();
@@ -43,7 +43,7 @@ public class TerritoryFactory {
 					break;
 				}
 				for(int z = 0; z < territories.length; z++){
-					if(connectionsNameList[x][y].equalsIgnoreCase(territories[z].getname())){
+					if(connectionsNameList[x][y].equalsIgnoreCase(territories[z].getName())){
 						territories[x].addConnection(territories[z]);
 					}
 				}
