@@ -13,7 +13,7 @@ public class Territory {
 		owner = null;
 	}
 	
-	public String getname(){
+	public String getName(){
 		return name;
 	}
 

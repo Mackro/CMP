@@ -1,0 +1,22 @@
+Thors Landing:Hen Island;Bishops Garden;Kings River
+Hen Island:Thors Landing;Majornia;The Scorched Isles;Winding Islet
+The Scorched Isle's:Hen Island;High Nest;Land Of The Elves
+Bishops Garden:Thors Landing;Kings River;Northern Angredia;Winding Islet
+Kings River:Thors Landing;Bishops Garden;Northern Angredia
+Northern Angredia:Kings River;Bishops Garden;Winding Islet;The Northern City;Eastern Necropolis;Southern Angredia;Mount Lake
+Mount Lake:Northen Angredia;Southern Angredia
+Southern Angredia:Mount Lake;Northern Angredia;Eastern Necropolis;Land Of The Gnomes
+Land Of The Gnomes:Southern Angredia;Eastern Necropolis
+Eastern Necropolis:Land Of The Gnomes;Southern Angredia;Northern Angredia;The Northern City
+The Northern City:Eastern Necropolis;Northern Angredia;Winding Islet;Plain Of The Leprechauns
+Winding Islet:Bishops Garden;Northern Angredia;The Northern City;Plain Of The Leprechauns;Majornia;Hen Island
+Majornia:Winding Islet;Plain Of The Leprechauns;Forest Of Kings;High Nest;Hen Island
+Plain Of The Leprechauns:The Norther City;Winding Islet;Majornia;Forest Of Kings;Meadow Of The Sun
+Meadow Of The Sun:Millers Valley;Meadow Of Seeds;Forest Of Kings;Plain Of The Leprechauns
+Forest Of Kings:Plain Of The Leprechaun;Majornia;High Nest;Meadow Of Seeds;Meadow Of The Sun
+High Nest:Majornia;Forest Of Kings;Meadow Of Seeds;Land Of The Elves;Scorched Isles
+Meadow Of Seeds:High Nest;Forest Of Kings;Meadow Of The Sun;Millers Valley;Land Of The Elves
+Land Of The Elves:The Scorched Isles;High Nest;Meadow Of Seeds;Millers Valley;Cabbage Nest
+Millers Valley:Meadow Of The Sun;Meadow Of Seeds;Land Of The Elves;Cabbage Nest;Kings Slope
+Cabbage Nest:Land Of The Elves;Millers Valley;Kings Slope
+Kings Slope:Millers Valley;Cabbage Nest
