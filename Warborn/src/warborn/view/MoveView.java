@@ -31,7 +31,8 @@ public class MoveView implements ActionListener, Observer {
 	 * Create the panel.
 	 */
 	public MoveView(Model model){
-		model.addObserver(this);
+		this.model = model;
+		this.model.addObserver(this);
 		
 		moveFrame = new JFrame();
 		moveFrame.setUndecorated(true);

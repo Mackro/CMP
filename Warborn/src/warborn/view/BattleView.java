@@ -1,27 +1,44 @@
 package warborn.view;
 
-import javax.swing.JPanel;
-import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Observable;
+import java.util.Observer;
 
 import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
-public class BattleView extends Observable implements ActionListener {
+import warborn.controller.BattleController;
+import warborn.model.Battle;
+import warborn.model.Model;
+import warborn.model.Territory;
+
+public class BattleView extends Observable implements ActionListener, Observer {
 	private int buttonPressed;
 	private JButton btOneAttack;
 	private JButton btAutoAttack;
 	private JButton btRetreat;
+	private JFrame battleFrame;
+	private Model model;
+	private Territory t1, t2;
+	private JLabel lbAttacker, lbDefender, lbAtkTroops, lbDefTroops;
 	/**
 	 * Create the panel.
 	 */
-	public BattleView() {
+	public BattleView(Model model) {
+		this.model = model;
+		this.model.addObserver(this);
+		
+		battleFrame = new JFrame();
 		JPanel battleView = new JPanel();
 		battleView.setSize(451, 300);
 		battleView.setLayout(null);
+		battleFrame.add(battleView);
+		battleFrame.setVisible(false);
 		
 		JLabel lbBattle = new JLabel("Battle!");
 		lbBattle.setFont(new Font("Rod", Font.BOLD | Font.ITALIC, 40));
@@ -31,7 +48,7 @@ public class BattleView extends Observable implements ActionListener {
 		btOneAttack = new JButton("One Attack");
 		btOneAttack.setFont(new Font("Rod", Font.BOLD | Font.ITALIC, 14));
 		btOneAttack.setBounds(10, 219, 142, 70);
-		btOneAttack.addActionListener(this);
+		btOneAttack.addActionListener();
 		battleView.add(btOneAttack);
 		
 		btAutoAttack = new JButton("Auto Attack");
@@ -46,25 +63,25 @@ public class BattleView extends Observable implements ActionListener {
 		btRetreat.addActionListener(this);
 		battleView.add(btRetreat);
 		
-		JLabel lbAttacker = new JLabel("Attacker");
+		lbAttacker = new JLabel("Attacker");
 		lbAttacker.setFont(new Font("Rod", Font.BOLD | Font.ITALIC, 16));
 		lbAttacker.setBounds(10, 57, 95, 24);
 		battleView.add(lbAttacker);
 		
-		JLabel lbDefender = new JLabel("Defender");
+		lbDefender = new JLabel("Defender");
 		lbDefender.setFont(new Font("Rod", Font.BOLD | Font.ITALIC, 16));
 		lbDefender.setBounds(345, 57, 95, 24);
 		battleView.add(lbDefender);
 		
-		JLabel lbatkTroops = new JLabel("atkTroops");
-		lbatkTroops.setFont(new Font("Rod", Font.BOLD | Font.ITALIC, 16));
-		lbatkTroops.setBounds(10, 92, 124, 24);
-		battleView.add(lbatkTroops);
+		JLabel lbAtkTroops = new JLabel("atkTroops");
+		lbAtkTroops.setFont(new Font("Rod", Font.BOLD | Font.ITALIC, 16));
+		lbAtkTroops.setBounds(10, 92, 124, 24);
+		battleView.add(lbAtkTroops);
 		
-		JLabel lbdefTroops = new JLabel("defTroops");
-		lbdefTroops.setFont(new Font("Rod", Font.BOLD | Font.ITALIC, 16));
-		lbdefTroops.setBounds(316, 92, 124, 24);
-		battleView.add(lbdefTroops);
+		JLabel lbDefTroops = new JLabel("defTroops");
+		lbDefTroops.setFont(new Font("Rod", Font.BOLD | Font.ITALIC, 16));
+		lbDefTroops.setBounds(316, 92, 124, 24);
+		battleView.add(lbDefTroops);
 		
 		JTextArea textArea = new JTextArea();
 		textArea.setEditable(false);
@@ -75,18 +92,21 @@ public class BattleView extends Observable implements ActionListener {
 	public int getButtonPressed(){
 		return buttonPressed;
 	}
-
+	public JButton createButton(String s){
+		
+	}
+	
 	@Override
-	public void actionPerformed(ActionEvent e) {
-		if(e.getSource() == btOneAttack){
-			buttonPressed = 1;
+	public void update(Observable arg0, Object arg1) {
+		if(model.getState() == 2 && model.getPhase() == 1){
+			battleFrame.setVisible(true);
+			Battle battle = model.getBattle();
+			t1 = battle.getFirstTerritory();
+			t2 = battle.getSecondTerritory();
+			lbAttacker.setText(t1.getName());
+			lbDefender.setText(t2.getName());
+			lbAtkTroops.setText(t1.getNbrOfUnits() + "");
+			lbDefTroops.setText(t2.getNbrOfUnits() + "");
 		}
-		if(e.getSource() == btAutoAttack){
-			buttonPressed = 2;
-		}
-		if(e.getSource() == btRetreat){
-			
-		}
-		notifyObservers(buttonPressed);
 	}
 }
