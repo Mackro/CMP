@@ -1,10 +1,12 @@
 package warborn.model;
 
 import java.awt.Color;
+import java.awt.DisplayMode;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Observable;
 
+import warborn.main.ScreenManager;
 import warborn.main.TerritoryFactory;
 import warborn.map.*;
 
@@ -15,8 +17,24 @@ public class Model extends Observable{
 	private IMap[] maps;
 	private Move move;
 	private Battle battle;
-	private int selectedMap, currentPlayer, selectedTerritory;
+	private int selectedMap = 0, currentPlayer = 0, selectedTerritory = -1;
 	private int state = 0, phase = 0;
+	private ScreenManager screen;
+	//Creates displayMode array over most common screen resolutions according to w3 statistics 2012
+	private DisplayMode[] displayModesdisplayModes = {
+			new DisplayMode(1366, 768, 32, 0),
+			new DisplayMode(1366, 768, 24, 0),
+			new DisplayMode(1024, 768, 32, 0),
+			new DisplayMode(1024, 768, 24, 0),
+			new DisplayMode(1280, 1024, 32, 0),
+			new DisplayMode(1280, 1024, 24, 0),
+			new DisplayMode(1280, 800, 32, 0),
+			new DisplayMode(1280, 800, 24, 0),
+			//and this should work on just about any computer
+			new DisplayMode(800, 600, 32, 0),
+			new DisplayMode(800, 600, 24, 0),
+			new DisplayMode(800, 600, 16, 0),
+	};
 	
 	public Model (){
 		this.players = new ArrayList<Player>();
@@ -71,6 +89,14 @@ public class Model extends Observable{
 	
 	public Battle getBattle(){
 		return battle;
+	}
+	
+	public DisplayMode[] getDisplayModes(){
+		return displayModes;
+	}
+	
+	public ScreenManager getScreenManager(){
+		return screen;
 	}
 	
 	//TODO implement
@@ -169,8 +195,9 @@ public class Model extends Observable{
 	private void initMaps(){
 		selectedMap = 0;
 		maps = new IMap[1];
-		maps[0] = new GothenburgMap();
+		maps[0] = new GothenburgMapView();
 	}
+	
 	
 	private void changed() {
 		hasChanged();

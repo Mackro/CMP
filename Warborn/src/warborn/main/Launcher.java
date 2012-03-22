@@ -1,5 +1,6 @@
 package warborn.main;
 
+import java.awt.DisplayMode;
 import java.awt.EventQueue;
 import java.util.Observable;
 import java.util.Observer;
@@ -23,7 +24,12 @@ public class Launcher implements Observer{
 			public void run() {
 				try {
 					Launcher window = new Launcher();
-					window.frame.setVisible(true);
+					DisplayMode[] modes = window.model.getDisplayModes();
+					ScreenManager screen = window.model.getScreenManager();
+					DisplayMode compatibleMode = screen.getFirstCompatibleDisplayMode(modes);
+					screen.setFullScreen(compatibleMode, window.frame);
+					Thread.sleep(5000);
+					screen.restoreScreen();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -36,6 +42,7 @@ public class Launcher implements Observer{
 	 */
 	public Launcher() {
 		initialize();
+		model = new Model();
 	}
 
 	/**
