@@ -12,17 +12,16 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
-import warborn.controller.BattleController;
 import warborn.model.Battle;
+import warborn.model.ButtonFactory;
+import warborn.model.LabelFactory;
 import warborn.model.Model;
 import warborn.model.Territory;
 
-public class BattleView extends Observable implements ActionListener, Observer {
-	private int buttonPressed;
-	private JButton btOneAttack;
-	private JButton btAutoAttack;
-	private JButton btRetreat;
-	private JFrame battleFrame;
+public class BattleView extends Observable implements Observer, ActionListener {
+
+	public JButton btOneAttack, btAutoAttack, btRetreat;
+	public JFrame battleFrame;
 	private Model model;
 	private Territory t1, t2;
 	private JLabel lbAttacker, lbDefender, lbAtkTroops, lbDefTroops;
@@ -40,46 +39,39 @@ public class BattleView extends Observable implements ActionListener, Observer {
 		battleFrame.add(battleView);
 		battleFrame.setVisible(false);
 		
-		JLabel lbBattle = new JLabel("Battle!");
+		JLabel lbBattle = new LabelFactory("Battle!");
 		lbBattle.setFont(new Font("Rod", Font.BOLD | Font.ITALIC, 40));
 		lbBattle.setBounds(140, 11, 195, 70);
 		battleView.add(lbBattle);
 		
-		btOneAttack = new JButton("One Attack");
-		btOneAttack.setFont(new Font("Rod", Font.BOLD | Font.ITALIC, 14));
+		btOneAttack = new ButtonFactory("One Attack");
 		btOneAttack.setBounds(10, 219, 142, 70);
-		btOneAttack.addActionListener();
+		btOneAttack.addActionListener(this);
 		battleView.add(btOneAttack);
 		
-		btAutoAttack = new JButton("Auto Attack");
-		btAutoAttack.setFont(new Font("Rod", Font.BOLD | Font.ITALIC, 14));
+		btAutoAttack = new ButtonFactory("Auto Attack");
 		btAutoAttack.setBounds(154, 219, 142, 70);
 		btAutoAttack.addActionListener(this);
 		battleView.add(btAutoAttack);
 		
-		btRetreat = new JButton("Retreat");
-		btRetreat.setFont(new Font("Rod", Font.BOLD | Font.ITALIC, 14));
+		btRetreat = new ButtonFactory("Retreat");
 		btRetreat.setBounds(298, 219, 142, 70);
 		btRetreat.addActionListener(this);
 		battleView.add(btRetreat);
 		
-		lbAttacker = new JLabel("Attacker");
-		lbAttacker.setFont(new Font("Rod", Font.BOLD | Font.ITALIC, 16));
+		lbAttacker = new LabelFactory("Attacker");
 		lbAttacker.setBounds(10, 57, 95, 24);
 		battleView.add(lbAttacker);
 		
-		lbDefender = new JLabel("Defender");
-		lbDefender.setFont(new Font("Rod", Font.BOLD | Font.ITALIC, 16));
+		lbDefender = new LabelFactory("Defender");
 		lbDefender.setBounds(345, 57, 95, 24);
 		battleView.add(lbDefender);
 		
-		JLabel lbAtkTroops = new JLabel("atkTroops");
-		lbAtkTroops.setFont(new Font("Rod", Font.BOLD | Font.ITALIC, 16));
+		JLabel lbAtkTroops = new LabelFactory("atkTroops");
 		lbAtkTroops.setBounds(10, 92, 124, 24);
 		battleView.add(lbAtkTroops);
 		
-		JLabel lbDefTroops = new JLabel("defTroops");
-		lbDefTroops.setFont(new Font("Rod", Font.BOLD | Font.ITALIC, 16));
+		JLabel lbDefTroops = new LabelFactory("defTroops");
 		lbDefTroops.setBounds(316, 92, 124, 24);
 		battleView.add(lbDefTroops);
 		
@@ -88,12 +80,6 @@ public class BattleView extends Observable implements ActionListener, Observer {
 		textArea.setBounds(10, 127, 430, 81);
 		battleView.add(textArea);
 
-	}
-	public int getButtonPressed(){
-		return buttonPressed;
-	}
-	public JButton createButton(String s){
-		
 	}
 	
 	@Override
@@ -108,5 +94,11 @@ public class BattleView extends Observable implements ActionListener, Observer {
 			lbAtkTroops.setText(t1.getNbrOfUnits() + "");
 			lbDefTroops.setText(t2.getNbrOfUnits() + "");
 		}
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		notifyObservers(e);
+		
 	}
 }
