@@ -1,4 +1,4 @@
-package warborn.controller;
+package warborn.model;
 
 import java.awt.Dimension;
 import java.awt.Toolkit;
