@@ -15,5 +15,6 @@ public class Battle extends Template {
 			a1 = dice.d6Roll();
 			
 		}
+		return 1;
 	}
 }
