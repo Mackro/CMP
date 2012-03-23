@@ -25,7 +25,8 @@ public class Player {
 	}
 	
 	public Color getColor(){
-		return color;
+		Color copiedColor = new Color(color.getRed(), color.getGreen(), color.getBlue());
+		return copiedColor;
 	}
 	
 	public String getName(){

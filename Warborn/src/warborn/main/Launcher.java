@@ -1,7 +1,9 @@
 package warborn.main;
 
+import java.awt.Dimension;
 import java.awt.DisplayMode;
 import java.awt.EventQueue;
+import java.awt.Toolkit;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -23,42 +25,30 @@ public class Launcher implements Observer{
 	public static void main(String[] args) {
 		Launcher l = new Launcher();
 		l.run();
-		/*EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Launcher window = new Launcher();
-					DisplayMode[] modes = window.model.getDisplayModes();
-					warborn.model.ScreenManager screen = window.model.getScreenManager();
-					DisplayMode compatibleMode = screen.findFirstCompatibleMode(modes);
-					System.out.println(compatibleMode.getBitDepth() + "");
-					screen.setFullScreen(compatibleMode);
-					Thread.sleep(5000);
-					screen.restoreScreen();
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});*/
 	}
+	
 	public void run() {
-		ScreenManager screen = model.getScreenManager();
+	/*	ScreenManager screen = model.getScreenManager();
 		try {
 			DisplayMode[] modes = model.getDisplayModes();
 			DisplayMode compatibleMode = screen.getFirstCompatibleDisplayMode(modes);
 			screen.setFullScreen(compatibleMode, frame);
-			Thread.sleep(5000);
+		//	Thread.sleep(5000);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally{
-			screen.restoreScreen();
-		}
+		//	screen.restoreScreen();
+		}*/
+		frame.setVisible(true);
 	}
+	
 	/**
 	 * Create the application.
 	 */
 	public Launcher() {
-		initialize();
 		model = new Model();
+		initialize();
+		model.addObserver(this);
 		model.nextState();
 	}
 
@@ -67,9 +57,11 @@ public class Launcher implements Observer{
 	 */
 	private void initialize() {
 		frame = new MainFrame();
-		//frame.setBounds(100, 100, 450, 300);
+		frame.setBounds(0, 0, model.getWidth(), model.getHeight());
+		frame.setUndecorated(true);
+		frame.setResizable(false);
 		//frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		//frame.add(new GothenburgMapView());
+		frame.add(new GothenburgMapView(model));
 	}
 
 	
@@ -82,6 +74,7 @@ public class Launcher implements Observer{
 		if(model.getState() == 1){
 			model.deleteObserver(this);
 			createGame(model.getMap());
+			System.out.println("Hej");
 		}
 	}
 

@@ -1,7 +1,9 @@
 package warborn.model;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.DisplayMode;
+import java.awt.Toolkit;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Observable;
@@ -19,11 +21,16 @@ public class Model extends Observable{
 	private Battle battle;
 	private int selectedMap = 0, currentPlayer = 0, selectedTerritory = -1;
 	private int state = 0, phase = 0;
+	
+	//Using instead of screenManager
+	private Dimension dimension;
+	
+	//Not used yet, might do later
 	private ScreenManager screen;
 	//Creates displayMode array over most common screen resolutions according to w3 statistics 2012
 	private DisplayMode[] displayModes = {
-			//new DisplayMode(1366, 768, 32, 0),
-			//new DisplayMode(1366, 768, 24, 0),
+			new DisplayMode(1366, 768, 32, 0),
+			new DisplayMode(1366, 768, 24, 0),
 			new DisplayMode(1024, 768, 32, 0),
 			new DisplayMode(1024, 768, 24, 0),
 			new DisplayMode(1280, 1024, 32, 0),
@@ -37,12 +44,14 @@ public class Model extends Observable{
 	};
 	
 	public Model (){
+		//screen = new ScreenManager();
+		Toolkit kit = Toolkit.getDefaultToolkit();
+		dimension = kit.getScreenSize();
 		this.players = new ArrayList<Player>();
 		addPlayer("Player 1", Color.BLUE);
 		addPlayer("Player 2", Color.RED);
 		this.territories = null;
 		initMaps();
-		screen = new ScreenManager();
 	}
 	
 
@@ -102,11 +111,15 @@ public class Model extends Observable{
 	
 	//TODO implement
 	public int getWidth(){
-		return screen.getWidth();
+		//if(screen.getWidth() > 0)
+		//return screen.getWidth();
+		return dimension.width;
 	}
 	
 	public int getHeight(){
-		return screen.getHeight();
+		//if(screen.getHeight() > 0)
+		//return screen.getHeight();
+		return dimension.height;
 	}
 	
 	
