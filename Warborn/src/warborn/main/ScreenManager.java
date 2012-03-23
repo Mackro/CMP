@@ -30,11 +30,13 @@ public class ScreenManager {
 	private boolean displayModesMatch(DisplayMode mode, DisplayMode mode2) {
 		if(mode.getWidth() != mode2.getWidth() || mode.getHeight() != mode2.getHeight()){
 			return false;
-		}else if(mode.getBitDepth() != DisplayMode.BIT_DEPTH_MULTI && mode2.getBitDepth() != DisplayMode.BIT_DEPTH_MULTI
-				&& mode.getBitDepth() != mode2.getBitDepth()){
+		}else if(mode.getBitDepth() != DisplayMode.BIT_DEPTH_MULTI &&
+				mode2.getBitDepth() != DisplayMode.BIT_DEPTH_MULTI &&
+				mode.getBitDepth() != mode2.getBitDepth()){
 			return false;
-		}else if(mode.getRefreshRate() != DisplayMode.REFRESH_RATE_UNKNOWN && mode2.getRefreshRate() != DisplayMode.REFRESH_RATE_UNKNOWN
-				&& mode.getRefreshRate() != mode2.getRefreshRate()){
+		}else if(mode.getRefreshRate() != DisplayMode.REFRESH_RATE_UNKNOWN &&
+				mode2.getRefreshRate() != DisplayMode.REFRESH_RATE_UNKNOWN &&
+				mode.getRefreshRate() != mode2.getRefreshRate()){
 			return false;
 		}
 		return true;
@@ -47,14 +49,20 @@ public class ScreenManager {
 	
 	//Makes frame fullScreen
 	public void setFullScreen(DisplayMode mode, JFrame frame){
+		JPanel p = new JPanel();
+		p.setBackground(Color.BLUE);
+		frame.add(p);
 		frame.setUndecorated(true);
 		frame.setIgnoreRepaint(true);
 		frame.setResizable(false);
 		videoCard.setFullScreenWindow(frame);
 		
 		if(mode != null && videoCard.isDisplayChangeSupported()){
-			videoCard.setDisplayMode(mode);
+			try{
+				videoCard.setDisplayMode(mode);
+			}catch(Exception e){}
 		}
+		frame.createBufferStrategy(2);
 		
 	}
 	

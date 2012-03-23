@@ -21,15 +21,15 @@ public class Model extends Observable{
 	private int state = 0, phase = 0;
 	private ScreenManager screen;
 	//Creates displayMode array over most common screen resolutions according to w3 statistics 2012
-	private DisplayMode[] displayModesdisplayModes = {
-			new DisplayMode(1366, 768, 32, 0),
-			new DisplayMode(1366, 768, 24, 0),
+	private DisplayMode[] displayModes = {
+			//new DisplayMode(1366, 768, 32, 0),
+			//new DisplayMode(1366, 768, 24, 0),
 			new DisplayMode(1024, 768, 32, 0),
 			new DisplayMode(1024, 768, 24, 0),
 			new DisplayMode(1280, 1024, 32, 0),
 			new DisplayMode(1280, 1024, 24, 0),
 			new DisplayMode(1280, 800, 32, 0),
-			new DisplayMode(1280, 800, 24, 0),
+			new DisplayMode(1280, 720, 24, 0),
 			//and this should work on just about any computer
 			new DisplayMode(800, 600, 32, 0),
 			new DisplayMode(800, 600, 24, 0),
@@ -42,6 +42,7 @@ public class Model extends Observable{
 		addPlayer("Player 2", Color.RED);
 		this.territories = null;
 		initMaps();
+		screen = new ScreenManager();
 	}
 	
 

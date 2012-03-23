@@ -8,6 +8,7 @@ import java.util.Observer;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import warborn.map.GothenburgMapView;
 import warborn.map.IMap;
 import warborn.model.Model;
 
@@ -20,23 +21,38 @@ public class Launcher implements Observer{
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
+		Launcher l = new Launcher();
+		l.run();
+		/*EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
 					Launcher window = new Launcher();
 					DisplayMode[] modes = window.model.getDisplayModes();
-					ScreenManager screen = window.model.getScreenManager();
-					DisplayMode compatibleMode = screen.getFirstCompatibleDisplayMode(modes);
-					screen.setFullScreen(compatibleMode, window.frame);
+					warborn.model.ScreenManager screen = window.model.getScreenManager();
+					DisplayMode compatibleMode = screen.findFirstCompatibleMode(modes);
+					System.out.println(compatibleMode.getBitDepth() + "");
+					screen.setFullScreen(compatibleMode);
 					Thread.sleep(5000);
 					screen.restoreScreen();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
 			}
-		});
+		});*/
 	}
-
+	public void run() {
+		ScreenManager screen = model.getScreenManager();
+		try {
+			DisplayMode[] modes = model.getDisplayModes();
+			DisplayMode compatibleMode = screen.getFirstCompatibleDisplayMode(modes);
+			screen.setFullScreen(compatibleMode, frame);
+			Thread.sleep(5000);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally{
+			screen.restoreScreen();
+		}
+	}
 	/**
 	 * Create the application.
 	 */
@@ -50,8 +66,9 @@ public class Launcher implements Observer{
 	 */
 	private void initialize() {
 		frame = new MainFrame();
-		frame.setBounds(100, 100, 450, 300);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//frame.setBounds(100, 100, 450, 300);
+		//frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.add(new GothenburgMapView());
 	}
 
 	
