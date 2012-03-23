@@ -1,16 +1,19 @@
 package warborn.model;
 
+import java.util.ArrayList;
+
 public class Territory {
 	
-	private Territory[] connections;
+	private ArrayList <Territory> connections;
 	private Player owner;
 	private int nbrOfUnits = 0, id;
 	private String name;
 	
-	public Territory(int id){
+	public Territory(int id, String name){
 		this.id = id;
 		connections = null;
 		owner = null;
+		this.name = name;
 	}
 	
 	public String getName(){
@@ -41,12 +44,16 @@ public class Territory {
 		if(connections == null){
 			return false;
 		}
-		for(int i = 0; i < connections.length; i++){
-			if(connections[i].equals(compareTo)){
+		for(int i = 0; i < connections.size(); i++){
+			if(connections.get(i).equals(compareTo)){
 				return true;
 			}
 		}
 		return false;
+	}
+	
+	public void addConnection(){
+		
 	}
 	
 
