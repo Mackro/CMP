@@ -7,7 +7,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
-public class GothenburgMapView extends JPanel { 	
+public class GothenburgMapView extends JPanel implements IMap { 	
 
 	/**
 	 * Create the panel.
