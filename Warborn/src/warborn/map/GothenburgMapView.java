@@ -3,6 +3,7 @@ package warborn.map;
 import java.awt.Image;
 
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
@@ -28,6 +29,19 @@ public class GothenburgMapView extends JPanel implements IMap {
 		
 		maplbl.setIcon(new ImageIcon(I));
 		add(maplbl);
+		
+		JButton kingsslopebtn = new JButton();
+		kingsslopebtn.setBounds((int)(model.getWidth()*0.20), (int)(model.getHeight()*0.28), 40,40);
+		kingsslopebtn.setText(model.getTerritory(21).getNbrOfUnits()+"");
+		
+		JButton cabbageNestbtn = new JButton();
+		cabbageNestbtn.setBounds((int)(model.getWidth()*0.24), (int)(model.getHeight()*0.25), 40,40);
+		cabbageNestbtn.setLabel(model.getTerritory(20).getNbrOfUnits()+"");
+		
+		System.out.println(model.getTerritory(20).getNbrOfUnits()+"");
+		
+		add(kingsslopebtn);
+		add(cabbageNestbtn);
 		
 	}
 	

@@ -10,7 +10,7 @@ public class TerritoryFactory {
 		File file = new File("maps/" + mapName + ".txt");
 		LineNumberReader lnr = new LineNumberReader(new FileReader(file));
 		lnr.skip(file.length()-1);
-		int lines = lnr.getLineNumber();
+		int lines = lnr.getLineNumber()+1;
 		
 		BufferedReader in = new BufferedReader(new FileReader(file));
 		Territory[] territories = new Territory[lines];
@@ -19,8 +19,9 @@ public class TerritoryFactory {
 		
 		for(int i = 0; lineToRead != null; i++){
 			String[] territoryNames = lineToRead.split(":"); 
-			territories[i] = new Territory(territoryNames[0], i);
 			
+			territories[i] = new Territory(territoryNames[0], i);
+
 			String[] connectionsName = new String[territoryNames[1].split(";").length+1];
 			String[] namesToInsert = territoryNames[1].split(";");
 			

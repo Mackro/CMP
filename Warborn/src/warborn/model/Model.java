@@ -50,7 +50,12 @@ public class Model extends Observable{
 		this.players = new ArrayList<Player>();
 		addPlayer("Player 1", Color.BLUE);
 		addPlayer("Player 2", Color.RED);
-		this.territories = null;
+		try {
+			this.territories = TerritoryFactory.getTerritories("Gothenburg");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		initMaps();
 	}
 	
@@ -120,6 +125,11 @@ public class Model extends Observable{
 		//if(screen.getHeight() > 0)
 		//return screen.getHeight();
 		return dimension.height;
+	}
+	
+	public Territory getTerritory(int i){
+		return territories[i];
+		
 	}
 	
 	
