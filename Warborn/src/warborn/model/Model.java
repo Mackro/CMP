@@ -102,11 +102,11 @@ public class Model extends Observable{
 	
 	//TODO implement
 	public int getWidth(){
-		return 800;
+		return screen.getWidth();
 	}
 	
 	public int getHeight(){
-		return 600;
+		return screen.getHeight();
 	}
 	
 	
@@ -196,7 +196,7 @@ public class Model extends Observable{
 	private void initMaps(){
 		selectedMap = 0;
 		maps = new IMap[1];
-		maps[0] = new GothenburgMapView();
+		maps[0] = new GothenburgMapView(this);
 	}
 	
 	

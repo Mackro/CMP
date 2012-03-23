@@ -59,6 +59,7 @@ public class Launcher implements Observer{
 	public Launcher() {
 		initialize();
 		model = new Model();
+		model.nextState();
 	}
 
 	/**
@@ -68,7 +69,7 @@ public class Launcher implements Observer{
 		frame = new MainFrame();
 		//frame.setBounds(100, 100, 450, 300);
 		//frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.add(new GothenburgMapView());
+		//frame.add(new GothenburgMapView());
 	}
 
 	
