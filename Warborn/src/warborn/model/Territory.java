@@ -9,9 +9,9 @@ public class Territory {
 	private int nbrOfUnits = 0, id;
 	private String name;
 	
-	public Territory(int id, String name){
+	public Territory(String name, int id){
 		this.id = id;
-		connections = null;
+		connections = new ArrayList<Territory>();
 		owner = null;
 		this.name = name;
 	}
@@ -52,8 +52,8 @@ public class Territory {
 		return false;
 	}
 	
-	public void addConnection(){
-		
+	public void addConnection(Territory toAdd){
+		connections.add(toAdd);
 	}
 	
 

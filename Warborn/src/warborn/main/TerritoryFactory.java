@@ -1,11 +1,7 @@
 package warborn.main;
 
-import java.awt.Color;
 import java.io.*;
-import java.util.StringTokenizer;
-
 import warborn.model.*;
-import warborn.map.*;
 
 public class TerritoryFactory {
 
