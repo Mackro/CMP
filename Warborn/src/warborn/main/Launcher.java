@@ -61,7 +61,7 @@ public class Launcher implements Observer{
 		frame.setUndecorated(true);
 		frame.setResizable(false);
 		//frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.add(new GothenburgMapView(model));
+		frame.add(GothenburgMapView.getMapPanel());
 	}
 
 	

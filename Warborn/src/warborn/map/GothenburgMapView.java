@@ -1,5 +1,6 @@
 package warborn.map;
 
+import java.awt.Component;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -15,12 +16,15 @@ import warborn.model.Model;
 
 public class GothenburgMapView extends Observable implements IMap, ActionListener { 	
 
+	
+	private static JPanel mapPanel;
+	
 	/**
 	 * Create the Map panel.
 	 */
 	public GothenburgMapView(Model model) {
 		
-		JPanel mapPanel = new JPanel();
+		mapPanel = new JPanel();
 		mapPanel.setLayout(null);
 		
 		mapPanel.setSize(model.getWidth(), model.getHeight());
@@ -50,6 +54,10 @@ public class GothenburgMapView extends Observable implements IMap, ActionListene
 		mapPanel.add(kingsslopebtn);
 		mapPanel.add(cabbageNestbtn);
 		
+	}
+	
+	public static Component getMapPanel(){
+		return mapPanel;
 	}
 	
 	public String toString(){
