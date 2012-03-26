@@ -4,13 +4,13 @@ import java.awt.event.ActionEvent;
 import java.util.Observable;
 import java.util.Observer;
 
-import warborn.model.Model;
+import warborn.model.Warborn;
 import warborn.view.MoveView;
 
 public class MoveController implements Observer {
-	private Model model;
+	private Warborn model;
 	
-	public MoveController(Model model){
+	public MoveController(Warborn model){
 		this.model = model;
 	}
 

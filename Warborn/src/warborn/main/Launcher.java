@@ -12,12 +12,12 @@ import javax.swing.JPanel;
 
 import warborn.map.GothenburgMapView;
 import warborn.map.IMap;
-import warborn.model.Model;
+import warborn.model.Warborn;
 
 public class Launcher implements Observer{
 
 	private JFrame frame;
-	private Model model;
+	private Warborn model;
 
 	/**
 	 * Launch the application.
@@ -46,7 +46,7 @@ public class Launcher implements Observer{
 	 * Create the application.
 	 */
 	public Launcher() {
-		model = new Model();
+		model = new Warborn();
 		initialize();
 		model.addObserver(this);
 		model.nextState();

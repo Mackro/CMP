@@ -12,7 +12,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
-import warborn.model.Model;
+import warborn.model.Warborn;
 
 public class GothenburgMapView extends Observable implements IMap, ActionListener { 	
 
@@ -22,7 +22,7 @@ public class GothenburgMapView extends Observable implements IMap, ActionListene
 	/**
 	 * Create the Map panel.
 	 */
-	public GothenburgMapView(Model model) {
+	public GothenburgMapView(Warborn model) {
 		
 		mapPanel = new JPanel();
 		mapPanel.setLayout(null);

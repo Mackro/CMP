@@ -6,14 +6,14 @@ import java.util.Observable;
 import java.util.Observer;
 
 import warborn.model.Battle;
-import warborn.model.Model;
+import warborn.model.Warborn;
 import warborn.view.BattleView;
 
 public class BattleController implements Observer{
-	private Model model;
+	private Warborn model;
 	
 	
-	public BattleController(Model model){
+	public BattleController(Warborn model){
 		this.model = model;
 	}
 

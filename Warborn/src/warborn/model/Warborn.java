@@ -12,7 +12,7 @@ import warborn.main.ScreenManager;
 import warborn.main.TerritoryFactory;
 import warborn.map.*;
 
-public class Model extends Observable{
+public class Warborn extends Observable{
 	
 	private ArrayList<Player> players;
 	private Territory[] territories;
@@ -43,7 +43,7 @@ public class Model extends Observable{
 			new DisplayMode(800, 600, 16, 0),
 	};
 	
-	public Model (){
+	public Warborn (){
 		//screen = new ScreenManager();
 		Toolkit kit = Toolkit.getDefaultToolkit();
 		dimension = kit.getScreenSize();

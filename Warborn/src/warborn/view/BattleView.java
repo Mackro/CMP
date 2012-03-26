@@ -15,20 +15,20 @@ import javax.swing.JTextArea;
 import warborn.model.Battle;
 import warborn.model.ButtonFactory;
 import warborn.model.LabelFactory;
-import warborn.model.Model;
+import warborn.model.Warborn;
 import warborn.model.Territory;
 
 public class BattleView extends Observable implements Observer, ActionListener {
 
 	public JButton btOneAttack, btAutoAttack, btRetreat;
 	public JFrame battleFrame;
-	private Model model;
+	private Warborn model;
 	private Territory t1, t2;
 	private JLabel lbAttacker, lbDefender, lbAtkTroops, lbDefTroops;
 	/**
 	 * Create the panel.
 	 */
-	public BattleView(Model model) {
+	public BattleView(Warborn model) {
 		this.model = model;
 		this.model.addObserver(this);
 		

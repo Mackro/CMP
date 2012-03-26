@@ -14,7 +14,7 @@ import javax.swing.JSlider;
 
 import warborn.model.ButtonFactory;
 import warborn.model.LabelFactory;
-import warborn.model.Model;
+import warborn.model.Warborn;
 import warborn.model.Move;
 import warborn.model.Territory;
 
@@ -27,12 +27,12 @@ public class MoveView extends Observable implements ActionListener, Observer {
 	private Territory t1, t2;
 	public JFrame moveFrame;
 	private JLabel lbT1Name, lbT2Name, lbT1Troops, lbT2Troops;
-	private Model model;
+	private Warborn model;
 
 	/**
 	 * Create the panel.
 	 */
-	public MoveView(Model model){
+	public MoveView(Warborn model){
 		this.model = model;
 		this.model.addObserver(this);
 		

@@ -4,16 +4,16 @@ import java.util.Arrays;
 
 public class Battle extends Template {
 	
-	private Model model;
+	private Warborn model;
 	private int[] a = new int[3], d = new int[2];
 	private Dice dice;
 	private int unitsAttacker, unitsDefender, aCasulties, dCasulties;
 	
-	public Battle(Model model){
+	public Battle(Warborn model){
 		this.model = model;	
 	}
 	public static void main(String [] args){
-		Battle b = new Battle(new Model());
+		Battle b = new Battle(new Warborn());
 		b.fight();
 	}
 	public void fight(){
