@@ -10,6 +10,7 @@ import java.util.Observer;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import warborn.controller.MapController;
 import warborn.map.GothenburgMapView;
 import warborn.map.IMap;
 import warborn.model.Warborn;
@@ -63,10 +64,18 @@ public class Launcher implements Observer{
 		//frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.add(GothenburgMapView.getMapPanel());
 	}
+	
+	/**
+	 * Initialize all the views and controllers
+	 */
+	private void init(){
+		
+	}
 
 	
 	public void createGame(IMap map){
-		frame.add((JPanel)map);
+		map.addObserver(new MapController());
+		frame.add(map.getMapPanel());
 	}
 
 	@Override
