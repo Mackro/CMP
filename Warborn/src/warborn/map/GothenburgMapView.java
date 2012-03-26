@@ -39,20 +39,27 @@ public class GothenburgMapView extends Observable implements IMap, ActionListene
 		maplbl.setIcon(new ImageIcon(I));
 		mapPanel.add(maplbl);
 		
-		JButton kingsslopebtn = new JButton();
-		kingsslopebtn.setBounds((int)(model.getWidth()*0.20), (int)(model.getHeight()*0.28), 45,45);
-		kingsslopebtn.setText(model.getTerritory(21).getNbrOfUnits()+"");
-		kingsslopebtn.addActionListener(this);
+		JButton kingsslopeBtn = new JButton();
+		kingsslopeBtn.setBounds((int)(model.getWidth()*0.19), (int)(model.getHeight()*0.26), 45,45);
+		kingsslopeBtn.setText(model.getTerritory(21).getNbrOfUnits()+"");
+		kingsslopeBtn.addActionListener(this);
+		kingsslopeBtn.setActionCommand("21");
 		
-		JButton cabbageNestbtn = new JButton();
-		cabbageNestbtn.setBounds((int)(model.getWidth()*0.24), (int)(model.getHeight()*0.25), 45,45);
-		cabbageNestbtn.setText(model.getTerritory(20).getNbrOfUnits()+"");
-		cabbageNestbtn.addActionListener(this);
+		JButton cabbageNestBtn = new JButton();
+		cabbageNestBtn.setBounds((int)(model.getWidth()*0.26), (int)(model.getHeight()*0.22), 45,45);
+		cabbageNestBtn.setText(model.getTerritory(20).getNbrOfUnits()+"");
+		cabbageNestBtn.addActionListener(this);
+		cabbageNestBtn.setActionCommand("20");
 		
-		System.out.println(model.getTerritory(20).getNbrOfUnits()+"");
+		JButton thorsLandingBtn = new JButton();
+		thorsLandingBtn.setBounds((int)(model.getWidth()*0.76), (int)(model.getHeight()*0.16), 45,45);
+		thorsLandingBtn.setText(model.getTerritory(0).getNbrOfUnits()+"");
+		thorsLandingBtn.addActionListener(this);
+		thorsLandingBtn.setActionCommand("0");
 		
-		mapPanel.add(kingsslopebtn);
-		mapPanel.add(cabbageNestbtn);
+		mapPanel.add(kingsslopeBtn);
+		mapPanel.add(cabbageNestBtn);
+		mapPanel.add(thorsLandingBtn);
 		
 	}
 	
@@ -66,7 +73,7 @@ public class GothenburgMapView extends Observable implements IMap, ActionListene
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		notifyObservers(e);
+		notifyObservers(((JButton) e.getSource()).getActionCommand());
 		
 	}
 }
