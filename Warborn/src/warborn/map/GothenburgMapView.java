@@ -17,7 +17,7 @@ import warborn.model.Warborn;
 public class GothenburgMapView extends Observable implements IMap, ActionListener { 	
 
 	
-	private static JPanel mapPanel;
+	private JPanel mapPanel;
 	
 	/**
 	 * Create the Map panel.
@@ -63,7 +63,8 @@ public class GothenburgMapView extends Observable implements IMap, ActionListene
 		
 	}
 	
-	public static Component getMapPanel(){
+	public JPanel getMapPanel() {
+		// TODO Auto-generated method stub
 		return mapPanel;
 	}
 	
@@ -76,4 +77,12 @@ public class GothenburgMapView extends Observable implements IMap, ActionListene
 		notifyObservers(((JButton) e.getSource()).getActionCommand());
 		
 	}
+
+	@Override
+	public void update(Observable arg0, Object arg1) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
 }

@@ -2,9 +2,9 @@ package warborn.model;
 
 public class Move extends Template {
 	
-	public void moveUnits(int antal){
-		getFirstTerritory().setNbrOfUnits(getFirstTerritory().getNbrOfUnits() - antal);
-		getSecondTerritory().setNbrOfUnits(getSecondTerritory().getNbrOfUnits() + antal);
+	public void moveUnits(int units){
+		getFirstTerritory().setNbrOfUnits(getFirstTerritory().getNbrOfUnits() - units);
+		getSecondTerritory().setNbrOfUnits(getSecondTerritory().getNbrOfUnits() + units);
 		
 	}
 	
