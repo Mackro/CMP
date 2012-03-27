@@ -94,7 +94,7 @@ public class MoveView extends Observable implements ActionListener, Observer {
 			t2 = move.getSecondTerritory();
 			lbT1Name.setText(t1.getName());
 			lbT2Name.setText(t2.getName());
-			slider.setMaximum(t1.getNbrOfUnits()-1);
+			slider.setMaximum(t1.getNbrOfUnits()+t2.getNbrOfUnits()-2);
 			lbT1Troops.setText(t1.getNbrOfUnits() - slider.getValue() + "");
 			lbT2Troops.setText(t2.getNbrOfUnits() + slider.getValue() + "");
 		}
