@@ -10,15 +10,11 @@ public class Battle extends Template {
 	private int unitsAttacker, unitsDefender, aCasulties, dCasulties;
 	
 	public Battle(Warborn model){
-		this.model = model;	
-	}
-	public static void main(String [] args){
-		Battle b = new Battle(new Warborn());
-		b.fight();
+		this.model = model;
 	}
 	public void fight(){
-		unitsAttacker = model.getBattle().getFirstTerritory().getNbrOfUnits() - 1;
-		unitsDefender = model.getBattle().getSecondTerritory().getNbrOfUnits();
+		unitsAttacker = getFirstTerritory().getNbrOfUnits() - 1;
+		unitsDefender = getSecondTerritory().getNbrOfUnits();
 		
 		for(int i = 0; i < unitsAttacker && i < 3; i++){
 			a[i] = Dice.d6Roll();
@@ -34,17 +30,17 @@ public class Battle extends Template {
 		}while(i < unitsDefender && i < 3);
 		
 		if(a[2] <= Math.max(d[0], d[1])){
-			model.getBattle().getFirstTerritory().setNbrOfUnits(unitsAttacker);
+			getFirstTerritory().setNbrOfUnits(unitsAttacker);
 		}
 		else{
-			model.getBattle().getSecondTerritory().setNbrOfUnits(unitsDefender - 1);
+			getSecondTerritory().setNbrOfUnits(unitsDefender - 1);
 		}
 		if(a[1] <= Math.min(d[0], d[1]) && a[1] != 0 ){
-			model.getBattle().getFirstTerritory().setNbrOfUnits(model.getBattle().getFirstTerritory().getNbrOfUnits() - 1);
+			getFirstTerritory().setNbrOfUnits(getFirstTerritory().getNbrOfUnits() - 1);
 		}
 		else if(Math.min(d[0], d[1]) <= a[1] && Math.min(d[0], d[1]) != 0){
-			model.getBattle().getSecondTerritory().setNbrOfUnits(model.getBattle().getSecondTerritory().getNbrOfUnits() -1);
+			getSecondTerritory().setNbrOfUnits(getSecondTerritory().getNbrOfUnits() -1);
 		}
-		model.notifyObservers();
+		model.changed();
 	}
 }

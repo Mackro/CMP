@@ -56,6 +56,12 @@ public class Warborn extends Observable{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		for(int i = 0; i<territories.length; i++){
+			territories[i].setNbrOfUnits(4);
+		}
+		this.battle = new Battle(this);
+		this.move = new Move(this);
 		initMaps();
 	}
 	
@@ -151,12 +157,15 @@ public class Warborn extends Observable{
 	public void setSelectedTerritory(int id){
 		battle.add(territories[id]);
 		move.add(territories[id]);
+	//	System.out.println(selectedTerritory + ", " + phase + ", " + state);
 		if(selectedTerritory != -1){
 			nextPhase();
 			selectedTerritory = -1;
+		//	System.out.println(selectedTerritory + ", " + phase + ", " + state);
 		}else{
 			selectedTerritory = id;
 		}
+		changed();
 	}
 	
 	//End Setters
@@ -223,8 +232,8 @@ public class Warborn extends Observable{
 	}
 	
 	
-	private void changed() {
-		hasChanged();
+	protected void changed() {
+		setChanged();
 		notifyObservers();
 	}
 

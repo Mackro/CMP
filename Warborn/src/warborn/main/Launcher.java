@@ -49,9 +49,11 @@ public class Launcher implements Observer{
 	 */
 	public Launcher() {
 		model = new Warborn();
-		initialize();
 		init();
-		model.addObserver(this);
+		initialize();
+		//model.addObserver(this);
+		model.nextState();
+		model.nextState();
 		model.nextState();
 	}
 
@@ -61,10 +63,13 @@ public class Launcher implements Observer{
 	private void initialize() {
 		frame = new MainFrame();
 		frame.setBounds(0, 0, model.getWidth(), model.getHeight());
-		frame.setUndecorated(true);
+		//frame.setUndecorated(true);
 		frame.setResizable(false);
 		//frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.add(new GothenburgMapView(model).getMapPanel());
+		GothenburgMapView map = new GothenburgMapView(model);
+		map.addObserver(new MapController(model));
+		model.addObserver(map);
+		frame.add(map.getMapPanel());
 	}
 	
 	/**

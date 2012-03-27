@@ -18,11 +18,15 @@ public class GothenburgMapView extends Observable implements IMap, ActionListene
 
 	
 	private JPanel mapPanel;
+	private JButton thorsLandingBtn, kingsSlopeBtn, cabbageNestBtn;
+	private Warborn model;
 	
 	/**
 	 * Create the Map panel.
 	 */
 	public GothenburgMapView(Warborn model) {
+		
+		this.model = model;
 		
 		mapPanel = new JPanel();
 		mapPanel.setLayout(null);
@@ -39,25 +43,25 @@ public class GothenburgMapView extends Observable implements IMap, ActionListene
 		maplbl.setIcon(new ImageIcon(I));
 		mapPanel.add(maplbl);
 		
-		JButton kingsslopeBtn = new JButton();
-		kingsslopeBtn.setBounds((int)(model.getWidth()*0.19), (int)(model.getHeight()*0.26), 45,45);
-		kingsslopeBtn.setText(model.getTerritory(21).getNbrOfUnits()+"");
-		kingsslopeBtn.addActionListener(this);
-		kingsslopeBtn.setActionCommand("21");
+		kingsSlopeBtn = new JButton();
+		kingsSlopeBtn.setBounds((int)(model.getWidth()*0.19), (int)(model.getHeight()*0.26), 45,45);
+		kingsSlopeBtn.setText(model.getTerritory(21).getNbrOfUnits()+"");
+		kingsSlopeBtn.addActionListener(this);
+		kingsSlopeBtn.setActionCommand("21");
 		
-		JButton cabbageNestBtn = new JButton();
+		cabbageNestBtn = new JButton();
 		cabbageNestBtn.setBounds((int)(model.getWidth()*0.26), (int)(model.getHeight()*0.22), 45,45);
 		cabbageNestBtn.setText(model.getTerritory(20).getNbrOfUnits()+"");
 		cabbageNestBtn.addActionListener(this);
 		cabbageNestBtn.setActionCommand("20");
 		
-		JButton thorsLandingBtn = new JButton();
+		thorsLandingBtn = new JButton();
 		thorsLandingBtn.setBounds((int)(model.getWidth()*0.76), (int)(model.getHeight()*0.16), 45,45);
 		thorsLandingBtn.setText(model.getTerritory(0).getNbrOfUnits()+"");
 		thorsLandingBtn.addActionListener(this);
 		thorsLandingBtn.setActionCommand("0");
 		
-		mapPanel.add(kingsslopeBtn);
+		mapPanel.add(kingsSlopeBtn);
 		mapPanel.add(cabbageNestBtn);
 		mapPanel.add(thorsLandingBtn);
 		
@@ -74,13 +78,16 @@ public class GothenburgMapView extends Observable implements IMap, ActionListene
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		notifyObservers(((JButton) e.getSource()).getActionCommand());
-		
+		setChanged();
+		notifyObservers(Integer.parseInt(((JButton) e.getSource()).getActionCommand()));
+	System.out.println(Integer.parseInt(((JButton) e.getSource()).getActionCommand()) + "   actionPerformed");
 	}
 
 	@Override
 	public void update(Observable arg0, Object arg1) {
-		// TODO Auto-generated method stub
+		thorsLandingBtn.setText(model.getTerritory(Integer.parseInt(thorsLandingBtn.getActionCommand())).getNbrOfUnits() + "");
+		kingsSlopeBtn.setText(model.getTerritory(Integer.parseInt(kingsSlopeBtn.getActionCommand())).getNbrOfUnits() + "");
+		cabbageNestBtn.setText(model.getTerritory(Integer.parseInt(cabbageNestBtn.getActionCommand())).getNbrOfUnits() + "");
 		
 	}
 
