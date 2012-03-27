@@ -99,6 +99,5 @@ public class BattleView extends Observable implements Observer, ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		notifyObservers(e);
-		
 	}
 }
