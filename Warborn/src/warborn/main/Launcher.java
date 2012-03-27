@@ -10,10 +10,11 @@ import java.util.Observer;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import warborn.controller.MapController;
+import warborn.controller.*;
 import warborn.map.GothenburgMapView;
 import warborn.map.IMap;
 import warborn.model.Warborn;
+import warborn.view.*;
 
 public class Launcher implements Observer{
 
@@ -49,6 +50,7 @@ public class Launcher implements Observer{
 	public Launcher() {
 		model = new Warborn();
 		initialize();
+		init();
 		model.addObserver(this);
 		model.nextState();
 	}
@@ -62,19 +64,28 @@ public class Launcher implements Observer{
 		frame.setUndecorated(true);
 		frame.setResizable(false);
 		//frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.add(GothenburgMapView.getMapPanel());
+		frame.add(new GothenburgMapView(model).getMapPanel());
 	}
 	
 	/**
 	 * Initialize all the views and controllers
 	 */
 	private void init(){
+		MoveView move = new MoveView(model);
+		MoveController moveC = new MoveController(model);
+		BattleView battle = new BattleView(model);
+		BattleController battleC = new BattleController(model);
 		
+		model.addObserver(move);
+		model.addObserver(battle);
+		battle.addObserver(battleC);
+		move.addObserver(moveC);
 	}
 
 	
 	public void createGame(IMap map){
-		map.addObserver(new MapController());
+		map.addObserver(new MapController(model));
+		model.addObserver(map);
 		frame.add(map.getMapPanel());
 	}
 
