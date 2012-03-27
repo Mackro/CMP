@@ -1,4 +1,4 @@
-package warborn.main;
+package warborn.model;
 
 import java.io.*;
 import warborn.model.*;

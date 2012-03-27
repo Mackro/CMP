@@ -2,14 +2,11 @@ package warborn.model;
 
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.DisplayMode;
 import java.awt.Toolkit;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Observable;
 
-import warborn.main.ScreenManager;
-import warborn.main.TerritoryFactory;
 import warborn.map.*;
 
 public class Warborn extends Observable{
@@ -21,30 +18,10 @@ public class Warborn extends Observable{
 	private Battle battle;
 	private int selectedMap = 0, currentPlayer = 0, selectedTerritory = -1;
 	private int state = 0, phase = 0;
-	
-	//Using instead of screenManager
 	private Dimension dimension;
 	
-	//Not used yet, might do later
-	private ScreenManager screen;
-	//Creates displayMode array over most common screen resolutions according to w3 statistics 2012
-	private DisplayMode[] displayModes = {
-			new DisplayMode(1366, 768, 32, 0),
-			new DisplayMode(1366, 768, 24, 0),
-			new DisplayMode(1024, 768, 32, 0),
-			new DisplayMode(1024, 768, 24, 0),
-			new DisplayMode(1280, 1024, 32, 0),
-			new DisplayMode(1280, 1024, 24, 0),
-			new DisplayMode(1280, 800, 32, 0),
-			new DisplayMode(1280, 720, 24, 0),
-			//and this should work on just about any computer
-			new DisplayMode(800, 600, 32, 0),
-			new DisplayMode(800, 600, 24, 0),
-			new DisplayMode(800, 600, 16, 0),
-	};
 	
 	public Warborn (){
-		//screen = new ScreenManager();
 		Toolkit kit = Toolkit.getDefaultToolkit();
 		dimension = kit.getScreenSize();
 		this.players = new ArrayList<Player>();
@@ -112,24 +89,11 @@ public class Warborn extends Observable{
 		return battle;
 	}
 	
-	public DisplayMode[] getDisplayModes(){
-		return displayModes;
-	}
-	
-	public ScreenManager getScreenManager(){
-		return screen;
-	}
-	
-	//TODO implement
 	public int getWidth(){
-		//if(screen.getWidth() > 0)
-		//return screen.getWidth();
 		return dimension.width;
 	}
 	
 	public int getHeight(){
-		//if(screen.getHeight() > 0)
-		//return screen.getHeight();
 		return dimension.height;
 	}
 	
