@@ -1,14 +1,10 @@
 package warborn.main;
 
-import java.awt.Dimension;
-import java.awt.DisplayMode;
-import java.awt.EventQueue;
-import java.awt.Toolkit;
+
 import java.util.Observable;
 import java.util.Observer;
 
 import javax.swing.JFrame;
-import javax.swing.JPanel;
 
 import warborn.controller.*;
 import warborn.map.GothenburgMapView;
@@ -25,22 +21,12 @@ public class Launcher implements Observer{
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
+		
 		Launcher l = new Launcher();
 		l.run();
 	}
 	
 	public void run() {
-	/*	ScreenManager screen = model.getScreenManager();
-		try {
-			DisplayMode[] modes = model.getDisplayModes();
-			DisplayMode compatibleMode = screen.getFirstCompatibleDisplayMode(modes);
-			screen.setFullScreen(compatibleMode, frame);
-		//	Thread.sleep(5000);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}finally{
-		//	screen.restoreScreen();
-		}*/
 		frame.setVisible(true);
 	}
 	
