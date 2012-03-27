@@ -19,7 +19,6 @@ public class GothenburgMapView extends Observable implements IMap, ActionListene
 
 	
 	private JPanel mapPanel;
-	private JButton thorsLandingBtn, kingsSlopeBtn, cabbageNestBtn;
 	private Warborn model;
 	private JButton[] buttons;
 	/**
@@ -32,6 +31,7 @@ public class GothenburgMapView extends Observable implements IMap, ActionListene
 		mapPanel = new JPanel();
 		mapPanel.setLayout(null);
 		mapPanel.setSize(model.getWidth(), model.getHeight());
+		buttons = new JButton[model.getTerritories().length];
 		
 		JLabel maplbl = new JLabel("");
 		maplbl.setVerticalAlignment(SwingConstants.TOP);
@@ -58,10 +58,9 @@ public class GothenburgMapView extends Observable implements IMap, ActionListene
 		buttons[0].setBounds((int)(model.getWidth()*0.76), (int)(model.getHeight()*0.16), 45,45);
 		
 		mapPanel.add(maplbl, 0);
-		mapPanel.add(kingsSlopeBtn, 0);
-		mapPanel.add(cabbageNestBtn, 0);
-		mapPanel.add(thorsLandingBtn, 0);
-		
+		for (int i=0; i<21; i++){
+			mapPanel.add(buttons[i], 0);
+		}		
 	}
 	
 	public JPanel getMapPanel() {
@@ -81,9 +80,9 @@ public class GothenburgMapView extends Observable implements IMap, ActionListene
 
 	@Override
 	public void update(Observable arg0, Object arg1) {
-		thorsLandingBtn.setText(model.getTerritory(Integer.parseInt(thorsLandingBtn.getActionCommand())).getNbrOfUnits() + "");
-		kingsSlopeBtn.setText(model.getTerritory(Integer.parseInt(kingsSlopeBtn.getActionCommand())).getNbrOfUnits() + "");
-		cabbageNestBtn.setText(model.getTerritory(Integer.parseInt(cabbageNestBtn.getActionCommand())).getNbrOfUnits() + "");
+		buttons[0].setText(model.getTerritory(Integer.parseInt(buttons[0].getActionCommand())).getNbrOfUnits() + "");
+		buttons[20].setText(model.getTerritory(Integer.parseInt(buttons[20].getActionCommand())).getNbrOfUnits() + "");
+		buttons[21].setText(model.getTerritory(Integer.parseInt(buttons[21].getActionCommand())).getNbrOfUnits() + "");
 		
 	}
 
