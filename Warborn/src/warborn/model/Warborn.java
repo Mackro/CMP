@@ -155,17 +155,19 @@ public class Warborn extends Observable{
 	}
 	
 	public void setSelectedTerritory(int id){
-		battle.add(territories[id]);
-		move.add(territories[id]);
-	//	System.out.println(selectedTerritory + ", " + phase + ", " + state);
-		if(selectedTerritory != -1){
-			nextPhase();
-			selectedTerritory = -1;
+		if (selectedTerritory != id){
+			battle.add(territories[id]);
+			move.add(territories[id]);
 		//	System.out.println(selectedTerritory + ", " + phase + ", " + state);
-		}else{
-			selectedTerritory = id;
+			if(selectedTerritory != -1){
+				selectedTerritory = -1;
+				nextPhase();
+			//	System.out.println(selectedTerritory + ", " + phase + ", " + state);
+			}else{
+				selectedTerritory = id;
+			}
+			changed();
 		}
-		changed();
 	}
 	
 	//End Setters
@@ -186,6 +188,7 @@ public class Warborn extends Observable{
 	public void nextPhase(){
 		this.phase = (this.phase+1)%2;
 		changed();
+		//TODO reset territories in Templates
 	}
 	
 	public void removePlayer(){

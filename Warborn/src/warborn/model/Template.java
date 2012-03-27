@@ -12,6 +12,10 @@ public abstract class Template {
 			this.t2 = t;
 		}
 	}
+	public void resetTerritories (){
+		t1 = null;
+		t2 = null;
+	}
 	
 	public Territory getFirstTerritory() {
 		return t1;
