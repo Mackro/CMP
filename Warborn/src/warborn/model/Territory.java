@@ -40,6 +40,10 @@ public class Territory {
 		this.nbrOfUnits = nbrOfUnits;
 	}
 	
+	public void incrementUnit(){
+		this.nbrOfUnits++;
+	}
+	
 	public boolean hasConnection(Territory compareTo){
 		if(connections == null){
 			return false;

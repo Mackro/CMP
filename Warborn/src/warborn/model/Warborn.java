@@ -61,10 +61,22 @@ public class Warborn extends Observable{
 		return names;
 	}
 	
+	/**
+	 * Retruns the current state of the model
+	 * @return 0 - if currently the program state is in <code>Menu</code><br>
+	 * 1 - if currently the program state is in <code>Unit Placement</code><br>
+	 * 2 - if currently the program state is in <code>Attack</code><br>
+	 * 3 - if currently the program state is in <code>Move</code>
+	 */
 	public int getState(){
 		return state;
 	}
 	
+	/**
+	 * Retruns the current phase of the model
+	 * @return 0 - if currently the program phase is <code>normal</code><br>
+	 * 1 - if currently the program state is <code>action</code>
+	 */
 	public int getPhase(){
 		return phase;
 	}
@@ -120,16 +132,25 @@ public class Warborn extends Observable{
 	
 	public void setSelectedTerritory(int id){
 		if (selectedTerritory != id){
-			battle.add(territories[id]);
-			move.add(territories[id]);
 		//	System.out.println(selectedTerritory + ", " + phase + ", " + state);
-			if(selectedTerritory != -1){
+			if(state == 1 && players.get(currentPlayer) == territories[id].getOwner()){
+				territories[id].incrementUnit();
+			//	System.out.println(selectedTerritory + ", " + phase + ", " + state);
+			}else if(state != 1 && selectedTerritory == -1){
+				battle.add(territories[id]);
+				move.add(territories[id]);
+				selectedTerritory = id;
+			}else if(state == 2 && attackCompatible(territories[selectedTerritory], territories[id])){
+				battle.add(territories[id]);
 				selectedTerritory = -1;
 				nextPhase();
 			//	System.out.println(selectedTerritory + ", " + phase + ", " + state);
-			}else{
-				selectedTerritory = id;
-			}
+			}else if(state == 3 && moveCompatible(territories[selectedTerritory], territories[id])){
+				move.add(territories[id]);
+				selectedTerritory = -1;
+				nextPhase();
+			//	System.out.println(selectedTerritory + ", " + phase + ", " + state);
+			} 
 			changed();
 		}
 	}
