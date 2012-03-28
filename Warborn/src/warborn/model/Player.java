@@ -46,6 +46,7 @@ public class Player {
 		for(int i = 0; i < cards.length; i++){
 			if(cards[i] == null){
 				cards[i] = newCard;
+				break;
 			}
 		}
 	}
@@ -62,5 +63,4 @@ public class Player {
 			}
 		}
 	}
-	
 }
