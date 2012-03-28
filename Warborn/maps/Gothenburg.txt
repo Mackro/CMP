@@ -1,5 +1,5 @@
 Thors Landing:Hen Island;Bishops Garden;Kings River
-Hen Island:Thors Landing;Majornia;The Scorched Isles;Winding Islet;Bishops Garden
+Hen Island:Thors Landing;Majornia;The Scorched Isle's;Winding Islet;Bishops Garden
 The Scorched Isle's:Hen Island;High Nest;Land Of The Elves
 Bishops Garden:Thors Landing;Kings River;Northern Angredia;Winding Islet;Hen Island
 Kings River:Thors Landing;Bishops Garden;Northern Angredia

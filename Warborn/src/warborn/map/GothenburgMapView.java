@@ -49,7 +49,6 @@ public class GothenburgMapView extends Observable implements IMap, ActionListene
 			buttons[i].setText(model.getTerritory(i).getNbrOfUnits()+"");
 			buttons[i].addActionListener(this);
 			buttons[i].setActionCommand(i + "");
-			mapPanel.add(buttons[i], 0);
 		}
 		// Thors landing
 		buttons[0].setBounds((int)(model.getWidth()*0.76), (int)(model.getHeight()*0.16), 45,45);
@@ -71,33 +70,33 @@ public class GothenburgMapView extends Observable implements IMap, ActionListene
 		buttons[8].setBounds((int)(model.getWidth()*0.6), (int)(model.getHeight()*0.515), 45,45);
 		// Easterns Necropolis
 		buttons[9].setBounds((int)(model.getWidth()*0.62), (int)(model.getHeight()*0.41), 45,45);
-		
-		buttons[10].setBounds((int)(model.getWidth()*0.76), (int)(model.getHeight()*0.16), 45,45);
-		
-		buttons[11].setBounds((int)(model.getWidth()*0.76), (int)(model.getHeight()*0.16), 45,45);
-		
-		buttons[12].setBounds((int)(model.getWidth()*0.76), (int)(model.getHeight()*0.16), 45,45);
-		
-		buttons[13].setBounds((int)(model.getWidth()*0.76), (int)(model.getHeight()*0.16), 45,45);
-		
-		buttons[14].setBounds((int)(model.getWidth()*0.76), (int)(model.getHeight()*0.16), 45,45);
-		
-		buttons[15].setBounds((int)(model.getWidth()*0.76), (int)(model.getHeight()*0.16), 45,45);
-		
-		buttons[16].setBounds((int)(model.getWidth()*0.76), (int)(model.getHeight()*0.16), 45,45);
-		
-		buttons[17].setBounds((int)(model.getWidth()*0.76), (int)(model.getHeight()*0.16), 45,45);
-		
-		buttons[18].setBounds((int)(model.getWidth()*0.76), (int)(model.getHeight()*0.16), 45,45);
-		
-		buttons[19].setBounds((int)(model.getWidth()*0.76), (int)(model.getHeight()*0.16), 45,45);
-		
+		// The Northern City
+		buttons[10].setBounds((int)(model.getWidth()*0.59), (int)(model.getHeight()*0.30), 45,45);
+		// Winding Islet
+		buttons[11].setBounds((int)(model.getWidth()*0.63), (int)(model.getHeight()*0.28), 45,45);
+		// Majornia
+		buttons[12].setBounds((int)(model.getWidth()*0.52), (int)(model.getHeight()*0.12), 45,45);
+		// plain of the Lepprechauns
+		buttons[13].setBounds((int)(model.getWidth()*0.52), (int)(model.getHeight()*0.41), 45,45);
+		// Meadow of the sun
+		buttons[14].setBounds((int)(model.getWidth()*0.45), (int)(model.getHeight()*0.41), 45,45);
+		// Forest of Kings
+		buttons[15].setBounds((int)(model.getWidth()*0.51), (int)(model.getHeight()*0.33), 45,45);
+		// High Nest
+		buttons[16].setBounds((int)(model.getWidth()*0.45), (int)(model.getHeight()*0.14), 45,45);
+		// Meadow of seeds
+		buttons[17].setBounds((int)(model.getWidth()*0.44), (int)(model.getHeight()*0.29), 45,45);
+		// Land of the Elves
+		buttons[18].setBounds((int)(model.getWidth()*0.36), (int)(model.getHeight()*0.21), 45,45);
+		// Millers valley
+		buttons[19].setBounds((int)(model.getWidth()*0.34), (int)(model.getHeight()*0.305), 45,45);
+		// Cabbage Nest
 		buttons[20].setBounds((int)(model.getWidth()*0.26), (int)(model.getHeight()*0.22), 45,45);
-		
+		// Kings Slope
 		buttons[21].setBounds((int)(model.getWidth()*0.19), (int)(model.getHeight()*0.26), 45,45);
 		
 		mapPanel.add(maplbl, 0);
-		for (int i=0; i<21; i++){
+		for (int i=0; i<22; i++){
 			mapPanel.add(buttons[i], 0);
 		}		
 	}
@@ -119,11 +118,9 @@ public class GothenburgMapView extends Observable implements IMap, ActionListene
 
 	@Override
 	public void update(Observable arg0, Object arg1) {
-		buttons[0].setText(model.getTerritory(Integer.parseInt(buttons[0].getActionCommand())).getNbrOfUnits() + "");
-		buttons[20].setText(model.getTerritory(Integer.parseInt(buttons[20].getActionCommand())).getNbrOfUnits() + "");
-		buttons[21].setText(model.getTerritory(Integer.parseInt(buttons[21].getActionCommand())).getNbrOfUnits() + "");
 		
+		for(int i = 0; i < buttons.length; i++){
+			buttons[i].setText(model.getTerritory(Integer.parseInt(buttons[i].getActionCommand())).getNbrOfUnits() + "");
+		}
 	}
-
-
 }
