@@ -10,17 +10,17 @@ import java.util.Observable;
 import warborn.map.*;
 
 public class Warborn extends Observable{
-	
+
 	private ArrayList<Player> players;
 	private Territory[] territories;
 	private IMap[] maps;
 	private Move move;
 	private Battle battle;
-	private int selectedMap = 0, currentPlayer = 1, selectedTerritory = -1;
+	private int selectedMap = 0, currentPlayer = 0, selectedTerritory = -1;
 	private int state = 0, phase = 0;
 	private Dimension dimension;
-	
-	
+
+
 	public Warborn (){
 		Toolkit kit = Toolkit.getDefaultToolkit();
 		dimension = kit.getScreenSize();
@@ -33,14 +33,14 @@ public class Warborn extends Observable{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		for(int i = 0; i<territories.length; i++){
 			territories[i].setNbrOfUnits(4);
 		}
 		this.battle = new Battle(this);
 		this.move = new Move(this);
 		initMaps();
-		
+
 		//TODO real implementation
 		for(int i  = 0; i < territories.length/2; i++){
 			territories[i].setOwner(players.get(0));
@@ -49,18 +49,18 @@ public class Warborn extends Observable{
 			territories[i].setOwner(players.get(1));
 		}
 	}
-	
+
 
 	//Getters
-	
+
 	public Player[] getPlayers(){
 		return (Player[])players.toArray();
 	}
-	
+
 	public Territory[] getTerritories(){
 		return territories;
 	}
-	
+
 	public String[] getMapNames(){
 		String[] names = new String[maps.length];
 		for(int i = 0; i < maps.length; i++){
@@ -68,7 +68,7 @@ public class Warborn extends Observable{
 		}
 		return names;
 	}
-	
+
 	/**
 	 * Retruns the current state of the model
 	 * @return 0 - if currently the program state is in <code>Menu</code><br>
@@ -79,7 +79,7 @@ public class Warborn extends Observable{
 	public int getState(){
 		return state;
 	}
-	
+
 	/**
 	 * Retruns the current phase of the model
 	 * @return 0 - if currently the program phase is <code>normal</code><br>
@@ -88,43 +88,43 @@ public class Warborn extends Observable{
 	public int getPhase(){
 		return phase;
 	}
-	
+
 	public IMap getMap(){
 		return maps[selectedMap];
 	}
-	
+
 	public Player getCurrentPlayer(){
 		return players.get(currentPlayer);
 	}
-	
+
 	public int getSelectedTerritoryIndex(){
 		return selectedTerritory;
 	}
-	
+
 	public Move getMove(){
 		return move;
 	}
-	
+
 	public Battle getBattle(){
 		return battle;
 	}
-	
+
 	public int getWidth(){
 		return dimension.width;
 	}
-	
+
 	public int getHeight(){
 		return dimension.height;
 	}
-	
+
 	public Territory getTerritory(int i){
 		return territories[i];
-		
+
 	}
-	
-	
+
+
 	//Setters:
-	
+
 	public void setPlayers(String[] names, Color[] colours){
 		for(int i = 0; i < names.length; i++){
 			players.add(new Player(names[i], i, colours[i]));
@@ -137,43 +137,44 @@ public class Warborn extends Observable{
 		this.selectedMap = id;
 		changed();
 	}
-	
+
 	public void setSelectedTerritory(int id){
 		System.out.println(selectedTerritory + "; " + id);
 		if (selectedTerritory != id){
-		//	System.out.println(selectedTerritory + ", " + phase + ", " + state);
+			//	System.out.println(selectedTerritory + ", " + phase + ", " + state);
 			if(state == 1 && players.get(currentPlayer) == territories[id].getOwner()){
 				territories[id].incrementUnit();
-			//	System.out.println(selectedTerritory + ", " + phase + ", " + state);
-			}else if(state != 1 && selectedTerritory == -1 &&
-					players.get(currentPlayer) == territories[id].getOwner()){
-				battle.add(territories[id]);
-				move.add(territories[id]);
-				selectedTerritory = id;
-			}else if(state == 2 && players.get(currentPlayer) == territories[id].getOwner() &&
-					attackCompatible(territories[selectedTerritory], territories[id])){
-				battle.add(territories[id]);
-				selectedTerritory = -1;
-				nextPhase();
-			//	System.out.println(selectedTerritory + ", " + phase + ", " + state);
-			}else if(state == 3 && players.get(currentPlayer) == territories[id].getOwner() &&
-					moveCompatible(territories[selectedTerritory], territories[id])){
-				move.add(territories[id]);
-				selectedTerritory = -1;
-				nextPhase();
-			//	System.out.println(selectedTerritory + ", " + phase + ", " + state);
+				//	System.out.println(selectedTerritory + ", " + phase + ", " + state);
+			}else if(state != 1 && players.get(currentPlayer) == territories[id].getOwner()){
+				if(selectedTerritory == -1){
+					battle.add(territories[id]);
+					move.add(territories[id]);
+					selectedTerritory = id;
+				}else if(state == 2 && attackCompatible(territories[selectedTerritory], territories[id])){
+					battle.add(territories[id]);
+					selectedTerritory = -1;
+					nextPhase();
+					//	System.out.println(selectedTerritory + ", " + phase + ", " + state);
+				}else if(state == 3 && moveCompatible(territories[selectedTerritory], territories[id])){
+					move.add(territories[id]);
+					selectedTerritory = -1;
+					nextPhase();
+					//	System.out.println(selectedTerritory + ", " + phase + ", " + state);
+				}
 			}
-			changed();
+		}else{
+			selectedTerritory = -1;
 		}
+		changed();
 	}
-	
+
 	//End Setters
-	
+
 	public void addPlayer(String name, Color colour){
 		players.add(new Player(name, players.size(), colour));
 		changed();
 	}
-	
+
 	public void nextState(){
 		this.state++;
 		if(this.state > 3){
@@ -181,23 +182,23 @@ public class Warborn extends Observable{
 		}
 		changed();
 	}
-	
+
 	public void nextPhase(){
 		this.phase = (this.phase+1)%2;
 		changed();
 		//TODO reset territories in Templates
 	}
-	
+
 	public void removePlayer(){
 		removePlayer(players.size()-1);
 		changed();
 	}
-	
+
 	public void removePlayer(int id){
 		players.remove(id);
 		changed();
 	}
-	
+
 	public void startGame(){
 		if(this.state != 0){
 			return;
@@ -210,28 +211,28 @@ public class Warborn extends Observable{
 		this.phase = 0;
 		nextState();
 	}
-	
+
 	public boolean attackCompatible(Territory t1, Territory t2){
 		if(!t1.hasConnection(t2) || t1.getOwner().getID() == t2.getOwner().getID()){
 			return false;
 		}
 		return true;
 	}
-	
+
 	public boolean moveCompatible(Territory t1, Territory t2){
 		if(!t1.hasConnection(t2) || t1.getOwner().getID() != t2.getOwner().getID()){
 			return false;
 		}
 		return true;
 	}
-	
+
 	private void initMaps(){
 		selectedMap = 0;
 		maps = new IMap[1];
 		maps[0] = new GothenburgMapView(this);
 	}
-	
-	
+
+
 	protected void changed() {
 		setChanged();
 		notifyObservers();
