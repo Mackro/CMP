@@ -11,8 +11,8 @@ public class Move extends Template {
 	public void moveUnits(int units){
 		getFirstTerritory().setNbrOfUnits(getFirstTerritory().getNbrOfUnits()+getSecondTerritory().getNbrOfUnits() - units);
 		getSecondTerritory().setNbrOfUnits(units);
-		this.resetTerritories();
 		model.changed();
+		this.resetTerritories();
 	}
 	
 }
