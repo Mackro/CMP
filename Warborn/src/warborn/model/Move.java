@@ -13,6 +13,8 @@ public class Move extends Template {
 		getSecondTerritory().setNbrOfUnits(units);
 		model.changed();
 		this.resetTerritories();
+		model.nextPhase();
+		//model.nextState();
 	}
 	
 }

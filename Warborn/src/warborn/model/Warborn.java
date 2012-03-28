@@ -16,7 +16,7 @@ public class Warborn extends Observable{
 	private IMap[] maps;
 	private Move move;
 	private Battle battle;
-	private int selectedMap = 0, currentPlayer = 0, selectedTerritory = -1;
+	private int selectedMap = 0, currentPlayer = 1, selectedTerritory = -1;
 	private int state = 0, phase = 0;
 	private Dimension dimension;
 	
@@ -40,6 +40,14 @@ public class Warborn extends Observable{
 		this.battle = new Battle(this);
 		this.move = new Move(this);
 		initMaps();
+		
+		//TODO real implementation
+		for(int i  = 0; i < territories.length/2; i++){
+			territories[i].setOwner(players.get(0));
+		}
+		for(int i  = territories.length/2; i < territories.length; i++){
+			territories[i].setOwner(players.get(1));
+		}
 	}
 	
 
@@ -131,26 +139,30 @@ public class Warborn extends Observable{
 	}
 	
 	public void setSelectedTerritory(int id){
+		System.out.println(selectedTerritory + "; " + id);
 		if (selectedTerritory != id){
 		//	System.out.println(selectedTerritory + ", " + phase + ", " + state);
 			if(state == 1 && players.get(currentPlayer) == territories[id].getOwner()){
 				territories[id].incrementUnit();
 			//	System.out.println(selectedTerritory + ", " + phase + ", " + state);
-			}else if(state != 1 && selectedTerritory == -1){
+			}else if(state != 1 && selectedTerritory == -1 &&
+					players.get(currentPlayer) == territories[id].getOwner()){
 				battle.add(territories[id]);
 				move.add(territories[id]);
 				selectedTerritory = id;
-			}else if(state == 2 && attackCompatible(territories[selectedTerritory], territories[id])){
+			}else if(state == 2 && players.get(currentPlayer) == territories[id].getOwner() &&
+					attackCompatible(territories[selectedTerritory], territories[id])){
 				battle.add(territories[id]);
 				selectedTerritory = -1;
 				nextPhase();
 			//	System.out.println(selectedTerritory + ", " + phase + ", " + state);
-			}else if(state == 3 && moveCompatible(territories[selectedTerritory], territories[id])){
+			}else if(state == 3 && players.get(currentPlayer) == territories[id].getOwner() &&
+					moveCompatible(territories[selectedTerritory], territories[id])){
 				move.add(territories[id]);
 				selectedTerritory = -1;
 				nextPhase();
 			//	System.out.println(selectedTerritory + ", " + phase + ", " + state);
-			} 
+			}
 			changed();
 		}
 	}
