@@ -87,12 +87,12 @@ public class MoveView extends Observable implements ActionListener, Observer, Ch
 		moveView.add(btMove);
 		
 		btDecrease = new ButtonFactory("-");
-		btDecrease.setBounds(122, 91, 41, 23);
+		btDecrease.setBounds(116, 91, 47, 23);
 		btDecrease.addActionListener(this);
 		moveView.add(btDecrease);
 		
 		btIncrease = new ButtonFactory("+");
-		btIncrease.setBounds(381, 91, 41, 23);
+		btIncrease.setBounds(381, 91, 47, 23);
 		btIncrease.addActionListener(this);
 		moveView.add(btIncrease);
 		

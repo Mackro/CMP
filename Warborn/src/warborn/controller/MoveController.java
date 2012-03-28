@@ -25,6 +25,7 @@ public class MoveController implements Observer {
 				moveView.moveFrame.setVisible(false);
 			}
 			if(((ActionEvent)e).getSource() == moveView.btCancel){
+				model.getMove().resetTerritories();
 				moveView.moveFrame.setVisible(false);
 			}
 			if(((ActionEvent)e).getSource() == moveView.btDecrease && moveView.slider.getValue() > 1){
