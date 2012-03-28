@@ -51,11 +51,50 @@ public class GothenburgMapView extends Observable implements IMap, ActionListene
 			buttons[i].setActionCommand(i + "");
 			mapPanel.add(buttons[i], 0);
 		}
-		buttons[21].setBounds((int)(model.getWidth()*0.19), (int)(model.getHeight()*0.26), 45,45);
+		// Thors landing
+		buttons[0].setBounds((int)(model.getWidth()*0.76), (int)(model.getHeight()*0.16), 45,45);
+		// Hen Island
+		buttons[1].setBounds((int)(model.getWidth()*0.59), (int)(model.getHeight()*0.065), 45,45);
+		// Scorched Isle's
+		buttons[2].setBounds((int)(model.getWidth()*0.4), (int)(model.getHeight()*0.064), 45,45);
+		// Bishops Garden
+		buttons[3].setBounds((int)(model.getWidth()*0.675), (int)(model.getHeight()*0.18), 45,45);
+		// Kings River
+		buttons[4].setBounds((int)(model.getWidth()*0.8), (int)(model.getHeight()*0.27), 45,45);
+		// Northern Angredia
+		buttons[5].setBounds((int)(model.getWidth()*0.7), (int)(model.getHeight()*0.38), 45,45);
+		// Mt Lake
+		buttons[6].setBounds((int)(model.getWidth()*0.85), (int)(model.getHeight()*0.43), 45,45);
+		// Southern Angredia
+		buttons[7].setBounds((int)(model.getWidth()*0.76), (int)(model.getHeight()*0.52), 45,45);
+		// Land of the gnomes
+		buttons[8].setBounds((int)(model.getWidth()*0.6), (int)(model.getHeight()*0.515), 45,45);
+		// Easterns Necropolis
+		buttons[9].setBounds((int)(model.getWidth()*0.62), (int)(model.getHeight()*0.41), 45,45);
+		
+		buttons[10].setBounds((int)(model.getWidth()*0.76), (int)(model.getHeight()*0.16), 45,45);
+		
+		buttons[11].setBounds((int)(model.getWidth()*0.76), (int)(model.getHeight()*0.16), 45,45);
+		
+		buttons[12].setBounds((int)(model.getWidth()*0.76), (int)(model.getHeight()*0.16), 45,45);
+		
+		buttons[13].setBounds((int)(model.getWidth()*0.76), (int)(model.getHeight()*0.16), 45,45);
+		
+		buttons[14].setBounds((int)(model.getWidth()*0.76), (int)(model.getHeight()*0.16), 45,45);
+		
+		buttons[15].setBounds((int)(model.getWidth()*0.76), (int)(model.getHeight()*0.16), 45,45);
+		
+		buttons[16].setBounds((int)(model.getWidth()*0.76), (int)(model.getHeight()*0.16), 45,45);
+		
+		buttons[17].setBounds((int)(model.getWidth()*0.76), (int)(model.getHeight()*0.16), 45,45);
+		
+		buttons[18].setBounds((int)(model.getWidth()*0.76), (int)(model.getHeight()*0.16), 45,45);
+		
+		buttons[19].setBounds((int)(model.getWidth()*0.76), (int)(model.getHeight()*0.16), 45,45);
 		
 		buttons[20].setBounds((int)(model.getWidth()*0.26), (int)(model.getHeight()*0.22), 45,45);
 		
-		buttons[0].setBounds((int)(model.getWidth()*0.76), (int)(model.getHeight()*0.16), 45,45);
+		buttons[21].setBounds((int)(model.getWidth()*0.19), (int)(model.getHeight()*0.26), 45,45);
 		
 		mapPanel.add(maplbl, 0);
 		for (int i=0; i<21; i++){
