@@ -6,12 +6,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Observable;
 
+import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
+import warborn.SupportClasses.RoundedBorder;
 import warborn.main.MainFrame;
 import warborn.model.Warborn;
 
@@ -49,8 +51,15 @@ public class GothenburgMapView extends Observable implements IMap, ActionListene
 			buttons[i].setText(model.getTerritory(i).getNbrOfUnits()+"");
 			buttons[i].addActionListener(this);
 			buttons[i].setActionCommand(i + "");
-			buttons[i].setBackground(
-					model.getTerritory(i).getOwner().getColor());
+			//buttons[i].setBackground(
+			//		model.getTerritory(i).getOwner().getColor());
+			buttons[i].setOpaque(false);
+			buttons[i].setFocusPainted(false);
+			buttons[i].setBorderPainted(false);
+			buttons[i].setContentAreaFilled(false);
+			buttons[i].setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+			buttons[i].setBorder(new RoundedBorder(22));
+			buttons[i].setForeground(model.getTerritory(i).getOwner().getColor());
 		}
 		// Thors landing
 		buttons[0].setBounds((int)(model.getWidth()*0.76), (int)(model.getHeight()*0.16), 45,45);
