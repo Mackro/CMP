@@ -49,6 +49,8 @@ public class GothenburgMapView extends Observable implements IMap, ActionListene
 			buttons[i].setText(model.getTerritory(i).getNbrOfUnits()+"");
 			buttons[i].addActionListener(this);
 			buttons[i].setActionCommand(i + "");
+			buttons[i].setBackground(
+					model.getTerritory(i).getOwner().getColor());
 		}
 		// Thors landing
 		buttons[0].setBounds((int)(model.getWidth()*0.76), (int)(model.getHeight()*0.16), 45,45);
