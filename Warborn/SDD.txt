@@ -14,9 +14,11 @@ This version overrides all previous versions.
 
 1 Introduction
 
-1.1 Design goalsgit 
+1.1 Design goals
+Design ska påminna om risk fast med fanatsytappning
 
 1.2 Definitions, acronyms and abbreviations 
+
 
 2 System design
 
