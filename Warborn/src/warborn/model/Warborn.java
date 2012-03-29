@@ -39,7 +39,6 @@ public class Warborn extends Observable{
 		}
 		this.battle = new Battle(this);
 		this.move = new Move(this);
-		initMaps();
 
 		//TODO real implementation
 		for(int i  = 0; i < territories.length/2; i++){
@@ -48,6 +47,8 @@ public class Warborn extends Observable{
 		for(int i  = territories.length/2; i < territories.length; i++){
 			territories[i].setOwner(players.get(1));
 		}
+		
+		initMaps();
 	}
 
 
@@ -170,8 +171,8 @@ public class Warborn extends Observable{
 
 	//End Setters
 
-	public void addPlayer(String name, Color colour){
-		players.add(new Player(name, players.size(), colour));
+	public void addPlayer(String name, Color color){
+		players.add(new Player(name, players.size(), color));
 		changed();
 	}
 

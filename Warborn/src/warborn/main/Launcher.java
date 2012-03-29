@@ -47,11 +47,7 @@ public class Launcher implements Observer{
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new MainFrame();
-		frame.setBounds(0, 0, model.getWidth(), model.getHeight());
-		//frame.setUndecorated(true);
-		frame.setResizable(false);
-		//frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame = new MainFrame(model);
 		GothenburgMapView map = new GothenburgMapView(model);
 		map.addObserver(new MapController(model));
 		model.addObserver(map);
