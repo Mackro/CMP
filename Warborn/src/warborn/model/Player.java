@@ -12,7 +12,8 @@ public class Player {
 	public Player(String name, int id, Color color){
 		this.name = name;
 		this.id = id;
-		this.color = color;
+		Color copiedColor = new Color(color.getRed(), color.getGreen(), color.getBlue());
+		this.color = copiedColor;
 	}
 	
 	public int getID(){
@@ -25,7 +26,7 @@ public class Player {
 	
 	public Color getColor(){
 		Color copiedColor = new Color(color.getRed(), color.getGreen(), color.getBlue());
-		return color;
+		return copiedColor;
 	}
 	
 	public String getName(){
