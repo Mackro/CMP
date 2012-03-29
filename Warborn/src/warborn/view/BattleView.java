@@ -24,7 +24,8 @@ public class BattleView extends Observable implements Observer, ActionListener {
 	public JFrame battleFrame;
 	private Warborn model;
 	private Territory t1, t2;
-	private JLabel lbAttacker, lbDefender, lbAtkTroops, lbDefTroops;
+	private JLabel lbAttacker, lbDefender, lbAtkTroops, lbDefTroops, lbBattle;
+	private JTextArea taBattleLog;
 	/**
 	 * Create the panel.
 	 */
@@ -36,12 +37,12 @@ public class BattleView extends Observable implements Observer, ActionListener {
 		JPanel battleView = new JPanel();
 		battleView.setSize(451, 300);
 		battleView.setLayout(null);
-		battleFrame.add(battleView);
+		battleFrame.getContentPane().add(battleView);
 		battleFrame.setVisible(false);
 		
-		JLabel lbBattle = new LabelFactory("Battle!");
+		lbBattle = new LabelFactory("Battle!");
 		lbBattle.setFont(new Font("Rod", Font.BOLD | Font.ITALIC, 40));
-		lbBattle.setBounds(140, 11, 195, 70);
+		lbBattle.setBounds(140, 0, 195, 70);
 		battleView.add(lbBattle);
 		
 		btOneAttack = new ButtonFactory("One Attack");
@@ -60,25 +61,25 @@ public class BattleView extends Observable implements Observer, ActionListener {
 		battleView.add(btRetreat);
 		
 		lbAttacker = new LabelFactory("Attacker");
-		lbAttacker.setBounds(10, 57, 95, 24);
+		lbAttacker.setBounds(10, 57, 202, 24);
 		battleView.add(lbAttacker);
 		
 		lbDefender = new LabelFactory("Defender");
-		lbDefender.setBounds(345, 57, 95, 24);
+		lbDefender.setBounds(238, 57, 202, 24);
 		battleView.add(lbDefender);
 		
-		JLabel lbAtkTroops = new LabelFactory("atkTroops");
+		lbAtkTroops = new LabelFactory("atkTroops");
 		lbAtkTroops.setBounds(10, 92, 124, 24);
 		battleView.add(lbAtkTroops);
 		
-		JLabel lbDefTroops = new LabelFactory("defTroops");
+		lbDefTroops = new LabelFactory("defTroops");
 		lbDefTroops.setBounds(316, 92, 124, 24);
 		battleView.add(lbDefTroops);
 		
-		JTextArea textArea = new JTextArea();
-		textArea.setEditable(false);
-		textArea.setBounds(10, 127, 430, 81);
-		battleView.add(textArea);
+		taBattleLog = new JTextArea();
+		taBattleLog.setEditable(false);
+		taBattleLog.setBounds(10, 127, 430, 81);
+		battleView.add(taBattleLog);
 
 	}
 	
@@ -91,13 +92,25 @@ public class BattleView extends Observable implements Observer, ActionListener {
 			t2 = battle.getSecondTerritory();
 			lbAttacker.setText(t1.getName());
 			lbDefender.setText(t2.getName());
-			lbAtkTroops.setText(t1.getNbrOfUnits() + "");
+			lbAtkTroops.setText(t1.getNbrOfUnits() - 1 + "");
 			lbDefTroops.setText(t2.getNbrOfUnits() + "");
+			if(t1.getNbrOfUnits() == 0 || t2.getNbrOfUnits() == 0){
+				btOneAttack.setVisible(false);
+				btAutoAttack.setVisible(false);
+				btRetreat.setText("Continue");
+				if(t1.getNbrOfUnits() == 0){
+					lbBattle.setText("Deafeat!");
+				}
+				else{
+					lbBattle.setText("Victory!");
+				}
+			}
 		}
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		setChanged();
 		notifyObservers(e);
 	}
 }

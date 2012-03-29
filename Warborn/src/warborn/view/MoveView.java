@@ -40,7 +40,7 @@ public class MoveView extends Observable implements ActionListener, Observer, Ch
 		this.model.addObserver(this);
 		
 		moveFrame = new JFrame();
-		//moveFrame.setUndecorated(true);
+		moveFrame.setUndecorated(true);
 		moveFrame.setVisible(false);
 		moveFrame.setLocationRelativeTo(null);
 		moveFrame.setSize(560, 229);

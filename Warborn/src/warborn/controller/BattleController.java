@@ -18,17 +18,20 @@ public class BattleController implements Observer{
 	}
 
 	@Override
-	public void update(Observable battleView, Object e) {
-		if(((ActionEvent)e).getSource() == ((BattleView)battleView).btOneAttack){
+	public void update(Observable bv, Object e) {
+		BattleView battleView = (BattleView)bv;
+		if(((ActionEvent)e).getSource() == battleView.btOneAttack){
 			model.getBattle().fight();
 		}
-		if(((ActionEvent)e).getSource() == ((BattleView)battleView).btAutoAttack){
+		if(((ActionEvent)e).getSource() == battleView.btAutoAttack){
 			while(model.getBattle().getFirstTerritory().getNbrOfUnits() != 0 && (model.getBattle().getSecondTerritory().getNbrOfUnits()) != 0){
 				model.getBattle().fight();
 			}
 		}
-		if(((ActionEvent)e).getSource() == ((BattleView)battleView).btRetreat){
+		if(((ActionEvent)e).getSource() == battleView.btRetreat){
 			((BattleView)battleView).battleFrame.setVisible(false);
+			model.nextPhase();
+			
 		}
 	}
 }
