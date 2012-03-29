@@ -113,7 +113,7 @@ public class MoveView extends Observable implements ActionListener, Observer, Ch
 			lbT1Name.setText(t1.getName());
 			lbT2Name.setText(t2.getName());
 			slider.setMaximum(t1.getNbrOfUnits()+t2.getNbrOfUnits()-1);
-			slider.setValue(t1.getNbrOfUnits());
+			slider.setValue(t2.getNbrOfUnits());
 			lbT1Troops.setText(t1.getNbrOfUnits() + "");
 			lbT2Troops.setText(t2.getNbrOfUnits() + "");
 			moveFrame.setVisible(true);
