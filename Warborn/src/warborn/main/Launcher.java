@@ -59,29 +59,27 @@ public class Launcher implements Observer{
 	 */
 	private void init(){
 		MoveView move = new MoveView(model);
-		MoveController moveC = new MoveController(model);
+		new MoveController(model, move);
 		BattleView battle = new BattleView(model);
-		BattleController battleC = new BattleController(model);
+		new BattleController(model, battle);
 		
 		model.addObserver(move);
 		model.addObserver(battle);
-		battle.addObserver(battleC);
-		move.addObserver(moveC);
 	}
 
 	
-	public void createGame(IMap map){
-		map.addObserver(new MapController(model));
-		model.addObserver(map);
-		frame.add(map.getMapPanel());
+	public void createGame(int mapIndex){
+		IMap[] mapList = MapData.getMapList();
+		new MapController(model, mapList[mapIndex]);
+		model.addObserver(mapList[mapIndex]);
+		frame.add(mapList[mapIndex]);
 	}
 
 	@Override
 	public void update(Observable arg0, Object arg1) {
 		if(model.getState() == 1){
 			model.deleteObserver(this);
-			createGame(model.getMap());
-			System.out.println("Hej");
+			createGame(model.getMapIndex());
 		}
 	}
 

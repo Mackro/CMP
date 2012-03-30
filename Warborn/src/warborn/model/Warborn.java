@@ -7,13 +7,13 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Observable;
 
-import warborn.map.*;
+import warborn.SupportClasses.MapData;
+
 
 public class Warborn extends Observable{
 
 	private ArrayList<Player> players;
 	private Territory[] territories;
-	private IMap[] maps;
 	private Move move;
 	private Battle battle;
 	private int selectedMap = 0, currentPlayer = 0, selectedTerritory = -1;
@@ -48,7 +48,6 @@ public class Warborn extends Observable{
 			territories[i].setOwner(players.get(1));
 		}
 		
-		initMaps();
 	}
 
 
@@ -61,13 +60,9 @@ public class Warborn extends Observable{
 	public Territory[] getTerritories(){
 		return territories;
 	}
-
-	public String[] getMapNames(){
-		String[] names = new String[maps.length];
-		for(int i = 0; i < maps.length; i++){
-			names[i] = maps[i].toString();
-		}
-		return names;
+	
+	public int getMapIndex(){
+		return selectedMap;
 	}
 
 	/**
@@ -90,9 +85,6 @@ public class Warborn extends Observable{
 		return phase;
 	}
 
-	public IMap getMap(){
-		return maps[selectedMap];
-	}
 
 	public Player getCurrentPlayer(){
 		return players.get(currentPlayer);
@@ -205,7 +197,8 @@ public class Warborn extends Observable{
 			return;
 		}
 		try {
-			territories = TerritoryFactory.getTerritories(getMap().toString());
+			String[] mapName = MapData.getMapNames();
+			territories = TerritoryFactory.getTerritories(mapName[selectedMap]);
 		} catch (IOException e) {
 			System.out.println("Selected Map does not exist!");
 		}
@@ -225,12 +218,6 @@ public class Warborn extends Observable{
 			return false;
 		}
 		return true;
-	}
-
-	private void initMaps(){
-		selectedMap = 0;
-		maps = new IMap[1];
-		maps[0] = new GothenburgMapView(this);
 	}
 
 
