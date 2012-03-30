@@ -28,12 +28,12 @@ public class Territory {
 		return owner;
 	}
 	
-	public void setOwner(Player newOwner){
-		this.owner = newOwner;
-	}
-	
 	public int getNbrOfUnits(){
 		return this.nbrOfUnits;
+	}
+	
+	public void setOwner(Player newOwner){
+		this.owner = newOwner;
 	}
 	
 	public void setNbrOfUnits(int nbrOfUnits){

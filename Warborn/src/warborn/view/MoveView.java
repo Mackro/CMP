@@ -10,7 +10,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSlider;
 
-import warborn.model.GenericButton;
+import warborn.SupportClasses.GenericButton;
 import warborn.model.LabelFactory;
 import warborn.model.Warborn;
 import warborn.model.Move;

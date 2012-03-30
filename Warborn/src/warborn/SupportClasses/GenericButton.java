@@ -1,4 +1,4 @@
-package warborn.model;
+package warborn.SupportClasses;
 
 import java.awt.Font;
 
