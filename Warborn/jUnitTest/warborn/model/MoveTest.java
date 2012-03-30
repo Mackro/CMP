@@ -1,4 +1,4 @@
-package warborn.move;
+package warborn.model;
 
 import static org.junit.Assert.*;
 import org.junit.*;
