@@ -5,6 +5,5 @@ import java.util.Observer;
 import javax.swing.JPanel;
 
 public interface IMap extends Observer{
-	public JPanel getMapPanel();
-	public void addObserver(Observer controller);
+	
 }	
