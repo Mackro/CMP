@@ -14,7 +14,7 @@ public final class MapData {
 	
 	public static String[] getMapNames(){
 		return new String[] {
-			GothenburgMapView.toString(0);	
+			GothenburgMapView.toString(0),	
 		};
 	}
 	
