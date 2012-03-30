@@ -11,7 +11,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
 import warborn.model.Battle;
-import warborn.model.ButtonFactory;
+import warborn.model.GenericButton;
 import warborn.model.LabelFactory;
 import warborn.model.Warborn;
 import warborn.model.Territory;
@@ -39,41 +39,41 @@ public class BattleView implements Observer {
 		battleFrame.getContentPane().add(battleView);
 		battleFrame.setVisible(false);
 		
-		lbBattle = new LabelFactory("Battle!");
+		lbBattle = LabelFactory.makeLabel("Battle!");
 		lbBattle.setFont(new Font("Rod", Font.BOLD | Font.ITALIC, 40));
 		lbBattle.setBounds(140, 0, 195, 70);
 		battleView.add(lbBattle);
 
 		buttons = new JButton[3];
 		
-		btOneAttack = new ButtonFactory("One Attack");
+		btOneAttack = new GenericButton("One Attack");
 		btOneAttack.setBounds(10, 219, 142, 70);
 		battleView.add(btOneAttack);
 		buttons[1] = btOneAttack;
 		
-		btAutoAttack = new ButtonFactory("Auto Attack");
+		btAutoAttack = new GenericButton("Auto Attack");
 		btAutoAttack.setBounds(154, 219, 142, 70);
 		battleView.add(btAutoAttack);
 		buttons[2] = btAutoAttack;
 		
-		btRetreat = new ButtonFactory("Retreat");
+		btRetreat = new GenericButton("Retreat");
 		btRetreat.setBounds(298, 219, 142, 70);
 		battleView.add(btRetreat);
 		buttons[3] = btRetreat;
 		
-		lbAttacker = new LabelFactory("Attacker");
+		lbAttacker = LabelFactory.makeLabel("Attacker");
 		lbAttacker.setBounds(10, 57, 202, 24);
 		battleView.add(lbAttacker);
 		
-		lbDefender = new LabelFactory("Defender");
+		lbDefender = LabelFactory.makeLabel("Defender");
 		lbDefender.setBounds(238, 57, 202, 24);
 		battleView.add(lbDefender);
 		
-		lbAtkTroops = new LabelFactory("atkTroops");
+		lbAtkTroops = LabelFactory.makeLabel("atkTroops");
 		lbAtkTroops.setBounds(10, 92, 124, 24);
 		battleView.add(lbAtkTroops);
 		
-		lbDefTroops = new LabelFactory("defTroops");
+		lbDefTroops = LabelFactory.makeLabel("defTroops");
 		lbDefTroops.setBounds(316, 92, 124, 24);
 		battleView.add(lbDefTroops);
 		

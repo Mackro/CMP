@@ -10,7 +10,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSlider;
 
-import warborn.model.ButtonFactory;
+import warborn.model.GenericButton;
 import warborn.model.LabelFactory;
 import warborn.model.Warborn;
 import warborn.model.Move;
@@ -50,45 +50,45 @@ public class MoveView implements Observer {
 		slider.setBounds(171, 91, 200, 23);
 		viewPanel.add(slider);
 		
-		lbT1Name = new LabelFactory("");
+		lbT1Name = LabelFactory.makeLabel("");
 		lbT1Name.setBounds(10, 54, 235, 23);
 		viewPanel.add(lbT1Name);
 		
-		lbT2Name = new LabelFactory("");
+		lbT2Name = LabelFactory.makeLabel("");
 		lbT2Name.setBounds(304, 54, 235, 23);
 		viewPanel.add(lbT2Name);
 		
-		lbT1Troops = new LabelFactory("");
+		lbT1Troops = LabelFactory.makeLabel("");
 		lbT1Troops.setBounds(10, 100, 85, 14);
 		viewPanel.add(lbT1Troops);
 		
-		lbT2Troops = new LabelFactory("");
+		lbT2Troops = LabelFactory.makeLabel("");
 		lbT2Troops.setBounds(451, 100, 83, 14);
 		viewPanel.add(lbT2Troops);
 		
-		JLabel lbTop = new LabelFactory("Move");
+		JLabel lbTop = LabelFactory.makeLabel("Move");
 		lbTop.setFont(new Font("Rod", Font.BOLD | Font.ITALIC, 40));
 		lbTop.setBounds(217, 11, 124, 47);
 		viewPanel.add(lbTop);
 		
 		buttons = new JButton[4];
 		
-		btCancel = new ButtonFactory("Cancel");
+		btCancel = new GenericButton("Cancel");
 		btCancel.setBounds(55, 139, 89, 23);
 		viewPanel.add(btCancel);
 		buttons[1] = btCancel;
 		
-		btMove = new ButtonFactory("Move");
+		btMove = new GenericButton("Move");
 		btMove.setBounds(400, 139, 89, 23);
 		viewPanel.add(btMove);
 		buttons[2] = btMove;
 		
-		btDecrease = new ButtonFactory("-");
+		btDecrease = new GenericButton("-");
 		btDecrease.setBounds(116, 91, 47, 23);
 		viewPanel.add(btDecrease);
 		buttons[3] = btDecrease;
 		
-		btIncrease = new ButtonFactory("+");
+		btIncrease = new GenericButton("+");
 		btIncrease.setBounds(381, 91, 47, 23);
 		viewPanel.add(btIncrease);
 		buttons[4] = btIncrease;
