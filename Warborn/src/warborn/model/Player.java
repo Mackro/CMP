@@ -20,7 +20,7 @@ public class Player {
 		return id;
 	}
 	
-	public int getNbrOfTerretories(){
+	public int getNbrOfTerritories(){
 		return nbrOfTerritories;
 	}
 	
@@ -31,6 +31,22 @@ public class Player {
 	
 	public String getName(){
 		return name;
+	}
+	
+	public boolean canExchangeCards(){
+		int nbrOfInf, nbrOfCav, nbrOfArt;
+		for (int i=0; i<cards.length; i++){
+			if(cards[i].getName().equals("Infantry")){
+				nbrOfInf++;
+			}
+			if(cards[i].getName().equals("Cavalry")){
+				nbrOfCav++;
+			}
+			if(cards[i].getName().equals("Artillery")){
+				nbrOfArt++;
+			}
+		}
+		return(nbrOfInf>2);
 	}
 
 	public void addTerritory(Territory toAdd){

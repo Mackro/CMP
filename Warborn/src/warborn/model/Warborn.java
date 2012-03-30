@@ -16,7 +16,7 @@ public class Warborn extends Observable{
 	private Territory[] territories;
 	private Move move;
 	private Battle battle;
-	private int selectedMap = 0, currentPlayer = 0, selectedTerritory = -1;
+	private int selectedMap = 0, currentPlayer = 0, selectedTerritory = -1, nbrOfReinforcements = 0;
 	private int state = 0, phase = 0;
 	private Dimension dimension;
 
@@ -114,6 +114,10 @@ public class Warborn extends Observable{
 		return territories[i];
 
 	}
+	
+	public int getNbrOfReinforcements(){
+		return nbrOfReinforcements;
+	}
 
 
 	//Setters:
@@ -176,6 +180,7 @@ public class Warborn extends Observable{
 			if(this.currentPlayer >= players.size()){
 				this.currentPlayer = 0;
 			}
+			nbrOfReinforcements = players.get(currentPlayer).getNbrOfTerritories()/3;
 		}
 		changed();
 	}
@@ -183,7 +188,6 @@ public class Warborn extends Observable{
 	public void nextPhase(){
 		this.phase = (this.phase+1)%2;
 		changed();
-		//TODO reset territories in Templates
 	}
 
 	public void removePlayer(){

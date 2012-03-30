@@ -2,7 +2,6 @@ package warborn.map;
 
 import java.awt.Image;
 import java.util.Observable;
-import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -10,15 +9,14 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
 import warborn.SupportClasses.MapData;
-import warborn.SupportClasses.RoundedBorder;
 import warborn.model.Warborn;
 
 public class GothenburgMapView extends JPanel implements IMap { 	
 
-	
+	private static final long serialVersionUID = 1L;
 	private Warborn model;
 	private JButton[] buttons;
-	private double[][] scalingConstants; 
+	private double[][] scalingConstants;
 	/**
 	 * Create the Map panel.
 	 */
@@ -129,5 +127,13 @@ public class GothenburgMapView extends JPanel implements IMap {
 		for(int i = 0; i < buttons.length; i++){
 			buttons[i].setText(model.getTerritory(Integer.parseInt(buttons[i].getActionCommand())).getNbrOfUnits() + "");
 		}
+		/**if(model.getState()==1){
+			
+			if (nbrOfReinforcements<3){
+				nbrOfReinforcements = 3;
+			}
+			JLabel reinforcements = new JLabel(nbrOfReinforcements + "");
+			
+		}*/
 	}
 }

@@ -21,7 +21,7 @@ public class BattleView implements Observer {
 	private JButton[] buttons;
 	private JButton btOneAttack, btAutoAttack, btRetreat;
 	private JFrame battleFrame;
-	private Warborn model;
+	//private Warborn model;
 	private Territory t1, t2;
 	private JLabel lbAttacker, lbDefender, lbAtkTroops, lbDefTroops, lbBattle;
 	private JTextArea taBattleLog;
@@ -92,7 +92,7 @@ public class BattleView implements Observer {
 	}
 	
 	@Override
-	public void update(Observable ml, Object arg1) {
+	public void update(Observable ml, Object e) {
 		Warborn model = (Warborn)ml;
 		if(model.getState() == 2 && model.getPhase() == 1){
 			battleFrame.setVisible(true);
