@@ -1,7 +1,6 @@
 package warborn.model;
 
 import java.io.*;
-import warborn.model.*;
 
 public class TerritoryFactory {
 
