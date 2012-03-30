@@ -12,7 +12,7 @@ public class MoveTest {
 	private int one=1, two=2;
 	Move move;
 	
-	@BeforeClass
+	@Before
 	public void before() {
 		Warborn model = new Warborn();
 		move = new Move(model);
@@ -21,16 +21,11 @@ public class MoveTest {
 	@Test
 	public void testMove() {
 	}
-
-	@Test
-	public void testMoveUnits() {
-		fail("Not yet implemented");
-	}
 	
 	@Test
 	public void testAdd() {
 		Territory t1 = new Territory(name1, one);
-		Territory t2 = new Territory(name1, two);
+		Territory t2 = new Territory(name2, two);
 		move.add(t1);
 		assertTrue(move.getFirstTerritory()==t1);
 		assertTrue(!(move.getFirstTerritory()==t2));
@@ -38,20 +33,29 @@ public class MoveTest {
 		assertTrue(!(move.getSecondTerritory()==t1));
 		assertTrue(move.getSecondTerritory()==t2);
 	}
+
+	@Test
+	public void testMoveUnits() {
+		Territory t1 = new Territory(name1, one);
+		Territory t2 = new Territory(name2, two);
+		t1.setNbrOfUnits(7);
+		t2.setNbrOfUnits(4);
+		move.add(t1);
+		move.add(t2);
+		move.moveUnits(5);
+		assertTrue(t1.getNbrOfUnits() == 6);
+		assertTrue(t2.getNbrOfUnits() == 5);
+		assertTrue(move.getFirstTerritory()==null);
+		assertTrue(move.getSecondTerritory()==null);
+	}
 	
 	@Test
 	public void testResetTerritories() {
-		
-	}
-	
-	@Test
-	public void testGetFirstTerritory() {
-		
-	}
-	
-	@Test
-	public void testGetSecondTerritories() {
-		
-	}
-
+		Territory t1 = new Territory(name1, one);
+		Territory t2 = new Territory(name2, two);
+		move.add(t1);
+		move.add(t2);
+		move.resetTerritories();
+		assertTrue(move.getFirstTerritory()==null && move.getSecondTerritory()==null);		
+	}	
 }
