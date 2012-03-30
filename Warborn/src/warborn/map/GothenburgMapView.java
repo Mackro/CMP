@@ -1,12 +1,7 @@
 package warborn.map;
 
-import java.awt.Component;
 import java.awt.Image;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.Observable;
-import java.util.Observer;
-
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -16,7 +11,6 @@ import javax.swing.SwingConstants;
 
 import warborn.SupportClasses.MapData;
 import warborn.SupportClasses.RoundedBorder;
-import warborn.main.MainFrame;
 import warborn.model.Warborn;
 
 public class GothenburgMapView extends JPanel implements IMap { 	
