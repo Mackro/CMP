@@ -10,6 +10,11 @@ public class MainFrame extends JFrame {
 
 
 	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	/**
 	 * Create the Mainframe.
 	 */
 	public MainFrame(Warborn model) {
