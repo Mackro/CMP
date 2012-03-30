@@ -172,6 +172,10 @@ public class Warborn extends Observable{
 		this.state++;
 		if(this.state > 3){
 			this.state = 1;
+			this.currentPlayer++;
+			if(this.currentPlayer >= players.size()){
+				this.currentPlayer = 0;
+			}
 		}
 		changed();
 	}
