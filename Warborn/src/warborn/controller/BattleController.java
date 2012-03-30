@@ -19,15 +19,15 @@ public class BattleController implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if((e).getSource() == view.getButtons()[1]){
+		if((e).getSource() == view.getButtons()[0]){
 			model.getBattle().fight();
 		}
-		if((e).getSource() == view.getButtons()[2]){
+		if((e).getSource() == view.getButtons()[1]){
 			while(model.getBattle().getFirstTerritory().getNbrOfUnits() != 0 && (model.getBattle().getSecondTerritory().getNbrOfUnits()) != 0){
 				model.getBattle().fight();
 			}
 		}
-		if((e).getSource() == view.getButtons()[3]){
+		if((e).getSource() == view.getButtons()[2]){
 			view.getFrame().setVisible(false);
 			model.nextPhase();
 		}

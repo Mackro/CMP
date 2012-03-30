@@ -92,7 +92,8 @@ public class BattleView implements Observer {
 	}
 	
 	@Override
-	public void update(Observable arg0, Object arg1) {
+	public void update(Observable ml, Object arg1) {
+		Warborn model = (Warborn)ml;
 		if(model.getState() == 2 && model.getPhase() == 1){
 			battleFrame.setVisible(true);
 			Battle battle = model.getBattle();
