@@ -1,8 +1,6 @@
 package warborn.view;
 
 import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -18,10 +16,11 @@ import warborn.model.LabelFactory;
 import warborn.model.Warborn;
 import warborn.model.Territory;
 
-public class BattleView extends Observable implements Observer, ActionListener {
+public class BattleView implements Observer {
 
-	public JButton btOneAttack, btAutoAttack, btRetreat;
-	public JFrame battleFrame;
+	private JButton[] buttons;
+	private JButton btOneAttack, btAutoAttack, btRetreat;
+	private JFrame battleFrame;
 	private Warborn model;
 	private Territory t1, t2;
 	private JLabel lbAttacker, lbDefender, lbAtkTroops, lbDefTroops, lbBattle;
@@ -29,9 +28,9 @@ public class BattleView extends Observable implements Observer, ActionListener {
 	/**
 	 * Create the panel.
 	 */
-	public BattleView(Warborn model) {
-		this.model = model;
-		this.model.addObserver(this);
+	public BattleView(){	//Warborn model) {
+	//	this.model = model;
+	//	this.model.addObserver(this);
 		
 		battleFrame = new JFrame();
 		JPanel battleView = new JPanel();
@@ -44,21 +43,23 @@ public class BattleView extends Observable implements Observer, ActionListener {
 		lbBattle.setFont(new Font("Rod", Font.BOLD | Font.ITALIC, 40));
 		lbBattle.setBounds(140, 0, 195, 70);
 		battleView.add(lbBattle);
+
+		buttons = new JButton[3];
 		
 		btOneAttack = new ButtonFactory("One Attack");
 		btOneAttack.setBounds(10, 219, 142, 70);
-		btOneAttack.addActionListener(this);
 		battleView.add(btOneAttack);
+		buttons[1] = btOneAttack;
 		
 		btAutoAttack = new ButtonFactory("Auto Attack");
 		btAutoAttack.setBounds(154, 219, 142, 70);
-		btAutoAttack.addActionListener(this);
 		battleView.add(btAutoAttack);
+		buttons[2] = btAutoAttack;
 		
 		btRetreat = new ButtonFactory("Retreat");
 		btRetreat.setBounds(298, 219, 142, 70);
-		btRetreat.addActionListener(this);
 		battleView.add(btRetreat);
+		buttons[3] = btRetreat;
 		
 		lbAttacker = new LabelFactory("Attacker");
 		lbAttacker.setBounds(10, 57, 202, 24);
@@ -81,6 +82,13 @@ public class BattleView extends Observable implements Observer, ActionListener {
 		taBattleLog.setBounds(10, 127, 430, 81);
 		battleView.add(taBattleLog);
 
+	}
+	
+	public JButton[] getButtons(){
+		return buttons;
+	}
+	public JFrame getFrame(){
+		return battleFrame;
 	}
 	
 	@Override
@@ -106,11 +114,5 @@ public class BattleView extends Observable implements Observer, ActionListener {
 				}
 			}
 		}
-	}
-
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		setChanged();
-		notifyObservers(e);
 	}
 }

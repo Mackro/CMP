@@ -2,36 +2,34 @@ package warborn.controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Observable;
-import java.util.Observer;
-
-import warborn.model.Battle;
 import warborn.model.Warborn;
 import warborn.view.BattleView;
 
-public class BattleController implements Observer{
+public class BattleController implements ActionListener{
 	private Warborn model;
+	private BattleView view;	
 	
-	
-	public BattleController(Warborn model){
+	public BattleController(Warborn model, BattleView view){
 		this.model = model;
+		this.view = view;
+		for(int i=0; i<view.getButtons().length; i++){
+			view.getButtons()[i].addActionListener(this);
+		}
 	}
 
 	@Override
-	public void update(Observable bv, Object e) {
-		BattleView battleView = (BattleView)bv;
-		if(((ActionEvent)e).getSource() == battleView.btOneAttack){
+	public void actionPerformed(ActionEvent e) {
+		if((e).getSource() == view.getButtons()[1]){
 			model.getBattle().fight();
 		}
-		if(((ActionEvent)e).getSource() == battleView.btAutoAttack){
+		if((e).getSource() == view.getButtons()[2]){
 			while(model.getBattle().getFirstTerritory().getNbrOfUnits() != 0 && (model.getBattle().getSecondTerritory().getNbrOfUnits()) != 0){
 				model.getBattle().fight();
 			}
 		}
-		if(((ActionEvent)e).getSource() == battleView.btRetreat){
-			((BattleView)battleView).battleFrame.setVisible(false);
+		if((e).getSource() == view.getButtons()[3]){
+			view.getFrame().setVisible(false);
 			model.nextPhase();
-			
 		}
 	}
 }
