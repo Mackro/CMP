@@ -5,6 +5,7 @@ import java.util.Observable;
 import java.util.Observer;
 
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 import warborn.SupportClasses.MapData;
 import warborn.controller.*;
@@ -61,7 +62,7 @@ public class Launcher implements Observer{
 	private void init(){
 		MoveView move = new MoveView(/*model*/);
 		new MoveController(model, move);
-		BattleView battle = new BattleView(model);
+		BattleView battle = new BattleView(/*model*/);
 		new BattleController(model, battle);
 		
 		model.addObserver(move);
@@ -73,7 +74,7 @@ public class Launcher implements Observer{
 		IMap[] mapList = MapData.getMapList(model);
 		new MapController(model, mapList[mapIndex]);
 		model.addObserver(mapList[mapIndex]);
-		frame.add(mapList[mapIndex]);
+		frame.add((JPanel)mapList[mapIndex]);
 	}
 
 	@Override
