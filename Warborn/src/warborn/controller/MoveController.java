@@ -1,48 +1,47 @@
 package warborn.controller;
 
-import java.awt.event.ActionEvent;
-import java.util.Observable;
-import java.util.Observer;
+import java.awt.event.*;
 
-import javax.swing.event.ChangeEvent;
+import javax.swing.event.*;
 
 import warborn.model.Warborn;
 import warborn.view.MoveView;
 
-public class MoveController implements Observer {
+public class MoveController implements ActionListener, ChangeListener {
 	private Warborn model;
+	private MoveView view;
 	
-	public MoveController(Warborn model){
+	public MoveController(Warborn model, MoveView view){
 		this.model = model;
+		this.view = view;
+		for(int i=0; i<view.getButtons().length; i++){
+			view.getButtons()[i].addActionListener(this);
+		}
+		view.getSlider().addChangeListener(this);
 	}
-
+	
 	@Override
-	public void update(Observable mv, Object e) {
-		MoveView moveView = (MoveView)mv;
-		if(e instanceof ActionEvent){
-			if(((ActionEvent)e).getSource() == moveView.btMove){
-				model.getMove().moveUnits(moveView.slider.getValue());
-				moveView.moveFrame.setVisible(false);
-			}
-			if(((ActionEvent)e).getSource() == moveView.btCancel){
-				model.getMove().resetTerritories();
-				model.nextPhase();
-				moveView.moveFrame.setVisible(false);
-			}
-			if(((ActionEvent)e).getSource() == moveView.btDecrease && moveView.slider.getValue() > 1){
-				moveView.slider.setValue(moveView.slider.getValue() - 1);
-			}
-			if(((ActionEvent)e).getSource() == moveView.btIncrease && moveView.slider.getValue() < moveView.slider.getMaximum()){
-				moveView.slider.setValue(moveView.slider.getValue() + 1);
-			}
+	public void actionPerformed(ActionEvent e) {
+		if((e).getSource() == view.getButtons()[2]){
+			model.getMove().moveUnits(view.getSlider().getValue());
+			view.getFrame().setVisible(false);
 		}
-		if(e instanceof ChangeEvent){
-			if(((ChangeEvent)e).getSource() == moveView.slider){
-				moveView.lbT1Troops.setText(moveView.slider.getMaximum() - moveView.slider.getValue() + 1 + "");
-				moveView.lbT2Troops.setText(moveView.slider.getValue() + "");
-			}
+		if((e).getSource() == view.getButtons()[1]){
+			model.getMove().resetTerritories();
+			model.nextPhase();
+			view.getFrame().setVisible(false);
+		}
+		if((e).getSource() == view.getButtons()[3] && view.getSlider().getValue() > 1){
+			view.getSlider().setValue(view.getSlider().getValue() - 1);
+		}
+		if((e).getSource() == view.getButtons()[4] && view.getSlider().getValue() < view.getSlider().getMaximum()){
+			view.getSlider().setValue(view.getSlider().getValue() + 1);
 		}
 	}
-
+	
+	public void stateChanged(ChangeEvent e) {
+		view.getLbT1Troops().setText(view.getSlider().getMaximum() - view.getSlider().getValue() + 1 + "");
+		view.getLbT2Troops().setText(view.getSlider().getValue() + "");
+	}
 }
 
