@@ -32,6 +32,10 @@ public class Player {
 	public String getName(){
 		return name;
 	}
+	
+	public Card[] getCards(){
+		return cards;
+	}
 
 	public void addTerritory(Territory toAdd){
 		toAdd.setOwner(this);

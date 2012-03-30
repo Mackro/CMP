@@ -166,10 +166,6 @@ public class Warborn extends Observable{
 	}
 
 	//End Setters
-	
-	public void exchangeCards(){
-		
-	}
 
 	public void addPlayer(String name, Color color){
 		players.add(new Player(name, players.size(), color));
