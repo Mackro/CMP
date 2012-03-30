@@ -14,23 +14,24 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
+import warborn.SupportClasses.MapData;
 import warborn.SupportClasses.RoundedBorder;
 import warborn.main.MainFrame;
 import warborn.model.Warborn;
 
-public class GothenburgMapView extends JPanel implements IMap, ActionListener { 	
+public class GothenburgMapView extends JPanel implements IMap { 	
 
 	
 	private Warborn model;
 	private JButton[] buttons;
-	private int[][] scalingConstants; 
+	private double[][] scalingConstants; 
 	/**
 	 * Create the Map panel.
 	 */
 	public GothenburgMapView(Warborn model) {
 		
 		this.model = model;
-		scalingConstants = MapData.getScalingConstants();
+		scalingConstants = MapData.getScalingConstants(this);
 		
 		setLayout(null);
 		setSize(model.getWidth(), model.getHeight());
@@ -50,10 +51,9 @@ public class GothenburgMapView extends JPanel implements IMap, ActionListener {
 		for (int i = 0; i < model.getTerritories().length; i++){
 			buttons[i] = new JButton();
 			buttons[i].setText(model.getTerritory(i).getNbrOfUnits()+"");
-			buttons[i].addActionListener(this);
 			buttons[i].setActionCommand(i + "");
 			buttons[i].setBackground(model.getTerritory(i).getOwner().getColor());
-			buttons[i].setBounds(scalingConstants[i][0],scalingConstants[i][1], 45, 45);
+			buttons[i].setBounds((int)(model.getWidth()*scalingConstants[i][0]),(int)(model.getHeight()*scalingConstants[i][1]), 45, 45);
 			//buttons[i].setOpaque(false);
 			//buttons[i].setFocusPainted(false);
 			//buttons[i].setBorderPainted(false);
@@ -116,6 +116,10 @@ public class GothenburgMapView extends JPanel implements IMap, ActionListener {
 		}		
 	}
 	
+	public JButton[] getButtons() {
+		return buttons;
+	}
+	
 
 	public static String toString(int i){
 		return "Gothenburg";
@@ -123,13 +127,6 @@ public class GothenburgMapView extends JPanel implements IMap, ActionListener {
 	
 	public String toString(){
 		return "Gothenburg";
-	}
-
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		setChanged();
-		notifyObservers(Integer.parseInt(((JButton) e.getSource()).getActionCommand()));
-	System.out.println(Integer.parseInt(((JButton) e.getSource()).getActionCommand()) + "   actionPerformed");
 	}
 
 	@Override
