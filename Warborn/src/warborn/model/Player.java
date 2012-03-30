@@ -32,22 +32,6 @@ public class Player {
 	public String getName(){
 		return name;
 	}
-	
-	public boolean canExchangeCards(){
-		int nbrOfInf, nbrOfCav, nbrOfArt;
-		for (int i=0; i<cards.length; i++){
-			if(cards[i].getName().equals("Infantry")){
-				nbrOfInf++;
-			}
-			if(cards[i].getName().equals("Cavalry")){
-				nbrOfCav++;
-			}
-			if(cards[i].getName().equals("Artillery")){
-				nbrOfArt++;
-			}
-		}
-		return(nbrOfInf>2);
-	}
 
 	public void addTerritory(Territory toAdd){
 		toAdd.setOwner(this);
@@ -79,5 +63,24 @@ public class Player {
 				break;
 			}
 		}
+	}
+
+	
+	public boolean canExchangeCards(){
+		int[] nbrOfCards = new int[CardDeck.getMaxValue()];
+		for (int i=0; i<cards.length; i++){
+			nbrOfCards[cards[i].getIndex()]++;
+			if(nbrOfCards[cards[i].getIndex()] > 2){
+				return true;
+			}
+		}
+		for(int i = 0; i < nbrOfCards.length; i++){
+			if(nbrOfCards[i] < 1){
+				return false;
+			}
+		}
+		return true;
+		
+		
 	}
 }

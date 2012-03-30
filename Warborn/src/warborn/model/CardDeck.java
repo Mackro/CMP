@@ -13,16 +13,23 @@ public class CardDeck {
 	artilleryImage =new ImageIcon("images/artillery.jpg");
 	}
 	
+	public static int getMaxValue(){
+		return 3;
+	}
+	
 	public Card drawCard(){
-		double d = Math.random()*3;
+		double d = Math.random()*getMaxValue();
 		int i = (int)d;
 		switch(i){
 		case 0:
 			return new Card(LESSERTROOP, infantryImage, 0);
 		case 1:
 			return new Card(COMMONTROOP, cavaleryImage, 1);
-		default:
+		case 2:
 			return new Card(GREATERTROOP, artilleryImage, 2);
+		default:
+			//If this card is created something went wrong
+			return new Card("Something went wrong!!", null, -1);
 		}	
 	}
 	
