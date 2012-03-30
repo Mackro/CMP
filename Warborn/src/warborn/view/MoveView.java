@@ -76,22 +76,22 @@ public class MoveView implements Observer {
 		btCancel = new GenericButton("Cancel");
 		btCancel.setBounds(55, 139, 89, 23);
 		viewPanel.add(btCancel);
-		buttons[1] = btCancel;
+		buttons[0] = btCancel;
 		
 		btMove = new GenericButton("Move");
 		btMove.setBounds(400, 139, 89, 23);
 		viewPanel.add(btMove);
-		buttons[2] = btMove;
+		buttons[1] = btMove;
 		
 		btDecrease = new GenericButton("-");
 		btDecrease.setBounds(116, 91, 47, 23);
 		viewPanel.add(btDecrease);
-		buttons[3] = btDecrease;
+		buttons[2] = btDecrease;
 		
 		btIncrease = new GenericButton("+");
 		btIncrease.setBounds(381, 91, 47, 23);
 		viewPanel.add(btIncrease);
-		buttons[4] = btIncrease;
+		buttons[3] = btIncrease;
 
 	}
 	
@@ -112,10 +112,11 @@ public class MoveView implements Observer {
 		return lbT2Troops;
 	}
 	@Override
-	public void update(Observable model, Object arg1) {
-		System.out.println(((Warborn) model).getState() + ", " + ((Warborn) model).getPhase());
-		if(((Warborn) model).getState() == 3 && ((Warborn) model).getPhase() == 1){
-			Move move = ((Warborn) model).getMove();
+	public void update(Observable ml, Object arg1) {
+		Warborn model = (Warborn)ml;
+		System.out.println(model.getState() + ", " + model.getPhase());
+		if(model.getState() == 3 && model.getPhase() == 1){
+			Move move = model.getMove();
 			t1 = move.getFirstTerritory();
 			t2 = move.getSecondTerritory();
 			lbT1Name.setText(t1.getName());
@@ -124,6 +125,7 @@ public class MoveView implements Observer {
 			slider.setValue(t2.getNbrOfUnits());
 			lbT1Troops.setText(t1.getNbrOfUnits() + "");
 			lbT2Troops.setText(t2.getNbrOfUnits() + "");
+			moveFrame.setLocation((int)((model.getWidth()/2) - (moveFrame.getWidth()/2)), (int)((model.getHeight()*0.7)/2) - (moveFrame.getHeight()/2));
 			moveFrame.setVisible(true);
 		}
 	}
