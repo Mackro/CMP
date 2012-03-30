@@ -12,13 +12,19 @@ public class HudController implements ActionListener {
 	public HudController(Warborn model, Hud view){
 		this.model = model;
 		this.view = view;
-		
+		for(int i=0; i<view.getButtons().length; i++){
+			view.getButtons()[i].addActionListener(this);
+		}
 	}
 
 	@Override
-	public void actionPerformed(ActionEvent arg0) {
-		// TODO Auto-generated method stub
-		
+	public void actionPerformed(ActionEvent e) {
+		if((e).getSource() == view.getButtons()[0]){
+			model.nextState();
+		}
+		if((e).getSource() == view.getButtons()[1]){
+			//TODO implement UseCards/ExchangeSouls
+		}
 	}
 
 }

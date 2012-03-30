@@ -22,13 +22,13 @@ public class MoveController implements ActionListener, ChangeListener {
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if((e).getSource() == view.getButtons()[1]){
-			model.getMove().moveUnits(view.getSlider().getValue());
-			view.getFrame().setVisible(false);
-		}
 		if((e).getSource() == view.getButtons()[0]){
 			model.getMove().resetTerritories();
 			model.nextPhase();
+			view.getFrame().setVisible(false);
+		}
+		if((e).getSource() == view.getButtons()[1]){
+			model.getMove().moveUnits(view.getSlider().getValue());
 			view.getFrame().setVisible(false);
 		}
 		if((e).getSource() == view.getButtons()[2] && view.getSlider().getValue() > 1){
