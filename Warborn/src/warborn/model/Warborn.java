@@ -215,14 +215,14 @@ public class Warborn extends Observable{
 	}
 
 	public boolean attackCompatible(Territory t1, Territory t2){
-		if(!t1.hasConnection(t2) || t1.getOwner().getID() == t2.getOwner().getID()){
+		if(!t1.hasConnection(t2) || t1.getOwner().getID() == t2.getOwner().getID() || t1.getNbrOfUnits() < 2){
 			return false;
 		}
 		return true;
 	}
 
 	public boolean moveCompatible(Territory t1, Territory t2){
-		if(!t1.hasConnection(t2) || t1.getOwner().getID() != t2.getOwner().getID()){
+		if(!t1.hasConnection(t2) || t1.getOwner().getID() != t2.getOwner().getID() || (t1.getNbrOfUnits() < 2 && t2.getNbrOfUnits() < 2)){
 			return false;
 		}
 		return true;

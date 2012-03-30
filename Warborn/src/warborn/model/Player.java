@@ -37,6 +37,19 @@ public class Player {
 		return cards;
 	}
 
+	public int getNumberOfCards(){
+		for(int i = 0; i < cards.length; i++){
+			if(cards[i] == null){
+				return i;
+			}
+		}
+		return cards.length;
+	}
+	
+	public Card getCard(int index){
+		return cards[index];
+	}
+
 	public void addTerritory(Territory toAdd){
 		toAdd.setOwner(this);
 		nbrOfTerritories++;
@@ -58,12 +71,12 @@ public class Player {
 
 
 	public void removeCard(int id){
-		for(int i = 0; i < cards.length; i++){
+		for(int i = 0; i < getNumberOfCards(); i++){
 			if(cards[i].getIndex() == id){
-				for(int j = i; j < cards.length-1; j++){
+				for(int j = i; j < getNumberOfCards()-1; j++){
 					cards[j] = cards[j+1];
 				}
-				cards[cards.length] = null;
+				cards[getNumberOfCards()-1] = null;
 				break;
 			}
 		}
@@ -72,7 +85,7 @@ public class Player {
 	
 	public boolean canExchangeCards(){
 		int[] nbrOfCards = new int[CardDeck.getMaxValue()];
-		for (int i=0; i<cards.length; i++){
+		for (int i = 0; i < getNumberOfCards(); i++){
 			nbrOfCards[cards[i].getIndex()]++;
 			if(nbrOfCards[cards[i].getIndex()] > 2){
 				return true;
