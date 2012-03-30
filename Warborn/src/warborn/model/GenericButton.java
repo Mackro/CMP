@@ -3,7 +3,6 @@ package warborn.model;
 import java.awt.Font;
 
 import javax.swing.JButton;
-import javax.swing.JLabel;
 
 public class GenericButton extends JButton {
 	
