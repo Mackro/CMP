@@ -1,0 +1,4 @@
+Possible Features
+
+collect souls in crystal and then combine them to earn
+spellpoints for your spells.
