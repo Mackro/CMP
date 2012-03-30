@@ -49,17 +49,17 @@ public class BattleView implements Observer {
 		btOneAttack = new GenericButton("One Attack");
 		btOneAttack.setBounds(10, 219, 142, 70);
 		battleView.add(btOneAttack);
-		buttons[1] = btOneAttack;
+		buttons[0] = btOneAttack;
 		
 		btAutoAttack = new GenericButton("Auto Attack");
 		btAutoAttack.setBounds(154, 219, 142, 70);
 		battleView.add(btAutoAttack);
-		buttons[2] = btAutoAttack;
+		buttons[1] = btAutoAttack;
 		
 		btRetreat = new GenericButton("Retreat");
 		btRetreat.setBounds(298, 219, 142, 70);
 		battleView.add(btRetreat);
-		buttons[3] = btRetreat;
+		buttons[2] = btRetreat;
 		
 		lbAttacker = LabelFactory.makeLabel("Attacker");
 		lbAttacker.setBounds(10, 57, 202, 24);
