@@ -26,20 +26,42 @@ public class WarbornTest {
 	}
 	@Test
 	public void TestSetSelectedMap() {
+		model.setSelectedMap(3);
+		assertTrue(model.getMapIndex()==3);
+		assertFalse(model.getMapIndex()==0);
+		assertFalse(model.getMapIndex()==1);
+	}
+	@Test
+	public void TestSetSelectedTerritory() {
+		model.setSelectedTerritory(4);
 		
 	}
-	
-	
-	/**
-	 * setSelectedMap
-	 * setSelectedTerritory
-	 * addPlayer
-	 * nextState
-	 * nextPhase
-	 * removePlayer()
-	 * removePlayer(int)
-	 * startGame
-	 * attackCompatible
-	 * moveCompatible
-	 */
+	@Test
+	public void TestAddPlayer() {
+		fail("not implemented yet!");
+	}
+	@Test
+	public void TestNextState() {
+		fail("not implemented yet!");
+	}
+	@Test
+	public void TestNextPhase() {
+		fail("not implemented yet!");
+	}
+	@Test
+	public void TestRemovePlayer() {
+		fail("not implemented yet!");
+	}
+	@Test
+	public void TestStartGame() {
+		fail("not implemented yet!");
+	}
+	@Test
+	public void TestAttackCompatible() {
+		fail("not implemented yet!");
+	}
+	@Test
+	public void TestMoveCompatible() {
+		fail("not implemented yet!");
+	}
 }
