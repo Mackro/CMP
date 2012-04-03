@@ -138,27 +138,32 @@ public class Warborn extends Observable{
 	public void setSelectedTerritory(int id){
 		System.out.println(selectedTerritory + ": " + id);
 		if (selectedTerritory != id){
-			//	System.out.println(selectedTerritory + ", " + phase + ", " + state);
+			
 			if(state == 1 && players.get(currentPlayer) == territories[id].getOwner()){
 				territories[id].incrementUnit();
-				//	System.out.println(selectedTerritory + ", " + phase + ", " + state);
+				nbrOfReinforcements--;
+				if(nbrOfReinforcements == 0){
+					this.phase = 0;
+					nextState();
+				}
 			}else if(state != 1){
 				if(selectedTerritory == -1 && players.get(currentPlayer) != territories[id].getOwner()){
 					selectedTerritory = id;
+					
 				}else if(selectedTerritory == -1 && players.get(currentPlayer) == territories[id].getOwner()){
 					battle.add(territories[id]);
 					move.add(territories[id]);
 					selectedTerritory = id;
+					
 				}else if(state == 2 && attackCompatible(territories[selectedTerritory], territories[id])){
 					battle.add(territories[id]);
 					selectedTerritory = -1;
 					nextPhase();
-					//	System.out.println(selectedTerritory + ", " + phase + ", " + state);
+					
 				}else if(state == 3 && moveCompatible(territories[selectedTerritory], territories[id])){
 					move.add(territories[id]);
 					selectedTerritory = -1;
 					nextPhase();
-					//	System.out.println(selectedTerritory + ", " + phase + ", " + state);
 				}
 			}
 		}else{
