@@ -42,7 +42,6 @@ public class Launcher implements Observer{
 		//model.addObserver(this);
 		model.nextState();
 		model.nextState();
-		model.nextState();
 	}
 
 	/**
