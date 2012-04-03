@@ -2,7 +2,7 @@ package warborn.model;
 
 import java.util.Arrays;
 
-public class Battle extends Template {
+public class Battle extends TerritoryInteractor {
 	
 	private Warborn model;
 	private int[] a = new int[3], d = new int[2];
@@ -12,11 +12,12 @@ public class Battle extends Template {
 		this.model = model;
 	}
 	public void fight(){
-		for (int i: d){
-			a[i]=0;
-			d[i]=0;
-		}
+		d[0]=0;
+		d[1]=0;
+		a[0]=0;
+		a[1]=0;
 		a[2]=0;
+		
 		unitsAttacker = getFirstTerritory().getNbrOfUnits() - 1;
 		unitsDefender = getSecondTerritory().getNbrOfUnits();
 		

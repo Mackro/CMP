@@ -1,6 +1,6 @@
 package warborn.model;
 
-public class Move extends Template {
+public class Move extends TerritoryInteractor {
 	
 	private Warborn model;
 	

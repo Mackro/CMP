@@ -1,6 +1,6 @@
 package warborn.model;
 
-public abstract class Template {
+public abstract class TerritoryInteractor {
 	private Territory t1;
 	private Territory t2;
 	

@@ -4,9 +4,9 @@ import javax.swing.JPanel;
 
 import warborn.model.Warborn;
 
-public class HUDView extends JPanel {
+public class HudView extends JPanel {
 
-	public HUDView(Warborn model){
+	public HudView(Warborn model){
 		setLayout(null);
 		
 		JPanel panel = new JPanel();

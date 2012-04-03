@@ -33,6 +33,7 @@ public class BattleView implements Observer {
 	//	this.model.addObserver(this);
 		
 		battleFrame = new JFrame();
+		battleFrame.setSize(465,331);
 		JPanel battleView = new JPanel();
 		battleView.setSize(451, 300);
 		battleView.setLayout(null);
@@ -103,6 +104,7 @@ public class BattleView implements Observer {
 			lbDefender.setText(t2.getName());
 			lbAtkTroops.setText(t1.getNbrOfUnits() - 1 + "");
 			lbDefTroops.setText(t2.getNbrOfUnits() + "");
+			battleFrame.setLocation((int)((model.getWidth()/2) - (battleFrame.getWidth()/2)), (int)((model.getHeight()*0.7)/2) - (battleFrame.getHeight()/2));
 			if(t1.getNbrOfUnits() == 0 || t2.getNbrOfUnits() == 0){
 				btOneAttack.setVisible(false);
 				btAutoAttack.setVisible(false);
