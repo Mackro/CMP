@@ -20,7 +20,7 @@ public class Territory {
 		return name;
 	}
 
-	private Object getId() {
+	public int getId() {
 		return id;
 	}
 	
