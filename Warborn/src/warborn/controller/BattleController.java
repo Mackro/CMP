@@ -23,7 +23,7 @@ public class BattleController implements ActionListener{
 			model.getBattle().fight();
 		}
 		if((e).getSource() == view.getButtons()[1]){
-			while(model.getBattle().getFirstTerritory().getNbrOfUnits() != 0 && (model.getBattle().getSecondTerritory().getNbrOfUnits()) != 0){
+			while(model.getBattle().getFirstTerritory().getNbrOfUnits() > 1 && (model.getBattle().getSecondTerritory().getNbrOfUnits()) != 0){
 				model.getBattle().fight();
 			}
 		}

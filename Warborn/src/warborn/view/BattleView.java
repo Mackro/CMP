@@ -82,6 +82,8 @@ public class BattleView implements Observer {
 		taBattleLog.setEditable(false);
 		taBattleLog.setBounds(10, 127, 499, 81);
 		battleView.add(taBattleLog);
+		
+		battleFrame.setUndecorated(true);
 
 	}
 	
@@ -95,6 +97,7 @@ public class BattleView implements Observer {
 	@Override
 	public void update(Observable ml, Object e) {
 		Warborn model = (Warborn)ml;
+		
 		if(model.getState() == 2 && model.getPhase() == 1){
 			battleFrame.setVisible(true);
 			Battle battle = model.getBattle();
