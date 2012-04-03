@@ -1,5 +1,10 @@
 package warborn.view;
 
+import java.util.Observable;
+import java.util.Observer;
+
+import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import warborn.model.Warborn;
@@ -20,6 +25,29 @@ public class HudView extends JPanel {
 		JPanel panel_2 = new JPanel();
 		panel_2.setBounds(949, 0, 417, 230);
 		add(panel_2);
-	//setSize(model.getWidth(), model.getHeight());	
+		setSize(model.getWidth(), (int)(model.getHeight()*0.25));	
+	}
+	
+	public JButton[] getButtons(){
+		return buttons;
+	}
+	
+	@Override
+	public void update(Observable ml, Object e) {
+		Warborn model = (Warborn)ml;
+		
+		if (model.getState() == 3){
+			next.setText("End Turn");
+		}else{
+			next.setText("next");
+		}
+		if (model.getState()==1){
+			if (model.getCurrentPlayer().canExchangeCards()){
+				useCards.setEnabled(true);
+			}
+			troops.setText(model.getNbrOfReinforcements() + "");
+			//TODO display "troops" in a fitting fashion
+		}
+		
 	}
 }
