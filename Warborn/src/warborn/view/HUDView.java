@@ -7,11 +7,18 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import warborn.model.Warborn;
+import warborn.model.Warborn; 	
 
-public class HudView extends JPanel {
+public class HUDView extends JPanel implements Observer{
 
-	public HudView(Warborn model){
+	private JButton[] buttons;
+	private JButton next, useCards;
+	private JLabel territoryData;
+	private JLabel[] PlayerStats;
+	private JLabel reinforcements;
+	
+	public HUDView(Warborn model){
+
 		setLayout(null);
 		
 		JPanel panel = new JPanel();
@@ -45,7 +52,7 @@ public class HudView extends JPanel {
 			if (model.getCurrentPlayer().canExchangeCards()){
 				useCards.setEnabled(true);
 			}
-			troops.setText(model.getNbrOfReinforcements() + "");
+			reinforcements.setText(model.getNbrOfReinforcements() + "");
 			//TODO display "troops" in a fitting fashion
 		}
 		
