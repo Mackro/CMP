@@ -6,7 +6,7 @@ public class Battle extends TerritoryInteractor {
 	
 	private Warborn model;
 	private int[] a = new int[3], d = new int[2];
-	private int unitsAttacker, unitsDefender;
+	private int unitsAttacker, unitsDefender, dLos, aLos;
 	
 	public Battle(Warborn model){
 		this.model = model;

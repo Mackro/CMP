@@ -30,6 +30,7 @@ public class BattleController implements ActionListener{
 		if((e).getSource() == view.getButtons()[2]){
 			view.getFrame().setVisible(false);
 			model.nextPhase();
+			model.getBattle().resetTerritories();
 		}
 	}
 }
