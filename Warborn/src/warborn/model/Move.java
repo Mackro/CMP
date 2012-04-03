@@ -9,7 +9,9 @@ public class Move extends TerritoryInteractor {
 	}
 	
 	public void moveUnits(int units){
-		getFirstTerritory().setNbrOfUnits(getFirstTerritory().getNbrOfUnits()+getSecondTerritory().getNbrOfUnits() - units);
+		getFirstTerritory().setNbrOfUnits(
+				getFirstTerritory().getNbrOfUnits()+
+				getSecondTerritory().getNbrOfUnits() - units);
 		getSecondTerritory().setNbrOfUnits(units);
 		model.changed();
 		this.resetTerritories();

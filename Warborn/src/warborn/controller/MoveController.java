@@ -28,6 +28,9 @@ public class MoveController implements ActionListener, ChangeListener {
 			view.getFrame().setVisible(false);
 		}
 		if((e).getSource() == view.getButtons()[1]){
+			if(model.getBattle().shallMove()){
+				model.getBattle().shallNotMove();
+			}
 			model.getMove().moveUnits(view.getSlider().getValue());
 			view.getFrame().setVisible(false);
 		}

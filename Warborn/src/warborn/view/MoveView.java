@@ -12,8 +12,8 @@ import javax.swing.JSlider;
 
 import warborn.SupportClasses.GenericButton;
 import warborn.model.LabelFactory;
+import warborn.model.TerritoryInteractor;
 import warborn.model.Warborn;
-import warborn.model.Move;
 import warborn.model.Territory;
 
 public class MoveView implements Observer {
@@ -116,18 +116,26 @@ public class MoveView implements Observer {
 		Warborn model = (Warborn)ml;
 		System.out.println(model.getState() + ", " + model.getPhase());
 		if(model.getState() == 3 && model.getPhase() == 1){
-			Move move = model.getMove();
-			t1 = move.getFirstTerritory();
-			t2 = move.getSecondTerritory();
-			lbT1Name.setText(t1.getName());
-			lbT2Name.setText(t2.getName());
+			btCancel.setEnabled(true);
+			fillInformation(model, model.getMove());
 			slider.setMaximum(t1.getNbrOfUnits()+t2.getNbrOfUnits()-1);
-			slider.setValue(t2.getNbrOfUnits());
-			lbT1Troops.setText(t1.getNbrOfUnits() + "");
-			lbT2Troops.setText(t2.getNbrOfUnits() + "");
-			moveFrame.setLocation((int)((model.getWidth()/2) - (moveFrame.getWidth()/2)), (int)((model.getHeight()*0.7)/2) - (moveFrame.getHeight()/2));
-			moveFrame.setVisible(true);
+		}else if(model.getBattle().shallMove()){
+			btCancel.setEnabled(false);
+			fillInformation(model, model.getBattle());
+			slider.setMaximum(Math.min(t1.getNbrOfUnits()+t2.getNbrOfUnits()-1,3));
 		}
+	}
+	
+	private void fillInformation(Warborn model, TerritoryInteractor ti){
+		t1 = ti.getFirstTerritory();
+		t2 = ti.getSecondTerritory();
+		lbT1Name.setText(t1.getName());
+		lbT2Name.setText(t2.getName());
+		slider.setValue(t2.getNbrOfUnits());
+		lbT1Troops.setText(t1.getNbrOfUnits() + "");
+		lbT2Troops.setText(t2.getNbrOfUnits() + "");
+		moveFrame.setLocation((int)((model.getWidth()/2) - (moveFrame.getWidth()/2)), (int)((model.getHeight()*0.7)/2) - (moveFrame.getHeight()/2));
+		moveFrame.setVisible(true);
 	}
 	
 }
