@@ -33,7 +33,7 @@ public class BattleView implements Observer {
 	//	this.model.addObserver(this);
 		
 		battleFrame = new JFrame();
-		battleFrame.setSize(465,331);
+		battleFrame.setSize(535,331);
 		JPanel battleView = new JPanel();
 		battleView.setSize(451, 300);
 		battleView.setLayout(null);
@@ -42,32 +42,32 @@ public class BattleView implements Observer {
 		
 		lbBattle = LabelFactory.makeLabel("Battle!");
 		lbBattle.setFont(new Font("Rod", Font.BOLD | Font.ITALIC, 40));
-		lbBattle.setBounds(140, 0, 195, 70);
+		lbBattle.setBounds(132, 0, 242, 70);
 		battleView.add(lbBattle);
 
 		buttons = new JButton[3];
 		
 		btOneAttack = new GenericButton("One Attack");
-		btOneAttack.setBounds(10, 219, 142, 70);
+		btOneAttack.setBounds(10, 219, 162, 70);
 		battleView.add(btOneAttack);
 		buttons[0] = btOneAttack;
 		
 		btAutoAttack = new GenericButton("Auto Attack");
-		btAutoAttack.setBounds(154, 219, 142, 70);
+		btAutoAttack.setBounds(179, 219, 162, 70);
 		battleView.add(btAutoAttack);
 		buttons[1] = btAutoAttack;
 		
 		btRetreat = new GenericButton("Retreat");
-		btRetreat.setBounds(298, 219, 142, 70);
+		btRetreat.setBounds(347, 219, 162, 70);
 		battleView.add(btRetreat);
 		buttons[2] = btRetreat;
 		
 		lbAttacker = LabelFactory.makeLabel("Attacker");
-		lbAttacker.setBounds(10, 57, 202, 24);
+		lbAttacker.setBounds(10, 57, 242, 24);
 		battleView.add(lbAttacker);
 		
 		lbDefender = LabelFactory.makeLabel("Defender");
-		lbDefender.setBounds(238, 57, 202, 24);
+		lbDefender.setBounds(262, 57, 247, 24);
 		battleView.add(lbDefender);
 		
 		lbAtkTroops = LabelFactory.makeLabel("atkTroops");
@@ -75,12 +75,12 @@ public class BattleView implements Observer {
 		battleView.add(lbAtkTroops);
 		
 		lbDefTroops = LabelFactory.makeLabel("defTroops");
-		lbDefTroops.setBounds(316, 92, 124, 24);
+		lbDefTroops.setBounds(385, 92, 124, 24);
 		battleView.add(lbDefTroops);
 		
 		taBattleLog = new JTextArea();
 		taBattleLog.setEditable(false);
-		taBattleLog.setBounds(10, 127, 430, 81);
+		taBattleLog.setBounds(10, 127, 499, 81);
 		battleView.add(taBattleLog);
 
 	}
@@ -100,6 +100,10 @@ public class BattleView implements Observer {
 			Battle battle = model.getBattle();
 			t1 = battle.getFirstTerritory();
 			t2 = battle.getSecondTerritory();
+			lbBattle.setText("Battle!");
+			btOneAttack.setVisible(true);
+			btAutoAttack.setVisible(true);
+			btRetreat.setText("Retreat");
 			lbAttacker.setText(t1.getName());
 			lbDefender.setText(t2.getName());
 			lbAtkTroops.setText(t1.getNbrOfUnits() - 1 + "");
@@ -110,7 +114,7 @@ public class BattleView implements Observer {
 				btAutoAttack.setVisible(false);
 				btRetreat.setText("Continue");
 				if(t1.getNbrOfUnits() == 0){
-					lbBattle.setText("Deafeat!");
+					lbBattle.setText("Defeat!");
 				}
 				else{
 					lbBattle.setText("Victory!");
