@@ -1,6 +1,7 @@
 package warborn.main;
 
 
+import java.awt.BorderLayout;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -76,8 +77,8 @@ public class Launcher implements Observer{
 		IMap[] mapList = MapData.getMapList(model);
 		new MapController(model, mapList[mapIndex]);
 		model.addObserver(mapList[mapIndex]);
-		frame.add((JPanel)mapList[mapIndex]);
-		frame.add((JPanel)hud);
+		frame.add((JPanel)mapList[mapIndex]/*, BorderLayout.NORTH*/);
+		frame.add((JPanel)hud/*, BorderLayout.SOUTH*/);
 	}
 
 	@Override
