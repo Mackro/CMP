@@ -8,6 +8,7 @@ public class Player {
 	private String name;
 	private Color color;
 	private Card[] cards = new Card[5];
+	private boolean hasConquered;
 	
 	public Player(String name, int id, Color color){
 		this.name = name;
@@ -48,6 +49,10 @@ public class Player {
 	
 	public Card getCard(int index){
 		return cards[index];
+	}
+	
+	public boolean hasConquered(){
+		return hasConquered;
 	}
 
 	public void addTerritory(Territory toAdd){
@@ -97,7 +102,9 @@ public class Player {
 			}
 		}
 		return true;
-		
-		
+	}
+	
+	public void conquered(boolean b){
+		hasConquered = b;
 	}
 }

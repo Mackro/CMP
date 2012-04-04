@@ -1,16 +1,21 @@
 package warborn.view;
 
+import java.awt.GridLayout;
 import java.util.Observable;
 import java.util.Observer;
+
+import warborn.model.Card;
 import warborn.model.Warborn;
 import javax.swing.*;
 
 public class HudView extends JPanel implements Observer{
 	
 	private static final long serialVersionUID = 1L;
+	private JPanel cardPanel;
 	private JButton[] buttons;
 	private JButton next, useCards;
 	private JLabel currentPlayer, territoryData, currentState;
+	private JButton[] cardPanelbtns;
 	//private JLabel[] PlayerStats;
 	private JLabel reinforcements;
 	
@@ -44,6 +49,17 @@ public class HudView extends JPanel implements Observer{
 		currentState.setBounds((int)(this.getWidth()*0.5), (int)(this.getHeight()*0.3), 400, 50);
 		this.add(currentState);
 		
+		cardPanel = new JPanel();
+		cardPanel.setLayout(new GridLayout());
+		cardPanel.setBounds((int)(this.getWidth()*0.4), (int)(this.getHeight()*0.4),
+				(int)(this.getWidth()*0.2), 100);
+		
+		cardPanelbtns = new JButton[5];
+		for (int i=0; i<cardPanelbtns.length; i++){
+			cardPanelbtns[i] = new JButton();
+		}
+		
+		
 		this.setVisible(true);
 	}
 	
@@ -58,6 +74,11 @@ public class HudView extends JPanel implements Observer{
 		currentPlayer.setText(model.getCurrentPlayer().getName());
 		currentState.setText("Battle Phase");
 		reinforcements.setVisible(false);
+		for (int i=0; i<cardPanelbtns.length; i++){
+			if (model.getCurrentPlayer().getCards()[i]!=null){
+				cardPanelbtns[i].setIcon(model.getCurrentPlayer().getCard(i).getImage());
+			}
+		}
 		if (model.getState() == 3){
 			next.setText("End Turn");
 			currentState.setText("Troop Movement");
