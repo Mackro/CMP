@@ -2,6 +2,7 @@ package warborn.main;
 
 
 import java.awt.BorderLayout;
+import java.awt.GridLayout;
 
 import javax.swing.JFrame;
 
@@ -20,7 +21,7 @@ public class MainFrame extends JFrame {
 	 * Create the Mainframe.
 	 */
 	public MainFrame(Warborn model) {
-		this.setLayout(new BorderLayout());
+		this.setLayout(new GridLayout(4, 1));
 		setBounds(0, 0, model.getWidth(), model.getHeight());
 		//setUndecorated(true);
 		setResizable(false);
