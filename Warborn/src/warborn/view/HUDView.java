@@ -18,7 +18,7 @@ public class HudView extends JPanel implements Observer{
 
 		this.setLayout(null);
 		this.setSize(model.getWidth(), (int)(model.getHeight()*0.25));
-		this.setLocation(0, (int)(model.getHeight()*0.75));
+		this.setLocation(0, 0);
 		
 		JPanel panel = new JPanel();
 		panel.setBounds(0, 0, 499, 230);
@@ -39,6 +39,8 @@ public class HudView extends JPanel implements Observer{
 		panel.add(useCards);
 		useCards.setVisible(true);
 		buttons[1] = useCards;
+		
+		this.setVisible(true);
 	}
 	
 	public JButton[] getButtons(){
