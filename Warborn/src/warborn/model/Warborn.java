@@ -179,7 +179,7 @@ public class Warborn extends Observable{
 		this.state++;
 		if(this.state > 3){
 			this.state = 1;
-			this.currentPlayer = (this.currentPlayer++)%players.size();
+			this.currentPlayer = (++this.currentPlayer)%players.size();
 		}
 		if(this.state == 1){
 			System.out.println(players.get(currentPlayer) + "");
@@ -222,7 +222,8 @@ public class Warborn extends Observable{
 				players.get(player).addTerritory(territories[i]);
 				territories[i].setNbrOfUnits(1);
 				sum++;
-				player = (player++)%players.size();
+				System.out.println(player + "; " + players.size());
+				player = (++player)%players.size();
 			}
 		}
 		this.phase = 0;
