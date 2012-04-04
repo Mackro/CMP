@@ -83,6 +83,7 @@ public class GothenburgMapView extends JPanel implements IMap {
 		
 		for(int i = 0; i < buttons.length; i++){
 			buttons[i].setText(model.getTerritory(Integer.parseInt(buttons[i].getActionCommand())).getNbrOfUnits() + "");
+			buttons[i].setBackground(model.getTerritory(i).getOwner().getColor());
 		}
 		
 		/**if(model.getState()==1){

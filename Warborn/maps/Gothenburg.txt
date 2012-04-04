@@ -7,8 +7,8 @@ Northern Angredia:Kings River;Bishops Garden;Winding Islet;The Northern City;Eas
 Mount Lake:Northen Angredia;Southern Angredia
 Southern Angredia:Mount Lake;Northern Angredia;Eastern Necropolis;Land Of The Gnomes
 Land Of The Gnomes:Southern Angredia;Eastern Necropolis;Plain of The Leprechauns
-Eastern Necropolis:Land Of The Gnomes;Southern Angredia;Northern Angredia;The Northern City;plain of the Lepprechauns
-The Northern City:Eastern Necropolis;Northern Angredia;Winding Islet;Plain Of The Leprechauns;Forest of Kings
+Eastern Necropolis:Land Of The Gnomes;Southern Angredia;Northern Angredia;The Northern City;Plain of The Leprechauns
+The Northern City:Eastern Necropolis;Northern Angredia;Winding Islet;Plain of The Leprechauns;Forest of Kings
 Winding Islet:Bishops Garden;Northern Angredia;The Northern City;Hen Island
 Majornia:Forest Of Kings;High Nest;Hen Island;Meadow of Seeds
 Plain of The Leprechauns:The Northern City;Forest Of Kings;Meadow Of The Sun;Eastern Necropolis;Land of the Gnomes

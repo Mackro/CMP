@@ -65,6 +65,7 @@ public class Battle extends TerritoryInteractor {
 	
 	public void shallNotMove(){
 		shallMove = false;
+		resetTerritories();
 	}
 	
 }

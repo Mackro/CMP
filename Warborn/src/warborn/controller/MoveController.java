@@ -28,11 +28,12 @@ public class MoveController implements ActionListener, ChangeListener {
 			view.getFrame().setVisible(false);
 		}
 		if((e).getSource() == view.getButtons()[1]){
+			view.getFrame().setVisible(false);
+			model.getMove().moveUnits(view.getSlider().getValue());
 			if(model.getBattle().shallMove()){
 				model.getBattle().shallNotMove();
 			}
-			model.getMove().moveUnits(view.getSlider().getValue());
-			view.getFrame().setVisible(false);
+			
 		}
 		if((e).getSource() == view.getButtons()[2] && view.getSlider().getValue() > 1){
 			view.getSlider().setValue(view.getSlider().getValue() - 1);

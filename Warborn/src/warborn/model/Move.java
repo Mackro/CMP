@@ -13,10 +13,15 @@ public class Move extends TerritoryInteractor {
 				getFirstTerritory().getNbrOfUnits()+
 				getSecondTerritory().getNbrOfUnits() - units);
 		getSecondTerritory().setNbrOfUnits(units);
+		System.out.println(model.getBattle().shallMove() + "");
+		if(!model.getBattle().shallMove()){
+			this.resetTerritories();
+			model.nextPhase();
+			//model.nextState();
+		}else{
+			model.getBattle().shallNotMove();
+		}
 		model.changed();
-		this.resetTerritories();
-		model.nextPhase();
-		//model.nextState();
 	}
 	
 }
