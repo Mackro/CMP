@@ -131,14 +131,9 @@ public class Warborn extends Observable{
 		System.out.println(selectedTerritory + ": " + id);
 		if (selectedTerritory != id){
 			
-			if(state == 1 && players.get(currentPlayer) == territories[id].getOwner()){
+			if(state == 1 && players.get(currentPlayer) == territories[id].getOwner() && nbrOfReinforcements > 0){
 				territories[id].incrementUnit();
 				nbrOfReinforcements--;
-				System.out.println(nbrOfReinforcements);
-				if(nbrOfReinforcements < 1){
-					this.phase = 0;
-					nextState();
-				}
 			}else if(state != 1){
 				if(selectedTerritory == -1 && players.get(currentPlayer) != territories[id].getOwner()){
 					selectedTerritory = id;
