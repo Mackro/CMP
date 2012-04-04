@@ -1,5 +1,6 @@
 package warborn.map;
 
+import java.awt.Color;
 import java.awt.Image;
 import java.util.Observable;
 
@@ -74,12 +75,18 @@ public class GothenburgMapView extends JPanel implements IMap {
 
 	@Override
 	public void update(Observable arg0, Object arg1) {
-		
+		if(model.getPhase() == 1){
+			this.setEnabled(false);
+		}else{
+			this.setEnabled(true);
+		}
 		for(int i = 0; i < buttons.length; i++){
 			buttons[i].setText(model.getTerritory(Integer.parseInt(buttons[i].getActionCommand())).getNbrOfUnits() + "");
 			buttons[i].setBackground(model.getTerritory(i).getOwner().getColor());
 		}
-		
+		if (model.getSelectedTerritoryIndex()>-1){
+			buttons[model.getSelectedTerritoryIndex()].setBackground(Color.GRAY);
+		}
 		/**if(model.getState()==1){
 			
 			if (nbrOfReinforcements<3){
