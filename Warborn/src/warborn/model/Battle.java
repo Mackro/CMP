@@ -6,7 +6,7 @@ public class Battle extends TerritoryInteractor {
 	
 	private Warborn model;
 	private int[] a = new int[3], d = new int[2];
-	private int unitsAttacker, unitsDefender, dLos, aLos;
+	private int unitsAttacker, unitsDefender;
 	private boolean shallMove = false;
 	
 	public Battle(Warborn model){
@@ -50,6 +50,7 @@ public class Battle extends TerritoryInteractor {
 	public void move(){
 		getSecondTerritory().getOwner().removeTerritory();
 		getFirstTerritory().getOwner().addTerritory(getSecondTerritory());
+		getFirstTerritory().getOwner().conquered(true);
 		getFirstTerritory().setNbrOfUnits(getFirstTerritory().getNbrOfUnits() - 1);
 		getSecondTerritory().setNbrOfUnits(getSecondTerritory().getNbrOfUnits() +1);
 		model.getMove().resetTerritories();

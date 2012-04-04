@@ -20,9 +20,11 @@ public class Warborn extends Observable{
 	private int selectedMap = 0, currentPlayer = 0, selectedTerritory = -1, nbrOfReinforcements = 0;
 	private int state = 0, phase = 0;
 	private Dimension dimension;
+	private CardDeck deck;
 
 
 	public Warborn (){
+		this.deck = new CardDeck();
 		Toolkit kit = Toolkit.getDefaultToolkit();
 		dimension = kit.getScreenSize();
 		this.players = new ArrayList<Player>();
@@ -173,7 +175,11 @@ public class Warborn extends Observable{
 		this.state++;
 		if(this.state > 3){
 			this.state = 1;
+			if(players.get(currentPlayer).hasConquered()){
+				players.get(currentPlayer).addCard(deck.drawCard());
+			}
 			this.currentPlayer = (++this.currentPlayer)%players.size();
+			players.get(currentPlayer).conquered(false);
 		}
 		if(this.state == 1){
 			nbrOfReinforcements = players.get(currentPlayer).getNbrOfTerritories()/3;
