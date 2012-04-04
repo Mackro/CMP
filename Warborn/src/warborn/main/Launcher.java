@@ -39,9 +39,8 @@ public class Launcher implements Observer{
 		model = new Warborn();
 		init();
 		initialize();
-		//model.addObserver(this);
-		model.nextState();
-		model.nextState();
+		model.addObserver(this);
+		model.startGame();
 	}
 
 	/**
@@ -49,10 +48,10 @@ public class Launcher implements Observer{
 	 */
 	private void initialize() {
 		frame = new MainFrame(model);
-		GothenburgMapView map = new GothenburgMapView(model);
-		new MapController(model, map);
-		model.addObserver(map);
-		frame.add(map);
+		//GothenburgMapView map = new GothenburgMapView(model);
+		//new MapController(model, map);
+		//model.addObserver(map);
+		//frame.add(map);
 	}
 	
 	/**
@@ -70,10 +69,15 @@ public class Launcher implements Observer{
 
 	
 	public void createGame(int mapIndex){
+		
+		HudView hud = new HudView(model);
+		new HudController(model, hud);
+		
 		IMap[] mapList = MapData.getMapList(model);
 		new MapController(model, mapList[mapIndex]);
 		model.addObserver(mapList[mapIndex]);
 		frame.add((JPanel)mapList[mapIndex]);
+		frame.add((JPanel)hud);
 	}
 
 	@Override

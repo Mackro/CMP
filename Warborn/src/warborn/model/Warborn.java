@@ -6,6 +6,7 @@ import java.awt.Toolkit;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Observable;
+import java.util.Random;
 
 import warborn.SupportClasses.MapData;
 
@@ -25,12 +26,11 @@ public class Warborn extends Observable{
 		Toolkit kit = Toolkit.getDefaultToolkit();
 		dimension = kit.getScreenSize();
 		this.players = new ArrayList<Player>();
-		addPlayer("Player 1", Color.BLUE);
-		addPlayer("Player 2", Color.RED);
+		addPlayer("Player 1", Color.CYAN);
+		addPlayer("Player 2", Color.YELLOW);
 		try {
 			this.territories = TerritoryFactory.getTerritories("Gothenburg");
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
@@ -39,14 +39,6 @@ public class Warborn extends Observable{
 		}
 		this.battle = new Battle(this);
 		this.move = new Move(this);
-
-		//TODO real implementation
-		for(int i  = 0; i < territories.length/2; i++){
-			territories[i].setOwner(players.get(0));
-		}
-		for(int i  = territories.length/2; i < territories.length; i++){
-			territories[i].setOwner(players.get(1));
-		}
 		
 	}
 
@@ -142,7 +134,8 @@ public class Warborn extends Observable{
 			if(state == 1 && players.get(currentPlayer) == territories[id].getOwner()){
 				territories[id].incrementUnit();
 				nbrOfReinforcements--;
-				if(nbrOfReinforcements == 0){
+				System.out.println(nbrOfReinforcements);
+				if(nbrOfReinforcements < 1){
 					this.phase = 0;
 					nextState();
 				}
@@ -169,6 +162,8 @@ public class Warborn extends Observable{
 			}
 		}else{
 			selectedTerritory = -1;
+			battle.resetTerritories();
+			move.resetTerritories();
 		}
 		changed();
 	}
@@ -184,10 +179,10 @@ public class Warborn extends Observable{
 		this.state++;
 		if(this.state > 3){
 			this.state = 1;
-			this.currentPlayer++;
-			if(this.currentPlayer >= players.size()){
-				this.currentPlayer = 0;
-			}
+			this.currentPlayer = (this.currentPlayer++)%players.size();
+		}
+		if(this.state == 1){
+			System.out.println(players.get(currentPlayer) + "");
 			nbrOfReinforcements = players.get(currentPlayer).getNbrOfTerritories()/3;
 		}
 		changed();
@@ -217,6 +212,11 @@ public class Warborn extends Observable{
 			territories = TerritoryFactory.getTerritories(mapName[selectedMap]);
 		} catch (IOException e) {
 			System.out.println("Selected Map does not exist!");
+		}
+		Random rand = new Random();
+		for(int i = 0; i < territories.length; i++){
+			players.get(rand.nextInt(players.size())).addTerritory(territories[i]);
+			territories[i].setNbrOfUnits(1);
 		}
 		this.phase = 0;
 		nextState();
