@@ -85,6 +85,7 @@ public class Launcher implements Observer{
 		
 		HudView hud = new HudView(model);
 		new HudController(model, hud);
+		model.addObserver(hud);
 		c.ipady = (int) (model.getHeight()*0.25);
 		c.gridy = 1;
 		c.weighty = 0.2;
