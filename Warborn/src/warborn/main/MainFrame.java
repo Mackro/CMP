@@ -1,11 +1,7 @@
 package warborn.main;
 
-
-import java.awt.BorderLayout;
-import java.awt.GridLayout;
-
+import java.awt.GridBagLayout;
 import javax.swing.JFrame;
-
 import warborn.model.Warborn;
 
 public class MainFrame extends JFrame {
@@ -21,7 +17,7 @@ public class MainFrame extends JFrame {
 	 * Create the Mainframe.
 	 */
 	public MainFrame(Warborn model) {
-		this.setLayout(new GridLayout(4, 1));
+		this.setLayout(new GridBagLayout());
 		setBounds(0, 0, model.getWidth(), model.getHeight());
 		//setUndecorated(true);
 		setResizable(false);

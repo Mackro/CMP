@@ -10,6 +10,7 @@ public class HudView extends JPanel implements Observer{
 	private static final long serialVersionUID = 1L;
 	private JButton[] buttons;
 	private JButton next, useCards;
+	private JLabel currentPlayer;
 	//private JLabel territoryData;
 	//private JLabel[] PlayerStats;
 	private JLabel reinforcements;
@@ -26,16 +27,14 @@ public class HudView extends JPanel implements Observer{
 		
 		buttons = new JButton[2];
 		
-		next = new JButton();
-		next.setBounds((int)(panel.getWidth()*0.8), (int)(panel.getHeight()*0.25), 
-				(int)(panel.getWidth()*0.1), (int)(panel.getHeight()*0.5));
+		next = new JButton("Next");
+		next.setBounds((int)(panel.getWidth()*0.8), (int)(panel.getHeight()*0.25), 200, 150);
 		panel.add(next);
 		next.setVisible(true);
 		buttons[0] = next;
 		
-		useCards = new JButton();
-		useCards.setBounds((int)(panel.getWidth()*0.1), (int)(panel.getHeight()*0.25), 
-				(int)(panel.getWidth()*0.1), (int)(panel.getHeight()*0.5));
+		useCards = new JButton("Souls");
+		useCards.setBounds((int)(panel.getWidth()*0.1), (int)(panel.getHeight()*0.25), 200, 150);
 		panel.add(useCards);
 		useCards.setVisible(true);
 		buttons[1] = useCards;

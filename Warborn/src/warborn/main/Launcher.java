@@ -1,7 +1,7 @@
 package warborn.main;
 
 
-import java.awt.BorderLayout;
+import java.awt.*;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -10,7 +10,6 @@ import javax.swing.JPanel;
 
 import warborn.SupportClasses.MapData;
 import warborn.controller.*;
-import warborn.map.GothenburgMapView;
 import warborn.map.IMap;
 import warborn.model.Warborn;
 import warborn.view.*;
@@ -71,14 +70,25 @@ public class Launcher implements Observer{
 	
 	public void createGame(int mapIndex){
 		
-		HudView hud = new HudView(model);
-		new HudController(model, hud);
+		GridBagConstraints c = new GridBagConstraints();
 		
 		IMap[] mapList = MapData.getMapList(model);
 		new MapController(model, mapList[mapIndex]);
 		model.addObserver(mapList[mapIndex]);
-		frame.add((JPanel)mapList[mapIndex]/*, BorderLayout.NORTH*/);
-		frame.add((JPanel)hud/*, BorderLayout.SOUTH*/);
+		c.weightx = 1;
+		c.ipady = (int) (model.getHeight()*0.8);
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.gridx = 0;
+		c.gridy = 0;
+		c.weighty = 0.75;
+		frame.add((JPanel)mapList[mapIndex], c);
+		
+		HudView hud = new HudView(model);
+		new HudController(model, hud);
+		c.ipady = (int) (model.getHeight()*0.25);
+		c.gridy = 1;
+		c.weighty = 0.2;
+		frame.add((JPanel)hud, c);
 	}
 
 	@Override
