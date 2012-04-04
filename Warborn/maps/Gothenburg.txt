@@ -13,7 +13,7 @@ Winding Islet:Bishops Garden;Northern Angredia;The Northern City;Hen Island
 Majornia:Forest Of Kings;High Nest;Hen Island;Meadow of Seeds
 Plain of The Leprechauns:The Northern City;Forest Of Kings;Meadow Of The Sun;Eastern Necropolis;Land of the Gnomes
 Meadow Of The Sun:Millers Valley;Meadow Of Seeds;Forest Of Kings;Plain Of The Leprechauns
-Forest Of Kings:Plain Of The Leprechaun;Majornia;High Nest;Meadow Of Seeds;Meadow Of The Sun;The Northern City
+Forest Of Kings:Plain Of The Leprechauns;Majornia;High Nest;Meadow Of Seeds;Meadow Of The Sun;The Northern City
 High Nest:Majornia;Forest Of Kings;Meadow Of Seeds;Land Of The Elves;The Scorched Isle's
 Meadow Of Seeds:High Nest;Forest Of Kings;Meadow Of The Sun;Millers Valley;Land Of The Elves
 Land Of The Elves:The Scorched Isles;High Nest;Meadow Of Seeds;Millers Valley;Cabbage Nest
