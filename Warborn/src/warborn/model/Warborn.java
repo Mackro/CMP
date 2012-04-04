@@ -214,9 +214,16 @@ public class Warborn extends Observable{
 			System.out.println("Selected Map does not exist!");
 		}
 		Random rand = new Random();
-		for(int i = 0; i < territories.length; i++){
-			players.get(rand.nextInt(players.size())).addTerritory(territories[i]);
-			territories[i].setNbrOfUnits(1);
+		int sum = 0;
+		int player = 0;
+		while(sum < territories.length){
+			int i = rand.nextInt(territories.length);
+			if(territories[i].getOwner() == null){
+				players.get(player).addTerritory(territories[i]);
+				territories[i].setNbrOfUnits(1);
+				sum++;
+				player = (player++)%players.size();
+			}
 		}
 		this.phase = 0;
 		nextState();
