@@ -38,25 +38,27 @@ public class HudView extends JPanel implements Observer{
 		buttons[1] = useCards;
 		
 		reinforcements = new JLabel("Reinforcements");
-		reinforcements.setBounds((int)(this.getWidth()*0.5), (int)(this.getHeight()*0.1), 400, 50);
+		reinforcements.setBounds((int)(this.getWidth()*0.45), (int)(this.getHeight()*0.1), 400, 20);
 		this.add(reinforcements);
 		
 		currentPlayer = new JLabel();
-		currentPlayer.setBounds((int)(this.getWidth()*0.5), (int)(this.getHeight()*0.2), 400, 50);
+		currentPlayer.setBounds((int)(this.getWidth()*0.45), (int)(this.getHeight()*0.2), 400, 20);
 		this.add(currentPlayer);
 		
 		currentState = new JLabel();
-		currentState.setBounds((int)(this.getWidth()*0.5), (int)(this.getHeight()*0.3), 400, 50);
+		currentState.setBounds((int)(this.getWidth()*0.45), (int)(this.getHeight()*0.3), 400, 20);
 		this.add(currentState);
 		
 		cardPanel = new JPanel();
 		cardPanel.setLayout(new GridLayout());
-		cardPanel.setBounds((int)(this.getWidth()*0.4), (int)(this.getHeight()*0.4),
-				(int)(this.getWidth()*0.2), 100);
+		cardPanel.setBounds((int)(this.getWidth()*0.35), (int)(this.getHeight()*0.4),
+				(int)(this.getWidth()*0.3), 100);
+		this.add(cardPanel);
 		
 		cardPanelbtns = new JButton[5];
 		for (int i=0; i<cardPanelbtns.length; i++){
 			cardPanelbtns[i] = new JButton();
+			cardPanel.add(cardPanelbtns[i]);
 		}
 		
 		
@@ -79,6 +81,7 @@ public class HudView extends JPanel implements Observer{
 				cardPanelbtns[i].setIcon(model.getCurrentPlayer().getCard(i).getImage());
 			}
 		}
+		useCards.setEnabled(false);
 		if (model.getState() == 3){
 			next.setText("End Turn");
 			currentState.setText("Troop Movement");
