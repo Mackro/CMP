@@ -26,19 +26,20 @@ public class HudView extends JPanel implements Observer{
 		next = new JButton("Next");
 		next.setBounds((int)(this.getWidth()*0.8), (int)(this.getHeight()*0.25), 200, 150);
 		this.add(next);
-		next.setVisible(true);
 		buttons[0] = next;
 		
 		useCards = new JButton("Souls");
 		useCards.setBounds((int)(this.getWidth()*0.1), (int)(this.getHeight()*0.25), 200, 150);
 		this.add(useCards);
-		useCards.setVisible(true);
 		buttons[1] = useCards;
 		
 		reinforcements = new JLabel("Reinforcements");
 		reinforcements.setBounds((int)(this.getWidth()*0.5), (int)(this.getHeight()*0.1), 400, 50);
 		this.add(reinforcements);
-		reinforcements.setVisible(true);
+		
+		currentPlayer = new JLabel();
+		currentPlayer.setBounds((int)(this.getWidth()*0.5), (int)(this.getHeight()*0.4), 400, 50);
+		this.add(currentPlayer);
 		
 		this.setVisible(true);
 	}
@@ -50,7 +51,8 @@ public class HudView extends JPanel implements Observer{
 	@Override
 	public void update(Observable ml, Object e) {
 		Warborn model = (Warborn)ml;
-				
+		
+		currentPlayer.setText(model.getCurrentPlayer().getName());
 		if (model.getState() == 3){
 			next.setText("End Turn");
 		}else{
