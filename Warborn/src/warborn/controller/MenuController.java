@@ -1,5 +1,6 @@
 package warborn.controller;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -25,9 +26,34 @@ public class MenuController implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent evt) {
 		JButton buttonPressed = (JButton)(evt.getSource());
-		//NewGame
+		
 		if(buttonPressed == this.view.getButtonArray()[0]){
+			//NewGame
 			view.openNewGameMenu();
+		}else if(buttonPressed == this.view.getButtonArray()[1]){
+			//Credits
+		}else if(buttonPressed == this.view.getButtonArray()[2]){
+			//Exit
+			System.exit(0);
+		}else if(buttonPressed == this.view.getButtonArray()[3]){
+			//Q-Start
+			model.startGame();
+		}else if(buttonPressed == this.view.getButtonArray()[4]){
+			//Start
+			view.openSelectionMenu();
+		}else if(buttonPressed == this.view.getButtonArray()[5]){
+			//Back
+			view.closeNewGameMenu();
+		}else if(buttonPressed == this.view.getButtonArray()[6]){
+			//Back2
+			view.openNewGameMenu();
+		}else if(buttonPressed == this.view.getButtonArray()[7]){
+			//StartGame
+			String[] names = view.getNames();
+			Color[] colors = view.getColors();
+			model.setPlayers(names, colors);
+			model.setSelectedMap(view.getSelectedMapIndex());
+			model.startGame();
 		}
 	}
 }

@@ -39,7 +39,7 @@ public class Launcher implements Observer{
 		model = new Warborn();
 		init();
 		initialize();
-		//model.addObserver(this);
+		model.addObserver(this);
 		//model.startGame();
 	}
 
@@ -58,7 +58,9 @@ public class Launcher implements Observer{
 		c.gridx = 0;
 		c.gridy = 0;
 		c.weighty = 1;
-		frame.add(new MenuView(model), c);
+		MenuView view = new MenuView(model);
+		new MenuController(model, view);
+		frame.add(view, c);
 	}
 	
 	/**
@@ -76,6 +78,10 @@ public class Launcher implements Observer{
 
 	
 	public void createGame(int mapIndex){
+		
+		frame.dispose();
+		frame = new MainFrame(model);
+		frame.setVisible(true);
 		
 		GridBagConstraints c = new GridBagConstraints();
 		

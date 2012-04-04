@@ -19,7 +19,7 @@ public class MainFrame extends JFrame {
 	public MainFrame(Warborn model) {
 		this.setLayout(new GridBagLayout());
 		setBounds(0, 0, model.getWidth(), model.getHeight());
-		//setUndecorated(true);
+		setUndecorated(true);
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		

@@ -1,5 +1,7 @@
 package warborn.view;
 
+import java.awt.Color;
+
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
@@ -7,7 +9,8 @@ import warborn.model.Warborn;
 
 public class MenuView extends JPanel {
 
-	private JButton btNewGame, btCredits, btExit, btQuickStart, btStart, btBack;
+	private JButton btNewGame, btCredits, btExit, btQuickStart, btStart, btBack, btBack2;
+	private SelectionPanel pSelection;
 	
 	/**
 	 * Create the panel.
@@ -48,6 +51,18 @@ public class MenuView extends JPanel {
 		btBack.setVisible(false);
 		add(btBack, 0);
 		
+		btBack2 = new JButton("Back");
+		btBack2.setLocation(100, model.getHeight()-250);
+		btBack2.setSize(150, 150);
+		btBack2.setVisible(false);
+		add(btBack2, 0);
+		
+		pSelection = new SelectionPanel(model);
+		pSelection.setLocation((int)(this.getWidth()*0.5), 0);
+		pSelection.setVisible(false);
+		add(pSelection);
+		
+		
 	}
 	
 	public JButton[] getButtonArray(){
@@ -55,16 +70,59 @@ public class MenuView extends JPanel {
 			btNewGame,
 			btCredits,
 			btExit,
+			btQuickStart,
+			btStart,
+			btBack,
+			btBack2,
+			pSelection.getStartButton(),
 		};
+	}
+	
+	public String[] getNames(){
+		return pSelection.getNames();
+	}
+	
+	public Color[] getColors(){
+		return pSelection.getColors();
+	}
+	
+	public int getSelectedMapIndex(){
+		return pSelection.getSelectedMapIndex();
 	}
 	
 	public void openNewGameMenu(){
 		btQuickStart.setVisible(true);
 		btStart.setVisible(true);
 		btBack.setVisible(true);
+		btNewGame.setVisible(true);
+		
 		btNewGame.setEnabled(false);
 		btCredits.setVisible(false);
 		btExit.setVisible(false);
+		btBack2.setVisible(false);
+		pSelection.setVisible(false);
+	}
+	
+	public void openSelectionMenu(){
+		btQuickStart.setVisible(false);
+		btStart.setVisible(false);
+		btBack.setVisible(false);
+		btNewGame.setVisible(false);
+		btCredits.setVisible(false);
+		btExit.setVisible(false);
+		
+		btBack2.setVisible(true);
+		pSelection.setVisible(true);
+	}
+	
+	public void closeNewGameMenu(){
+		btQuickStart.setVisible(false);
+		btStart.setVisible(false);
+		btBack.setVisible(false);
+		
+		btNewGame.setEnabled(true);
+		btCredits.setVisible(true);
+		btExit.setVisible(true);
 	}
 
 }

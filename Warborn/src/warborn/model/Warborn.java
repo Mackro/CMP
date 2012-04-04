@@ -30,7 +30,7 @@ public class Warborn extends Observable{
 		this.players = new ArrayList<Player>();
 		addPlayer("Player 1", Color.CYAN);
 		addPlayer("Player 2", Color.YELLOW);
-		try {
+		/*try {
 			this.territories = TerritoryFactory.getTerritories("Gothenburg");
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -38,7 +38,7 @@ public class Warborn extends Observable{
 		for(int i = 0; i<territories.length; i++){
 			territories[i].setNbrOfUnits(4);
 		}
-		this.battle = new Battle(this);
+		*/this.battle = new Battle(this);
 		this.move = new Move(this);
 		
 	}
@@ -48,6 +48,14 @@ public class Warborn extends Observable{
 
 	public Player[] getPlayers(){
 		return (Player[])players.toArray();
+	}
+	
+	public Player getPlayer(int index){
+		return players.get(index);
+	}
+	
+	public int getNumberOfPlayers(){
+		return players.size();
 	}
 
 	public Territory[] getTerritories(){
@@ -115,9 +123,10 @@ public class Warborn extends Observable{
 
 	//Setters:
 
-	public void setPlayers(String[] names, Color[] colours){
+	public void setPlayers(String[] names, Color[] colors){
+		players.clear();
 		for(int i = 0; i < names.length; i++){
-			players.add(new Player(names[i], i, colours[i]));
+			players.add(new Player(names[i], i, colors[i]));
 		}
 		changed();
 	}
