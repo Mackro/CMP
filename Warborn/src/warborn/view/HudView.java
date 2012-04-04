@@ -3,8 +3,6 @@ package warborn.view;
 import java.awt.GridLayout;
 import java.util.Observable;
 import java.util.Observer;
-
-import warborn.model.Card;
 import warborn.model.Warborn;
 import javax.swing.*;
 
@@ -60,6 +58,7 @@ public class HudView extends JPanel implements Observer{
 			cardPanelbtns[i] = new JButton();
 			cardPanel.add(cardPanelbtns[i]);
 		}
+		territoryData = new JLabel();
 		
 		
 		this.setVisible(true);
