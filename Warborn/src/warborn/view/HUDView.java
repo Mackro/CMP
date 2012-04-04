@@ -2,37 +2,43 @@ package warborn.view;
 
 import java.util.Observable;
 import java.util.Observer;
+import warborn.model.Warborn;
+import javax.swing.*;
 
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-
-import warborn.model.Warborn; 	
-
-public class HUDView extends JPanel implements Observer{
-
+public class HudView extends JPanel implements Observer{
+	
+	private static final long serialVersionUID = 1L;
 	private JButton[] buttons;
 	private JButton next, useCards;
-	private JLabel territoryData;
-	private JLabel[] PlayerStats;
+	//private JLabel territoryData;
+	//private JLabel[] PlayerStats;
 	private JLabel reinforcements;
 	
-	public HUDView(Warborn model){
+	public HudView(Warborn model){
 
-		setLayout(null);
+		this.setLayout(null);
+		this.setSize(model.getWidth(), (int)(model.getHeight()*0.25));
+		this.setLocation(0, (int)(model.getHeight()*0.75));
 		
 		JPanel panel = new JPanel();
 		panel.setBounds(0, 0, 499, 230);
-		add(panel);
+		this.add(panel);
 		
-		JPanel panel_1 = new JPanel();
-		panel_1.setBounds(499, 0, 450, 230);
-		add(panel_1);
+		buttons = new JButton[2];
 		
-		JPanel panel_2 = new JPanel();
-		panel_2.setBounds(949, 0, 417, 230);
-		add(panel_2);
-		setSize(model.getWidth(), (int)(model.getHeight()*0.25));	
+		next = new JButton();
+		next.setBounds((int)(panel.getWidth()*0.8), (int)(panel.getHeight()*0.25), 
+				(int)(panel.getWidth()*0.1), (int)(panel.getHeight()*0.5));
+		panel.add(next);
+		next.setVisible(true);
+		buttons[0] = next;
+		
+		useCards = new JButton();
+		useCards.setBounds((int)(panel.getWidth()*0.1), (int)(panel.getHeight()*0.25), 
+				(int)(panel.getWidth()*0.1), (int)(panel.getHeight()*0.5));
+		panel.add(useCards);
+		useCards.setVisible(true);
+		buttons[1] = useCards;
 	}
 	
 	public JButton[] getButtons(){
