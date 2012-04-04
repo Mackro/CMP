@@ -39,8 +39,8 @@ public class Launcher implements Observer{
 		model = new Warborn();
 		init();
 		initialize();
-		model.addObserver(this);
-		model.startGame();
+		//model.addObserver(this);
+		//model.startGame();
 	}
 
 	/**
@@ -51,7 +51,14 @@ public class Launcher implements Observer{
 		//GothenburgMapView map = new GothenburgMapView(model);
 		//new MapController(model, map);
 		//model.addObserver(map);
-		//frame.add(map);
+		GridBagConstraints c = new GridBagConstraints();
+		c.weightx = 1;
+		c.ipady = (int) (model.getHeight());
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.gridx = 0;
+		c.gridy = 0;
+		c.weighty = 1;
+		frame.add(new MenuView(model), c);
 	}
 	
 	/**

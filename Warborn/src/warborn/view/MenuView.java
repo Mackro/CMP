@@ -13,21 +13,22 @@ public class MenuView extends JPanel {
 	 * Create the panel.
 	 */
 	public MenuView(Warborn model) {
-		setBounds(0, 0, model.getHeight(), model.getWidth());
+		setLayout(null);
+		setSize(model.getWidth(), model.getHeight());
 		btNewGame = new JButton("New Game");
 		btNewGame.setLocation(model.getWidth()-200, 50);
 		btNewGame.setSize(150, 150);
-		add(btNewGame);
+		add(btNewGame, 0);
 
 		btCredits = new JButton("Credits");
 		btCredits.setLocation(model.getWidth()-200, 250);
 		btCredits.setSize(150, 150);
-		add(btCredits);
+		add(btCredits, 0);
 		
 		btExit = new JButton("Exit Game");
-		btExit.setLocation(model.getWidth()-200, 250);
+		btExit.setLocation(model.getWidth()-200, 450);
 		btExit.setSize(150, 150);
-		add(btExit);
+		add(btExit, 0);
 		
 	}
 
