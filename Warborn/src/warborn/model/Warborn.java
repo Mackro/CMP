@@ -33,7 +33,6 @@ public class Warborn extends Observable{
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
 		for(int i = 0; i<territories.length; i++){
 			territories[i].setNbrOfUnits(4);
 		}
@@ -177,7 +176,6 @@ public class Warborn extends Observable{
 			this.currentPlayer = (++this.currentPlayer)%players.size();
 		}
 		if(this.state == 1){
-			System.out.println(players.get(currentPlayer) + "");
 			nbrOfReinforcements = players.get(currentPlayer).getNbrOfTerritories()/3;
 		}
 		changed();
@@ -217,7 +215,6 @@ public class Warborn extends Observable{
 				players.get(player).addTerritory(territories[i]);
 				territories[i].setNbrOfUnits(1);
 				sum++;
-				System.out.println(player + "; " + players.size());
 				player = (++player)%players.size();
 			}
 		}

@@ -90,6 +90,7 @@ public class Launcher implements Observer{
 		c.gridy = 1;
 		c.weighty = 0.2;
 		frame.add((JPanel)hud, c);
+		hud.update(model, null);
 	}
 
 	@Override
