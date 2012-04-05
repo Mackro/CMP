@@ -230,7 +230,7 @@ public class Warborn extends Observable{
 				players.get(player).addTerritory(territories[i]);
 				territories[i].setNbrOfUnits(1);
 				sum++;
-				player = (++player)%1/*players.size()*/;
+				player = (++player)%players.size();
 			}
 		}
 		this.phase = 0;

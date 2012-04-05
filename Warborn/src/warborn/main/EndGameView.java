@@ -72,7 +72,9 @@ public class EndGameView extends JPanel implements Observer{
 	
 	@Override
 	public void update(Observable arg0, Object arg1) {
-		
+		if(model.getState() != 2){
+			return;
+		}
 		Player owner = model.getTerritory(0).getOwner();
 		for(int i = 1; i < model.getTerritories().length; i++){
 			if(owner != model.getTerritory(i).getOwner()){
