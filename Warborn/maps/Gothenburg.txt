@@ -6,14 +6,14 @@ Kings River:Thors Landing;Bishops Garden;Northern Angredia
 Northern Angredia:Kings River;Bishops Garden;Winding Islet;The Northern City;Eastern Necropolis;Southern Angredia;Mount Lake
 Mount Lake:Northern Angredia;Southern Angredia
 Southern Angredia:Mount Lake;Northern Angredia;Eastern Necropolis;Land Of The Gnomes
-Land of the Gnomes:Southern Angredia;Eastern Necropolis;Plain of The Leprechauns
-Eastern Necropolis:Land Of The Gnomes;Southern Angredia;Northern Angredia;The Northern City;Plain of The Leprechauns
-The Northern City:Eastern Necropolis;Northern Angredia;Winding Islet;Plain of The Leprechauns;Forest of Kings
+Land of the Gnomes:Southern Angredia;Eastern Necropolis;Leprechauns Moor
+Eastern Necropolis:Land Of The Gnomes;Southern Angredia;Northern Angredia;The Northern City;Leprechauns Moor
+The Northern City:Eastern Necropolis;Northern Angredia;Winding Islet;Leprechauns Moor;Forest of Kings
 Winding Islet:Bishops Garden;Northern Angredia;The Northern City;Hen Island
 Majornia:Forest Of Kings;High Nest;Hen Island;Meadow of Seeds
-Plain of The Leprechauns:The Northern City;Forest Of Kings;Meadow Of The Sun;Eastern Necropolis;Land of the Gnomes
-Meadow Of The Sun:Millers Valley;Meadow Of Seeds;Forest Of Kings;Plain Of The Leprechauns
-Forest Of Kings:Plain Of The Leprechauns;Majornia;High Nest;Meadow Of Seeds;Meadow Of The Sun;The Northern City
+Leprechauns Moor:The Northern City;Forest Of Kings;Meadow Of The Sun;Eastern Necropolis;Land of the Gnomes
+Meadow Of The Sun:Millers Valley;Meadow Of Seeds;Forest Of Kings;Leprechauns Moor
+Forest Of Kings:Leprechauns Moor;Majornia;High Nest;Meadow Of Seeds;Meadow Of The Sun;The Northern City
 High Nest:Majornia;Forest Of Kings;Meadow Of Seeds;Land Of The Elves;The Scorched Isle's
 Meadow Of Seeds:High Nest;Forest Of Kings;Meadow Of The Sun;Millers Valley;Land Of The Elves;Majornia
 Land Of The Elves:The Scorched Isle's;High Nest;Meadow Of Seeds;Millers Valley;Cabbage Nest

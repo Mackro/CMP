@@ -1,6 +1,7 @@
 package warborn.view;
 
 import java.awt.Font;
+import java.awt.Point;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -97,6 +98,19 @@ public class BattleView implements Observer {
 	
 	public String getHeaderText(){
 		return lbBattle.getText();
+	}
+	
+	public void logClean(){
+		taBattleLog.setText(null);
+	}
+	
+	public void logUpdate(Point p){
+		if(taBattleLog.getText().equals("")){
+			taBattleLog.setText(t1.getName() + " loses " + (int)p.getX() + " troops and " + t2.getName() + " loses " + (int)p.getY() + " troops");
+		}
+		else{
+			taBattleLog.setText(taBattleLog.getText() + "\n" + t1.getName() + " loses " + (int)p.getX() + " troops and " + t2.getName() + " loses " + (int)p.getY() + " troops");
+		}
 	}
 	
 	@Override
