@@ -87,13 +87,5 @@ public class GothenburgMapView extends JPanel implements IMap {
 		if (model.getSelectedTerritoryIndex()>-1){
 			buttons[model.getSelectedTerritoryIndex()].setBackground(Color.GRAY);
 		}
-		/**if(model.getState()==1){
-			
-			if (nbrOfReinforcements<3){
-				nbrOfReinforcements = 3;
-			}
-			JLabel reinforcements = new JLabel(nbrOfReinforcements + "");
-			
-		}*/
 	}
 }

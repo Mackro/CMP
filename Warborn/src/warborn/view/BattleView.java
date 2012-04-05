@@ -106,10 +106,10 @@ public class BattleView implements Observer {
 	
 	public void logUpdate(Point p){
 		if(taBattleLog.getText().equals("")){
-			taBattleLog.setText(t1.getName() + " loses " + (int)p.getX() + " troops and " + t2.getName() + " loses " + (int)p.getY() + " troops");
+			taBattleLog.setText(t1.getOwner().getName() + " loses " + (int)p.getX() + " troops and " + t2.getOwner().getName() + " loses " + (int)p.getY() + " troops");
 		}
 		else{
-			taBattleLog.setText(taBattleLog.getText() + "\n" + t1.getName() + " loses " + (int)p.getX() + " troops and " + t2.getName() + " loses " + (int)p.getY() + " troops");
+			taBattleLog.setText(taBattleLog.getText() + "\n" + t1.getOwner().getName() + " loses " + (int)p.getX() + " troops and " + t2.getOwner().getName() + " loses " + (int)p.getY() + " troops");
 		}
 	}
 	

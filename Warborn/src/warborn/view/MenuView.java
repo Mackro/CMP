@@ -8,7 +8,7 @@ import javax.swing.JPanel;
 import warborn.model.Warborn;
 
 public class MenuView extends JPanel {
-
+	private static final long serialVersionUID = 1L;
 	private JButton btNewGame, btCredits, btExit, btQuickStart, btStart, btBack, btBack2;
 	private SelectionPanel pSelection;
 	

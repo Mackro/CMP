@@ -12,6 +12,7 @@ import java.awt.Font;
 
 public class EndGameView extends JPanel implements Observer{
 	
+	private static final long serialVersionUID = 1L;
 	private long startTime;
 	private Warborn model;
 	private JLabel lbTime;
