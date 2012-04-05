@@ -96,6 +96,13 @@ public class HudView extends JPanel implements Observer{
 			currentState.setText("Reinforce your Troops");
 			//TODO display "troops" in a fitting fashion
 		}
+		if (model.getNbrOfReinforcements() != 0){
+			next.setEnabled(false);
+		}
+		else{
+			next.setEnabled(true);
+		}
+	
 		
 	}
 }
