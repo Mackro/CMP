@@ -42,7 +42,7 @@ public class GothenburgMapView extends JPanel implements IMap {
 			buttons[i].setText(model.getTerritory(i).getNbrOfUnits()+"");
 			buttons[i].setActionCommand(i + "");
 			buttons[i].setBackground(model.getTerritory(i).getOwner().getColor());
-			buttons[i].setBounds((int)(model.getWidth()*scalingConstants[i][0]),(int)(model.getHeight()*scalingConstants[i][1]), 45, 45);
+			buttons[i].setBounds((int)(model.getWidth()*scalingConstants[i][0]),(int)(model.getHeight()*scalingConstants[i][1]), 50, 45);
 			/**
 			buttons[i].setOpaque(false);
 			buttons[i].setFocusPainted(false);
