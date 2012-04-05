@@ -71,7 +71,9 @@ public class Launcher implements Observer{
 		new MoveController(model, move);
 		BattleView battle = new BattleView(/*model*/);
 		new BattleController(model, battle);
+		EndGameView end = new EndGameView(model, System.currentTimeMillis());
 		
+		model.addObserver(end);
 		model.addObserver(move);
 		model.addObserver(battle);
 	}
@@ -112,6 +114,11 @@ public class Launcher implements Observer{
 			model.deleteObserver(this);
 			createGame(model.getMapIndex());
 		}
+	}
+	
+	public static void reset(){
+		Launcher l = new Launcher();
+		l.run();
 	}
 
 }

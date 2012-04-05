@@ -191,7 +191,7 @@ public class Warborn extends Observable{
 			players.get(currentPlayer).conquered(false);
 		}
 		if(this.state == 1){
-			nbrOfReinforcements = players.get(currentPlayer).getNbrOfTerritories()/3;
+			nbrOfReinforcements = Math.max(players.get(currentPlayer).getNbrOfTerritories()/3, 3);
 		}
 		changed();
 	}
