@@ -40,7 +40,6 @@ public class Launcher implements Observer{
 		init();
 		initialize();
 		model.addObserver(this);
-		//model.startGame();
 	}
 
 	/**
@@ -48,9 +47,6 @@ public class Launcher implements Observer{
 	 */
 	private void initialize() {
 		frame = new MainFrame(model);
-		//GothenburgMapView map = new GothenburgMapView(model);
-		//new MapController(model, map);
-		//model.addObserver(map);
 		GridBagConstraints c = new GridBagConstraints();
 		c.weightx = 1;
 		c.ipady = (int) (model.getHeight());
@@ -72,7 +68,7 @@ public class Launcher implements Observer{
 		BattleView battle = new BattleView(/*model*/);
 		new BattleController(model, battle);
 		EndGameView end = new EndGameView(model, System.currentTimeMillis());
-		new EndGameController(model, end);
+		new EndGameController(model, end, this);
 		
 		model.addObserver(end);
 		model.addObserver(move);
@@ -117,9 +113,16 @@ public class Launcher implements Observer{
 		}
 	}
 	
-	public static void reset(){
-		Launcher l = new Launcher();
-		l.run();
+	public void reset(){
+		frame.dispose();
+		frame = null;
+		System.gc();
+		model = new Warborn();
+		init();
+		initialize();
+		model.addObserver(this);
+		run();
+		
 	}
 
 }

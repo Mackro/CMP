@@ -49,12 +49,12 @@ public class EndGameView extends JPanel implements Observer{
 		
 		btExit = new JButton("Exit Game");
 		btExit.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		btExit.setBounds(584, 422, 150, 150);
+		btExit.setBounds(533, 422, 200, 80);
 		add(btExit);
 		
-		btRestart = new JButton("Restart");
+		btRestart = new JButton("Main Menu");
 		btRestart.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		btRestart.setBounds(93, 422, 150, 150);
+		btRestart.setBounds(93, 422, 200, 80);
 		add(btRestart);
 
 	}
@@ -64,6 +64,10 @@ public class EndGameView extends JPanel implements Observer{
 			btRestart,
 			btExit,
 		};
+	}
+	
+	public JFrame getFrame(){
+		return frame;
 	}
 	
 	@Override
@@ -83,7 +87,7 @@ public class EndGameView extends JPanel implements Observer{
 		long hours = minutes/60;
 		minutes %= 60;
 		
-		lbTime.setText("Victory after " + hours + ":" + minutes + ":" + seconds);
+		lbTime.setText("Victory after " + (hours>10?"" + hours:"0" + hours) + ":" + (minutes>10?"" + minutes:"0" + minutes) + ":" + (seconds>10?"" + seconds:"0" + seconds));
 		
 		frame.setVisible(true);
 	}
