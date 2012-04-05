@@ -59,6 +59,13 @@ public class EndGameView extends JPanel implements Observer{
 
 	}
 	
+	public JButton[] getButtonArray(){
+		return new JButton[]{
+			btRestart,
+			btExit,
+		};
+	}
+	
 	@Override
 	public void update(Observable arg0, Object arg1) {
 		
