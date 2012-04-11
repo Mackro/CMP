@@ -3,6 +3,7 @@ package warborn.view;
 import java.awt.Color;
 
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JPanel;
 
 import warborn.model.Warborn;
@@ -90,6 +91,10 @@ public class MenuView extends JPanel {
 		return pSelection.getColors();
 	}
 	
+	public JComboBox getMapComboBox(){
+		return pSelection.getMapComboBox();
+	}
+	
 	public int getSelectedMapIndex(){
 		return pSelection.getSelectedMapIndex();
 	}
@@ -127,6 +132,10 @@ public class MenuView extends JPanel {
 		btNewGame.setEnabled(true);
 		btCredits.setVisible(true);
 		btExit.setVisible(true);
+	}
+	
+	public void updateMap(){
+		pSelection.updateMap();
 	}
 
 }

@@ -70,7 +70,7 @@ public class GothenburgMapView extends JPanel implements IMap {
 	}
 	
 
-	public static String toString(int i){
+	public static String getMapName(){
 		return "Gothenburg";
 	}
 	

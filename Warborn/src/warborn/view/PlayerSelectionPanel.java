@@ -11,6 +11,7 @@ public class PlayerSelectionPanel extends JPanel {
 	public JTextField tfPlayerName;
 	public JButton btColor;
 	public JComboBox cbRace, cbClass;
+	//will use when implementing race/class
 	private Warborn model;
 	
 	/**

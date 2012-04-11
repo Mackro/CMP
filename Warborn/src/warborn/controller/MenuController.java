@@ -3,6 +3,8 @@ package warborn.controller;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 
 import javax.swing.JButton;
 import javax.swing.JColorChooser;
@@ -10,7 +12,7 @@ import javax.swing.JColorChooser;
 import warborn.model.Warborn;
 import warborn.view.MenuView;
 
-public class MenuController implements ActionListener{
+public class MenuController implements ActionListener, ItemListener{
 	
 	private Warborn model;
 	private MenuView view;
@@ -26,6 +28,7 @@ public class MenuController implements ActionListener{
 		for(int i = 0; i < buttonArray2.length; i++){
 			buttonArray2[i].addActionListener(this);
 		}
+		view.getMapComboBox().addItemListener(this);
 	}
 
 	@Override
@@ -60,11 +63,18 @@ public class MenuController implements ActionListener{
 			model.setSelectedMap(view.getSelectedMapIndex());
 			model.startGame();
 		}else{
+			//Color choosing
 			for(JButton colorButton : this.view.getColorButtons()){
 				if(buttonPressed == colorButton){
 					colorButton.setBackground(JColorChooser.showDialog(view, "Choose your color", colorButton.getBackground()));
 				}
 			}
 		}
+	}
+
+	@Override
+	public void itemStateChanged(ItemEvent iEvt) {
+		//Display another Map
+		view.updateMap();
 	}
 }

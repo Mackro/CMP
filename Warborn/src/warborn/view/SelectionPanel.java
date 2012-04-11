@@ -14,7 +14,7 @@ public class SelectionPanel extends JPanel {
 	private JButton btStartGame;
 	private JComboBox cbMap;
 	private JLabel lbMap;
-	private JPanel pPlayer;
+	private JPanel pPlayer, pMap;
 	
 	/**
 	 * Create the panel.
@@ -33,7 +33,7 @@ public class SelectionPanel extends JPanel {
 			pPlayer.add(new PlayerSelectionPanel(model, i+1));
 		}
 
-		JPanel pMap = new JPanel();
+		pMap = new JPanel();
 		pMap.setLayout(null);
 		pMap.setBounds((int)(this.getWidth()*0.5)+10, 10, (int)(this.getWidth()*0.5)-15, this.getHeight()-20);
 		add(pMap);
@@ -72,6 +72,10 @@ public class SelectionPanel extends JPanel {
 		return btStartGame;
 	}
 	
+	public JComboBox getMapComboBox(){
+		return cbMap;
+	}
+	
 	public JButton[] getColorButtons(){
 		JButton[] btColors = new JButton[pPlayer.getComponentCount()];
 		for(int i = 0; i < pPlayer.getComponentCount(); i++){
@@ -98,6 +102,13 @@ public class SelectionPanel extends JPanel {
 	
 	public int getSelectedMapIndex(){
 		return cbMap.getSelectedIndex();
+	}
+	
+	public void updateMap(){
+		Image I = new ImageIcon("images/" + cbMap.getSelectedItem() + ".jpg").getImage();
+		I = I.getScaledInstance(pMap.getWidth(), -1, 0);
+		lbMap.setIcon(new ImageIcon(I));
+		pMap.revalidate();
 	}
 	
 }
