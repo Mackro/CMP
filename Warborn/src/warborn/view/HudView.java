@@ -85,26 +85,31 @@ public class HudView extends JPanel implements Observer{
 				cardPanelbtns[i].setIcon(model.getCurrentPlayer().getCard(i).getImage());
 			}
 		}
-		useCards.setEnabled(false);
+		
+		if (model.getCurrentPlayer().canExchangeCards()){
+			useCards.setEnabled(true);
+		}else{
+			useCards.setEnabled(false);
+		}
+		
 		if (model.getState() == 3){
 			next.setText("End Turn");
 			currentState.setText("Troop Movement");
 		}else{
-			next.setText("next");
+			next.setText("Next Phase");
 		}
+		
 		if (model.getState()==1){
-			if (model.getCurrentPlayer().canExchangeCards()){
-				useCards.setEnabled(true);
-			}
+			
 			reinforcements.setText("Reinforcements: " + model.getNbrOfReinforcements());
 			reinforcements.setVisible(true);
 			currentState.setText("Reinforce your Troops");
 			//TODO display "troops" in a fitting fashion
 		}
+		
 		if (model.getNbrOfReinforcements() != 0){
 			next.setEnabled(false);
-		}
-		else{
+		}else{
 			next.setEnabled(true);
 		}
 	
