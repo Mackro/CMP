@@ -71,6 +71,14 @@ public class SelectionPanel extends JPanel {
 	public JButton getStartButton(){
 		return btStartGame;
 	}
+	
+	public JButton[] getColorButtons(){
+		JButton[] btColors = new JButton[pPlayer.getComponentCount()];
+		for(int i = 0; i < pPlayer.getComponentCount(); i++){
+			btColors[i] = ((PlayerSelectionPanel)(pPlayer.getComponent(i))).getColorButton();
+		}
+		return btColors;
+	}
 
 	public String[] getNames(){
 		String[] names = new String[pPlayer.getComponentCount()];

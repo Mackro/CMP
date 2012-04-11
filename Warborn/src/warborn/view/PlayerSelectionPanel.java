@@ -42,7 +42,6 @@ public class PlayerSelectionPanel extends JPanel {
 		btColor.setLocation(20, 20);
 		btColor.setSize(50, 50);
 		btColor.setBackground(color);
-		btColor.setEnabled(false);
 		add(btColor);
 		
 		tfPlayerName = new JTextField("Player " + number);
@@ -94,6 +93,10 @@ public class PlayerSelectionPanel extends JPanel {
 	
 	public Color getPlayerColor(){
 		return btColor.getBackground();
+	}
+	
+	public JButton getColorButton(){
+		return btColor;
 	}
 
 }

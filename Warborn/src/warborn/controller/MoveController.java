@@ -41,7 +41,7 @@ public class MoveController implements ActionListener, ChangeListener {
 	}
 	
 	public void stateChanged(ChangeEvent e) {
-		view.getLbT1Troops().setText(view.getSlider().getMaximum() - view.getSlider().getValue() + 1 + "");
+		view.getLbT1Troops().setText(model.getMove().getFirstTerritory().getNbrOfUnits() + model.getMove().getSecondTerritory().getNbrOfUnits() - view.getSlider().getValue() + "");
 		view.getLbT2Troops().setText(view.getSlider().getValue() + "");
 	}
 }
