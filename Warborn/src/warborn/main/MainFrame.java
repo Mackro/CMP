@@ -30,10 +30,13 @@ public class MainFrame extends JFrame implements Observer{
 
 	@Override
 	public void update(Observable obs, Object arg1) {
-		//Testing to disable map while fighting and moving but no success yet...
 		if(obs instanceof Warborn && ((Warborn)obs).getPhase() == 1){
 			this.setEnabled(false);
 			this.setFocusable(false);
+		}else{
+			this.setEnabled(true);
+			this.setFocusable(true);
+			this.requestFocus();
 		}
 		
 	}

@@ -16,7 +16,7 @@ import warborn.view.*;
 
 public class Launcher implements Observer{
 
-	private JFrame frame;
+	private MainFrame frame;
 	private Warborn model;
 
 	/**
@@ -81,6 +81,7 @@ public class Launcher implements Observer{
 		frame.dispose();
 		frame = new MainFrame(model);
 		frame.setVisible(true);
+		model.addObserver(frame);
 		
 		GridBagConstraints c = new GridBagConstraints();
 		
