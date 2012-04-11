@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
+import javax.swing.JColorChooser;
 
 import warborn.model.Warborn;
 import warborn.view.MenuView;
@@ -20,6 +21,10 @@ public class MenuController implements ActionListener{
 		JButton[] buttonArray = view.getButtonArray();
 		for(int i = 0; i < buttonArray.length; i++){
 			buttonArray[i].addActionListener(this);
+		}
+		JButton[] buttonArray2 = view.getColorButtons();
+		for(int i = 0; i < buttonArray2.length; i++){
+			buttonArray2[i].addActionListener(this);
 		}
 	}
 
@@ -54,6 +59,12 @@ public class MenuController implements ActionListener{
 			model.setPlayers(names, colors);
 			model.setSelectedMap(view.getSelectedMapIndex());
 			model.startGame();
+		}else{
+			for(JButton colorButton : this.view.getColorButtons()){
+				if(buttonPressed == colorButton){
+					colorButton.setBackground(JColorChooser.showDialog(view, "Choose your color", colorButton.getBackground()));
+				}
+			}
 		}
 	}
 }

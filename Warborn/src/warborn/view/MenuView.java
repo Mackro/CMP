@@ -75,9 +75,11 @@ public class MenuView extends JPanel {
 			btBack,
 			btBack2,
 			pSelection.getStartButton(),
-			pSelection.getColorButtons()[0],
-			pSelection.getColorButtons()[1],
 		};
+	}
+	
+	public JButton[] getColorButtons(){
+		return pSelection.getColorButtons();
 	}
 	
 	public String[] getNames(){

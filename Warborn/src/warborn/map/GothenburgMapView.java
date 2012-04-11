@@ -42,6 +42,11 @@ public class GothenburgMapView extends JPanel implements IMap {
 			buttons[i].setText(model.getTerritory(i).getNbrOfUnits()+"");
 			buttons[i].setActionCommand(i + "");
 			buttons[i].setBackground(model.getTerritory(i).getOwner().getColor());
+			if(buttons[i].getBackground().getRed() + buttons[i].getBackground().getGreen() + buttons[i].getBackground().getBlue() < 250){
+				buttons[i].setForeground(Color.WHITE);
+			}else{
+				buttons[i].setForeground(Color.BLACK);
+			}
 			buttons[i].setBounds((int)(model.getWidth()*scalingConstants[i][0]),(int)(model.getHeight()*scalingConstants[i][1]), 50, 45);
 			/**
 			buttons[i].setOpaque(false);
@@ -83,6 +88,11 @@ public class GothenburgMapView extends JPanel implements IMap {
 		for(int i = 0; i < buttons.length; i++){
 			buttons[i].setText(model.getTerritory(Integer.parseInt(buttons[i].getActionCommand())).getNbrOfUnits() + "");
 			buttons[i].setBackground(model.getTerritory(i).getOwner().getColor());
+			if(buttons[i].getBackground().getRed() + buttons[i].getBackground().getGreen() + buttons[i].getBackground().getBlue() < 250){
+				buttons[i].setForeground(Color.WHITE);
+			}else{
+				buttons[i].setForeground(Color.BLACK);
+			}
 		}
 		if (model.getSelectedTerritoryIndex()>-1){
 			buttons[model.getSelectedTerritoryIndex()].setBackground(Color.GRAY);
