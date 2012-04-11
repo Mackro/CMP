@@ -42,15 +42,15 @@ public class HudView extends JPanel implements Observer{
 		buttons[1] = useCards;
 		
 		reinforcements = new JLabel("Reinforcements");
-		reinforcements.setBounds((int)(this.getWidth()*0.45), (int)(this.getHeight()*0.1), 400, 20);
+		reinforcements.setBounds((int)(this.getWidth()*0.26), (int)(this.getHeight()*0.01), 400, 20);
 		add(reinforcements);
 		
 		currentPlayer = new JLabel();
-		currentPlayer.setBounds((int)(this.getWidth()*0.45), (int)(this.getHeight()*0.2), 400, 20);
+		currentPlayer.setBounds((int)(this.getWidth()*0.26), (int)(this.getHeight()*0.08), 400, 20);
 		add(currentPlayer);
 		
 		currentState = new JLabel();
-		currentState.setBounds((int)(this.getWidth()*0.45), (int)(this.getHeight()*0.3), 400, 20);
+		currentState.setBounds((int)(this.getWidth()*0.26), (int)(this.getHeight()*0.15), 400, 20);
 		add(currentState);
 		
 		cardPanel = new JPanel();
