@@ -80,10 +80,8 @@ public class GothenburgMapView extends JPanel implements IMap {
 
 	@Override
 	public void update(Observable arg0, Object arg1) {
-		if(model.getPhase() == 1){
-			this.setEnabled(false);
-		}else{
-			this.setEnabled(true);
+		if(model.getPhase() == 0){
+			this.requestFocus();
 		}
 		for(int i = 0; i < buttons.length; i++){
 			buttons[i].setText(model.getTerritory(Integer.parseInt(buttons[i].getActionCommand())).getNbrOfUnits() + "");

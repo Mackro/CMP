@@ -2,11 +2,16 @@ package warborn.main;
 
 
 import java.awt.*;
+import java.awt.event.KeyEvent;
 import java.util.Observable;
 import java.util.Observer;
 
+import javax.swing.Action;
+import javax.swing.JButton;
+import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.KeyStroke;
 
 import warborn.SupportClasses.MapData;
 import warborn.controller.*;
@@ -18,6 +23,7 @@ public class Launcher implements Observer{
 
 	private MainFrame frame;
 	private Warborn model;
+	private KeyAction keyAction;
 
 	/**
 	 * Launch the application.
@@ -37,6 +43,7 @@ public class Launcher implements Observer{
 	 */
 	public Launcher() {
 		model = new Warborn();
+		keyAction = new KeyAction(model, this);
 		init();
 		initialize();
 		model.addObserver(this);
@@ -95,6 +102,9 @@ public class Launcher implements Observer{
 		c.gridy = 0;
 		c.weighty = 0.75;
 		frame.add((JPanel)mapList[mapIndex], c);
+		((JPanel)(mapList[mapIndex])).getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), "options");
+		((JPanel)(mapList[mapIndex])).getActionMap().put("options", keyAction);
+		
 		
 		HudView hud = new HudView(model);
 		new HudController(model, hud);
