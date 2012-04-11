@@ -29,7 +29,7 @@ public class GothenburgMapView extends JPanel implements IMap {
 		
 		JLabel maplbl = new JLabel("");
 		maplbl.setVerticalAlignment(SwingConstants.TOP);
-		maplbl.setBounds(0, 0, model.getWidth(), model.getHeight());
+		maplbl.setBounds(0, 0, model.getWidth(), (int)(model.getHeight()*0.75));
 		
 		//Scaling the Map image to fit the screensize
 		Image I = new ImageIcon("images/Gothenburg.jpg").getImage();

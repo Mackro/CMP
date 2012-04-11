@@ -19,39 +19,44 @@ public class HudView extends JPanel implements Observer{
 	
 	public HudView(Warborn model){
 
-		this.setLayout(null);
-		this.setSize(model.getWidth(), (int)(model.getHeight()*0.25));
-		this.setLocation(0, 0);
+		setLayout(null);
+		setSize(model.getWidth(),(int)(model.getWidth()*0.25));
+		setLocation(0, 0);
 		
 		buttons = new JButton[2];
 		
 		next = new JButton("Next");
-		next.setBounds((int)(this.getWidth()*0.8), (int)(this.getHeight()*0.25), 200, 150);
-		this.add(next);
+		next.setBounds((int)((this.getWidth())-this.getWidth()/13.66),
+				(int)(this.getHeight()*0.25),
+				(int)(this.getWidth()/13.66),
+				(int)(this.getHeight()/11.8));
+		add(next);
 		buttons[0] = next;
 		
 		useCards = new JButton("Souls");
-		useCards.setBounds((int)(this.getWidth()*0.1), (int)(this.getHeight()*0.25), 200, 150);
-		this.add(useCards);
+		useCards.setBounds((int)((this.getWidth()*0.125)-(this.getWidth()/(2*13.66))), 
+				(int)(this.getHeight()*0.32),
+				(int)(this.getWidth()/13.66),
+				(int)(this.getHeight()/10));
+		add(useCards);
 		buttons[1] = useCards;
 		
 		reinforcements = new JLabel("Reinforcements");
 		reinforcements.setBounds((int)(this.getWidth()*0.45), (int)(this.getHeight()*0.1), 400, 20);
-		this.add(reinforcements);
+		add(reinforcements);
 		
 		currentPlayer = new JLabel();
 		currentPlayer.setBounds((int)(this.getWidth()*0.45), (int)(this.getHeight()*0.2), 400, 20);
-		this.add(currentPlayer);
+		add(currentPlayer);
 		
 		currentState = new JLabel();
 		currentState.setBounds((int)(this.getWidth()*0.45), (int)(this.getHeight()*0.3), 400, 20);
-		this.add(currentState);
+		add(currentState);
 		
 		cardPanel = new JPanel();
 		cardPanel.setLayout(new GridLayout());
-		cardPanel.setBounds((int)(this.getWidth()*0.35), (int)(this.getHeight()*0.4),
-				(int)(this.getWidth()*0.3), 100);
-		this.add(cardPanel);
+		cardPanel.setBounds(0, 0, (int)(this.getWidth()*0.25),(int)(model.getHeight()/9.6));
+		add(cardPanel);
 		
 		cardPanelbtns = new JButton[5];
 		for (int i=0; i<cardPanelbtns.length; i++){
@@ -61,7 +66,7 @@ public class HudView extends JPanel implements Observer{
 		territoryData = new JLabel();
 		
 		
-		this.setVisible(true);
+		setVisible(true);
 	}
 	
 	public JButton[] getButtons(){
