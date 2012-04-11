@@ -23,7 +23,7 @@ public class HudController implements ActionListener {
 			model.nextState();
 		}
 		if((e).getSource() == view.getButtons()[1]){
-			//TODO implement UseCards/ExchangeSouls
+			model.exchangeSouls();
 		}
 	}
 

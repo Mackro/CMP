@@ -250,6 +250,35 @@ public class Warborn extends Observable{
 		}
 		return true;
 	}
+	
+	public void exchangeSouls(){
+		int[] nbrOfCards = new int[CardDeck.getMaxValue()];
+		for (int i=0; i<players.get(currentPlayer).getNumberOfCards(); i++){
+			nbrOfCards[players.get(currentPlayer).getCards()[i].getIndex()]++;
+		}
+		if (nbrOfCards[0]!=0 && nbrOfCards[1]!=0 && nbrOfCards[2]!=0){
+			players.get(currentPlayer).changeMana(10);
+			players.get(currentPlayer).removeCard(0);
+			players.get(currentPlayer).removeCard(1);
+			players.get(currentPlayer).removeCard(2);
+		}else if (nbrOfCards[2]>2){
+			players.get(currentPlayer).changeMana(8);
+			for (int i=0; i<3; i++){
+				players.get(currentPlayer).removeCard(2);
+			}
+		}else if (nbrOfCards[1]>2){
+			players.get(currentPlayer).changeMana(6);
+			for (int i=0; i<3; i++){
+				players.get(currentPlayer).removeCard(1);
+			}
+		}else{
+			players.get(currentPlayer).changeMana(4);
+			for (int i=0; i<3; i++){
+				players.get(currentPlayer).removeCard(0);
+			}
+		}
+		this.changed();
+	}
 
 
 	protected void changed() {

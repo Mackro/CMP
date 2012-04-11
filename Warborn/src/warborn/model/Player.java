@@ -4,7 +4,7 @@ import java.awt.Color;
 
 public class Player {
 
-	private int id, nbrOfTerritories = 0;
+	private int id, nbrOfTerritories = 0, mana = 2;
 	private String name;
 	private Color color;
 	private Card[] cards = new Card[5];
@@ -49,6 +49,10 @@ public class Player {
 	
 	public Card getCard(int index){
 		return cards[index];
+	}
+	
+	public int getMana(){
+		return mana;
 	}
 	
 	public boolean hasConquered(){
@@ -106,5 +110,9 @@ public class Player {
 	
 	public void conquered(boolean b){
 		hasConquered = b;
+	}
+	
+	public void changeMana(int mana){
+		this.mana = this.mana + mana;
 	}
 }
