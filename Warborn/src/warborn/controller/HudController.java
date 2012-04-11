@@ -2,10 +2,13 @@ package warborn.controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+
 import warborn.model.Warborn;
 import warborn.view.HudView;
 
-public class HudController implements ActionListener {
+public class HudController implements ActionListener, KeyListener {
 	private Warborn model;
 	private HudView view;
 	
@@ -15,6 +18,8 @@ public class HudController implements ActionListener {
 		for(int i=0; i<view.getButtons().length; i++){
 			view.getButtons()[i].addActionListener(this);
 		}
+		view.addKeyListener(this);
+		view.setFocusable(true);
 	}
 
 	@Override
@@ -25,6 +30,27 @@ public class HudController implements ActionListener {
 		if((e).getSource() == view.getButtons()[1]){
 			model.exchangeSouls();
 		}
+	}
+
+	@Override
+	public void keyPressed(KeyEvent arg0) {
+		
+	}
+
+	@Override
+	public void keyReleased(KeyEvent arg0) {
+		
+	}
+
+	@Override
+	public void keyTyped(KeyEvent evt) {
+		System.out.println("Char: "+evt.getKeyChar() + "  ,Code: " + evt.getKeyCode() + "  ,Location: " + evt.getKeyLocation());
+		/*
+		if(evt.getKeyCode() == KeyEvent.VK_ESCAPE){
+			System.out.println("Det funkar");
+		} else {
+			System.out.println("funkar inte");
+		}*/
 	}
 
 }
