@@ -6,24 +6,58 @@ import java.util.Observer;
 import warborn.model.Warborn;
 import javax.swing.*;
 
+import com.sun.xml.internal.bind.v2.model.impl.ModelBuilder;
+
 public class HudView extends JPanel implements Observer{
 	
 	private static final long serialVersionUID = 1L;
 	private JPanel cardPanel;
+	private JPanel phaseInfo;
+	private JPanel playerPanel;
+	private JPanel[] playerPanelsArray;
+	
 	private JButton[] buttons;
 	private JButton next, useCards;
 	private JLabel currentPlayer, territoryData, currentState;
 	private JButton[] cardPanelbtns;
 	//private JLabel[] PlayerStats;
 	private JLabel reinforcements;
+	private Warborn model;
 	
 	public HudView(Warborn model){
-
+		
+		this.model = model;
+		playerPanelsArray = new JPanel[model.getNumberOfPlayers()];
+		cardPanelbtns = new JButton[5];
+		
 		setLayout(null);
-		setSize(model.getWidth(),(int)(model.getWidth()*0.25));
+		setSize(1359,356);
 		setLocation(0, 0);
 		
+		phaseInfo = new JPanel();
+		phaseInfo.setBounds((int)(this.getWidth()*0.25),0,400,this.getHeight());
+		phaseInfo.setLayout(null);
+		add(phaseInfo);
+		
+		playerPanel = new JPanel();
+		playerPanel.setLayout(new GridLayout(1, model.getNumberOfPlayers()));
+		playerPanel.setBounds((int)((this.getWidth()*0.25)+(this.getWidth()/3.41)), 0,
+				(int)((this.getWidth()-(this.getWidth()*0.25)-(this.getWidth()/3.41)-(this.getWidth()/13.66))),this.getHeight());
+		add(playerPanel);
+		
+		
+		cardPanel = new JPanel();
+		cardPanel.setLayout(new GridLayout());
+		cardPanel.setBounds(0, 0, (int)(this.getWidth()*0.25),(int)(model.getHeight()/9.6));
+		add(cardPanel);
+		
+		
 		buttons = new JButton[2];
+		
+		for(int i = 0; i<cardPanelbtns.length; i++){
+			cardPanelbtns[i] = new JButton();
+			cardPanel.add(cardPanelbtns[i]);
+		}
 		
 		next = new JButton("Next");
 		next.setBounds((int)((this.getWidth())-this.getWidth()/13.66),
@@ -42,28 +76,54 @@ public class HudView extends JPanel implements Observer{
 		buttons[1] = useCards;
 		
 		reinforcements = new JLabel("Reinforcements");
-		reinforcements.setBounds((int)(this.getWidth()*0.26), (int)(this.getHeight()*0.01), 400, 20);
-		add(reinforcements);
+		reinforcements.setBounds((0), (int)(this.getHeight()*0.01), 400, 20);
+		phaseInfo.add(reinforcements);
 		
 		currentPlayer = new JLabel();
-		currentPlayer.setBounds((int)(this.getWidth()*0.26), (int)(this.getHeight()*0.08), 400, 20);
-		add(currentPlayer);
+		currentPlayer.setBounds(0, (int)(this.getHeight()*0.08), 400, 20);
+		phaseInfo.add(currentPlayer);
 		
 		currentState = new JLabel();
-		currentState.setBounds((int)(this.getWidth()*0.26), (int)(this.getHeight()*0.15), 400, 20);
-		add(currentState);
+		currentState.setBounds(0, (int)(this.getHeight()*0.15), 400, 20);
+		phaseInfo.add(currentState);
 		
-		cardPanel = new JPanel();
-		cardPanel.setLayout(new GridLayout());
-		cardPanel.setBounds(0, 0, (int)(this.getWidth()*0.25),(int)(model.getHeight()/9.6));
-		add(cardPanel);
-		
-		cardPanelbtns = new JButton[5];
-		for (int i=0; i<cardPanelbtns.length; i++){
-			cardPanelbtns[i] = new JButton();
-			cardPanel.add(cardPanelbtns[i]);
+
+		for(int i = 0; i <model.getNumberOfPlayers(); i++){
+			playerPanelsArray[i]= new JPanel();
+
+			JLabel playerName = new JLabel();
+			playerName.setText(model.getPlayer(i).getName());
+			playerName.setForeground(model.getPlayer(i).getColor());
+			playerName.setBounds(0, 0, 
+					playerPanelsArray[i].getWidth(),
+					(int)(playerPanelsArray[i].getHeight()*0.2));
+			playerPanelsArray[i].add(playerName);
+			
+			JLabel territories = new JLabel("Number of Territories:  ");
+			territories.setText(model.getPlayer(i).getNbrOfTerritories() + "");
+			playerName.setBounds(0, (int)(playerPanelsArray[i].getHeight()*0.2), 
+					playerPanelsArray[i].getWidth(),
+					(int)(playerPanelsArray[i].getHeight()/5));
+			playerPanelsArray[i].add(territories);
+			
+			JLabel troops = new JLabel("Number of Troups:  ");
+			troops.setText(calculateNbrOfUnits(i) + "");
+			troops.setBounds(0, (int)(playerPanelsArray[i].getHeight()*0.4), 
+					playerPanelsArray[i].getWidth(),
+					(int)(playerPanelsArray[i].getHeight()/5));
+			playerPanelsArray[i].add(troops);
+			
+			
+			JLabel mana = new JLabel("Mana:  ");
+			mana.setText(model.getPlayer(i).getMana() + "");
+			mana.setBounds(0, (int)(playerPanelsArray[i].getHeight()*0.6), 
+					playerPanelsArray[i].getWidth(),
+					(int)(playerPanelsArray[i].getHeight()/5));
+			playerPanelsArray[i].add(mana);
+			
+			playerPanel.add(playerPanelsArray[i]);
 		}
-		territoryData = new JLabel();
+		
 		
 		
 		setVisible(true);
@@ -71,6 +131,17 @@ public class HudView extends JPanel implements Observer{
 	
 	public JButton[] getButtons(){
 		return buttons;
+	}
+	
+	public int calculateNbrOfUnits(int playerIndex){
+		int nbrOfUnits = 0;
+		for(int i = 0; i < model.getTerritories().length; i++){
+			if(model.getTerritory(i).getOwner() == model.getPlayer(playerIndex)){
+				nbrOfUnits += model.getTerritory(i).getNbrOfUnits();
+			}
+		}
+			
+		return nbrOfUnits;
 	}
 	
 	@Override
