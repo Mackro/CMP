@@ -6,15 +6,18 @@ public class Player {
 
 	private int id, nbrOfTerritories = 0, mana = 2;
 	private String name;
+	private int race, background;
 	private Color color;
 	private Card[] cards = new Card[5];
 	private boolean hasConquered;
 	
-	public Player(String name, int id, Color color){
+	public Player(String name, int id, Color color, int race, int background){
 		this.name = name;
 		this.id = id;
 		Color copiedColor = new Color(color.getRed(), color.getGreen(), color.getBlue());
 		this.color = copiedColor;
+		this.race = race;
+		this.background = background;
 	}
 	
 	public int getID(){
@@ -32,6 +35,14 @@ public class Player {
 	
 	public String getName(){
 		return name;
+	}
+	
+	public int getRaceIndex(){
+		return race;
+	}
+	
+	public int getBackgroundIndex(){
+		return background;
 	}
 	
 	public Card[] getCards(){

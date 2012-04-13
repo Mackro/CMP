@@ -28,8 +28,8 @@ public class Warborn extends Observable{
 		Toolkit kit = Toolkit.getDefaultToolkit();
 		dimension = kit.getScreenSize();
 		this.players = new ArrayList<Player>();
-		addPlayer("Player 1", Color.CYAN);
-		addPlayer("Player 2", Color.YELLOW);
+		addPlayer("Player 1", Color.CYAN, 0, 0);
+		addPlayer("Player 2", Color.YELLOW, 0, 0);
 		/*try {
 			this.territories = TerritoryFactory.getTerritories("Gothenburg");
 		} catch (IOException e) {
@@ -113,7 +113,10 @@ public class Warborn extends Observable{
 
 	public Territory getTerritory(int i){
 		return territories[i];
-
+	}
+	
+	public Territory getSelectedTerritory(){
+		return territories[getSelectedTerritoryIndex()];
 	}
 	
 	public int getNbrOfReinforcements(){
@@ -123,10 +126,10 @@ public class Warborn extends Observable{
 
 	//Setters:
 
-	public void setPlayers(String[] names, Color[] colors){
+	public void setPlayers(String[] names, Color[] colors, int[] race, int[] background){
 		players.clear();
 		for(int i = 0; i < names.length; i++){
-			players.add(new Player(names[i], i, colors[i]));
+			players.add(new Player(names[i], i, colors[i], race[i], background[i]));
 		}
 		changed();
 	}
@@ -175,8 +178,8 @@ public class Warborn extends Observable{
 
 	//End Setters
 
-	public void addPlayer(String name, Color color){
-		players.add(new Player(name, players.size(), color));
+	public void addPlayer(String name, Color color, int race, int background){
+		players.add(new Player(name, players.size(), color, race, background));
 		changed();
 	}
 

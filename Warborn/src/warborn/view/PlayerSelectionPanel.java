@@ -4,13 +4,14 @@ import java.awt.Color;
 
 import javax.swing.*;
 
+import warborn.SupportClasses.PlayerData;
 import warborn.model.Warborn;
 
 public class PlayerSelectionPanel extends JPanel {
 
 	public JTextField tfPlayerName;
 	public JButton btColor;
-	public JComboBox cbRace, cbClass;
+	public JComboBox cbRace, cbBackground;
 	//will use when implementing race/class
 	private Warborn model;
 	
@@ -51,14 +52,14 @@ public class PlayerSelectionPanel extends JPanel {
 		add(tfPlayerName);
 		
 		JLabel lbRace = new JLabel("Race:");
-		lbRace.setLocation(150, 20);
-		lbRace.setSize(100, 30);
+		lbRace.setLocation(162, 20);
+		lbRace.setSize(28, 30);
 		add(lbRace);
 		
-		JLabel lbClass = new JLabel("Class:");
-		lbClass.setLocation(150, 60);
-		lbClass.setSize(100, 30);
-		add(lbClass);
+		JLabel lbBackground = new JLabel("Background:");
+		lbBackground.setLocation(130, 61);
+		lbBackground.setSize(60, 30);
+		add(lbBackground);
 
 		cbRace = new JComboBox();
 		cbRace.setLocation(200, 20);
@@ -67,24 +68,28 @@ public class PlayerSelectionPanel extends JPanel {
 		cbRace.setModel(getRaces());
 		add(cbRace);
 		
-		cbClass = new JComboBox();
-		cbClass.setLocation(200, 60);
-		cbClass.setSize(100, 30);
-		cbClass.setBackground(Color.WHITE);
-		cbClass.setModel(getClasses());
-		add(cbClass);
+		cbBackground = new JComboBox();
+		cbBackground.setLocation(200, 60);
+		cbBackground.setSize(100, 30);
+		cbBackground.setBackground(Color.WHITE);
+		cbBackground.setModel(getBackgrounds());
+		add(cbBackground);
 		
 	}
 
-	private ComboBoxModel getClasses() {
+	private ComboBoxModel getBackgrounds() {
 		DefaultComboBoxModel boxModel = new DefaultComboBoxModel();
-		boxModel.addElement("None");
+		for(int i = 0; i < PlayerData.getNumberOfBackgrounds(); i++){
+			boxModel.addElement(PlayerData.getBackgroundName(i));
+		}
 		return boxModel;
 	}
 
 	private ComboBoxModel getRaces() {
 		DefaultComboBoxModel boxModel = new DefaultComboBoxModel();
-		boxModel.addElement("Human");
+		for(int i = 0; i < PlayerData.getNumberOfRaces(); i++){
+			boxModel.addElement(PlayerData.getRaceName(i));
+		}
 		return boxModel;
 	}
 	
@@ -94,6 +99,14 @@ public class PlayerSelectionPanel extends JPanel {
 	
 	public Color getPlayerColor(){
 		return btColor.getBackground();
+	}
+	
+	public int getPlayerRace(){
+		return cbRace.getSelectedIndex();
+	}
+	
+	public int getPlayerBackground(){
+		return cbBackground.getSelectedIndex();
 	}
 	
 	public JButton getColorButton(){

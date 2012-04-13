@@ -100,6 +100,22 @@ public class SelectionPanel extends JPanel {
 		return colors;
 	}
 	
+	public int[] getRaces(){
+		int[] races = new int[pPlayer.getComponentCount()];
+		for(int i = 0; i < pPlayer.getComponentCount(); i++){
+			races[i] = ((PlayerSelectionPanel)(pPlayer.getComponent(i))).getPlayerRace();
+		}
+		return races;
+	}
+	
+	public int[] getBackgrounds(){
+		int[] backgrounds = new int[pPlayer.getComponentCount()];
+		for(int i = 0; i < pPlayer.getComponentCount(); i++){
+			backgrounds[i] = ((PlayerSelectionPanel)(pPlayer.getComponent(i))).getPlayerBackground();
+		}
+		return backgrounds;
+	}
+	
 	public int getSelectedMapIndex(){
 		return cbMap.getSelectedIndex();
 	}

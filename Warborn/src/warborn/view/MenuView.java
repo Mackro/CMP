@@ -91,6 +91,14 @@ public class MenuView extends JPanel {
 		return pSelection.getColors();
 	}
 	
+	public int[] getRaces(){
+		return pSelection.getRaces();
+	}
+	
+	public int[] getBackgrounds(){
+		return pSelection.getBackgrounds();
+	}
+	
 	public JComboBox getMapComboBox(){
 		return pSelection.getMapComboBox();
 	}

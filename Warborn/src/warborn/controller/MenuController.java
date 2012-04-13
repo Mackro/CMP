@@ -59,7 +59,9 @@ public class MenuController implements ActionListener, ItemListener{
 			//StartGame
 			String[] names = view.getNames();
 			Color[] colors = view.getColors();
-			model.setPlayers(names, colors);
+			int[] races = view.getRaces();
+			int[] backgrounds = view.getBackgrounds();
+			model.setPlayers(names, colors, races, backgrounds);
 			model.setSelectedMap(view.getSelectedMapIndex());
 			model.startGame();
 		}else{

@@ -15,6 +15,7 @@ import javax.swing.KeyStroke;
 
 import warborn.SupportClasses.MapData;
 import warborn.controller.*;
+import warborn.map.GothenburgMapView;
 import warborn.map.IMap;
 import warborn.model.Warborn;
 import warborn.view.*;
@@ -92,7 +93,7 @@ public class Launcher implements Observer{
 		
 		GridBagConstraints c = new GridBagConstraints();
 		
-		IMap[] mapList = MapData.getMapList(model);
+		IMap[] mapList = getMapList();
 		new MapController(model, mapList[mapIndex]);
 		model.addObserver(mapList[mapIndex]);
 		c.weightx = 1;
@@ -137,6 +138,12 @@ public class Launcher implements Observer{
 		model.addObserver(this);
 		run();
 		
+	}
+	
+	public IMap[] getMapList(){
+		return new IMap[] {
+				new GothenburgMapView(model),
+		};
 	}
 
 }
