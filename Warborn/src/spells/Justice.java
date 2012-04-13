@@ -13,5 +13,4 @@ public class Justice extends Spell {
 		model.getCurrentPlayer().changeMana(-this.getManaCost());
 		model.getSelectedTerritory().decrementUnits(2);
 	}
-
 }

@@ -54,7 +54,7 @@ public class Territory {
 		this.nbrOfUnits++;
 	}
 	
-	public void decramentUnits(int units){
+	public void decrementUnits(int units){
 		for (int i=0; i<units; i++){
 			this.decrementUnit();
 		}
