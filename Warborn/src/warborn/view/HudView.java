@@ -15,10 +15,14 @@ public class HudView extends JPanel implements Observer{
 	private JPanel phaseInfo;
 	private JPanel playerPanel;
 	private JPanel[] playerPanelsArray;
+	private JLabel playerName;
+	private JLabel territories;
+	private JLabel troops;
+	private JLabel mana;
 	
 	private JButton[] buttons;
 	private JButton next, useCards;
-	private JLabel currentPlayer, territoryData, currentState;
+	private JLabel currentPlayer, currentState;
 	private JButton[] cardPanelbtns;
 	//private JLabel[] PlayerStats;
 	private JLabel reinforcements;
@@ -35,13 +39,13 @@ public class HudView extends JPanel implements Observer{
 		setLocation(0, 0);
 		
 		phaseInfo = new JPanel();
-		phaseInfo.setBounds((int)(this.getWidth()*0.25),0,400,this.getHeight());
+		phaseInfo.setBounds((int)(this.getWidth()*0.25),0,(int)(this.getWidth()/3.4),this.getHeight());
 		phaseInfo.setLayout(null);
 		add(phaseInfo);
 		
 		playerPanel = new JPanel();
 		playerPanel.setLayout(new GridLayout(1, model.getNumberOfPlayers()));
-		playerPanel.setBounds((int)((this.getWidth()*0.25)+(this.getWidth()/3.41)), 0,
+		playerPanel.setBounds((int)((this.getWidth()*0.25)+((int)(this.getWidth()/3.4))), 0,
 				(int)((this.getWidth()-(this.getWidth()*0.25)-(this.getWidth()/3.41)-(this.getWidth()/13.66))),this.getHeight());
 		add(playerPanel);
 		
@@ -89,36 +93,26 @@ public class HudView extends JPanel implements Observer{
 		
 
 		for(int i = 0; i <model.getNumberOfPlayers(); i++){
-			playerPanelsArray[i]= new JPanel();
-
-			JLabel playerName = new JLabel();
-			playerName.setText(model.getPlayer(i).getName());
+			playerPanelsArray[i] = new JPanel();
+			playerPanelsArray[i].setLayout(null);
+			playerPanelsArray[i].setSize((int)(playerPanel.getWidth()/model.getNumberOfPlayers()),playerPanel.getHeight()  );
+			
+			playerName = new JLabel("1");
 			playerName.setForeground(model.getPlayer(i).getColor());
-			playerName.setBounds(0, 0, 
-					playerPanelsArray[i].getWidth(),
-					(int)(playerPanelsArray[i].getHeight()*0.2));
+			playerName.setLocation(0, 0);
 			playerPanelsArray[i].add(playerName);
 			
-			JLabel territories = new JLabel("Number of Territories:  ");
-			territories.setText(model.getPlayer(i).getNbrOfTerritories() + "");
-			playerName.setBounds(0, (int)(playerPanelsArray[i].getHeight()*0.2), 
-					playerPanelsArray[i].getWidth(),
-					(int)(playerPanelsArray[i].getHeight()/5));
+			territories = new JLabel("2");
+			territories.setLocation(0, (int)(playerPanelsArray[i].getHeight()*0.2));
 			playerPanelsArray[i].add(territories);
 			
-			JLabel troops = new JLabel("Number of Troups:  ");
-			troops.setText(calculateNbrOfUnits(i) + "");
-			troops.setBounds(0, (int)(playerPanelsArray[i].getHeight()*0.4), 
-					playerPanelsArray[i].getWidth(),
-					(int)(playerPanelsArray[i].getHeight()/5));
+			troops = new JLabel("3");
+			troops.setLocation(0, (int)(playerPanelsArray[i].getHeight()*0.4));
 			playerPanelsArray[i].add(troops);
 			
 			
-			JLabel mana = new JLabel("Mana:  ");
-			mana.setText(model.getPlayer(i).getMana() + "");
-			mana.setBounds(0, (int)(playerPanelsArray[i].getHeight()*0.6), 
-					playerPanelsArray[i].getWidth(),
-					(int)(playerPanelsArray[i].getHeight()/5));
+			mana = new JLabel("4");
+			mana.setLocation(0, (int)(playerPanelsArray[i].getHeight()*0.6));
 			playerPanelsArray[i].add(mana);
 			
 			playerPanel.add(playerPanelsArray[i]);
@@ -175,13 +169,19 @@ public class HudView extends JPanel implements Observer{
 			reinforcements.setText("Reinforcements: " + model.getNbrOfReinforcements());
 			reinforcements.setVisible(true);
 			currentState.setText("Reinforce your Troops");
-			//TODO display "troops" in a fitting fashion
 		}
 		
 		if (model.getNbrOfReinforcements() != 0){
 			next.setEnabled(false);
 		}else{
 			next.setEnabled(true);
+		}
+		
+		for (int i = 0; i < model.getNumberOfPlayers(); i++){
+			playerName.setText(model.getPlayer(i).getName());
+			territories.setText("Number of Territories:  " + model.getPlayer(i).getNbrOfTerritories() + "");
+			troops.setText("Number of Troups:  " + calculateNbrOfUnits(i) + "");
+			mana.setText("Mana:  " + model.getPlayer(i).getMana());
 		}
 	
 		
