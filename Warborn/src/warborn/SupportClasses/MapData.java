@@ -1,16 +1,8 @@
 package warborn.SupportClasses;
 
-import warborn.map.GothenburgMapView;
-import warborn.map.IMap;
-import warborn.model.Warborn;
+import warborn.map.*;
 
 public final class MapData {
-
-	public static IMap[] getMapList(Warborn model){
-		return new IMap[] {
-				new GothenburgMapView(model),
-		};
-	}
 	
 	public static String[] getMapNames(){
 		return new String[] {
