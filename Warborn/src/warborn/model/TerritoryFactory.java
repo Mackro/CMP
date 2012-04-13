@@ -6,7 +6,7 @@ public class TerritoryFactory {
 
 	
 	public static Territory[] getTerritories(String mapName) throws IOException{
-		File file = new File("maps/" + mapName + ".txt");
+		File file = new File("WarbornData/maps/" + mapName + ".txt");
 		LineNumberReader lnr = new LineNumberReader(new FileReader(file));
 		lnr.skip(file.length()-1);
 		int lines = lnr.getLineNumber()+1;

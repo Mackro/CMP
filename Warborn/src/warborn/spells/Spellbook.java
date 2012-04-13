@@ -1,4 +1,4 @@
-package spells;
+package warborn.spells;
 
 import java.util.ArrayList;
 
@@ -7,6 +7,10 @@ public class Spellbook {
 	private ArrayList<Spell> spells;
 	
 	public Spellbook() {
+		
+	}
+	
+	public void fill(int bg){
 		
 	}
 	

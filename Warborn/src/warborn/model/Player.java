@@ -2,6 +2,8 @@ package warborn.model;
 
 import java.awt.Color;
 
+import warborn.spells.*;
+
 public class Player {
 
 	private int id, nbrOfTerritories = 0, mana = 2;
@@ -10,6 +12,7 @@ public class Player {
 	private Color color;
 	private Card[] cards = new Card[5];
 	private boolean hasConquered;
+	private Spellbook spellbook;
 	
 	public Player(String name, int id, Color color, int race, int background){
 		this.name = name;
@@ -18,6 +21,8 @@ public class Player {
 		this.color = copiedColor;
 		this.race = race;
 		this.background = background;
+		this.spellbook = new Spellbook();
+		spellbook.fill(background);
 	}
 	
 	public int getID(){
@@ -64,6 +69,10 @@ public class Player {
 	
 	public int getMana(){
 		return mana;
+	}
+	
+	public Spellbook getSpelbook(){
+		return spellbook;
 	}
 	
 	public boolean hasConquered(){

@@ -1,4 +1,4 @@
-package spells;
+package warborn.spells;
 
 import warborn.model.Warborn;
 
