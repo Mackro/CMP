@@ -15,7 +15,7 @@ public class PlayerTest {
 		Color c = Color.BLACK;
 		String name = "name";
 		int i = 5;
-		Player test = new Player(name, i, c);
+		Player test = new Player(name, i, c, 0, 0);
 		c = Color.YELLOW;
 		name = "wrong";
 		i = 7;
@@ -27,7 +27,7 @@ public class PlayerTest {
 
 	@Test
 	public void testGetNbrOfTerritories() {
-		Player test = new Player("name", 7, Color.BLUE);
+		Player test = new Player("name", 7, Color.BLUE, 0, 0);
 		test.addTerritory(new Territory("Tname", 1));
 		test.addTerritory(new Territory("Tname", 2));
 		test.addTerritory(new Territory("Tname", 3));
@@ -41,7 +41,7 @@ public class PlayerTest {
 
 	@Test
 	public void testAddCard() {
-		Player test = new Player("name", 8, Color.CYAN);
+		Player test = new Player("name", 8, Color.CYAN, 0, 0);
 		CardDeck deck = new CardDeck();
 		test.addCard(deck.drawCard());
 		test.addCard(deck.drawCard());
@@ -54,7 +54,7 @@ public class PlayerTest {
 
 	@Test
 	public void testRemoveCard() {
-		Player test = new Player("name", 4, Color.DARK_GRAY);
+		Player test = new Player("name", 4, Color.DARK_GRAY, 0, 0);
 		CardDeck deck = new CardDeck();
 		test.addCard(deck.drawCard());
 		Card c = deck.drawCard();
@@ -71,7 +71,7 @@ public class PlayerTest {
 
 	@Test
 	public void testCanExchangeCards() {
-		Player test = new Player("name", 3, Color.GRAY);
+		Player test = new Player("name", 3, Color.GRAY, 0, 0);
 		CardDeck deck = new CardDeck();
 		Card c = deck.drawCard();
 		test.addCard(c);

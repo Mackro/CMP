@@ -17,7 +17,9 @@ public class WarbornTest {
 	public void TestSetPlayers() {
 		String[] names = {"player1", "player2"};
 		Color[] colors = {Color.red, Color.blue};
-		model.setPlayers(names, colors);
+		int[] races = {0, 0};
+		int[] backgrounds = {0, 0};
+		model.setPlayers(names, colors, races, backgrounds);
 		Player[] players = model.getPlayers();
 		assertTrue(players[1].getName().equals(names[1]));
 		assertTrue(players[2].getName().equals(names[2]));

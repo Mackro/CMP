@@ -26,10 +26,10 @@ public class TerritoryTest {
 	}
 	@Test
 	public void TestSetOwner() {
-		Player player = new Player("player", 1, Color.RED);
+		Player player = new Player("player", 1, Color.RED, 0, 0);
 		t1.setOwner(player);
 		assertTrue(t1.getOwner()==player);
-		Player player2 = new Player("player", 2, Color.BLUE);
+		Player player2 = new Player("player", 2, Color.BLUE, 0, 0);
 		t1.setOwner(player2);
 		assertTrue(t1.getOwner()==player2);
 	}
