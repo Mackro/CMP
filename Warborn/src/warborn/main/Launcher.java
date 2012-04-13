@@ -103,6 +103,9 @@ public class Launcher implements Observer{
 		c.weighty = 0.75;
 		frame.add((JPanel)mapList[mapIndex], c);
 		((JPanel)(mapList[mapIndex])).getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), "options");
+		((JPanel)(mapList[mapIndex])).getInputMap().put(KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), "options");
+		((JPanel)(mapList[mapIndex])).getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_F10, 0), "options");
+		((JPanel)(mapList[mapIndex])).getInputMap().put(KeyStroke.getKeyStroke(KeyEvent.VK_F10, 0), "options");
 		((JPanel)(mapList[mapIndex])).getActionMap().put("options", keyAction);
 		
 		
