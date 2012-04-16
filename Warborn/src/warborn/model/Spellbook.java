@@ -1,6 +1,8 @@
-package warborn.spells;
+package warborn.model;
 
 import java.util.ArrayList;
+
+import warborn.model.spells.Spell;
 
 public class Spellbook {
 	

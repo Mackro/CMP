@@ -2,7 +2,7 @@ package warborn.model;
 
 import java.awt.Color;
 
-import warborn.spells.*;
+import warborn.model.spells.*;
 
 public class Player {
 
