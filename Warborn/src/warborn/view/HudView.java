@@ -6,8 +6,6 @@ import java.util.Observer;
 import warborn.model.Warborn;
 import javax.swing.*;
 
-import com.sun.xml.internal.bind.v2.model.impl.ModelBuilder;
-
 public class HudView extends JPanel implements Observer{
 	
 	private static final long serialVersionUID = 1L;
@@ -35,7 +33,7 @@ public class HudView extends JPanel implements Observer{
 		cardPanelbtns = new JButton[5];
 		
 		setLayout(null);
-		setSize(1359,356);
+		setSize(model.getWidth(),model.getHeight()/4);
 		setLocation(0, 0);
 		
 		phaseInfo = new JPanel();
@@ -46,7 +44,8 @@ public class HudView extends JPanel implements Observer{
 		playerPanel = new JPanel();
 		playerPanel.setLayout(new GridLayout(1, model.getNumberOfPlayers()));
 		playerPanel.setBounds((int)((this.getWidth()*0.25)+((int)(this.getWidth()/3.4))), 0,
-				(int)((this.getWidth()-(this.getWidth()*0.25)-(this.getWidth()/3.41)-(this.getWidth()/13.66))),this.getHeight());
+				(int)((this.getWidth()-(this.getWidth()*0.25)-(this.getWidth()/3.41)-(this.getWidth()/13.66))),
+				this.getHeight());
 		add(playerPanel);
 		
 		
@@ -58,14 +57,14 @@ public class HudView extends JPanel implements Observer{
 		
 		buttons = new JButton[2];
 		
-		for(int i = 0; i<cardPanelbtns.length; i++){
+		for(int i = 0; i < cardPanelbtns.length; i++){
 			cardPanelbtns[i] = new JButton();
 			cardPanel.add(cardPanelbtns[i]);
 		}
 		
 		next = new JButton("Next");
 		next.setBounds((int)((this.getWidth())-this.getWidth()/13.66),
-				(int)(this.getHeight()*0.25),
+				(int)(this.getHeight()*0.46),
 				(int)(this.getWidth()/13.66),
 				(int)(this.getHeight()/11.8));
 		add(next);
@@ -73,7 +72,7 @@ public class HudView extends JPanel implements Observer{
 		
 		useCards = new JButton("Souls");
 		useCards.setBounds((int)((this.getWidth()*0.125)-(this.getWidth()/(2*13.66))), 
-				(int)(this.getHeight()*0.32),
+				(int)(this.getHeight()*0.5),
 				(int)(this.getWidth()/13.66),
 				(int)(this.getHeight()/10));
 		add(useCards);
@@ -93,31 +92,32 @@ public class HudView extends JPanel implements Observer{
 		
 
 		for(int i = 0; i <model.getNumberOfPlayers(); i++){
-			playerPanelsArray[i] = new JPanel();
-			playerPanelsArray[i].setLayout(null);
-			playerPanelsArray[i].setSize((int)(playerPanel.getWidth()/model.getNumberOfPlayers()),playerPanel.getHeight()  );
 			
-			playerName = new JLabel("1");
+			playerPanelsArray[i] = new JPanel();
+			playerPanelsArray[i].setLayout(new GridLayout(4, 1));
+			playerPanelsArray[i].setSize((int)(playerPanel.getWidth()/model.getNumberOfPlayers()), playerPanel.getHeight());
+			
+			playerName = new JLabel();
 			playerName.setForeground(model.getPlayer(i).getColor());
 			playerName.setLocation(0, 0);
 			playerPanelsArray[i].add(playerName);
 			
-			territories = new JLabel("2");
+			territories = new JLabel();
 			territories.setLocation(0, (int)(playerPanelsArray[i].getHeight()*0.2));
 			playerPanelsArray[i].add(territories);
 			
-			troops = new JLabel("3");
+			troops = new JLabel();
 			troops.setLocation(0, (int)(playerPanelsArray[i].getHeight()*0.4));
 			playerPanelsArray[i].add(troops);
 			
 			
-			mana = new JLabel("4");
+			mana = new JLabel();
 			mana.setLocation(0, (int)(playerPanelsArray[i].getHeight()*0.6));
 			playerPanelsArray[i].add(mana);
 			
 			playerPanel.add(playerPanelsArray[i]);
+			
 		}
-		
 		
 		
 		setVisible(true);
@@ -179,8 +179,8 @@ public class HudView extends JPanel implements Observer{
 		
 		for (int i = 0; i < model.getNumberOfPlayers(); i++){
 			playerName.setText(model.getPlayer(i).getName());
-			territories.setText("Number of Territories:  " + model.getPlayer(i).getNbrOfTerritories() + "");
-			troops.setText("Number of Troups:  " + calculateNbrOfUnits(i) + "");
+			territories.setText("Number of Territories:  " + model.getPlayer(i).getNbrOfTerritories());
+			troops.setText("Number of Troups:  " + calculateNbrOfUnits(i));
 			mana.setText("Mana:  " + model.getPlayer(i).getMana());
 		}
 	
