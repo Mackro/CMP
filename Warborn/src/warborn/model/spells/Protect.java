@@ -5,7 +5,7 @@ import warborn.model.Warborn;
 public class Protect extends Spell {
 	
 	public Protect(int mana) {
-		super(5);
+		super(mana);
 	}
 
 	@Override

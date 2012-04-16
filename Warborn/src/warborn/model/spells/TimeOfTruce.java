@@ -6,7 +6,7 @@ import warborn.model.Warborn;
 public class TimeOfTruce extends Spell {
 
 	public TimeOfTruce(int mana) {
-		super(10);
+		super(mana);
 	}
 
 	@Override

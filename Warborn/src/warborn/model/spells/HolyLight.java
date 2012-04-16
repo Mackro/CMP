@@ -5,7 +5,7 @@ import warborn.model.Warborn;
 public class HolyLight extends Spell {
 
 	public HolyLight(int mana) {
-		super(3);
+		super(mana);
 		// TODO Auto-generated constructor stub
 	}
 
