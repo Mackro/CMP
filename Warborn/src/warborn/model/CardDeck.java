@@ -8,9 +8,9 @@ public class CardDeck {
 	
 	public CardDeck(){
 		
-	infantryImage = new ImageIcon("images/infantry.jpg");
-	cavaleryImage = new ImageIcon("images/cavalery.jpg");
-	artilleryImage =new ImageIcon("images/artillery.jpg");
+	infantryImage = new ImageIcon("WarbornData/images/infantry.jpg");
+	cavaleryImage = new ImageIcon("WarbornData/images/cavalery.jpg");
+	artilleryImage =new ImageIcon("WarbornData/images/artillery.jpg");
 	}
 	
 	public static int getMaxValue(){
