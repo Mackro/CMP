@@ -2,18 +2,19 @@ package warborn.model.spells;
 
 import warborn.model.Warborn;
 
-public class Protect extends Spell {
-	
-	public Protect(int mana) {
-		super(5);
+public class HolyLight extends Spell {
+
+	public HolyLight(int mana) {
+		super(3);
+		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	public void invoke(Warborn model) {
 		model.getCurrentPlayer().changeMana(-this.getManaCost());
-		model.getSelectedTerritory().setProtected(true);
+		model.getSelectedTerritory().incrementUnits(2);
+		
 	}
-
 	@Override
 	public boolean validTarget(Warborn model) {
 		return model.getSelectedTerritory().getOwner() == model.getCurrentPlayer();
@@ -21,12 +22,12 @@ public class Protect extends Spell {
 
 	@Override
 	public String getName() {
-		return "Protect";
+		return "Holy Light";
 	}
 
 	@Override
 	public String getDescription() {
-		return "Protects target territory from being attacked or targeted by spells for one turn \n \n \"Always use protection \" ";
+		return "Reinforce target territory with two troops \n \n \"A gift from the skies \" ";
 	}
 
 }
