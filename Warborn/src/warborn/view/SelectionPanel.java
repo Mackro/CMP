@@ -16,23 +16,27 @@ public class SelectionPanel extends JPanel {
 	private JComboBox cbMap;
 	private JLabel lbMap;
 	private JPanel pPlayer, pMap;
+	private Warborn model;
 	
 	/**
 	 * Create the panel.
 	 */
 	public SelectionPanel(Warborn model) {
+		
+		this.model = model;
+		
 		setLayout(null);
 		setSize((int)(model.getWidth()*0.5), model.getHeight());
 		setBackground(Color.DARK_GRAY);
 		
 		pPlayer = new JPanel();
 		pPlayer.setLayout(new GridLayout(4, 1));
-		pPlayer.setBounds(10, 10, (int)(this.getWidth()*0.5)-15, this.getHeight()-20);
+		pPlayer.setBounds(10, 10 + 40, (int)(this.getWidth()*0.5)-15, this.getHeight()-60);
 		add(pPlayer);
 		
 		btAddPlayer = new JButton("Add a player");
 		btAddPlayer.setSize(pPlayer.getWidth()/3, 40);
-		btAddPlayer.setLocation(pPlayer.getWidth() - btAddPlayer.getWidth(), 10);
+		btAddPlayer.setLocation(pPlayer.getWidth() - btAddPlayer.getWidth(), 5);
 		this.add(btAddPlayer, 0);
 		
 		for(int i = 0; i < model.getNumberOfPlayers(); i++){
@@ -76,6 +80,10 @@ public class SelectionPanel extends JPanel {
 
 	public JButton getStartButton(){
 		return btStartGame;
+	}
+	
+	public JButton getAddPlayerButton(){
+		return btAddPlayer;
 	}
 	
 	public JComboBox getMapComboBox(){
@@ -131,6 +139,13 @@ public class SelectionPanel extends JPanel {
 		I = I.getScaledInstance(pMap.getWidth(), -1, 0);
 		lbMap.setIcon(new ImageIcon(I));
 		pMap.revalidate();
+	}
+	
+	public void addPlayer(){
+		if(pPlayer.getComponentCount() < 4){
+			pPlayer.add(new PlayerSelectionPanel(model, pPlayer.getComponentCount()+1));
+			pPlayer.revalidate();
+		}
 	}
 	
 }

@@ -56,6 +56,9 @@ public class MenuController implements ActionListener, ItemListener{
 			//Back2
 			view.openNewGameMenu();
 		}else if(buttonPressed == this.view.getButtonArray()[7]){
+			//AddPlayer
+			view.addPlayer();
+		}else if(buttonPressed == this.view.getButtonArray()[8]){
 			//StartGame
 			String[] names = view.getNames();
 			Color[] colors = view.getColors();
