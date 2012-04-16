@@ -115,8 +115,8 @@ public class HudView extends JPanel implements Observer{
 			mana.setLocation(0, (int)(playerPanelsArray[i].getHeight()*0.6));
 			playerPanelsArray[i].add(mana);
 			
-			playerPanel.add(playerPanelsArray[i]);
-			
+			playerPanel.add(playerPanelsArray[i], i);
+			playerPanel.validate();			
 		}
 		
 		
@@ -150,6 +150,7 @@ public class HudView extends JPanel implements Observer{
 				cardPanelbtns[i].setIcon(model.getCurrentPlayer().getCard(i).getImage());
 			}
 		}
+		playerPanel.revalidate();
 		
 		if (model.getCurrentPlayer().canExchangeCards()){
 			useCards.setEnabled(true);
