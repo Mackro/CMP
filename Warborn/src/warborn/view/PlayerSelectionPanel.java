@@ -53,23 +53,23 @@ public class PlayerSelectionPanel extends JPanel {
 		
 		JLabel lbRace = new JLabel("Race:");
 		lbRace.setLocation(162, 20);
-		lbRace.setSize(28, 30);
+		lbRace.setSize(50, 30);
 		add(lbRace);
 		
 		JLabel lbBackground = new JLabel("Background:");
 		lbBackground.setLocation(130, 61);
-		lbBackground.setSize(60, 30);
+		lbBackground.setSize(100, 30);
 		add(lbBackground);
 
 		cbRace = new JComboBox();
-		cbRace.setLocation(200, 20);
+		cbRace.setLocation(212, 20);
 		cbRace.setSize(100, 30);
 		cbRace.setBackground(Color.WHITE);
 		cbRace.setModel(getRaces());
 		add(cbRace);
 		
 		cbBackground = new JComboBox();
-		cbBackground.setLocation(200, 60);
+		cbBackground.setLocation(212, 61);
 		cbBackground.setSize(100, 30);
 		cbBackground.setBackground(Color.WHITE);
 		cbBackground.setModel(getBackgrounds());

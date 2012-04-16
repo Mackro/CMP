@@ -12,7 +12,7 @@ public class Spellbook {
 		
 	}
 	
-	public void fill(int bg){
+	public void fill(int background){
 		
 	}
 	

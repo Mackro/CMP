@@ -48,7 +48,7 @@ public class SelectionPanel extends JPanel {
 		lbMap = new JLabel("");
 		lbMap.setVerticalAlignment(SwingConstants.TOP);
 		lbMap.setBounds(0, 0, pMap.getWidth(), pMap.getHeight());
-		Image I = new ImageIcon("images/" + cbMap.getSelectedItem() + ".jpg").getImage();
+		Image I = new ImageIcon("WarbornData/images/" + cbMap.getSelectedItem() + ".jpg").getImage();
 		I = I.getScaledInstance(pMap.getWidth(), -1, 0);
 		lbMap.setIcon(new ImageIcon(I));
 		pMap.add(lbMap);
@@ -121,7 +121,7 @@ public class SelectionPanel extends JPanel {
 	}
 	
 	public void updateMap(){
-		Image I = new ImageIcon("images/" + cbMap.getSelectedItem() + ".jpg").getImage();
+		Image I = new ImageIcon("WarbornData/images/" + cbMap.getSelectedItem() + ".jpg").getImage();
 		I = I.getScaledInstance(pMap.getWidth(), -1, 0);
 		lbMap.setIcon(new ImageIcon(I));
 		pMap.revalidate();

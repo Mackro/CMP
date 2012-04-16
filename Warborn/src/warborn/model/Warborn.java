@@ -28,6 +28,8 @@ public class Warborn extends Observable{
 		Toolkit kit = Toolkit.getDefaultToolkit();
 		dimension = kit.getScreenSize();
 		this.players = new ArrayList<Player>();
+		
+		//Going to make random players instead
 		addPlayer("Player 1", Color.CYAN, 0, 0);
 		addPlayer("Player 2", Color.YELLOW, 0, 0);
 		/*try {
