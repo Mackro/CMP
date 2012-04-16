@@ -9,6 +9,7 @@ import java.util.Observable;
 import java.util.Random;
 
 import warborn.SupportClasses.MapData;
+import warborn.model.spells.Spell;
 
 
 public class Warborn extends Observable{
@@ -21,6 +22,7 @@ public class Warborn extends Observable{
 	private int state = 0, phase = 0;
 	private Dimension dimension;
 	private CardDeck deck;
+	private Spell selectedSpell;
 
 
 	public Warborn (){
@@ -146,7 +148,10 @@ public class Warborn extends Observable{
 		System.out.println(selectedTerritory + ": " + id);
 		if (selectedTerritory != id){
 			
-			if(state == 1 && players.get(currentPlayer) == territories[id].getOwner() && nbrOfReinforcements > 0){
+			if(selectedSpell != null){
+				selectedTerritory = id;
+				invokeSpell(selectedSpell);
+			}else if(state == 1 && players.get(currentPlayer) == territories[id].getOwner() && nbrOfReinforcements > 0){
 				territories[id].incrementUnit();
 				nbrOfReinforcements--;
 			}else if(state != 1){
@@ -177,6 +182,13 @@ public class Warborn extends Observable{
 		}
 		changed();
 	}
+	
+	public void setSelectedSpell(Spell spell){
+		selectedSpell = spell;
+		if(spell.isInstant()){
+			invokeSpell(spell);
+		}
+	}
 
 	//End Setters
 
@@ -197,6 +209,11 @@ public class Warborn extends Observable{
 		}
 		if(this.state == 1){
 			nbrOfReinforcements = Math.max(players.get(currentPlayer).getNbrOfTerritories()/3, 3);
+			for(Territory terry : territories){
+				if(terry.getOwner() == players.get(currentPlayer)){
+					terry.setProtected(false);
+				}
+			}
 		}
 		changed();
 	}
@@ -243,7 +260,7 @@ public class Warborn extends Observable{
 	}
 
 	public boolean attackCompatible(Territory t1, Territory t2){
-		if(!t1.hasConnection(t2) || t1.getOwner().getID() == t2.getOwner().getID() || t1.getNbrOfUnits() < 2){
+		if(!t1.hasConnection(t2) || t1.getOwner().getID() == t2.getOwner().getID() || t1.getNbrOfUnits() < 2 || t2.isProtected()){
 			return false;
 		}
 		return true;
@@ -283,6 +300,15 @@ public class Warborn extends Observable{
 			}
 		}
 		this.changed();
+	}
+	
+	public void invokeSpell(Spell spell){
+		if(spell.validTarget(this) && players.get(currentPlayer).getMana() >= spell.getManaCost()){
+			spell.invoke(this);
+		}
+		selectedTerritory = -1;
+		selectedSpell = null;
+		changed();
 	}
 
 

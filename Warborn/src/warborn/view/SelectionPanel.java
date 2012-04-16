@@ -7,11 +7,12 @@ import java.awt.Image;
 import javax.swing.*;
 
 import warborn.SupportClasses.MapData;
+import warborn.model.LabelFactory;
 import warborn.model.Warborn;
 
 public class SelectionPanel extends JPanel {
 
-	private JButton btStartGame;
+	private JButton btStartGame, btAddPlayer;
 	private JComboBox cbMap;
 	private JLabel lbMap;
 	private JPanel pPlayer, pMap;
@@ -28,6 +29,11 @@ public class SelectionPanel extends JPanel {
 		pPlayer.setLayout(new GridLayout(4, 1));
 		pPlayer.setBounds(10, 10, (int)(this.getWidth()*0.5)-15, this.getHeight()-20);
 		add(pPlayer);
+		
+		btAddPlayer = new JButton("Add a player");
+		btAddPlayer.setSize(pPlayer.getWidth()/3, 40);
+		btAddPlayer.setLocation(pPlayer.getWidth() - btAddPlayer.getWidth(), 10);
+		this.add(btAddPlayer, 0);
 		
 		for(int i = 0; i < model.getNumberOfPlayers(); i++){
 			pPlayer.add(new PlayerSelectionPanel(model, i+1));

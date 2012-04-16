@@ -8,6 +8,7 @@ public class Territory {
 	private Player owner;
 	private int nbrOfUnits = 0, id;
 	private String name;
+	private boolean protection;
 	
 	public Territory(String name, int id){
 		this.id = id;
@@ -34,6 +35,10 @@ public class Territory {
 	
 	public void setOwner(Player newOwner){
 		this.owner = newOwner;
+	}
+	
+	public void setProtected(boolean protection){
+		this.protection = protection;
 	}
 	
 	public void setNbrOfUnits(int nbrOfUnits){
@@ -74,6 +79,10 @@ public class Territory {
 	
 	public void addConnection(Territory toAdd){
 		connections.add(toAdd);
+	}
+	
+	public boolean isProtected(){
+		return protection;
 	}
 	
 
