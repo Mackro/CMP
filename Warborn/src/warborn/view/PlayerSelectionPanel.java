@@ -36,7 +36,7 @@ public class PlayerSelectionPanel extends JPanel {
 			color = Color.GREEN;
 			break;
 		case 4:
-			color = Color.BLUE;
+			color = Color.MAGENTA;
 			break;
 		}
 		
