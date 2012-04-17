@@ -13,6 +13,9 @@ public class SpellData {
 		new HolyLight(3),
 		
 		new Confusion(1),
+		
+		new FireBall(2),
+		new Armageddon(15),
 	};
 	
 	public static Spell getSpell(int index){
