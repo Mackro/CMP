@@ -76,6 +76,7 @@ public class MenuView extends JPanel {
 			btBack,
 			btBack2,
 			pSelection.getAddPlayerButton(),
+			pSelection.getRemovePlayerButton(),
 			pSelection.getStartButton(),
 		};
 	}
@@ -149,6 +150,10 @@ public class MenuView extends JPanel {
 	
 	public void addPlayer(){
 		pSelection.addPlayer();
+	}
+	
+	public void removePlayer(){
+		pSelection.removePlayer();
 	}
 
 }

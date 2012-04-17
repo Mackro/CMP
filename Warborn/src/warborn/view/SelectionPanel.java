@@ -12,7 +12,7 @@ import warborn.model.Warborn;
 
 public class SelectionPanel extends JPanel {
 
-	private JButton btStartGame, btAddPlayer;
+	private JButton btStartGame, btAddPlayer, btRemovePlayer;
 	private JComboBox cbMap;
 	private JLabel lbMap;
 	private JPanel pPlayer, pMap;
@@ -38,6 +38,11 @@ public class SelectionPanel extends JPanel {
 		btAddPlayer.setSize(pPlayer.getWidth()/3, 40);
 		btAddPlayer.setLocation(pPlayer.getWidth() - btAddPlayer.getWidth(), 5);
 		this.add(btAddPlayer, 0);
+		
+		btRemovePlayer = new JButton("Remove a player");
+		btRemovePlayer.setSize(pPlayer.getWidth()/2, 40);
+		btRemovePlayer.setLocation(pPlayer.getWidth() - btRemovePlayer.getWidth() - btAddPlayer.getWidth() - 20, 5);
+		this.add(btRemovePlayer, 0);
 		
 		for(int i = 0; i < model.getNumberOfPlayers(); i++){
 			pPlayer.add(new PlayerSelectionPanel(model, i+1));
@@ -85,6 +90,10 @@ public class SelectionPanel extends JPanel {
 	
 	public JButton getAddPlayerButton(){
 		return btAddPlayer;
+	}
+	
+	public JButton getRemovePlayerButton(){
+		return btRemovePlayer;
 	}
 	
 	public JComboBox getMapComboBox(){
@@ -146,6 +155,13 @@ public class SelectionPanel extends JPanel {
 		if(pPlayer.getComponentCount() < 4){
 			pPlayer.add(new PlayerSelectionPanel(model, pPlayer.getComponentCount()+1));
 			pPlayer.revalidate();
+		}
+	}
+	
+	public void removePlayer(){
+		if(pPlayer.getComponentCount() > 2){
+			pPlayer.remove(pPlayer.getComponentCount()-1);
+			pPlayer.repaint();
 		}
 	}
 	
