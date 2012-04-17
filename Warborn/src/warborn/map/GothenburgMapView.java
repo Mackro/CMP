@@ -32,7 +32,7 @@ public class GothenburgMapView extends JPanel implements IMap {
 		maplbl.setBounds(0, 0, model.getWidth(), (int)(model.getHeight()*0.75));
 		
 		//Scaling the Map image to fit the screensize
-		Image I = new ImageIcon("WarbornData/images/Gothenburg.jpg").getImage();
+		Image I = new ImageIcon("WarbornData/images/" + getMapName() + ".jpg").getImage();
 		I = I.getScaledInstance(model.getWidth(), (int) ((model.getHeight())*0.75), 0);
 		maplbl.setIcon(new ImageIcon(I));
 		
@@ -71,11 +71,11 @@ public class GothenburgMapView extends JPanel implements IMap {
 	
 
 	public static String getMapName(){
-		return "Gothenburg";
+		return "Asgauter";
 	}
 	
 	public String toString(){
-		return "Gothenburg";
+		return "Asgauter";
 	}
 
 	@Override

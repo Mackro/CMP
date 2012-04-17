@@ -12,7 +12,7 @@ public class Spellbook {
 	private ArrayList<Spell> spells;
 	
 	public Spellbook() {
-		
+		spells = new ArrayList<Spell>();
 	}
 	
 	public void fill(int background) throws IOException{

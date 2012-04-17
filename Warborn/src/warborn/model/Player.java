@@ -1,7 +1,9 @@
 package warborn.model;
 
 import java.awt.Color;
+import java.io.IOException;
 
+import warborn.SupportClasses.PlayerData;
 import warborn.model.spells.*;
 
 public class Player {
@@ -22,7 +24,12 @@ public class Player {
 		this.race = race;
 		this.background = background;
 		this.spellbook = new Spellbook();
-		spellbook.fill(background);
+		try {
+			spellbook.fill(background);
+		} catch (IOException e) {
+			System.out.println(PlayerData.getBackgroundName(background) + ".txt file not found!");
+			e.printStackTrace();
+		}
 	}
 	
 	public int getID(){
@@ -73,6 +80,11 @@ public class Player {
 	
 	public Spellbook getSpelbook(){
 		return spellbook;
+	}
+	
+	public void setColor(Color color){
+		Color copiedColor = new Color(color.getRed(), color.getGreen(), color.getBlue());
+		this.color = copiedColor;
 	}
 	
 	public boolean hasConquered(){

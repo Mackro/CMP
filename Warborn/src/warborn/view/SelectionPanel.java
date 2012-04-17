@@ -49,8 +49,7 @@ public class SelectionPanel extends JPanel {
 		add(pMap);
 		
 		cbMap = new JComboBox();
-		cbMap.setLocation(100, 300);
-		cbMap.setSize(100, 30);
+		cbMap.setSize(100, 40);
 		cbMap.setBackground(Color.WHITE);
 		cbMap.setModel(getMaps());
 		pMap.add(cbMap);
@@ -62,6 +61,8 @@ public class SelectionPanel extends JPanel {
 		I = I.getScaledInstance(pMap.getWidth(), -1, 0);
 		lbMap.setIcon(new ImageIcon(I));
 		pMap.add(lbMap);
+
+		cbMap.setLocation((pMap.getWidth()/2) - (cbMap.getWidth()/2), I.getHeight(null) + 30);
 		
 		btStartGame = new JButton("Start Game");
 		btStartGame.setLocation(pMap.getWidth()-200, pMap.getHeight()-200);
