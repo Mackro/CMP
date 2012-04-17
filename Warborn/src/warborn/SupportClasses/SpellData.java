@@ -1,7 +1,5 @@
 package warborn.SupportClasses;
 
-import java.util.ArrayList;
-
 import warborn.model.spells.*;
 
 public class SpellData {
@@ -11,9 +9,9 @@ public class SpellData {
 		new Protect(5),
 		new TimeOfTruce(10),
 		new HolyLight(3),
-		
+		//Mindfucker/Jester/Trickster/Voodoo
 		new Confusion(1),
-		
+		//Elementalist/Magician/...
 		new FireBall(2),
 		new Armageddon(15),
 	};

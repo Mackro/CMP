@@ -5,8 +5,8 @@ import warborn.model.Warborn;
 
 public class Armageddon extends Spell {
 
-	public Armageddon(int mana) {
-		super(mana);
+	public Armageddon(int mana, int time) {
+		super(mana, time);
 	}
 
 	@Override

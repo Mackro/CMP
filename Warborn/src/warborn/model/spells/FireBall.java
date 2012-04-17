@@ -4,8 +4,8 @@ import warborn.model.Warborn;
 
 public class FireBall extends Spell {
 
-	public FireBall(int mana) {
-		super(mana);
+	public FireBall(int mana, int time) {
+		super(mana, time);
 	}
 
 	@Override

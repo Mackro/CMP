@@ -6,8 +6,8 @@ import warborn.model.Warborn;
 
 public class Confusion extends Spell{
 
-	public Confusion(int mana) {
-		super(mana);
+	public Confusion(int mana, int time) {
+		super(mana, time);
 	}
 
 	@Override

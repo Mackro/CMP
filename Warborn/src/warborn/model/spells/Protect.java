@@ -4,8 +4,8 @@ import warborn.model.Warborn;
 
 public class Protect extends Spell {
 	
-	public Protect(int mana) {
-		super(mana);
+	public Protect(int mana, int time) {
+		super(mana, time);
 	}
 
 	@Override
