@@ -16,7 +16,7 @@ public class Protect extends Spell {
 
 	@Override
 	public boolean validTarget(Warborn model) {
-		return model.getSelectedTerritory().getOwner() == model.getCurrentPlayer();
+		return true;
 	}
 
 	@Override
