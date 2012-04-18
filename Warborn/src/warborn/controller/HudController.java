@@ -32,8 +32,9 @@ public class HudController implements ActionListener, KeyListener {
 			model.exchangeSouls();
 		}
 		if((e).getSource() == view.getButtons()[2]){
-			SpellbookView spellbook = new SpellbookView(model.getCurrentPlayer().getSpellbook());
-			spellbook.setVisible(true);
+			SpellbookView spellbookView = new SpellbookView(model.getCurrentPlayer().getSpellbook());
+			//add contråller
+			spellbookView.getFrame().setVisible(true);
 		}
 	}
 

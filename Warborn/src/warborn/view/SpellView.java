@@ -19,7 +19,7 @@ public class SpellView extends JPanel {
 		
 		JLabel spellIconLbl = new JLabel("");
 		spellIconLbl.setBounds(10, 23, 280, 150);
-		spellIconLbl.setIcon(spell.getImage());
+		spellIconLbl.setIcon(new ImageIcon(spell.getImage()));
 		add(spellIconLbl);
 		
 		JLabel descriptionLbl = new JLabel("");

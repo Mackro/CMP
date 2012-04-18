@@ -5,20 +5,24 @@ import java.awt.GridLayout;
 import javax.swing.*;
 
 import warborn.model.Spellbook;
-import warborn.model.spells.Spell;
 
 public class SpellbookView extends JPanel {
 	
-	Spellbook spellbook;
+	private static final long serialVersionUID = 1L;
+	private JFrame frame;
+	private Spellbook spellbook;
 
 	/**
 	 * Create the panel.
 	 */
 	public SpellbookView(Spellbook spellbook) {
 		this.spellbook = spellbook;
-		
-		setSize(800, 576);
-		setLocation(283, 0);
+		frame = new JFrame();
+		frame.setLocationRelativeTo(null);
+		frame.setUndecorated(true);
+		frame.setSize(800, 576);
+		frame.setLocation(2, 2);
+		setLayout(null);
 		
 		JPanel page2 = new JPanel();
 		page2.setBounds(400, 0, 400, 576);
@@ -35,18 +39,22 @@ public class SpellbookView extends JPanel {
 		spellbooklbl.setBounds(0, 0, 890, 595);
 		add(spellbooklbl);
 		
-		setLayout(null);
 		page1.setOpaque(false);
 		page2.setOpaque(false);
 		
-		for (int i = 0; i < 13; i++){
+		for (int i = 0; i < spellbook.getNumberOfSpells(); i++){
 			if(i < 7){
 				page1.add(new SpellView(spellbook.getSpell(i)));
 			}
 			else{
 				page2.add(new SpellView(spellbook.getSpell(i)));
 			}
+		frame.getContentPane().add(this);
+		frame.setResizable(false);
 		}
-		
+	}
+	
+	public JFrame getFrame(){
+		return this.frame;
 	}
 }
