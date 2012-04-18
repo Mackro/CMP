@@ -1,5 +1,9 @@
 package warborn.model.spells;
 
+import java.awt.Image;
+
+import javax.swing.ImageIcon;
+
 import warborn.model.Warborn;
 
 public abstract class Spell {
@@ -11,6 +15,9 @@ public abstract class Spell {
 	public abstract String getName();
 	public abstract String getDescription();
 	public abstract void invoke (Warborn model);
+	public Image getImage(){
+		return new ImageIcon("WarbornData/images/spells/" + getName().replaceAll(" ", "") + ".jpg").getImage();
+	}
 	
 	public void tick(Warborn model){
 		//Do nothing else override it

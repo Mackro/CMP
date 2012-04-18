@@ -91,6 +91,12 @@ public class GothenburgMapView extends JPanel implements IMap {
 			}else{
 				buttons[i].setForeground(Color.BLACK);
 			}
+			if(model.getTerritory(i).isProtected()){
+				buttons[i].setBackground(new Color(
+						buttons[i].getBackground().getRed()+10,
+						buttons[i].getBackground().getGreen()+10,
+						buttons[i].getBackground().getBlue()+10));
+			}
 		}
 		if (model.getSelectedTerritoryIndex()>-1){
 			buttons[model.getSelectedTerritoryIndex()].setBackground(Color.GRAY);
