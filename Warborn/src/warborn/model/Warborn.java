@@ -23,6 +23,7 @@ public class Warborn extends Observable{
 	private Dimension dimension;
 	private CardDeck deck;
 	private Spell selectedSpell;
+	private ArrayList<Spell> activeSpells;
 
 
 	public Warborn (){
@@ -30,6 +31,7 @@ public class Warborn extends Observable{
 		Toolkit kit = Toolkit.getDefaultToolkit();
 		dimension = kit.getScreenSize();
 		this.players = new ArrayList<Player>();
+		this.activeSpells = new ArrayList<Spell>();
 		
 		//Going to make random players instead
 		addPlayer("Player 1", Color.CYAN, 0, 0);
@@ -305,6 +307,9 @@ public class Warborn extends Observable{
 	public void invokeSpell(Spell spell){
 		if(spell.validTarget(this) && players.get(currentPlayer).getMana() >= spell.getManaCost()){
 			spell.invoke(this);
+			if(spell.getTimer() > 0){
+				activeSpells.add(spell);
+			}
 		}
 		selectedTerritory = -1;
 		selectedSpell = null;
