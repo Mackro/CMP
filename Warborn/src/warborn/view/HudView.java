@@ -75,7 +75,7 @@ public class HudView extends JPanel implements Observer{
 			cardPanel.add(cardPanelbtns[i]);
 		}
 		
-		next = new JButton("Next");
+		next = new GenericButton("Next");
 		next.setBounds((int)((this.getWidth())-this.getWidth()/14),
 				(int)(this.getHeight()*0.4),
 				(int)(this.getWidth()/14),
@@ -83,7 +83,7 @@ public class HudView extends JPanel implements Observer{
 		this.add(next);
 		buttons[0] = next;
 		
-		useCards = new JButton("Souls");
+		useCards = new GenericButton("Souls");
 		useCards.setBounds((int)((this.getWidth()*0.125)-(this.getWidth()/(2*13))), 
 				(int)(this.getHeight()*0.5),
 				(int)(this.getWidth()/13),
@@ -91,7 +91,7 @@ public class HudView extends JPanel implements Observer{
 		this.add(useCards);
 		buttons[1] = useCards;
 		
-		spellbookButton = new JButton("Spellbook");
+		spellbookButton = new GenericButton("Spellbook");
 		spellbookButton.setBounds((int)((this.getWidth()*0.125)-(this.getWidth()/(2*10))), 
 				(int)(this.getHeight()*0.7),
 				(int)(this.getWidth()/10),
@@ -174,6 +174,7 @@ public class HudView extends JPanel implements Observer{
 				model.getCurrentPlayer().getColor().brighter().getGreen(),
 				model.getCurrentPlayer().getColor().brighter().getBlue(), hsbFloats);
 		this.setBackground(Color.getHSBColor(hsbFloats[0],hsbFloats[1]/3,hsbFloats[2]+((1-hsbFloats[2])/2)));
+		phaseInfo.setBackground(Color.getHSBColor(hsbFloats[0],hsbFloats[1]/4,hsbFloats[2]+((1-hsbFloats[2])/2)));
 		reinforcements.setVisible(false);
 		for (int i=0; i<cardPanelbtns.length; i++){
 			if (model.getCurrentPlayer().getCards()[i]!=null){

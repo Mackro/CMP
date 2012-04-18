@@ -1,12 +1,12 @@
 package warborn.view;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JLabel;
-import java.awt.Font;
-import javax.swing.JSeparator;
-import javax.swing.JButton;
+import javax.swing.*;
 
+import java.awt.Color;
+import java.awt.Font;
+import javax.swing.border.TitledBorder;
+
+import warborn.SupportClasses.GenericButton;
 import warborn.model.LabelFactory;
 import warborn.model.Warborn;
 
@@ -38,25 +38,27 @@ public class OptionsMenuView extends JPanel {
 		frame.getContentPane().add(this);
 		frame.setVisible(true);
 		setLayout(null);
+		this.setBorder(BorderFactory.createTitledBorder(BorderFactory.createLineBorder(Color.black, 5, true),
+				"Options", TitledBorder.CENTER , TitledBorder.TOP, new Font(Font.SERIF, Font.ITALIC, 40)));
 		
-		JLabel lblOptions = LabelFactory.makeLabel("Options");
+		/*JLabel lblOptions = LabelFactory.makeLabel("Options");
 		lblOptions.setFont(new Font("Rod", Font.BOLD | Font.ITALIC, 25));
 		lblOptions.setBounds(140, 11, 113, 31);
-		add(lblOptions);
+		add(lblOptions);*/
 		
-		btMainMenu = new JButton("Main Menu");
+		btMainMenu = new GenericButton("Main Menu");
 		btMainMenu.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		btMainMenu.setBounds(140, 486, 113, 31);
+		btMainMenu.setBounds(140, 400, 113, 31);
 		add(btMainMenu);
 		
-		btExit = new JButton("Exit Game");
+		btExit = new GenericButton("Exit Game");
 		btExit.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		btExit.setBounds(140, 558, 113, 31);
+		btExit.setBounds(140, 500, 113, 31);
 		add(btExit);
 		
 		frame.getContentPane().add(this);
 		
-		btResume = new JButton("Resume");
+		btResume = new GenericButton("Resume");
 		btResume.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btResume.setBounds(140, 113, 113, 31);
 		add(btResume);

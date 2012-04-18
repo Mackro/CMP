@@ -6,6 +6,7 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
 
+import warborn.SupportClasses.GenericButton;
 import warborn.model.Warborn;
 import warborn.sound.Sound;
 
@@ -23,40 +24,40 @@ public class MenuView extends JPanel {
 		sounds.start();
 		setLayout(null);
 		setSize(model.getWidth(), model.getHeight());
-		btNewGame = new JButton("New Game");
+		btNewGame = new GenericButton("New Game");
 		btNewGame.setLocation(model.getWidth()-200, 50);
 		btNewGame.setSize(150, 150);
 		add(btNewGame, 0);
 
-		btCredits = new JButton("Credits");
+		btCredits = new GenericButton("Credits");
 		btCredits.setLocation(model.getWidth()-200, 250);
 		btCredits.setSize(150, 150);
 		add(btCredits, 0);
 		
-		btExit = new JButton("Exit Game");
+		btExit = new GenericButton("Exit Game");
 		btExit.setLocation(model.getWidth()-200, 450);
 		btExit.setSize(150, 150);
 		add(btExit, 0);
 		
-		btQuickStart = new JButton("Quick Start");
+		btQuickStart = new GenericButton("Quick Start");
 		btQuickStart.setLocation(100, model.getHeight()-250);
 		btQuickStart.setSize(150, 150);
 		btQuickStart.setVisible(false);
 		add(btQuickStart, 0);
 		
-		btStart = new JButton("Start Game");
+		btStart = new GenericButton("Start Game");
 		btStart.setLocation(300, model.getHeight()-250);
 		btStart.setSize(150, 150);
 		btStart.setVisible(false);
 		add(btStart, 0);
 		
-		btBack = new JButton("Back");
+		btBack = new GenericButton("Back");
 		btBack.setLocation(500, model.getHeight()-250);
 		btBack.setSize(150, 150);
 		btBack.setVisible(false);
 		add(btBack, 0);
 		
-		btBack2 = new JButton("Back");
+		btBack2 = new GenericButton("Back");
 		btBack2.setLocation(100, model.getHeight()-250);
 		btBack2.setSize(150, 150);
 		btBack2.setVisible(false);
