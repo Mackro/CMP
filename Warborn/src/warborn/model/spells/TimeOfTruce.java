@@ -11,7 +11,7 @@ public class TimeOfTruce extends Spell {
 
 	@Override
 	public void invoke(Warborn model) {
-		timer = model.getNumberOfPlayers()-1;
+		this.setTimer(model.getNumberOfPlayers()-1);
 		model.getCurrentPlayer().changeMana(-this.getManaCost());
 		for(Territory territory : model.getTerritories()){
 			territory.setProtected(true);
@@ -31,6 +31,11 @@ public class TimeOfTruce extends Spell {
 	@Override
 	public String getDescription() {
 		return "Protects all territories on the map from being attacked or targeted by spells for one turn \n \n \"Much work for making sure nothing happens \" ";
+	}
+
+	@Override
+	public void tick() {
+		this.setTimer(this.getTimer()-1);
 	}
 	
 	public boolean isInstant(){

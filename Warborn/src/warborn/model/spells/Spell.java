@@ -5,12 +5,13 @@ import warborn.model.Warborn;
 public abstract class Spell {
 	
 	private int manaCost;
-	public int timer;
+	private int timer;
 	
 	public abstract boolean validTarget(Warborn model);
 	public abstract String getName();
 	public abstract String getDescription();
 	public abstract void invoke (Warborn model);
+	public abstract void tick();
 	
 	public Spell(int mana){
 		manaCost = mana;
@@ -24,8 +25,8 @@ public abstract class Spell {
 		return timer;
 	}
 	
-	public void tick(){
-		timer--;
+	protected void setTimer(int newTime){
+		timer = newTime;
 	}
 	
 	public String toString() {

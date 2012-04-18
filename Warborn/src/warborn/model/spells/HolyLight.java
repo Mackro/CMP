@@ -11,7 +11,7 @@ public class HolyLight extends Spell {
 
 	@Override
 	public void invoke(Warborn model) {
-		timer = 0;
+		this.setTimer(0);
 		model.getCurrentPlayer().changeMana(-this.getManaCost());
 		model.getSelectedTerritory().incrementUnits(2);
 		
