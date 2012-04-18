@@ -26,7 +26,7 @@ public class HudView extends JPanel implements Observer{
 	private JButton[] cardPanelbtns;
 	private GenericLabel reinforcements;
 	private Warborn model;
-	private Border border;
+	private Border innerBorder, border;
 	
 	public HudView(Warborn model){
 		
@@ -38,6 +38,7 @@ public class HudView extends JPanel implements Observer{
 		manaArray = new GenericLabel[model.getNumberOfPlayers()];
 		cardPanelbtns = new JButton[5];
 		border = new RoundedBorder(3);
+		innerBorder = new LineBorder(Color.gray);
 		
 		this.setLayout(null);
 		this.setSize(model.getWidth(),model.getHeight()/4);
@@ -56,6 +57,7 @@ public class HudView extends JPanel implements Observer{
 				(int)(this.getHeight()*0.03),
 				(int)((this.getWidth()-(this.getWidth()*0.25)-(this.getWidth()/7)-(this.getWidth()/14))),
 				(int)(this.getHeight()*0.9));
+		playersPanel.setBorder(border);
 		this.add(playersPanel);
 		
 		
@@ -119,7 +121,7 @@ public class HudView extends JPanel implements Observer{
 			playerPanelsArray[i] = new JPanel();
 			playerPanelsArray[i].setLayout(new GridLayout(4, 1));
 			playerPanelsArray[i].setSize((int)(playersPanel.getWidth()/model.getNumberOfPlayers()), playersPanel.getHeight());
-			playerPanelsArray[i].setBorder(border);
+			playerPanelsArray[i].setBorder(innerBorder);
 					
 			playerNameArray[i] = new GenericLabel();
 			playerNameArray[i].setForeground(model.getPlayer(i).getColor());
