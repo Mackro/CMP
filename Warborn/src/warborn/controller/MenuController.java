@@ -1,5 +1,7 @@
 package warborn.controller;
 
+import java.applet.Applet;
+import java.applet.AudioClip;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -29,6 +31,7 @@ public class MenuController implements ActionListener, ItemListener{
 			buttonArray2[i].addActionListener(this);
 		}
 		view.getMapComboBox().addItemListener(this);
+		
 	}
 
 	@Override
