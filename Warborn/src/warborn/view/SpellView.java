@@ -13,10 +13,11 @@ public class SpellView extends JPanel {
 	 */
 	public SpellView(Spell spell) {
 		setLayout(null);
+		setOpaque(false);
 		
 		JLabel spellIconLbl = new JLabel("");
 		spellIconLbl.setBounds(10, 23, 280, 150);
-		spellIconLbl.setIcon(spell.getIcon());
+		spellIconLbl.setIcon(spell.getIMage());
 		add(spellIconLbl);
 		
 		JLabel descriptionLbl = new JLabel("");
