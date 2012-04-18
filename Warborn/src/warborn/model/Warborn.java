@@ -216,6 +216,12 @@ public class Warborn extends Observable{
 					terry.setProtected(false);
 				}
 			}
+			for(int i = 0; i < activeSpells.size(); i++){
+				activeSpells.get(i).tick(this);
+				if(activeSpells.get(i).getTimer() <= 0){
+					activeSpells.remove(i);
+				}
+			}
 		}
 		changed();
 	}

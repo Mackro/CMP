@@ -11,7 +11,10 @@ public abstract class Spell {
 	public abstract String getName();
 	public abstract String getDescription();
 	public abstract void invoke (Warborn model);
-	public abstract void tick();
+	
+	public void tick(Warborn model){
+		//Do nothing else override it
+	}
 	
 	public Spell(int mana){
 		manaCost = mana;
@@ -29,12 +32,16 @@ public abstract class Spell {
 		timer = newTime;
 	}
 	
-	public String toString() {
-		return getName();
+	protected void decrementTimer(){
+		timer--;
 	}
 	
 	public boolean isInstant(){
 		return false;
+	}
+	
+	public String toString() {
+		return getName();
 	}
 	
 }

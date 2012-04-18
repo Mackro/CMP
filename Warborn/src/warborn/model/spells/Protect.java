@@ -1,8 +1,11 @@
 package warborn.model.spells;
 
+import warborn.model.Territory;
 import warborn.model.Warborn;
 
 public class Protect extends Spell {
+	
+	private Territory protectedTerritory;
 	
 	public Protect(int mana) {
 		super(mana);
@@ -10,9 +13,10 @@ public class Protect extends Spell {
 
 	@Override
 	public void invoke(Warborn model) {
-		timer = model.getNumberOfPlayers()-1;
+		setTimer(model.getNumberOfPlayers()-1);
 		model.getCurrentPlayer().changeMana(-this.getManaCost());
-		model.getSelectedTerritory().setProtected(true);
+		protectedTerritory = model.getSelectedTerritory();
+		protectedTerritory.setProtected(true);
 	}
 
 	@Override
@@ -29,5 +33,12 @@ public class Protect extends Spell {
 	public String getDescription() {
 		return "Protects target territory from being attacked or targeted by spells for one turn \n \n \"Always use protection \" ";
 	}
-
+	
+	@Override
+	public void tick(Warborn model){
+		decrementTimer();
+		if(getTimer() > 0){
+			protectedTerritory.setProtected(true);
+		}
+	}
 }

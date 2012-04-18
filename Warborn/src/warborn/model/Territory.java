@@ -50,19 +50,15 @@ public class Territory {
 	}
 	
 	public void incrementUnits(int units){
-		for (int i=0; i<units; i++){
-			this.incrementUnit();
-		}
+		this.nbrOfUnits = nbrOfUnits + units;
 	}
 	
 	public void decrementUnit(){
-		this.nbrOfUnits++;
+		this.nbrOfUnits--;
 	}
 	
 	public void decrementUnits(int units){
-		for (int i=0; i<units; i++){
-			this.decrementUnit();
-		}
+		this.nbrOfUnits = nbrOfUnits - units;
 	}
 	
 	public boolean hasConnection(Territory compareTo){
