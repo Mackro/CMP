@@ -1,10 +1,10 @@
 package warborn.view;
 
-import java.awt.GridLayout;
-import java.util.Observable;
-import java.util.Observer;
+import java.awt.*;
+import java.util.*;
 import warborn.model.Warborn;
 import javax.swing.*;
+import javax.swing.border.*;
 
 public class HudView extends JPanel implements Observer{
 	
@@ -13,16 +13,14 @@ public class HudView extends JPanel implements Observer{
 	private JPanel phaseInfo;
 	private JPanel playerPanel;
 	private JPanel[] playerPanelsArray;
-	private JLabel playerName;
-	private JLabel territories;
-	private JLabel troops;
-	private JLabel mana;
-	
+	private JLabel[] playerNameArray;
+	private JLabel[] territoriesArray;
+	private JLabel[] troopsArray;
+	private JLabel[] manaArray;
 	private JButton[] buttons;
 	private JButton next, useCards;
 	private JLabel currentPlayer, currentState;
 	private JButton[] cardPanelbtns;
-	//private JLabel[] PlayerStats;
 	private JLabel reinforcements;
 	private Warborn model;
 	
@@ -30,6 +28,10 @@ public class HudView extends JPanel implements Observer{
 		
 		this.model = model;
 		playerPanelsArray = new JPanel[model.getNumberOfPlayers()];
+		playerNameArray = new JLabel[model.getNumberOfPlayers()];
+		territoriesArray = new JLabel[model.getNumberOfPlayers()];
+		troopsArray = new JLabel[model.getNumberOfPlayers()];
+		manaArray = new JLabel[model.getNumberOfPlayers()];
 		cardPanelbtns = new JButton[5];
 		
 		this.setLayout(null);
@@ -37,14 +39,15 @@ public class HudView extends JPanel implements Observer{
 		this.setLocation(0, 0);
 		
 		phaseInfo = new JPanel();
-		phaseInfo.setBounds((int)(this.getWidth()*0.25),0,(int)(this.getWidth()/3.4),this.getHeight());
+		phaseInfo.setBounds((int)(this.getWidth()*0.25),0,(int)(this.getWidth()/7),this.getHeight());
 		phaseInfo.setLayout(null);
+		phaseInfo.setBorder(new BevelBorder(1));
 		this.add(phaseInfo);
 		
 		playerPanel = new JPanel();
 		playerPanel.setLayout(new GridLayout(1, model.getNumberOfPlayers()));
-		playerPanel.setBounds((int)((this.getWidth()*0.25)+((int)(this.getWidth()/3.4))), 0,
-				(int)((this.getWidth()-(this.getWidth()*0.25)-(this.getWidth()/3.41)-(this.getWidth()/13.66))),
+		playerPanel.setBounds((int)((this.getWidth()*0.25)+((int)(this.getWidth()/7))), 0,
+				(int)((this.getWidth()-(this.getWidth()*0.25)-(this.getWidth()/7)-(this.getWidth()/13.66))),
 				this.getHeight());
 		this.add(playerPanel);
 		
@@ -52,6 +55,7 @@ public class HudView extends JPanel implements Observer{
 		cardPanel = new JPanel();
 		cardPanel.setLayout(new GridLayout());
 		cardPanel.setBounds(0, 0, (int)(this.getWidth()*0.25),(int)(model.getHeight()/9.6));
+		cardPanel.setBorder(new BevelBorder(1));
 		this.add(cardPanel);
 		
 		
@@ -64,9 +68,9 @@ public class HudView extends JPanel implements Observer{
 		
 		next = new JButton("Next");
 		next.setBounds((int)((this.getWidth())-this.getWidth()/13.66),
-				(int)(this.getHeight()*0.46),
+				(int)(this.getHeight()*0.4),
 				(int)(this.getWidth()/13.66),
-				(int)(this.getHeight()/11.8));
+				(int)(this.getHeight()/9));
 		this.add(next);
 		buttons[0] = next;
 		
@@ -97,23 +101,22 @@ public class HudView extends JPanel implements Observer{
 			playerPanelsArray[i].setLayout(new GridLayout(4, 1));
 			playerPanelsArray[i].setSize((int)(playerPanel.getWidth()/model.getNumberOfPlayers()), playerPanel.getHeight());
 			
-			playerName = new JLabel();
-			playerName.setForeground(model.getPlayer(i).getColor());
-			playerName.setLocation(0, 0);
-			playerPanelsArray[i].add(playerName);
+			playerNameArray[i] = new JLabel();
+			playerNameArray[i].setForeground(model.getPlayer(i).getColor());
+			playerNameArray[i].setLocation(0, 0);
+			playerPanelsArray[i].add(playerNameArray[i]);
 			
-			territories = new JLabel();
-			territories.setLocation(0, (int)(playerPanelsArray[i].getHeight()*0.2));
-			playerPanelsArray[i].add(territories);
+			territoriesArray[i] = new JLabel();
+			territoriesArray[i].setLocation(0, (int)(playerPanelsArray[i].getHeight()*0.2));
+			playerPanelsArray[i].add(territoriesArray[i]);
 			
-			troops = new JLabel();
-			troops.setLocation(0, (int)(playerPanelsArray[i].getHeight()*0.4));
-			playerPanelsArray[i].add(troops);
+			troopsArray[i] = new JLabel();
+			troopsArray[i].setLocation(0, (int)(playerPanelsArray[i].getHeight()*0.4));
+			playerPanelsArray[i].add(troopsArray[i]);
 			
-			
-			mana = new JLabel();
-			mana.setLocation(0, (int)(playerPanelsArray[i].getHeight()*0.6));
-			playerPanelsArray[i].add(mana);
+			manaArray[i] = new JLabel();
+			manaArray[i].setLocation(0, (int)(playerPanelsArray[i].getHeight()*0.6));
+			playerPanelsArray[i].add(manaArray[i]);
 			
 			playerPanel.add(playerPanelsArray[i], i);
 			playerPanel.validate();			
@@ -144,6 +147,11 @@ public class HudView extends JPanel implements Observer{
 		
 		currentPlayer.setText(model.getCurrentPlayer().getName());
 		currentState.setText("Battle Phase");
+		float[] hsbFloats = {0,0,0};
+		Color.RGBtoHSB(model.getCurrentPlayer().getColor().brighter().getRed(),
+				model.getCurrentPlayer().getColor().brighter().getGreen(),
+				model.getCurrentPlayer().getColor().brighter().getBlue(), hsbFloats);
+		this.setBackground(Color.getHSBColor(hsbFloats[0],hsbFloats[1]/4,hsbFloats[2]+((1-hsbFloats[2])/2)));
 		reinforcements.setVisible(false);
 		for (int i=0; i<cardPanelbtns.length; i++){
 			if (model.getCurrentPlayer().getCards()[i]!=null){
@@ -179,10 +187,10 @@ public class HudView extends JPanel implements Observer{
 		}
 		
 		for (int i = 0; i < model.getNumberOfPlayers(); i++){
-			playerName.setText(model.getPlayer(i).getName());
-			territories.setText("Number of Territories:  " + model.getPlayer(i).getNbrOfTerritories());
-			troops.setText("Number of Troups:  " + calculateNbrOfUnits(i));
-			mana.setText("Mana:  " + model.getPlayer(i).getMana());
+			playerNameArray[i].setText(model.getPlayer(i).getName());
+			territoriesArray[i].setText("Number of Territories:  " + model.getPlayer(i).getNbrOfTerritories());
+			troopsArray[i].setText("Number of Troups:  " + calculateNbrOfUnits(i));
+			manaArray[i].setText("Mana:  " + model.getPlayer(i).getMana());
 		}
 	
 		
