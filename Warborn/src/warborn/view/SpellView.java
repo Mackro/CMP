@@ -8,6 +8,8 @@ import warborn.model.spells.Spell;
 
 public class SpellView extends JPanel {
 
+	private static final long serialVersionUID = 1L;
+
 	/**
 	 * Create the panel.
 	 */
@@ -17,7 +19,7 @@ public class SpellView extends JPanel {
 		
 		JLabel spellIconLbl = new JLabel("");
 		spellIconLbl.setBounds(10, 23, 280, 150);
-		spellIconLbl.setIcon(spell.getIMage());
+		spellIconLbl.setIcon(spell.getImage());
 		add(spellIconLbl);
 		
 		JLabel descriptionLbl = new JLabel("");
