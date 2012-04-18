@@ -6,8 +6,8 @@ import warborn.model.Warborn;
 
 public class Confusion extends Spell{
 
-	public Confusion(int mana, int time) {
-		super(mana, time);
+	public Confusion(int mana) {
+		super(mana);
 	}
 
 	@Override
@@ -27,6 +27,7 @@ public class Confusion extends Spell{
 
 	@Override
 	public void invoke(Warborn model) {
+		timer = 0;
 		Color temp = model.getPlayer(0).getColor();
 		for(int i = 1; i < model.getPlayers().length; i++){
 			model.getPlayer(i-1).setColor(model.getPlayer(i).getColor());

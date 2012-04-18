@@ -4,13 +4,14 @@ import warborn.model.Warborn;
 
 public class HolyLight extends Spell {
 
-	public HolyLight(int mana, int time) {
-		super(mana, time);
+	public HolyLight(int mana) {
+		super(mana);
 		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	public void invoke(Warborn model) {
+		timer = 0;
 		model.getCurrentPlayer().changeMana(-this.getManaCost());
 		model.getSelectedTerritory().incrementUnits(2);
 		

@@ -5,8 +5,8 @@ import warborn.model.Warborn;
 
 public class Armageddon extends Spell {
 
-	public Armageddon(int mana, int time) {
-		super(mana, time);
+	public Armageddon(int mana) {
+		super(mana);
 	}
 
 	@Override
@@ -26,6 +26,7 @@ public class Armageddon extends Spell {
 
 	@Override
 	public void invoke(Warborn model) {
+		timer = 0;
 		model.getCurrentPlayer().changeMana(-this.getManaCost());
 		for(Territory territory : model.getTerritories()){
 			if(territory.getNbrOfUnits() < 6){

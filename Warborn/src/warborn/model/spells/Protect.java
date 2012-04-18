@@ -4,12 +4,13 @@ import warborn.model.Warborn;
 
 public class Protect extends Spell {
 	
-	public Protect(int mana, int time) {
-		super(mana, time);
+	public Protect(int mana) {
+		super(mana);
 	}
 
 	@Override
 	public void invoke(Warborn model) {
+		timer = model.getNumberOfPlayers()-1;
 		model.getCurrentPlayer().changeMana(-this.getManaCost());
 		model.getSelectedTerritory().setProtected(true);
 	}

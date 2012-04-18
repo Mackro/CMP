@@ -32,27 +32,27 @@ public class HudView extends JPanel implements Observer{
 		playerPanelsArray = new JPanel[model.getNumberOfPlayers()];
 		cardPanelbtns = new JButton[5];
 		
-		setLayout(null);
-		setSize(model.getWidth(),model.getHeight()/4);
-		setLocation(0, 0);
+		this.setLayout(null);
+		this.setSize(model.getWidth(),model.getHeight()/4);
+		this.setLocation(0, 0);
 		
 		phaseInfo = new JPanel();
 		phaseInfo.setBounds((int)(this.getWidth()*0.25),0,(int)(this.getWidth()/3.4),this.getHeight());
 		phaseInfo.setLayout(null);
-		add(phaseInfo);
+		this.add(phaseInfo);
 		
 		playerPanel = new JPanel();
 		playerPanel.setLayout(new GridLayout(1, model.getNumberOfPlayers()));
 		playerPanel.setBounds((int)((this.getWidth()*0.25)+((int)(this.getWidth()/3.4))), 0,
 				(int)((this.getWidth()-(this.getWidth()*0.25)-(this.getWidth()/3.41)-(this.getWidth()/13.66))),
 				this.getHeight());
-		add(playerPanel);
+		this.add(playerPanel);
 		
 		
 		cardPanel = new JPanel();
 		cardPanel.setLayout(new GridLayout());
 		cardPanel.setBounds(0, 0, (int)(this.getWidth()*0.25),(int)(model.getHeight()/9.6));
-		add(cardPanel);
+		this.add(cardPanel);
 		
 		
 		buttons = new JButton[2];
@@ -67,7 +67,7 @@ public class HudView extends JPanel implements Observer{
 				(int)(this.getHeight()*0.46),
 				(int)(this.getWidth()/13.66),
 				(int)(this.getHeight()/11.8));
-		add(next);
+		this.add(next);
 		buttons[0] = next;
 		
 		useCards = new JButton("Souls");
@@ -75,7 +75,7 @@ public class HudView extends JPanel implements Observer{
 				(int)(this.getHeight()*0.5),
 				(int)(this.getWidth()/13.66),
 				(int)(this.getHeight()/10));
-		add(useCards);
+		this.add(useCards);
 		buttons[1] = useCards;
 		
 		reinforcements = new JLabel("Reinforcements");
@@ -120,7 +120,7 @@ public class HudView extends JPanel implements Observer{
 		}
 		
 		
-		setVisible(true);
+		this.setVisible(true);
 	}
 	
 	public JButton[] getButtons(){

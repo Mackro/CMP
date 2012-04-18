@@ -11,7 +11,7 @@ public class SpellData {
 		new HolyLight(3),
 		//Mindfucker/Jester/Trickster/Voodoo
 		new Confusion(1),
-		//Elementalist/Magician/...
+		//Elementalist/Magician/Smith/
 		new FireBall(2),
 		new Armageddon(15),
 	};

@@ -12,9 +12,8 @@ public abstract class Spell {
 	public abstract String getDescription();
 	public abstract void invoke (Warborn model);
 	
-	public Spell(int mana, int time){
+	public Spell(int mana){
 		manaCost = mana;
-		timer = time;
 	}
 	
 	public int getManaCost(){
