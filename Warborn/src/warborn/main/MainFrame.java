@@ -14,7 +14,7 @@ import warborn.sound.Sound;
 
 public class MainFrame extends JFrame implements Observer{
 
-	public Sound sounds = new Sound();
+
 
 	/**
 	 * 
@@ -30,19 +30,12 @@ public class MainFrame extends JFrame implements Observer{
 		setUndecorated(true);
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		sounds.start();
+		
 		
 	}
 	
 	@Override
 	public void update(Observable obs, Object arg1) {
-		if(obs instanceof Warborn && ((Warborn)obs).getState() == 0){
-			sounds.playIntro();
-			System.out.println("WAAAAAAAAAAAAAAGH!");
-		}
-		else{
-			sounds.stopIntro();
-		}
 		if(obs instanceof Warborn && ((Warborn)obs).getPhase() == 1){
 			this.setEnabled(false);
 			this.setFocusable(false);

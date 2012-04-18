@@ -7,16 +7,20 @@ import javax.swing.JComboBox;
 import javax.swing.JPanel;
 
 import warborn.model.Warborn;
+import warborn.sound.Sound;
 
 public class MenuView extends JPanel {
 	private static final long serialVersionUID = 1L;
 	private JButton btNewGame, btCredits, btExit, btQuickStart, btStart, btBack, btBack2;
 	private SelectionPanel pSelection;
+	private Sound sounds;
 	
 	/**
 	 * Create the panel.
 	 */
 	public MenuView(Warborn model) {
+		sounds = new Sound();
+		sounds.start();
 		setLayout(null);
 		setSize(model.getWidth(), model.getHeight());
 		btNewGame = new JButton("New Game");
@@ -154,6 +158,10 @@ public class MenuView extends JPanel {
 	
 	public void removePlayer(){
 		pSelection.removePlayer();
+	}
+	
+	public void stopIntro(){
+		sounds.stopIntro();
 	}
 
 }

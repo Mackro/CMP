@@ -44,7 +44,7 @@ public class Sound extends Thread{
 		}
 	}
 	
-	public void playIntro(){
+	public void startIntro(){
 		auline.start();
 		int nBytesRead = 0;
         byte[] abData = new byte[EXTERNAL_BUFFER_SIZE];
@@ -69,8 +69,7 @@ public class Sound extends Thread{
 	}
 	
 	public void run(){
-		playIntro();
-		System.out.println("wiiiiiiiiiiii");
+		startIntro();
 	}
 }
 
