@@ -46,6 +46,7 @@ public class MenuController implements ActionListener, ItemListener{
 			System.exit(0);
 		}else if(buttonPressed == this.view.getButtonArray()[3]){
 			//Q-Start
+			view.stopIntro();
 			model.startGame();
 		}else if(buttonPressed == this.view.getButtonArray()[4]){
 			//Start
