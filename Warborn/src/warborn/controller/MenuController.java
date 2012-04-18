@@ -1,7 +1,5 @@
 package warborn.controller;
 
-import java.applet.Applet;
-import java.applet.AudioClip;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

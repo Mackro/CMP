@@ -1,17 +1,20 @@
 package warborn.main;
 
-import java.awt.GridBagLayout;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.util.Observable;
-import java.util.Observer;
+import java.awt.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.util.*;
+import javax.swing.*;
 
 import javax.swing.JFrame;
+
+import sun.audio.*;
 import warborn.model.Warborn;
+import warborn.sound.Sound;
 
 public class MainFrame extends JFrame implements Observer{
 
-
+	//public Sound sounds = new Sound();
 
 	/**
 	 * 
@@ -26,12 +29,21 @@ public class MainFrame extends JFrame implements Observer{
 		setBounds(0, 0, model.getWidth(), model.getHeight());
 		setUndecorated(true);
 		setResizable(false);
+		setIgnoreRepaint(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 	}
-
+	
 	@Override
 	public void update(Observable obs, Object arg1) {
+		/*
+		if(obs instanceof Warborn && ((Warborn)obs).getState() == 0){
+			sounds.playIntro();
+		}
+		else{
+			sounds.stopIntro();
+		}
+		*/
 		if(obs instanceof Warborn && ((Warborn)obs).getPhase() == 1){
 			this.setEnabled(false);
 			this.setFocusable(false);
