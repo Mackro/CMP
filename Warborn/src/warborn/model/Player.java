@@ -4,7 +4,6 @@ import java.awt.Color;
 import java.io.IOException;
 
 import warborn.SupportClasses.PlayerData;
-import warborn.model.spells.*;
 
 public class Player {
 
@@ -78,7 +77,7 @@ public class Player {
 		return mana;
 	}
 	
-	public Spellbook getSpelbook(){
+	public Spellbook getSpellbook(){
 		return spellbook;
 	}
 	

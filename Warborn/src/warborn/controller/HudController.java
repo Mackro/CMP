@@ -7,6 +7,7 @@ import java.awt.event.KeyListener;
 
 import warborn.model.Warborn;
 import warborn.view.HudView;
+import warborn.view.SpellbookView;
 
 public class HudController implements ActionListener, KeyListener {
 	private Warborn model;
@@ -29,6 +30,10 @@ public class HudController implements ActionListener, KeyListener {
 		}
 		if((e).getSource() == view.getButtons()[1]){
 			model.exchangeSouls();
+		}
+		if((e).getSource() == view.getButtons()[2]){
+			SpellbookView spellbook = new SpellbookView(model.getCurrentPlayer().getSpellbook());
+			spellbook.setVisible(true);
 		}
 	}
 
