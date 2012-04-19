@@ -21,6 +21,7 @@ public class MenuView extends JPanel {
 	 */
 	public MenuView(Warborn model) {
 		sounds = new Sound();
+		model.addObserver(sounds);
 		sounds.start();
 		setLayout(null);
 		setSize(model.getWidth(), model.getHeight());
@@ -159,10 +160,6 @@ public class MenuView extends JPanel {
 	
 	public void removePlayer(){
 		pSelection.removePlayer();
-	}
-	
-	public void stopIntro(){
-		sounds.stopIntro();
 	}
 
 }
