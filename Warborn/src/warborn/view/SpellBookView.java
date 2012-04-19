@@ -22,22 +22,27 @@ public class SpellbookView extends JPanel {
 		frame.setUndecorated(true);
 		frame.setSize(800, 576);
 		frame.setLocation(2, 2);
+		com.sun.awt.AWTUtilities.setWindowOpacity(frame, 0.5f);	
+		
+		
 		setLayout(null);
+		setOpaque(true);
 		
 		JPanel page2 = new JPanel();
-		page2.setBounds(400, 0, 400, 576);
+		page2.setBounds(400, 11, 358, 554);
 		add(page2);
 		page2.setLayout(new GridLayout(3, 2));
 		
 		JPanel page1 = new JPanel();
-		page1.setBounds(0, 0, 400, 576);
+		page1.setBounds(55, 11, 345, 554);
 		add(page1);
 		page1.setLayout(new GridLayout(2, 3));
 		
 		JLabel spellbooklbl = new JLabel();
-		spellbooklbl.setIcon(new ImageIcon("C:\\Users\\WarBorn\\Desktop\\WBWS\\CMP\\Warborn\\WarbornData\\images\\SpellBook.jpg"));
+		spellbooklbl.setIcon(new ImageIcon("WarbornData/images/SpellBook.jpg"));
 		spellbooklbl.setBounds(0, 0, 890, 595);
 		add(spellbooklbl);
+		
 		
 		page1.setOpaque(false);
 		page2.setOpaque(false);
