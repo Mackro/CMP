@@ -12,7 +12,7 @@ public class PlayerSelectionPanel extends JPanel {
 	
 	public JTextField tfPlayerName;
 	public JButton btColor;
-	public JComboBox<String> cbRace, cbBackground;
+	public JComboBox cbRace, cbBackground;
 	//will use when implementing race/class
 	private Warborn model;
 	
@@ -62,14 +62,14 @@ public class PlayerSelectionPanel extends JPanel {
 		lbBackground.setSize(100, 30);
 		add(lbBackground);
 
-		cbRace = new JComboBox<String>();
+		cbRace = new JComboBox();
 		cbRace.setLocation(212, 20);
 		cbRace.setSize(100, 30);
 		cbRace.setBackground(Color.WHITE);
 		cbRace.setModel(getRaces());
 		add(cbRace);
 		
-		cbBackground = new JComboBox<String>();
+		cbBackground = new JComboBox();
 		cbBackground.setLocation(212, 61);
 		cbBackground.setSize(100, 30);
 		cbBackground.setBackground(Color.WHITE);
@@ -78,16 +78,16 @@ public class PlayerSelectionPanel extends JPanel {
 		
 	}
 
-	private ComboBoxModel<String> getBackgrounds() {
-		DefaultComboBoxModel<String> boxModel = new DefaultComboBoxModel<String>();
+	private ComboBoxModel getBackgrounds() {
+		DefaultComboBoxModel boxModel = new DefaultComboBoxModel();
 		for(int i = 0; i < PlayerData.getNumberOfBackgrounds(); i++){
 			boxModel.addElement(PlayerData.getBackgroundName(i));
 		}
 		return boxModel;
 	}
 
-	private ComboBoxModel<String> getRaces() {
-		DefaultComboBoxModel<String> boxModel = new DefaultComboBoxModel<String>();
+	private ComboBoxModel getRaces() {
+		DefaultComboBoxModel boxModel = new DefaultComboBoxModel();
 		for(int i = 0; i < PlayerData.getNumberOfRaces(); i++){
 			boxModel.addElement(PlayerData.getRaceName(i));
 		}
