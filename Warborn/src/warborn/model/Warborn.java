@@ -19,7 +19,7 @@ public class Warborn extends Observable{
 	private Move move;
 	private Battle battle;
 	private int selectedMap = 0, currentPlayer = 0, selectedTerritory = -1, nbrOfReinforcements = 0;
-	private int state = 0, phase = 0;
+	private int state = -1, phase = 0, startPhases;
 	private Dimension dimension;
 	private CardDeck deck;
 	private Spell selectedSpell;
@@ -34,8 +34,8 @@ public class Warborn extends Observable{
 		this.activeSpells = new ArrayList<Spell>();
 		
 		//Going to make random players instead
-		addPlayer("Player 1", Color.CYAN, 0, 0);
-		addPlayer("Player 2", Color.YELLOW, 0, 0);
+		addPlayer("Player 1", Color.blue, 0, 0);
+		addPlayer("Player 2", Color.red, 0, 0);
 		/*try {
 			this.territories = TerritoryFactory.getTerritories("Gothenburg");
 		} catch (IOException e) {
@@ -44,7 +44,8 @@ public class Warborn extends Observable{
 		for(int i = 0; i<territories.length; i++){
 			territories[i].setNbrOfUnits(4);
 		}
-		*/this.battle = new Battle(this);
+		*/
+		this.battle = new Battle(this);
 		this.move = new Move(this);
 		
 	}
@@ -176,6 +177,13 @@ public class Warborn extends Observable{
 					selectedTerritory = -1;
 					nextPhase();
 				}
+			}else if(state == 0 && players.get(currentPlayer) != territories[id].getOwner()){
+				territories[id].incrementUnit();
+				this.currentPlayer = (++this.currentPlayer)%players.size();
+				startPhases--;
+				if (startPhases<0){
+					nextState();
+				}
 			}
 		}else{
 			selectedTerritory = -1;
@@ -222,6 +230,8 @@ public class Warborn extends Observable{
 					activeSpells.remove(i);
 				}
 			}
+		}else if(this.state == 0){
+			startPhases--;
 		}
 		changed();
 	}
@@ -242,9 +252,10 @@ public class Warborn extends Observable{
 	}
 
 	public void startGame(){
-		if(this.state != 0){
+		if(this.state != -1){
 			return;
 		}
+		
 		try {
 			String[] mapName = MapData.getMapNames();
 			territories = TerritoryFactory.getTerritories(mapName[selectedMap]);
@@ -263,6 +274,7 @@ public class Warborn extends Observable{
 				player = (++player)%players.size();
 			}
 		}
+		this.startPhases = 10*this.getNumberOfPlayers();
 		this.phase = 0;
 		nextState();
 	}

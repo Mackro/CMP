@@ -8,10 +8,11 @@ import warborn.SupportClasses.PlayerData;
 import warborn.model.Warborn;
 
 public class PlayerSelectionPanel extends JPanel {
-
+	private static final long serialVersionUID = 1L;
+	
 	public JTextField tfPlayerName;
 	public JButton btColor;
-	public JComboBox cbRace, cbBackground;
+	public JComboBox<String> cbRace, cbBackground;
 	//will use when implementing race/class
 	private Warborn model;
 	
@@ -24,19 +25,19 @@ public class PlayerSelectionPanel extends JPanel {
 		
 		setLayout(null);
 		
-		Color color = Color.BLACK;
+		Color color = Color.black;
 		switch(number){
 		case 1:
-			color = Color.CYAN;
+			color = Color.blue;
 			break;
 		case 2:
-			color = Color.YELLOW;
+			color = Color.red;
 			break;
 		case 3:
-			color = Color.GREEN;
+			color = Color.green;
 			break;
 		case 4:
-			color = Color.MAGENTA;
+			color = Color.magenta;
 			break;
 		}
 		
@@ -61,14 +62,14 @@ public class PlayerSelectionPanel extends JPanel {
 		lbBackground.setSize(100, 30);
 		add(lbBackground);
 
-		cbRace = new JComboBox();
+		cbRace = new JComboBox<String>();
 		cbRace.setLocation(212, 20);
 		cbRace.setSize(100, 30);
 		cbRace.setBackground(Color.WHITE);
 		cbRace.setModel(getRaces());
 		add(cbRace);
 		
-		cbBackground = new JComboBox();
+		cbBackground = new JComboBox<String>();
 		cbBackground.setLocation(212, 61);
 		cbBackground.setSize(100, 30);
 		cbBackground.setBackground(Color.WHITE);
@@ -77,16 +78,16 @@ public class PlayerSelectionPanel extends JPanel {
 		
 	}
 
-	private ComboBoxModel getBackgrounds() {
-		DefaultComboBoxModel boxModel = new DefaultComboBoxModel();
+	private ComboBoxModel<String> getBackgrounds() {
+		DefaultComboBoxModel<String> boxModel = new DefaultComboBoxModel<String>();
 		for(int i = 0; i < PlayerData.getNumberOfBackgrounds(); i++){
 			boxModel.addElement(PlayerData.getBackgroundName(i));
 		}
 		return boxModel;
 	}
 
-	private ComboBoxModel getRaces() {
-		DefaultComboBoxModel boxModel = new DefaultComboBoxModel();
+	private ComboBoxModel<String> getRaces() {
+		DefaultComboBoxModel<String> boxModel = new DefaultComboBoxModel<String>();
 		for(int i = 0; i < PlayerData.getNumberOfRaces(); i++){
 			boxModel.addElement(PlayerData.getRaceName(i));
 		}

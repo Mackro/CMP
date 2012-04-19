@@ -177,6 +177,7 @@ public class HudView extends JPanel implements Observer{
 		phaseInfo.setBackground(Color.getHSBColor(hsbFloats[0],hsbFloats[1]/4,hsbFloats[2]+((1-hsbFloats[2])/2)));
 		reinforcements.setVisible(false);
 		for (int i=0; i<cardPanelbtns.length; i++){
+			cardPanelbtns[i].setIcon(null);
 			if (model.getCurrentPlayer().getCards()[i]!=null){
 				cardPanelbtns[i].setIcon(model.getCurrentPlayer().getCard(i).getImage());
 			}
