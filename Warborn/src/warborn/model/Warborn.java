@@ -231,6 +231,7 @@ public class Warborn extends Observable{
 				}
 			}
 		}else if(this.state == 0){
+			System.out.println("First Next State");
 			startPhases--;
 		}
 		changed();
