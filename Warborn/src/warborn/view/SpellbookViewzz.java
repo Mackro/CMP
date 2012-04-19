@@ -6,7 +6,7 @@ import javax.swing.*;
 
 import warborn.model.Spellbook;
 
-public class SpellbookView extends JPanel {
+public class SpellbookViewzz extends JPanel {
 	
 	private static final long serialVersionUID = 1L;
 	private JFrame frame;
@@ -15,7 +15,7 @@ public class SpellbookView extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public SpellbookView(Spellbook spellbook) {
+	public SpellbookViewzz(Spellbook spellbook) {
 		this.spellbook = spellbook;
 		frame = new JFrame();
 		frame.setLocationRelativeTo(null);
