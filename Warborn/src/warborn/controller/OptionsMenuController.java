@@ -7,19 +7,16 @@ import javax.swing.JButton;
 
 import warborn.main.Launcher;
 import warborn.main.MainFrame;
-import warborn.model.Warborn;
 import warborn.view.OptionsMenuView;
 
 public class OptionsMenuController implements ActionListener{
 
 	private OptionsMenuView view;
-	private Warborn model;
 	private Launcher launcher;
 	private MainFrame mainFrame;
 	
-	public OptionsMenuController(Warborn model, OptionsMenuView view, Launcher launcher, MainFrame mainFrame){
+	public OptionsMenuController(OptionsMenuView view, Launcher launcher, MainFrame mainFrame){
 		this.view = view;
-		this.model = model;
 		this.launcher = launcher;
 		this.mainFrame = mainFrame;
 		for(JButton button : view.getButtonArray()){

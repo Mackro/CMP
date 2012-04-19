@@ -1,8 +1,5 @@
 package warborn.model.spells;
 
-import java.awt.Image;
-
-import javax.swing.ImageIcon;
 
 import warborn.model.Territory;
 import warborn.model.Warborn;

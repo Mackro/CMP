@@ -47,7 +47,7 @@ public class SpellbookView extends JPanel {
 		page1.setOpaque(false);
 		page2.setOpaque(false);
 		
-		for (int i = 0; i < spellbook.getNumberOfSpells(); i++){
+		for (int i = 0; i < this.spellbook.getNumberOfSpells(); i++){
 			if(i < 7){
 				page1.add(new SpellView(spellbook.getSpell(i)));
 			}

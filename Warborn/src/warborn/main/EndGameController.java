@@ -5,16 +5,12 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 
-import warborn.model.Warborn;
-
 public class EndGameController implements ActionListener{
 
-	private Warborn model;
 	private EndGameView view;
 	private Launcher launcher;
 	
-	public EndGameController(Warborn model, EndGameView view, Launcher launcher){
-		this.model = model;
+	public EndGameController(EndGameView view, Launcher launcher){
 		this.view = view;
 		this.launcher = launcher;
 		

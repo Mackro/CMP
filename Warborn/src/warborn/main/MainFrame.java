@@ -1,16 +1,10 @@
 package warborn.main;
 
 import java.awt.*;
-import java.io.File;
-import java.io.FileInputStream;
 import java.util.*;
-import javax.swing.*;
 
 import javax.swing.JFrame;
-
-import sun.audio.*;
 import warborn.model.Warborn;
-import warborn.sound.Sound;
 
 public class MainFrame extends JFrame implements Observer{
 

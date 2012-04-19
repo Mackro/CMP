@@ -6,14 +6,8 @@ import java.awt.event.KeyEvent;
 import java.util.Observable;
 import java.util.Observer;
 
-import javax.swing.Action;
-import javax.swing.JButton;
-import javax.swing.JComponent;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.KeyStroke;
+import javax.swing.*;
 
-import warborn.SupportClasses.MapData;
 import warborn.controller.*;
 import warborn.map.GothenburgMapView;
 import warborn.map.IMap;
@@ -76,7 +70,7 @@ public class Launcher implements Observer{
 		BattleView battle = new BattleView(/*model*/);
 		new BattleController(model, battle);
 		EndGameView end = new EndGameView(model, System.currentTimeMillis());
-		new EndGameController(model, end, this);
+		new EndGameController(end, this);
 		
 		model.addObserver(end);
 		model.addObserver(move);

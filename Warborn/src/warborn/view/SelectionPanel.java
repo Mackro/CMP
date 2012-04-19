@@ -7,7 +7,6 @@ import java.awt.Image;
 import javax.swing.*;
 
 import warborn.SupportClasses.MapData;
-import warborn.model.LabelFactory;
 import warborn.model.Warborn;
 
 public class SelectionPanel extends JPanel {
@@ -26,7 +25,7 @@ public class SelectionPanel extends JPanel {
 		this.model = model;
 		
 		setLayout(null);
-		setSize((int)(model.getWidth()*0.5), model.getHeight());
+		setSize((int)(this.model.getWidth()*0.5), this.model.getHeight());
 		setBackground(Color.DARK_GRAY);
 		
 		pPlayer = new JPanel();
@@ -44,8 +43,8 @@ public class SelectionPanel extends JPanel {
 		btRemovePlayer.setLocation(pPlayer.getWidth() - btRemovePlayer.getWidth() - btAddPlayer.getWidth() - 20, 5);
 		this.add(btRemovePlayer, 0);
 		
-		for(int i = 0; i < model.getNumberOfPlayers(); i++){
-			pPlayer.add(new PlayerSelectionPanel(model, i+1));
+		for(int i = 0; i < this.model.getNumberOfPlayers(); i++){
+			pPlayer.add(new PlayerSelectionPanel(i+1));
 		}
 
 		pMap = new JPanel();
@@ -153,7 +152,7 @@ public class SelectionPanel extends JPanel {
 	
 	public void addPlayer(){
 		if(pPlayer.getComponentCount() < 4){
-			pPlayer.add(new PlayerSelectionPanel(model, pPlayer.getComponentCount()+1));
+			pPlayer.add(new PlayerSelectionPanel(pPlayer.getComponentCount()+1));
 			pPlayer.revalidate();
 		}
 	}

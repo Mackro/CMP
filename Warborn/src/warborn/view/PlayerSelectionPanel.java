@@ -5,7 +5,6 @@ import java.awt.Color;
 import javax.swing.*;
 
 import warborn.SupportClasses.PlayerData;
-import warborn.model.Warborn;
 
 public class PlayerSelectionPanel extends JPanel {
 	private static final long serialVersionUID = 1L;
@@ -13,15 +12,12 @@ public class PlayerSelectionPanel extends JPanel {
 	public JTextField tfPlayerName;
 	public JButton btColor;
 	public JComboBox cbRace, cbBackground;
-	//will use when implementing race/class
-	private Warborn model;
 	
 	/**
 	 * Create the panel.
 	 */
-	public PlayerSelectionPanel(Warborn model, int number) {
+	public PlayerSelectionPanel(int number) {
 		
-		this.model = model;
 		
 		setLayout(null);
 		

@@ -24,7 +24,7 @@ public class KeyAction extends AbstractAction{
 		if(evt.getID() == 1001){
 			//Open Options Menu
 			OptionsMenuView view = new OptionsMenuView(model);
-			new OptionsMenuController(model, view, launcher, mainFrame);
+			new OptionsMenuController(view, launcher, mainFrame);
 			if(mainFrame != null){
 				mainFrame.setEnabled(false);
 				mainFrame.setFocusable(false);
