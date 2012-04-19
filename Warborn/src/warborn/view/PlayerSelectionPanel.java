@@ -25,19 +25,19 @@ public class PlayerSelectionPanel extends JPanel {
 		
 		setLayout(null);
 		
-		Color color = Color.black;
+		Color color = Color.BLACK;
 		switch(number){
 		case 1:
-			color = Color.blue;
+			color = Color.BLUE;
 			break;
 		case 2:
-			color = Color.red;
+			color = Color.RED;
 			break;
 		case 3:
-			color = Color.green;
+			color = Color.GREEN;
 			break;
 		case 4:
-			color = Color.magenta;
+			color = Color.MAGENTA;
 			break;
 		}
 		
