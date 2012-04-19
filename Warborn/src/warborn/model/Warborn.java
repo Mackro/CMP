@@ -150,13 +150,22 @@ public class Warborn extends Observable{
 	public void setSelectedTerritory(int id){
 		System.out.println(selectedTerritory + ": " + id);
 		if (selectedTerritory != id){
-			
+
 			if(selectedSpell != null){
 				selectedTerritory = id;
 				invokeSpell(selectedSpell);
 			}else if(state == 1 && players.get(currentPlayer) == territories[id].getOwner() && nbrOfReinforcements > 0){
 				territories[id].incrementUnit();
 				nbrOfReinforcements--;
+			}else if(state == 0 && players.get(currentPlayer) == territories[id].getOwner()){
+				territories[id].incrementUnit();
+				this.currentPlayer = (++this.currentPlayer)%players.size();
+				startPhases--;
+				if (startPhases<0){
+					nextState();
+				}
+			}else if(state == 0 && players.get(currentPlayer) != territories[id].getOwner()){
+				;
 			}else if(state != 1){
 				if(selectedTerritory == -1 && players.get(currentPlayer) != territories[id].getOwner()){
 					selectedTerritory = id;
@@ -177,14 +186,8 @@ public class Warborn extends Observable{
 					selectedTerritory = -1;
 					nextPhase();
 				}
-			}else if(state == 0 && players.get(currentPlayer) != territories[id].getOwner()){
-				territories[id].incrementUnit();
-				this.currentPlayer = (++this.currentPlayer)%players.size();
-				startPhases--;
-				if (startPhases<0){
-					nextState();
-				}
 			}
+			
 		}else{
 			selectedTerritory = -1;
 			battle.resetTerritories();
@@ -231,7 +234,6 @@ public class Warborn extends Observable{
 				}
 			}
 		}else if(this.state == 0){
-			System.out.println("First Next State");
 			startPhases--;
 		}
 		changed();
