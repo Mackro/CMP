@@ -32,6 +32,7 @@ public class Spellbook {
 				}
 			}
 		}
+		in.close();
 	}
 	
 	public void addSpell(Spell spell) {

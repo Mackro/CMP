@@ -122,7 +122,7 @@ public class Launcher implements Observer{
 
 	@Override
 	public void update(Observable arg0, Object arg1) {
-		if(model.getState() == 1){
+		if(model.getState() == 0){
 			model.deleteObserver(this);
 			createGame(model.getMapIndex());
 		}
