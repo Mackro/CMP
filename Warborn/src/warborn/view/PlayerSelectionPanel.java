@@ -4,18 +4,20 @@ import java.awt.Color;
 
 import javax.swing.*;
 
-import warborn.SupportClasses.PlayerData;
+import warborn.model.PlayerData;
 
 public class PlayerSelectionPanel extends JPanel {
 	private static final long serialVersionUID = 1L;
 	
 	public JTextField tfPlayerName;
 	public JButton btColor;
+	@SuppressWarnings("rawtypes")
 	public JComboBox cbRace, cbBackground;
 	
 	/**
 	 * Create the panel.
 	 */
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public PlayerSelectionPanel(int number) {
 		
 		
@@ -74,6 +76,7 @@ public class PlayerSelectionPanel extends JPanel {
 		
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	private ComboBoxModel getBackgrounds() {
 		DefaultComboBoxModel boxModel = new DefaultComboBoxModel();
 		for(int i = 0; i < PlayerData.getNumberOfBackgrounds(); i++){
@@ -82,6 +85,7 @@ public class PlayerSelectionPanel extends JPanel {
 		return boxModel;
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	private ComboBoxModel getRaces() {
 		DefaultComboBoxModel boxModel = new DefaultComboBoxModel();
 		for(int i = 0; i < PlayerData.getNumberOfRaces(); i++){

@@ -6,7 +6,6 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
 
-import warborn.SupportClasses.GenericButton;
 import warborn.model.Warborn;
 import warborn.sound.Sound;
 
@@ -107,6 +106,7 @@ public class MenuView extends JPanel {
 		return pSelection.getBackgrounds();
 	}
 	
+	@SuppressWarnings("rawtypes")
 	public JComboBox getMapComboBox(){
 		return pSelection.getMapComboBox();
 	}

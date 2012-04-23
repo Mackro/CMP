@@ -6,19 +6,11 @@ import java.awt.Color;
 import java.awt.Font;
 import javax.swing.border.TitledBorder;
 
-import warborn.SupportClasses.GenericButton;
-import warborn.model.LabelFactory;
 import warborn.model.Warborn;
-
-import java.awt.FlowLayout;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import java.util.Observable;
-import java.util.Observer;
 
 public class OptionsMenuView extends JPanel {
 
-	private Warborn model;
+	private static final long serialVersionUID = 1L;
 	private JButton btMainMenu, btExit, btResume;
 	private JFrame frame;
 	
@@ -26,9 +18,6 @@ public class OptionsMenuView extends JPanel {
 	 * Create the panel.
 	 */
 	public OptionsMenuView(Warborn model){
-		
-		this.model = model;
-		
 		
 		frame = new JFrame();
 		frame.setUndecorated(true);
@@ -40,11 +29,6 @@ public class OptionsMenuView extends JPanel {
 		setLayout(null);
 		this.setBorder(BorderFactory.createTitledBorder(BorderFactory.createLineBorder(Color.black, 5, true),
 				"Options", TitledBorder.CENTER , TitledBorder.TOP, new Font(Font.SERIF, Font.ITALIC, 40)));
-		
-		/*JLabel lblOptions = LabelFactory.makeLabel("Options");
-		lblOptions.setFont(new Font("Rod", Font.BOLD | Font.ITALIC, 25));
-		lblOptions.setBounds(140, 11, 113, 31);
-		add(lblOptions);*/
 		
 		btMainMenu = new GenericButton("Main Menu");
 		btMainMenu.setFont(new Font("Tahoma", Font.PLAIN, 15));

@@ -1,8 +1,9 @@
-package warborn.SupportClasses;
-
-import warborn.map.*;
+package warborn.map;
 
 public final class MapData {
+	
+	private MapData() {
+	}
 	
 	public static String[] getMapNames(){
 		return new String[] {
@@ -10,7 +11,7 @@ public final class MapData {
 		};
 	}
 	
-	public static double[][] getScalingConstants(IMap map){
+	public static double[][] getScalingConstants(IMap map) throws MapNotFoundException{
 		if(map instanceof GothenburgMapView){
 			return new double[][]{
 				{0.760, 0.160},
@@ -37,7 +38,7 @@ public final class MapData {
 				{0.190, 0.260},
 			};
 		}
-		return null;
+		throw new MapNotFoundException();
 	}
 	
 }

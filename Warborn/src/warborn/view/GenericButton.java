@@ -1,8 +1,9 @@
-package warborn.SupportClasses;
+package warborn.view;
 
 import java.awt.Font;
 
 import javax.swing.JButton;
+
 
 public class GenericButton extends JButton {
 	

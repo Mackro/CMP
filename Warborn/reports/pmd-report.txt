@@ -1,1 +1,826 @@
-No problems found!
+
+jUnitTest/warborn/model/CardDeckTest.java:3	Avoid unused imports such as 'org.junit.Assert'
+jUnitTest/warborn/model/CardDeckTest.java:14	Found 'DU'-anomaly for variable 'deck' (lines '14'-'33').
+jUnitTest/warborn/model/CardDeckTest.java:14	Local variable 'deck' could be declared final
+jUnitTest/warborn/model/CardDeckTest.java:18	JUnit assertions should include a message
+jUnitTest/warborn/model/CardDeckTest.java:21	JUnit assertions should include a message
+jUnitTest/warborn/model/CardDeckTest.java:24	JUnit assertions should include a message
+jUnitTest/warborn/model/CardDeckTest.java:27	JUnit assertions should include a message
+jUnitTest/warborn/model/CardTest.java:3	Avoid unused imports such as 'org.junit.Assert'
+jUnitTest/warborn/model/CardTest.java:11	Local variable 'troop1' could be declared final
+jUnitTest/warborn/model/CardTest.java:11	Local variable 'troop2' could be declared final
+jUnitTest/warborn/model/CardTest.java:12	Local variable 'img1' could be declared final
+jUnitTest/warborn/model/CardTest.java:13	Local variable 'img2' could be declared final
+jUnitTest/warborn/model/CardTest.java:14	Local variable 'one' could be declared final
+jUnitTest/warborn/model/CardTest.java:17	JUnit assertions should include a message
+jUnitTest/warborn/model/CardTest.java:17	Use assertSame(x, y) instead of assertTrue(x==y), or assertNotSame(x,y) vs assertFalse(x==y)
+jUnitTest/warborn/model/CardTest.java:18	JUnit assertions should include a message
+jUnitTest/warborn/model/CardTest.java:18	Use assertSame(x, y) instead of assertTrue(x==y), or assertNotSame(x,y) vs assertFalse(x==y)
+jUnitTest/warborn/model/CardTest.java:19	JUnit assertions should include a message
+jUnitTest/warborn/model/CardTest.java:19	Use assertSame(x, y) instead of assertTrue(x==y), or assertNotSame(x,y) vs assertFalse(x==y)
+jUnitTest/warborn/model/CardTest.java:20	JUnit assertions should include a message
+jUnitTest/warborn/model/CardTest.java:20	Use assertSame(x, y) instead of assertTrue(x==y), or assertNotSame(x,y) vs assertFalse(x==y)
+jUnitTest/warborn/model/CardTest.java:21	JUnit assertions should include a message
+jUnitTest/warborn/model/CardTest.java:21	Use assertSame(x, y) instead of assertTrue(x==y), or assertNotSame(x,y) vs assertFalse(x==y)
+jUnitTest/warborn/model/DiceTest.java:3	Avoid unused imports such as 'org.junit.Assert'
+jUnitTest/warborn/model/DiceTest.java:10	Method names should not start with capital letters
+jUnitTest/warborn/model/DiceTest.java:11	Avoid variables with short names like d
+jUnitTest/warborn/model/DiceTest.java:14	JUnit assertions should include a message
+jUnitTest/warborn/model/MoveTest.java:3	Avoid unused imports such as 'org.junit.Assert'
+jUnitTest/warborn/model/MoveTest.java:5	No need to import a type that lives in the same package
+jUnitTest/warborn/model/MoveTest.java:6	No need to import a type that lives in the same package
+jUnitTest/warborn/model/MoveTest.java:7	No need to import a type that lives in the same package
+jUnitTest/warborn/model/MoveTest.java:11	Found non-transient, non-static member. Please mark as transient or provide accessors.
+jUnitTest/warborn/model/MoveTest.java:11	Found non-transient, non-static member. Please mark as transient or provide accessors.
+jUnitTest/warborn/model/MoveTest.java:11	Private field 'name1' could be made final; it is only initialized in the declaration or constructor.
+jUnitTest/warborn/model/MoveTest.java:11	Private field 'name2' could be made final; it is only initialized in the declaration or constructor.
+jUnitTest/warborn/model/MoveTest.java:12	Found non-transient, non-static member. Please mark as transient or provide accessors.
+jUnitTest/warborn/model/MoveTest.java:12	Found non-transient, non-static member. Please mark as transient or provide accessors.
+jUnitTest/warborn/model/MoveTest.java:12	Private field 'one' could be made final; it is only initialized in the declaration or constructor.
+jUnitTest/warborn/model/MoveTest.java:12	Private field 'two' could be made final; it is only initialized in the declaration or constructor.
+jUnitTest/warborn/model/MoveTest.java:13	Found non-transient, non-static member. Please mark as transient or provide accessors.
+jUnitTest/warborn/model/MoveTest.java:13	Use explicit scoping instead of the default package private level
+jUnitTest/warborn/model/MoveTest.java:17	Local variable 'model' could be declared final
+jUnitTest/warborn/model/MoveTest.java:22	Document empty method
+jUnitTest/warborn/model/MoveTest.java:22	JUnit tests should include assert() or fail()
+jUnitTest/warborn/model/MoveTest.java:27	Avoid variables with short names like t1
+jUnitTest/warborn/model/MoveTest.java:27	Local variable 't1' could be declared final
+jUnitTest/warborn/model/MoveTest.java:28	Avoid variables with short names like t2
+jUnitTest/warborn/model/MoveTest.java:28	Local variable 't2' could be declared final
+jUnitTest/warborn/model/MoveTest.java:30	JUnit assertions should include a message
+jUnitTest/warborn/model/MoveTest.java:30	Use assertSame(x, y) instead of assertTrue(x==y), or assertNotSame(x,y) vs assertFalse(x==y)
+jUnitTest/warborn/model/MoveTest.java:31	JUnit assertions should include a message
+jUnitTest/warborn/model/MoveTest.java:31	assertTrue(!expr) can be replaced by assertFalse(expr)
+jUnitTest/warborn/model/MoveTest.java:33	JUnit assertions should include a message
+jUnitTest/warborn/model/MoveTest.java:33	assertTrue(!expr) can be replaced by assertFalse(expr)
+jUnitTest/warborn/model/MoveTest.java:34	JUnit assertions should include a message
+jUnitTest/warborn/model/MoveTest.java:34	Use assertSame(x, y) instead of assertTrue(x==y), or assertNotSame(x,y) vs assertFalse(x==y)
+jUnitTest/warborn/model/MoveTest.java:39	Avoid variables with short names like t1
+jUnitTest/warborn/model/MoveTest.java:39	Local variable 't1' could be declared final
+jUnitTest/warborn/model/MoveTest.java:40	Avoid variables with short names like t2
+jUnitTest/warborn/model/MoveTest.java:40	Local variable 't2' could be declared final
+jUnitTest/warborn/model/MoveTest.java:46	JUnit assertions should include a message
+jUnitTest/warborn/model/MoveTest.java:46	Use assertSame(x, y) instead of assertTrue(x==y), or assertNotSame(x,y) vs assertFalse(x==y)
+jUnitTest/warborn/model/MoveTest.java:47	Use assertSame(x, y) instead of assertTrue(x==y), or assertNotSame(x,y) vs assertFalse(x==y)
+jUnitTest/warborn/model/MoveTest.java:48	Use assertNull(x) instead of assertTrue(x==null), or assertNotNull(x) vs assertFalse(x==null)
+jUnitTest/warborn/model/MoveTest.java:49	Use assertNull(x) instead of assertTrue(x==null), or assertNotNull(x) vs assertFalse(x==null)
+jUnitTest/warborn/model/MoveTest.java:54	Avoid variables with short names like t1
+jUnitTest/warborn/model/PlayerTest.java:3	Avoid unused imports such as 'org.junit.Assert'
+jUnitTest/warborn/model/PlayerTest.java:15	Avoid variables with short names like c
+jUnitTest/warborn/model/PlayerTest.java:16	The String literal "name" appears 6 times in this file; the first occurrence is on line 16
+jUnitTest/warborn/model/PlayerTest.java:17	Avoid variables with short names like i
+jUnitTest/warborn/model/PlayerTest.java:18	Local variable 'test' could be declared final
+jUnitTest/warborn/model/PlayerTest.java:19	Found 'DU'-anomaly for variable 'c' (lines '19'-'26').
+jUnitTest/warborn/model/PlayerTest.java:20	Found 'DU'-anomaly for variable 'name' (lines '20'-'26').
+jUnitTest/warborn/model/PlayerTest.java:21	Found 'DU'-anomaly for variable 'i' (lines '21'-'26').
+jUnitTest/warborn/model/PlayerTest.java:22	JUnit assertions should include a message
+jUnitTest/warborn/model/PlayerTest.java:23	JUnit assertions should include a message
+jUnitTest/warborn/model/PlayerTest.java:23	Use assertSame(x, y) instead of assertTrue(x==y), or assertNotSame(x,y) vs assertFalse(x==y)
+jUnitTest/warborn/model/PlayerTest.java:24	JUnit assertions should include a message
+jUnitTest/warborn/model/PlayerTest.java:30	Local variable 'test' could be declared final
+jUnitTest/warborn/model/PlayerTest.java:31	The String literal "Tname" appears 5 times in this file; the first occurrence is on line 31
+jUnitTest/warborn/model/PlayerTest.java:36	JUnit assertions should include a message
+jUnitTest/warborn/model/PlayerTest.java:36	Use assertSame(x, y) instead of assertTrue(x==y), or assertNotSame(x,y) vs assertFalse(x==y)
+jUnitTest/warborn/model/PlayerTest.java:39	JUnit assertions should include a message
+jUnitTest/warborn/model/PlayerTest.java:39	Use assertSame(x, y) instead of assertTrue(x==y), or assertNotSame(x,y) vs assertFalse(x==y)
+jUnitTest/warborn/model/PlayerTest.java:44	Local variable 'test' could be declared final
+jUnitTest/warborn/model/PlayerTest.java:45	Local variable 'deck' could be declared final
+jUnitTest/warborn/model/PlayerTest.java:50	Avoid variables with short names like c
+jUnitTest/warborn/model/PlayerTest.java:50	Local variable 'c' could be declared final
+jUnitTest/warborn/model/PlayerTest.java:52	Use assertSame(x, y) instead of assertTrue(x==y), or assertNotSame(x,y) vs assertFalse(x==y)
+jUnitTest/warborn/model/PlayerTest.java:60	Avoid variables with short names like c
+jUnitTest/warborn/model/PlayerTest.java:62	Avoid variables with short names like c2
+jUnitTest/warborn/model/PlayerTest.java:68	Use assertSame(x, y) instead of assertTrue(x==y), or assertNotSame(x,y) vs assertFalse(x==y)
+jUnitTest/warborn/model/PlayerTest.java:79	assertTrue(!expr) can be replaced by assertFalse(expr)
+jUnitTest/warborn/model/PlayerTest.java:86	The String literal "test" appears 10 times in this file; the first occurrence is on line 86
+jUnitTest/warborn/model/PlayerTest.java:95	assertTrue(!expr) can be replaced by assertFalse(expr)
+jUnitTest/warborn/model/TerritoryFactoryTest.java:3	Avoid unused imports such as 'org.junit.Assert'
+jUnitTest/warborn/model/TerritoryFactoryTest.java:8	Found non-transient, non-static member. Please mark as transient or provide accessors.
+jUnitTest/warborn/model/TerritoryFactoryTest.java:8	Use explicit scoping instead of the default package private level
+jUnitTest/warborn/model/TerritoryFactoryTest.java:11	Method names should not start with capital letters
+jUnitTest/warborn/model/TerritoryFactoryTest.java:15	Method names should not start with capital letters
+jUnitTest/warborn/model/TerritoryFactoryTest.java:16	JUnit assertions should include a message
+jUnitTest/warborn/model/TerritoryFactoryTest.java:17	JUnit assertions should include a message
+jUnitTest/warborn/model/TerritoryFactoryTest.java:19	JUnit assertions should include a message
+jUnitTest/warborn/model/TerritoryFactoryTest.java:20	JUnit assertions should include a message
+jUnitTest/warborn/model/TerritoryFactoryTest.java:22	JUnit assertions should include a message
+jUnitTest/warborn/model/TerritoryTest.java:3	Avoid unused imports such as 'org.junit.Assert'
+jUnitTest/warborn/model/TerritoryTest.java:8	Avoid variables with short names like t1
+jUnitTest/warborn/model/TerritoryTest.java:8	Found non-transient, non-static member. Please mark as transient or provide accessors.
+jUnitTest/warborn/model/TerritoryTest.java:8	Use explicit scoping instead of the default package private level
+jUnitTest/warborn/model/TerritoryTest.java:9	Avoid variables with short names like t2
+jUnitTest/warborn/model/TerritoryTest.java:9	Found non-transient, non-static member. Please mark as transient or provide accessors.
+jUnitTest/warborn/model/TerritoryTest.java:9	Use explicit scoping instead of the default package private level
+jUnitTest/warborn/model/TerritoryTest.java:10	Avoid variables with short names like t3
+jUnitTest/warborn/model/TerritoryTest.java:10	Found non-transient, non-static member. Please mark as transient or provide accessors.
+jUnitTest/warborn/model/TerritoryTest.java:10	Use explicit scoping instead of the default package private level
+jUnitTest/warborn/model/TerritoryTest.java:11	Avoid variables with short names like t4
+jUnitTest/warborn/model/TerritoryTest.java:11	Found non-transient, non-static member. Please mark as transient or provide accessors.
+jUnitTest/warborn/model/TerritoryTest.java:11	Use explicit scoping instead of the default package private level
+jUnitTest/warborn/model/TerritoryTest.java:14	Method names should not start with capital letters
+jUnitTest/warborn/model/TerritoryTest.java:21	Method names should not start with capital letters
+jUnitTest/warborn/model/TerritoryTest.java:22	JUnit assertions should include a message
+jUnitTest/warborn/model/TerritoryTest.java:23	JUnit assertions should include a message
+jUnitTest/warborn/model/TerritoryTest.java:23	Use assertNull(x) instead of assertTrue(x==null), or assertNotNull(x) vs assertFalse(x==null)
+jUnitTest/warborn/model/TerritoryTest.java:24	JUnit assertions should include a message
+jUnitTest/warborn/model/TerritoryTest.java:24	Use assertSame(x, y) instead of assertTrue(x==y), or assertNotSame(x,y) vs assertFalse(x==y)
+jUnitTest/warborn/model/TerritoryTest.java:25	JUnit assertions should include a message
+jUnitTest/warborn/model/TerritoryTest.java:25	Use assertSame(x, y) instead of assertTrue(x==y), or assertNotSame(x,y) vs assertFalse(x==y)
+jUnitTest/warborn/model/TerritoryTest.java:28	Method names should not start with capital letters
+jUnitTest/warborn/model/TerritoryTest.java:29	Local variable 'player' could be declared final
+jUnitTest/warborn/model/TerritoryTest.java:31	JUnit assertions should include a message
+jUnitTest/warborn/model/TerritoryTest.java:31	Use assertSame(x, y) instead of assertTrue(x==y), or assertNotSame(x,y) vs assertFalse(x==y)
+jUnitTest/warborn/model/TerritoryTest.java:32	Local variable 'player2' could be declared final
+jUnitTest/warborn/model/TerritoryTest.java:34	Use assertSame(x, y) instead of assertTrue(x==y), or assertNotSame(x,y) vs assertFalse(x==y)
+jUnitTest/warborn/model/TerritoryTest.java:37	Method names should not start with capital letters
+jUnitTest/warborn/model/TerritoryTest.java:39	Use assertSame(x, y) instead of assertTrue(x==y), or assertNotSame(x,y) vs assertFalse(x==y)
+jUnitTest/warborn/model/TerritoryTest.java:48	Method names should not start with capital letters
+jUnitTest/warborn/model/TerritoryTest.java:63	assertTrue(!expr) can be replaced by assertFalse(expr)
+jUnitTest/warborn/model/TerritoryTest.java:66	assertTrue(!expr) can be replaced by assertFalse(expr)
+jUnitTest/warborn/model/TerritoryTest.java:67	assertTrue(!expr) can be replaced by assertFalse(expr)
+jUnitTest/warborn/model/TerritoryTest.java:72	Use assertEquals(x, y) instead of assertTrue(x.equals(y))
+jUnitTest/warborn/model/TerritoryTest.java:74	Local variable 'card' could be declared final
+jUnitTest/warborn/model/WarbornTest.java:3	Avoid unused imports such as 'org.junit.Assert'
+jUnitTest/warborn/model/WarbornTest.java:9	This class has too many methods, consider refactoring it.
+jUnitTest/warborn/model/WarbornTest.java:10	Found non-transient, non-static member. Please mark as transient or provide accessors.
+jUnitTest/warborn/model/WarbornTest.java:10	Use explicit scoping instead of the default package private level
+jUnitTest/warborn/model/WarbornTest.java:13	Method names should not start with capital letters
+jUnitTest/warborn/model/WarbornTest.java:17	Method names should not start with capital letters
+jUnitTest/warborn/model/WarbornTest.java:18	Local variable 'names' could be declared final
+jUnitTest/warborn/model/WarbornTest.java:19	Local variable 'colors' could be declared final
+jUnitTest/warborn/model/WarbornTest.java:20	Local variable 'races' could be declared final
+jUnitTest/warborn/model/WarbornTest.java:21	Local variable 'backgrounds' could be declared final
+jUnitTest/warborn/model/WarbornTest.java:23	Local variable 'players' could be declared final
+jUnitTest/warborn/model/WarbornTest.java:24	JUnit assertions should include a message
+jUnitTest/warborn/model/WarbornTest.java:25	JUnit assertions should include a message
+jUnitTest/warborn/model/WarbornTest.java:26	JUnit assertions should include a message
+jUnitTest/warborn/model/WarbornTest.java:27	JUnit assertions should include a message
+jUnitTest/warborn/model/WarbornTest.java:30	Method names should not start with capital letters
+jUnitTest/warborn/model/WarbornTest.java:32	JUnit assertions should include a message
+jUnitTest/warborn/model/WarbornTest.java:32	Use assertSame(x, y) instead of assertTrue(x==y), or assertNotSame(x,y) vs assertFalse(x==y)
+jUnitTest/warborn/model/WarbornTest.java:33	Use assertSame(x, y) instead of assertTrue(x==y), or assertNotSame(x,y) vs assertFalse(x==y)
+jUnitTest/warborn/model/WarbornTest.java:34	Use assertSame(x, y) instead of assertTrue(x==y), or assertNotSame(x,y) vs assertFalse(x==y)
+jUnitTest/warborn/model/WarbornTest.java:37	JUnit tests should include assert() or fail()
+jUnitTest/warborn/model/WarbornTest.java:37	Method names should not start with capital letters
+jUnitTest/warborn/model/WarbornTest.java:42	Method names should not start with capital letters
+jUnitTest/warborn/model/WarbornTest.java:43	The String literal "not implemented yet!" appears 7 times in this file; the first occurrence is on line 43
+src/warborn/controller/BattleController.java:9	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/warborn/controller/BattleController.java:9	Private field 'model' could be made final; it is only initialized in the declaration or constructor.
+src/warborn/controller/BattleController.java:10	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/warborn/controller/BattleController.java:10	Private field 'view' could be made final; it is only initialized in the declaration or constructor.
+src/warborn/controller/BattleController.java:12	Parameter 'model' is not assigned and could be declared final
+src/warborn/controller/BattleController.java:12	Parameter 'view' is not assigned and could be declared final
+src/warborn/controller/BattleController.java:21	Avoid variables with short names like e
+src/warborn/controller/BattleController.java:21	Parameter 'e' is not assigned and could be declared final
+src/warborn/controller/HudController.java:13	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/warborn/controller/HudController.java:13	Private field 'model' could be made final; it is only initialized in the declaration or constructor.
+src/warborn/controller/HudController.java:14	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/warborn/controller/HudController.java:14	Private field 'view' could be made final; it is only initialized in the declaration or constructor.
+src/warborn/controller/HudController.java:16	Parameter 'model' is not assigned and could be declared final
+src/warborn/controller/HudController.java:16	Parameter 'view' is not assigned and could be declared final
+src/warborn/controller/HudController.java:27	Avoid variables with short names like e
+src/warborn/controller/HudController.java:27	Parameter 'e' is not assigned and could be declared final
+src/warborn/controller/HudController.java:35	Local variable 'spellbookView' could be declared final
+src/warborn/controller/HudController.java:42	Document empty method
+src/warborn/controller/HudController.java:42	Parameter 'arg0' is not assigned and could be declared final
+src/warborn/controller/HudController.java:47	Document empty method
+src/warborn/controller/HudController.java:47	Parameter 'arg0' is not assigned and could be declared final
+src/warborn/controller/HudController.java:53	System.out.print is used
+src/warborn/controller/MapController.java:13	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/warborn/controller/MapController.java:13	Private field 'model' could be made final; it is only initialized in the declaration or constructor.
+src/warborn/controller/MapController.java:16	Parameter 'map' is not assigned and could be declared final
+src/warborn/controller/MapController.java:16	Parameter 'model' is not assigned and could be declared final
+src/warborn/controller/MapController.java:19	Local variable 'buttons' could be declared final
+src/warborn/controller/MapController.java:27	Avoid variables with short names like e
+src/warborn/controller/MapController.java:27	Parameter 'e' is not assigned and could be declared final
+src/warborn/controller/MapController.java:28	Do not add empty strings
+src/warborn/controller/MenuController.java:15	The class 'MenuController' has a Cyclomatic Complexity of 6 (Highest = 13).
+src/warborn/controller/MenuController.java:17	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/warborn/controller/MenuController.java:17	Private field 'model' could be made final; it is only initialized in the declaration or constructor.
+src/warborn/controller/MenuController.java:18	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/warborn/controller/MenuController.java:18	Private field 'view' could be made final; it is only initialized in the declaration or constructor.
+src/warborn/controller/MenuController.java:20	Parameter 'model' is not assigned and could be declared final
+src/warborn/controller/MenuController.java:20	Parameter 'view' is not assigned and could be declared final
+src/warborn/controller/MenuController.java:23	Local variable 'buttonArray' could be declared final
+src/warborn/controller/MenuController.java:27	Local variable 'buttonArray2' could be declared final
+src/warborn/controller/MenuController.java:36	Parameter 'evt' is not assigned and could be declared final
+src/warborn/controller/MenuController.java:36	The method 'actionPerformed' has a Cyclomatic Complexity of 13.
+src/warborn/controller/MenuController.java:37	Local variable 'buttonPressed' could be declared final
+src/warborn/controller/MenuController.java:42	Avoid empty if statements
+src/warborn/controller/MenuController.java:46	System.exit() should not be used in J2EE/JEE apps
+src/warborn/controller/MenuController.java:67	Local variable 'names' could be declared final
+src/warborn/controller/MenuController.java:68	Local variable 'colors' could be declared final
+src/warborn/controller/MenuController.java:85	Parameter 'iEvt' is not assigned and could be declared final
+src/warborn/controller/MoveController.java:11	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/warborn/controller/MoveController.java:11	Private field 'model' could be made final; it is only initialized in the declaration or constructor.
+src/warborn/controller/MoveController.java:12	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/warborn/controller/MoveController.java:12	Private field 'view' could be made final; it is only initialized in the declaration or constructor.
+src/warborn/controller/MoveController.java:14	Parameter 'model' is not assigned and could be declared final
+src/warborn/controller/MoveController.java:14	Parameter 'view' is not assigned and could be declared final
+src/warborn/controller/MoveController.java:24	Avoid variables with short names like e
+src/warborn/controller/MoveController.java:24	Parameter 'e' is not assigned and could be declared final
+src/warborn/controller/MoveController.java:43	Avoid variables with short names like e
+src/warborn/controller/MoveController.java:43	Parameter 'e' is not assigned and could be declared final
+src/warborn/controller/MoveController.java:44	Do not add empty strings
+src/warborn/controller/MoveController.java:45	Do not add empty strings
+src/warborn/controller/OptionsMenuController.java:14	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/warborn/controller/OptionsMenuController.java:14	Private field 'view' could be made final; it is only initialized in the declaration or constructor.
+src/warborn/controller/OptionsMenuController.java:15	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/warborn/controller/OptionsMenuController.java:15	Private field 'launcher' could be made final; it is only initialized in the declaration or constructor.
+src/warborn/controller/OptionsMenuController.java:16	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/warborn/controller/OptionsMenuController.java:16	Private field 'mainFrame' could be made final; it is only initialized in the declaration or constructor.
+src/warborn/controller/OptionsMenuController.java:18	Parameter 'launcher' is not assigned and could be declared final
+src/warborn/controller/OptionsMenuController.java:18	Parameter 'mainFrame' is not assigned and could be declared final
+src/warborn/controller/OptionsMenuController.java:18	Parameter 'view' is not assigned and could be declared final
+src/warborn/controller/OptionsMenuController.java:28	Avoid variables with short names like e
+src/warborn/controller/OptionsMenuController.java:28	Parameter 'e' is not assigned and could be declared final
+src/warborn/controller/OptionsMenuController.java:29	Local variable 'buttonPressed' could be declared final
+src/warborn/controller/OptionsMenuController.java:37	System.exit() should not be used in J2EE/JEE apps
+src/warborn/controller/SpellbookController.java:3	Each class should declare at least one constructor
+src/warborn/main/EndGameController.java:10	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/warborn/main/EndGameController.java:10	Private field 'view' could be made final; it is only initialized in the declaration or constructor.
+src/warborn/main/EndGameController.java:11	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/warborn/main/EndGameController.java:11	Private field 'launcher' could be made final; it is only initialized in the declaration or constructor.
+src/warborn/main/EndGameController.java:13	Parameter 'launcher' is not assigned and could be declared final
+src/warborn/main/EndGameController.java:13	Parameter 'view' is not assigned and could be declared final
+src/warborn/main/EndGameController.java:17	Local variable 'buttonArray' could be declared final
+src/warborn/main/EndGameController.java:23	Parameter 'evt' is not assigned and could be declared final
+src/warborn/main/EndGameController.java:30	System.exit() should not be used in J2EE/JEE apps
+src/warborn/main/EndGameView.java:16	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/warborn/main/EndGameView.java:17	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/warborn/main/EndGameView.java:17	Private field 'model' could be made final; it is only initialized in the declaration or constructor.
+src/warborn/main/EndGameView.java:18	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/warborn/main/EndGameView.java:18	Private field 'lbTime' could be made final; it is only initialized in the declaration or constructor.
+src/warborn/main/EndGameView.java:19	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/warborn/main/EndGameView.java:19	Private field 'frame' could be made final; it is only initialized in the declaration or constructor.
+src/warborn/main/EndGameView.java:20	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/warborn/main/EndGameView.java:20	Private field 'btExit' could be made final; it is only initialized in the declaration or constructor.
+src/warborn/main/EndGameView.java:20	Private field 'btRestart' could be made final; it is only initialized in the declaration or constructor.
+src/warborn/main/EndGameView.java:22	It is a good practice to call super() in a constructor
+src/warborn/main/EndGameView.java:22	Parameter 'model' is not assigned and could be declared final
+src/warborn/main/EndGameView.java:22	Parameter 'startTime' is not assigned and could be declared final
+src/warborn/main/EndGameView.java:39	Local variable 'lbHead' could be declared final
+src/warborn/main/EndGameView.java:75	Parameter 'arg0' is not assigned and could be declared final
+src/warborn/main/EndGameView.java:75	Parameter 'arg1' is not assigned and could be declared final
+src/warborn/main/EndGameView.java:75	The method update() has an NPath complexity of 1125
+src/warborn/main/EndGameView.java:77	A method should have only one exit point, and that should be the last statement in the method
+src/warborn/main/EndGameView.java:79	Found 'DU'-anomaly for variable 'owner' (lines '79'-'96').
+src/warborn/main/EndGameView.java:79	Local variable 'owner' could be declared final
+src/warborn/main/EndGameView.java:85	Local variable 'stopTime' could be declared final
+src/warborn/main/EndGameView.java:86	Local variable 'runTime' could be declared final
+src/warborn/main/EndGameView.java:90	Local variable 'hours' could be declared final
+src/warborn/main/EndGameView.java:93	Do not add empty strings
+src/warborn/main/EndGameView.java:93	Do not add empty strings
+src/warborn/main/EndGameView.java:93	Do not add empty strings
+src/warborn/main/KeyAction.java:13	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/warborn/main/KeyAction.java:13	Private field 'model' could be made final; it is only initialized in the declaration or constructor.
+src/warborn/main/KeyAction.java:14	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/warborn/main/KeyAction.java:14	Private field 'launcher' could be made final; it is only initialized in the declaration or constructor.
+src/warborn/main/KeyAction.java:15	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/warborn/main/KeyAction.java:17	It is a good practice to call super() in a constructor
+src/warborn/main/KeyAction.java:17	Parameter 'launcher' is not assigned and could be declared final
+src/warborn/main/KeyAction.java:17	Parameter 'model' is not assigned and could be declared final
+src/warborn/main/KeyAction.java:23	Parameter 'evt' is not assigned and could be declared final
+src/warborn/main/KeyAction.java:26	Local variable 'view' could be declared final
+src/warborn/main/KeyAction.java:35	Parameter 'main' is not assigned and could be declared final
+src/warborn/main/Launcher.java:11	Avoid unused imports such as 'warborn.controller'
+src/warborn/main/Launcher.java:15	Avoid unused imports such as 'warborn.view'
+src/warborn/main/Launcher.java:19	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/warborn/main/Launcher.java:20	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/warborn/main/Launcher.java:21	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/warborn/main/Launcher.java:21	Private field 'keyAction' could be made final; it is only initialized in the declaration or constructor.
+src/warborn/main/Launcher.java:26	Parameter 'args' is not assigned and could be declared final
+src/warborn/main/Launcher.java:28	Avoid variables with short names like l
+src/warborn/main/Launcher.java:28	Local variable 'l' could be declared final
+src/warborn/main/Launcher.java:52	Avoid variables with short names like c
+src/warborn/main/Launcher.java:52	Local variable 'c' could be declared final
+src/warborn/main/Launcher.java:59	Local variable 'view' could be declared final
+src/warborn/main/Launcher.java:68	Local variable 'move' could be declared final
+src/warborn/main/Launcher.java:70	Local variable 'battle' could be declared final
+src/warborn/main/Launcher.java:81	Parameter 'mapIndex' is not assigned and could be declared final
+src/warborn/main/Launcher.java:88	Avoid variables with short names like c
+src/warborn/main/Launcher.java:100	The String literal "options" appears 5 times in this file; the first occurrence is on line 100
+src/warborn/main/Launcher.java:118	Parameter 'arg0' is not assigned and could be declared final
+src/warborn/main/Launcher.java:118	Parameter 'arg1' is not assigned and could be declared final
+src/warborn/main/Launcher.java:127	Assigning an Object to null is a code smell.  Consider refactoring.
+src/warborn/main/Launcher.java:128	Do not explicitly trigger a garbage collection.
+src/warborn/main/MainFrame.java:21	It is a good practice to call super() in a constructor
+src/warborn/main/MainFrame.java:21	Parameter 'model' is not assigned and could be declared final
+src/warborn/main/MainFrame.java:32	Parameter 'arg1' is not assigned and could be declared final
+src/warborn/main/MainFrame.java:32	Parameter 'obs' is not assigned and could be declared final
+src/warborn/map/GothenburgMapView.java:15	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/warborn/map/GothenburgMapView.java:15	Private field 'model' could be made final; it is only initialized in the declaration or constructor.
+src/warborn/map/GothenburgMapView.java:16	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/warborn/map/GothenburgMapView.java:16	Private field 'buttons' could be made final; it is only initialized in the declaration or constructor.
+src/warborn/map/GothenburgMapView.java:17	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/warborn/map/GothenburgMapView.java:17	Perhaps 'scalingConstants' could be replaced by a local variable.
+src/warborn/map/GothenburgMapView.java:17	Private field 'scalingConstants' could be made final; it is only initialized in the declaration or constructor.
+src/warborn/map/GothenburgMapView.java:21	It is a good practice to call super() in a constructor
+src/warborn/map/GothenburgMapView.java:21	Parameter 'model' is not assigned and could be declared final
+src/warborn/map/GothenburgMapView.java:30	Local variable 'maplbl' could be declared final
+src/warborn/map/GothenburgMapView.java:35	Avoid variables with short names like I
+src/warborn/map/GothenburgMapView.java:41	Avoid instantiating new objects inside loops
+src/warborn/map/GothenburgMapView.java:42	Do not add empty strings
+src/warborn/map/GothenburgMapView.java:43	Do not add empty strings
+src/warborn/map/GothenburgMapView.java:69	Returning 'buttons' may expose an internal array.
+src/warborn/map/GothenburgMapView.java:82	Parameter 'arg0' is not assigned and could be declared final
+src/warborn/map/GothenburgMapView.java:82	Parameter 'arg1' is not assigned and could be declared final
+src/warborn/map/GothenburgMapView.java:87	Do not add empty strings
+src/warborn/map/GothenburgMapView.java:95	Avoid instantiating new objects inside loops
+src/warborn/model/Battle.java:8	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/warborn/model/Battle.java:8	Private field 'model' could be made final; it is only initialized in the declaration or constructor.
+src/warborn/model/Battle.java:9	Avoid variables with short names like a
+src/warborn/model/Battle.java:9	Avoid variables with short names like d
+src/warborn/model/Battle.java:9	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/warborn/model/Battle.java:9	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/warborn/model/Battle.java:9	Perhaps 'a' could be replaced by a local variable.
+src/warborn/model/Battle.java:10	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/warborn/model/Battle.java:10	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/warborn/model/Battle.java:10	Perhaps 'unitsAttacker' could be replaced by a local variable.
+src/warborn/model/Battle.java:11	It is somewhat confusing to have a field name with the same name as a method
+src/warborn/model/Battle.java:13	It is a good practice to call super() in a constructor
+src/warborn/model/Battle.java:13	Parameter 'model' is not assigned and could be declared final
+src/warborn/model/Battle.java:17	Found 'DD'-anomaly for variable 'aLost' (lines '17'-'42').
+src/warborn/model/Battle.java:17	Found 'DD'-anomaly for variable 'aLost' (lines '17'-'50').
+src/warborn/model/Battle.java:18	Found 'DD'-anomaly for variable 'dLost' (lines '18'-'46').
+src/warborn/model/Battle.java:18	Found 'DD'-anomaly for variable 'dLost' (lines '18'-'54').
+src/warborn/model/Battle.java:33	Avoid variables with short names like i
+src/warborn/model/Battle.java:37	System.out.print is used
+src/warborn/model/Battle.java:42	Found 'DD'-anomaly for variable 'aLost' (lines '42'-'50').
+src/warborn/model/Battle.java:46	Found 'DD'-anomaly for variable 'dLost' (lines '46'-'54').
+src/warborn/model/Battle.java:57	Local variable 'losses' could be declared final
+src/warborn/model/Battle.java:58	Consider simply returning the value vs storing it in local variable 'losses'
+src/warborn/model/BattleTest.java:3	Avoid unused imports such as 'org.junit.Assert'
+src/warborn/model/BattleTest.java:11	Local variable 'model' could be declared final
+src/warborn/model/BattleTest.java:12	Avoid variables with short names like t1
+src/warborn/model/BattleTest.java:12	Local variable 't1' could be declared final
+src/warborn/model/BattleTest.java:13	Avoid variables with short names like t2
+src/warborn/model/BattleTest.java:13	Local variable 't2' could be declared final
+src/warborn/model/BattleTest.java:14	Avoid variables with short names like t3
+src/warborn/model/BattleTest.java:14	Local variable 't3' could be declared final
+src/warborn/model/BattleTest.java:18	Local variable 'battle' could be declared final
+src/warborn/model/BattleTest.java:24	JUnit assertions should include a message
+src/warborn/model/BattleTest.java:26	System.out.print is used
+src/warborn/model/BattleTest.java:31	JUnit assertions should include a message
+src/warborn/model/BattleTest.java:32	System.out.print is used
+src/warborn/model/Card.java:7	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/warborn/model/Card.java:7	Private field 'image' could be made final; it is only initialized in the declaration or constructor.
+src/warborn/model/Card.java:8	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/warborn/model/Card.java:8	Private field 'name' could be made final; it is only initialized in the declaration or constructor.
+src/warborn/model/Card.java:9	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/warborn/model/Card.java:9	Private field 'index' could be made final; it is only initialized in the declaration or constructor.
+src/warborn/model/Card.java:11	Parameter 'image' is not assigned and could be declared final
+src/warborn/model/Card.java:11	Parameter 'index' is not assigned and could be declared final
+src/warborn/model/Card.java:11	Parameter 'troop' is not assigned and could be declared final
+src/warborn/model/CardDeck.java:6	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/warborn/model/CardDeck.java:6	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/warborn/model/CardDeck.java:6	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/warborn/model/CardDeck.java:6	Private field 'artilleryImage' could be made final; it is only initialized in the declaration or constructor.
+src/warborn/model/CardDeck.java:6	Private field 'cavaleryImage' could be made final; it is only initialized in the declaration or constructor.
+src/warborn/model/CardDeck.java:6	Private field 'infantryImage' could be made final; it is only initialized in the declaration or constructor.
+src/warborn/model/CardDeck.java:7	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/warborn/model/CardDeck.java:7	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/warborn/model/CardDeck.java:7	This final field could be made static
+src/warborn/model/CardDeck.java:7	This final field could be made static
+src/warborn/model/CardDeck.java:7	This final field could be made static
+src/warborn/model/CardDeck.java:21	Avoid variables with short names like d
+src/warborn/model/CardDeck.java:21	Local variable 'd' could be declared final
+src/warborn/model/CardDeck.java:22	Avoid variables with short names like i
+src/warborn/model/CardDeck.java:22	Local variable 'i' could be declared final
+src/warborn/model/CardDeck.java:25	A method should have only one exit point, and that should be the last statement in the method
+src/warborn/model/CardDeck.java:27	A method should have only one exit point, and that should be the last statement in the method
+src/warborn/model/CardDeck.java:29	A method should have only one exit point, and that should be the last statement in the method
+src/warborn/model/Dice.java:3	All methods are static.  Consider using Singleton instead.  Alternatively, you could add a private constructor or make the class abstract to silence this warning.
+src/warborn/model/LabelFactory.java:7	All methods are static.  Consider using Singleton instead.  Alternatively, you could add a private constructor or make the class abstract to silence this warning.
+src/warborn/model/LabelFactory.java:9	Avoid variables with short names like s
+src/warborn/model/LabelFactory.java:9	Parameter 's' is not assigned and could be declared final
+src/warborn/model/LabelFactory.java:10	Local variable 'label' could be declared final
+src/warborn/model/Move.java:5	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/warborn/model/Move.java:5	Private field 'model' could be made final; it is only initialized in the declaration or constructor.
+src/warborn/model/Move.java:7	It is a good practice to call super() in a constructor
+src/warborn/model/Move.java:7	Parameter 'model' is not assigned and could be declared final
+src/warborn/model/Move.java:11	Parameter 'units' is not assigned and could be declared final
+src/warborn/model/Move.java:18	Avoid if (x != y) ..; else ..;
+src/warborn/model/Player.java:10	Avoid variables with short names like id
+src/warborn/model/Player.java:10	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/warborn/model/Player.java:10	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/warborn/model/Player.java:10	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/warborn/model/Player.java:10	Private field 'id' could be made final; it is only initialized in the declaration or constructor.
+src/warborn/model/Player.java:11	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/warborn/model/Player.java:11	Private field 'name' could be made final; it is only initialized in the declaration or constructor.
+src/warborn/model/Player.java:12	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/warborn/model/Player.java:12	Private field 'background' could be made final; it is only initialized in the declaration or constructor.
+src/warborn/model/Player.java:12	Private field 'race' could be made final; it is only initialized in the declaration or constructor.
+src/warborn/model/Player.java:15	It is somewhat confusing to have a field name with the same name as a method
+src/warborn/model/Player.java:16	Private field 'spellbook' could be made final; it is only initialized in the declaration or constructor.
+src/warborn/model/Player.java:18	Avoid variables with short names like id
+src/warborn/model/Player.java:18	Parameter 'background' is not assigned and could be declared final
+src/warborn/model/Player.java:18	Parameter 'color' is not assigned and could be declared final
+src/warborn/model/Player.java:18	Parameter 'id' is not assigned and could be declared final
+src/warborn/model/Player.java:18	Parameter 'name' is not assigned and could be declared final
+src/warborn/model/Player.java:18	Parameter 'race' is not assigned and could be declared final
+src/warborn/model/Player.java:21	Local variable 'copiedColor' could be declared final
+src/warborn/model/Player.java:29	System.out.print is used
+src/warborn/model/Player.java:30	Avoid printStackTrace(); use a logger call instead.
+src/warborn/model/Player.java:43	Local variable 'copiedColor' could be declared final
+src/warborn/model/Player.java:44	Consider simply returning the value vs storing it in local variable 'copiedColor'
+src/warborn/model/Player.java:60	Returning 'cards' may expose an internal array.
+src/warborn/model/Player.java:66	A method should have only one exit point, and that should be the last statement in the method
+src/warborn/model/Player.java:85	Local variable 'copiedColor' could be declared final
+src/warborn/model/Player.java:113	Avoid variables with short names like id
+src/warborn/model/Player.java:116	System.arraycopy is more efficient
+src/warborn/model/Player.java:119	Assigning an Object to null is a code smell.  Consider refactoring.
+src/warborn/model/Player.java:127	Found 'DD'-anomaly for variable 'nbrOfCards' (lines '127'-'129').
+src/warborn/model/Player.java:131	A method should have only one exit point, and that should be the last statement in the method
+src/warborn/model/Player.java:136	A method should have only one exit point, and that should be the last statement in the method
+src/warborn/model/Player.java:142	Avoid variables with short names like b
+src/warborn/model/Spellbook.java:12	Avoid using implementation types like 'ArrayList'; use the interface instead
+src/warborn/model/Spellbook.java:12	Avoid using implementation types like 'ArrayList'; use the interface instead
+src/warborn/model/Spellbook.java:12	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/warborn/model/Spellbook.java:12	Private field 'spells' could be made final; it is only initialized in the declaration or constructor.
+src/warborn/model/Spellbook.java:18	Parameter 'index' is not assigned and could be declared final
+src/warborn/model/Spellbook.java:26	Parameter 'background' is not assigned and could be declared final
+src/warborn/model/Spellbook.java:27	Avoid variables with short names like in
+src/warborn/model/Spellbook.java:27	Local variable 'in' could be declared final
+src/warborn/model/Spellbook.java:38	Parameter 'spell' is not assigned and could be declared final
+src/warborn/model/Spellbook.java:42	Parameter 'name' is not assigned and could be declared final
+src/warborn/model/Territory.java:7	Avoid using implementation types like 'ArrayList'; use the interface instead
+src/warborn/model/Territory.java:7	Avoid using implementation types like 'ArrayList'; use the interface instead
+src/warborn/model/Territory.java:7	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/warborn/model/Territory.java:7	Private field 'connections' could be made final; it is only initialized in the declaration or constructor.
+src/warborn/model/Territory.java:9	Avoid variables with short names like id
+src/warborn/model/Territory.java:9	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/warborn/model/Territory.java:9	Private field 'id' could be made final; it is only initialized in the declaration or constructor.
+src/warborn/model/Territory.java:10	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/warborn/model/Territory.java:10	Private field 'name' could be made final; it is only initialized in the declaration or constructor.
+src/warborn/model/Territory.java:11	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/warborn/model/Territory.java:13	Avoid variables with short names like id
+src/warborn/model/Territory.java:13	Parameter 'id' is not assigned and could be declared final
+src/warborn/model/Territory.java:13	Parameter 'name' is not assigned and could be declared final
+src/warborn/model/Territory.java:16	Assigning an Object to null is a code smell.  Consider refactoring.
+src/warborn/model/Territory.java:36	Parameter 'newOwner' is not assigned and could be declared final
+src/warborn/model/Territory.java:40	Parameter 'protection' is not assigned and could be declared final
+src/warborn/model/Territory.java:44	Parameter 'nbrOfUnits' is not assigned and could be declared final
+src/warborn/model/Territory.java:66	A method should have only one exit point, and that should be the last statement in the method
+src/warborn/model/Territory.java:70	A method should have only one exit point, and that should be the last statement in the method
+src/warborn/model/Territory.java:86	Ensure you override both equals() and hashCode()
+src/warborn/model/Territory.java:88	A method should have only one exit point, and that should be the last statement in the method
+src/warborn/model/Territory.java:90	Local variable 'toCompare' could be declared final
+src/warborn/model/TerritoryFactory.java:5	All methods are static.  Consider using Singleton instead.  Alternatively, you could add a private constructor or make the class abstract to silence this warning.
+src/warborn/model/TerritoryFactory.java:8	Parameter 'mapName' is not assigned and could be declared final
+src/warborn/model/TerritoryFactory.java:9	Local variable 'file' could be declared final
+src/warborn/model/TerritoryFactory.java:10	Local variable 'lnr' could be declared final
+src/warborn/model/TerritoryFactory.java:12	Local variable 'lines' could be declared final
+src/warborn/model/TerritoryFactory.java:14	Avoid variables with short names like in
+src/warborn/model/TerritoryFactory.java:14	Local variable 'in' could be declared final
+src/warborn/model/TerritoryFactory.java:15	Found 'DD'-anomaly for variable 'territories' (lines '15'-'22').
+src/warborn/model/TerritoryFactory.java:16	Avoid excessively long variable names like connectionsNameList
+src/warborn/model/TerritoryFactory.java:16	Found 'DD'-anomaly for variable 'connectionsNameList' (lines '16'-'31').
+src/warborn/model/TerritoryFactory.java:19	Found 'DU'-anomaly for variable 'i' (lines '19'-'50').
+src/warborn/model/TerritoryFactory.java:20	Local variable 'territoryNames' could be declared final
+src/warborn/model/TerritoryFactory.java:22	Avoid instantiating new objects inside loops
+src/warborn/model/TerritoryFactory.java:22	Found 'DD'-anomaly for variable 'territories' (lines '22'-'22').
+src/warborn/model/TerritoryFactory.java:22	Found 'DU'-anomaly for variable 'territories' (lines '22'-'50').
+src/warborn/model/TerritoryFactory.java:24	Avoid instantiating new objects inside loops
+src/warborn/model/TerritoryFactory.java:24	Found 'DD'-anomaly for variable 'connectionsName' (lines '24'-'27').
+src/warborn/model/TerritoryFactory.java:25	Found 'DU'-anomaly for variable 'namesToInsert' (lines '25'-'50').
+src/warborn/model/TerritoryFactory.java:28	System.arraycopy is more efficient
+src/warborn/model/TerritoryFactory.java:31	Found 'DD'-anomaly for variable 'connectionsNameList' (lines '31'-'31').
+src/warborn/model/TerritoryInteractor.java:3	Abstract classes should be named AbstractXXX
+src/warborn/model/TerritoryInteractor.java:3	This abstract class does not have any abstract methods
+src/warborn/model/TerritoryInteractor.java:4	Avoid variables with short names like t1
+src/warborn/model/TerritoryInteractor.java:4	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/warborn/model/TerritoryInteractor.java:5	Avoid variables with short names like t2
+src/warborn/model/TerritoryInteractor.java:5	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/warborn/model/TerritoryInteractor.java:7	Avoid variables with short names like t
+src/warborn/model/TerritoryInteractor.java:7	Parameter 't' is not assigned and could be declared final
+src/warborn/model/TerritoryInteractor.java:16	Assigning an Object to null is a code smell.  Consider refactoring.
+src/warborn/model/TerritoryInteractor.java:17	Assigning an Object to null is a code smell.  Consider refactoring.
+src/warborn/model/Warborn.java:15	The class 'Warborn' has a Cyclomatic Complexity of 3 (Highest = 21).
+src/warborn/model/Warborn.java:15	This class has too many methods, consider refactoring it.
+src/warborn/model/Warborn.java:17	Avoid using implementation types like 'ArrayList'; use the interface instead
+src/warborn/model/Warborn.java:17	Avoid using implementation types like 'ArrayList'; use the interface instead
+src/warborn/model/Warborn.java:17	Private field 'players' could be made final; it is only initialized in the declaration or constructor.
+src/warborn/model/Warborn.java:18	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/warborn/model/Warborn.java:19	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/warborn/model/Warborn.java:19	Private field 'move' could be made final; it is only initialized in the declaration or constructor.
+src/warborn/model/Warborn.java:20	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/warborn/model/Warborn.java:20	Private field 'battle' could be made final; it is only initialized in the declaration or constructor.
+src/warborn/model/Warborn.java:21	Avoid excessively long variable names like nbrOfReinforcements
+src/warborn/model/Warborn.java:21	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/warborn/model/Warborn.java:21	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/warborn/model/Warborn.java:23	Private field 'dimension' could be made final; it is only initialized in the declaration or constructor.
+src/warborn/model/Warborn.java:24	Private field 'deck' could be made final; it is only initialized in the declaration or constructor.
+src/warborn/model/Warborn.java:26	Avoid using implementation types like 'ArrayList'; use the interface instead
+src/warborn/model/Warborn.java:26	Avoid using implementation types like 'ArrayList'; use the interface instead
+src/warborn/model/Warborn.java:29	It is a good practice to call super() in a constructor
+src/warborn/model/Warborn.java:31	Local variable 'kit' could be declared final
+src/warborn/model/Warborn.java:37	Overridable method 'addPlayer' called during object construction
+src/warborn/model/Warborn.java:38	Overridable method 'addPlayer' called during object construction
+src/warborn/model/Warborn.java:57	This usage of the Collection.toArray() method will throw a ClassCastException.
+src/warborn/model/Warborn.java:60	Parameter 'index' is not assigned and could be declared final
+src/warborn/model/Warborn.java:69	Returning 'territories' may expose an internal array.
+src/warborn/model/Warborn.java:121	Avoid variables with short names like i
+src/warborn/model/Warborn.java:121	Parameter 'i' is not assigned and could be declared final
+src/warborn/model/Warborn.java:136	Parameter 'background' is not assigned and could be declared final
+src/warborn/model/Warborn.java:136	Parameter 'colors' is not assigned and could be declared final
+src/warborn/model/Warborn.java:136	Parameter 'names' is not assigned and could be declared final
+src/warborn/model/Warborn.java:139	Avoid instantiating new objects inside loops
+src/warborn/model/Warborn.java:145	Avoid variables with short names like id
+src/warborn/model/Warborn.java:150	Avoid variables with short names like id
+src/warborn/model/Warborn.java:150	The method 'setSelectedTerritory' has a Cyclomatic Complexity of 21.
+src/warborn/model/Warborn.java:151	System.out.print is used
+src/warborn/model/Warborn.java:152	Avoid if (x != y) ..; else ..;
+src/warborn/model/Warborn.java:154	Avoid if (x != y) ..; else ..;
+src/warborn/model/Warborn.java:168	An empty statement (semicolon) not part of a loop
+src/warborn/model/Warborn.java:252	Avoid variables with short names like id
+src/warborn/model/Warborn.java:263	Local variable 'mapName' could be declared final
+src/warborn/model/Warborn.java:266	System.out.print is used
+src/warborn/model/Warborn.java:268	Found 'DU'-anomaly for variable 'rand' (lines '269'-'284').
+src/warborn/model/Warborn.java:268	Local variable 'rand' could be declared final
+src/warborn/model/Warborn.java:270	Found 'DU'-anomaly for variable 'player' (lines '271'-'284').
+src/warborn/model/Warborn.java:272	Avoid variables with short names like i
+src/warborn/model/Warborn.java:272	Local variable 'i' could be declared final
+src/warborn/model/Warborn.java:287	A method should have only one exit point, and that should be the last statement in the method
+src/warborn/model/Warborn.java:294	A method should have only one exit point, and that should be the last statement in the method
+src/warborn/model/Warborn.java:299	The method 'exchangeSouls' has a Cyclomatic Complexity of 10.
+src/warborn/model/Warborn.java:300	Found 'DD'-anomaly for variable 'nbrOfCards' (lines '301'-'303').
+src/warborn/model/Warborn.java:302	Found 'DD'-anomaly for variable 'nbrOfCards' (lines '303'-'303').
+src/warborn/model/Warborn.java:304	Avoid if (x != y) ..; else ..;
+src/warborn/model/Warborn.java:336	Assigning an Object to null is a code smell.  Consider refactoring.
+src/warborn/model/spells/Armageddon.java:9	Parameter 'mana' is not assigned and could be declared final
+src/warborn/model/spells/Armageddon.java:14	Parameter 'model' is not assigned and could be declared final
+src/warborn/model/spells/Armageddon.java:29	Parameter 'model' is not assigned and could be declared final
+src/warborn/model/spells/Armageddon.java:43	Parameter 'model' is not assigned and could be declared final
+src/warborn/model/spells/Confusion.java:9	Parameter 'mana' is not assigned and could be declared final
+src/warborn/model/spells/Confusion.java:14	Parameter 'model' is not assigned and could be declared final
+src/warborn/model/spells/Confusion.java:29	Parameter 'model' is not assigned and could be declared final
+src/warborn/model/spells/Confusion.java:31	Local variable 'temp' could be declared final
+src/warborn/model/spells/FireBall.java:7	Parameter 'mana' is not assigned and could be declared final
+src/warborn/model/spells/FireBall.java:12	Parameter 'model' is not assigned and could be declared final
+src/warborn/model/spells/FireBall.java:27	Parameter 'model' is not assigned and could be declared final
+src/warborn/model/spells/HolyLight.java:7	Parameter 'mana' is not assigned and could be declared final
+src/warborn/model/spells/HolyLight.java:13	Parameter 'model' is not assigned and could be declared final
+src/warborn/model/spells/HolyLight.java:20	Parameter 'model' is not assigned and could be declared final
+src/warborn/model/spells/Protect.java:8	Avoid excessively long variable names like protectedTerritory
+src/warborn/model/spells/Protect.java:8	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/warborn/model/spells/Protect.java:10	Parameter 'mana' is not assigned and could be declared final
+src/warborn/model/spells/Protect.java:15	Parameter 'model' is not assigned and could be declared final
+src/warborn/model/spells/Protect.java:23	Parameter 'model' is not assigned and could be declared final
+src/warborn/model/spells/Protect.java:38	Parameter 'model' is not assigned and could be declared final
+src/warborn/model/spells/Spell.java:9	Abstract classes should be named AbstractXXX
+src/warborn/model/spells/Spell.java:11	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/warborn/model/spells/Spell.java:11	Private field 'manaCost' could be made final; it is only initialized in the declaration or constructor.
+src/warborn/model/spells/Spell.java:24	Parameter 'mana' is not assigned and could be declared final
+src/warborn/model/spells/Spell.java:36	Parameter 'newTime' is not assigned and could be declared final
+src/warborn/model/spells/Spell.java:44	An empty method in an abstract class should be abstract instead
+src/warborn/model/spells/TimeOfTruce.java:8	Parameter 'mana' is not assigned and could be declared final
+src/warborn/model/spells/TimeOfTruce.java:13	Parameter 'model' is not assigned and could be declared final
+src/warborn/model/spells/TimeOfTruce.java:22	Parameter 'model' is not assigned and could be declared final
+src/warborn/sound/Sound.java:18	The class 'Sound' has a Cyclomatic Complexity of 5 (Highest = 15).
+src/warborn/sound/Sound.java:18	To be compliant to J2EE, a webapp should not use any thread.
+src/warborn/sound/Sound.java:20	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/warborn/sound/Sound.java:20	Private field 'intro' could be made final; it is only initialized in the declaration or constructor.
+src/warborn/sound/Sound.java:21	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/warborn/sound/Sound.java:22	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/warborn/sound/Sound.java:22	Use explicit scoping instead of the default package private level
+src/warborn/sound/Sound.java:23	Avoid excessively long variable names like EXTERNAL_BUFFER_SIZE
+src/warborn/sound/Sound.java:23	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/warborn/sound/Sound.java:23	This final field could be made static
+src/warborn/sound/Sound.java:24	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/warborn/sound/Sound.java:27	It is a good practice to call super() in a constructor
+src/warborn/sound/Sound.java:31	Parameter 'track' is not assigned and could be declared final
+src/warborn/sound/Sound.java:32	Local variable 'soundFile' could be declared final
+src/warborn/sound/Sound.java:36	Avoid printStackTrace(); use a logger call instead.
+src/warborn/sound/Sound.java:38	Avoid printStackTrace(); use a logger call instead.
+src/warborn/sound/Sound.java:40	Local variable 'format' could be declared final
+src/warborn/sound/Sound.java:41	Local variable 'info' could be declared final
+src/warborn/sound/Sound.java:47	Avoid printStackTrace(); use a logger call instead.
+src/warborn/sound/Sound.java:48	A method should have only one exit point, and that should be the last statement in the method
+src/warborn/sound/Sound.java:50	Avoid printStackTrace(); use a logger call instead.
+src/warborn/sound/Sound.java:58	Found 'DU'-anomaly for variable 'abData' (lines '58'-'73').
+src/warborn/sound/Sound.java:58	Local variable 'abData' could be declared final
+src/warborn/sound/Sound.java:63	Avoid using if statements without curly braces
+src/warborn/sound/Sound.java:67	Avoid printStackTrace(); use a logger call instead.
+src/warborn/sound/Sound.java:85	Avoid variables with short names like o
+src/warborn/sound/Sound.java:85	Parameter 'arg' is not assigned and could be declared final
+src/warborn/sound/Sound.java:85	Parameter 'o' is not assigned and could be declared final
+src/warborn/sound/Sound.java:85	The method 'update' has a Cyclomatic Complexity of 15.
+src/warborn/sound/Sound.java:87	Local variable 'model' could be declared final
+src/warborn/sound/Sound.java:88	Avoid unnecessary comparisons in boolean expressions
+src/warborn/sound/Sound.java:93	Avoid unnecessary comparisons in boolean expressions
+src/warborn/sound/Sound.java:104	Avoid unnecessary comparisons in boolean expressions
+src/warborn/sound/Sound.java:109	Avoid unnecessary comparisons in boolean expressions
+src/warborn/supportClasses/GenericButton.java:1	Package name contains upper case characters
+src/warborn/supportClasses/GenericButton.java:14	Avoid variables with short names like s
+src/warborn/supportClasses/GenericButton.java:14	It is a good practice to call super() in a constructor
+src/warborn/supportClasses/GenericButton.java:14	Parameter 's' is not assigned and could be declared final
+src/warborn/supportClasses/GenericLabel.java:1	Package name contains upper case characters
+src/warborn/supportClasses/GenericLabel.java:16	Parameter 'text' is not assigned and could be declared final
+src/warborn/supportClasses/GenericLabel.java:21	Parameter 'icon' is not assigned and could be declared final
+src/warborn/supportClasses/MapData.java:1	Package name contains upper case characters
+src/warborn/supportClasses/MapData.java:3	Avoid unused imports such as 'warborn.map'
+src/warborn/supportClasses/MapData.java:5	All methods are static.  Consider using Singleton instead.  Alternatively, you could add a private constructor or make the class abstract to silence this warning.
+src/warborn/supportClasses/MapData.java:13	Parameter 'map' is not assigned and could be declared final
+src/warborn/supportClasses/MapData.java:13	Return an empty array rather than null.
+src/warborn/supportClasses/MapData.java:15	A method should have only one exit point, and that should be the last statement in the method
+src/warborn/supportClasses/PlayerData.java:1	Package name contains upper case characters
+src/warborn/supportClasses/PlayerData.java:3	All methods are static.  Consider using Singleton instead.  Alternatively, you could add a private constructor or make the class abstract to silence this warning.
+src/warborn/supportClasses/PlayerData.java:5	Variables that are final and static should be in all caps.
+src/warborn/supportClasses/PlayerData.java:19	Parameter 'index' is not assigned and could be declared final
+src/warborn/supportClasses/PlayerData.java:23	Parameter 'index' is not assigned and could be declared final
+src/warborn/supportClasses/RoundedBorder.java:1	Package name contains upper case characters
+src/warborn/supportClasses/RoundedBorder.java:11	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/warborn/supportClasses/RoundedBorder.java:11	Private field 'radius' could be made final; it is only initialized in the declaration or constructor.
+src/warborn/supportClasses/RoundedBorder.java:18	Parameter 'radius' is not assigned and could be declared final
+src/warborn/supportClasses/RoundedBorder.java:21	Avoid variables with short names like c
+src/warborn/supportClasses/RoundedBorder.java:21	Parameter 'c' is not assigned and could be declared final
+src/warborn/supportClasses/RoundedBorder.java:31	Avoid variables with short names like c
+src/warborn/supportClasses/RoundedBorder.java:31	Avoid variables with short names like g
+src/warborn/supportClasses/RoundedBorder.java:31	Avoid variables with short names like x
+src/warborn/supportClasses/RoundedBorder.java:31	Avoid variables with short names like y
+src/warborn/supportClasses/RoundedBorder.java:31	Parameter 'c' is not assigned and could be declared final
+src/warborn/supportClasses/RoundedBorder.java:31	Parameter 'g' is not assigned and could be declared final
+src/warborn/supportClasses/RoundedBorder.java:31	Parameter 'height' is not assigned and could be declared final
+src/warborn/supportClasses/SpellFactory.java:1	Package name contains upper case characters
+src/warborn/supportClasses/SpellFactory.java:3	Avoid unused imports such as 'warborn.model.spells'
+src/warborn/supportClasses/SpellFactory.java:5	A class which only has private constructors should be final
+src/warborn/supportClasses/SpellFactory.java:7	An empty statement (semicolon) not part of a loop
+src/warborn/supportClasses/SpellFactory.java:22	Parameter 'index' is not assigned and could be declared final
+src/warborn/view/BattleView.java:22	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/warborn/view/BattleView.java:22	Private field 'buttons' could be made final; it is only initialized in the declaration or constructor.
+src/warborn/view/BattleView.java:23	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/warborn/view/BattleView.java:23	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/warborn/view/BattleView.java:23	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/warborn/view/BattleView.java:23	Private field 'btAutoAttack' could be made final; it is only initialized in the declaration or constructor.
+src/warborn/view/BattleView.java:23	Private field 'btOneAttack' could be made final; it is only initialized in the declaration or constructor.
+src/warborn/view/BattleView.java:23	Private field 'btRetreat' could be made final; it is only initialized in the declaration or constructor.
+src/warborn/view/BattleView.java:24	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/warborn/view/BattleView.java:24	Private field 'battleFrame' could be made final; it is only initialized in the declaration or constructor.
+src/warborn/view/BattleView.java:26	Avoid variables with short names like t1
+src/warborn/view/BattleView.java:26	Avoid variables with short names like t2
+src/warborn/view/BattleView.java:38	Local variable 'battleView' could be declared final
+src/warborn/view/BattleView.java:92	Returning 'buttons' may expose an internal array.
+src/warborn/view/BattleView.java:107	Avoid variables with short names like p
+src/warborn/view/BattleView.java:107	Parameter 'p' is not assigned and could be declared final
+src/warborn/view/BattleView.java:109	The String literal " loses " appears 4 times in this file; the first occurrence is on line 109
+src/warborn/view/BattleView.java:117	Avoid variables with short names like e
+src/warborn/view/BattleView.java:117	Avoid variables with short names like ml
+src/warborn/view/BattleView.java:117	Parameter 'e' is not assigned and could be declared final
+src/warborn/view/BattleView.java:117	Parameter 'ml' is not assigned and could be declared final
+src/warborn/view/BattleView.java:118	Local variable 'model' could be declared final
+src/warborn/view/BattleView.java:122	Local variable 'battle' could be declared final
+src/warborn/view/BattleView.java:131	Do not add empty strings
+src/warborn/view/BattleView.java:132	Do not add empty strings
+src/warborn/view/HudView.java:7	Avoid unused imports such as 'warborn.supportClasses'
+src/warborn/view/HudView.java:15	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/warborn/view/HudView.java:15	Perhaps 'cardPanel' could be replaced by a local variable.
+src/warborn/view/HudView.java:15	Private field 'cardPanel' could be made final; it is only initialized in the declaration or constructor.
+src/warborn/view/HudView.java:16	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/warborn/view/HudView.java:16	Private field 'phaseInfo' could be made final; it is only initialized in the declaration or constructor.
+src/warborn/view/HudView.java:17	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/warborn/view/HudView.java:17	Private field 'playersPanel' could be made final; it is only initialized in the declaration or constructor.
+src/warborn/view/HudView.java:18	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/warborn/view/HudView.java:18	Perhaps 'playerPanelsArray' could be replaced by a local variable.
+src/warborn/view/HudView.java:18	Private field 'playerPanelsArray' could be made final; it is only initialized in the declaration or constructor.
+src/warborn/view/HudView.java:19	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/warborn/view/HudView.java:19	Private field 'playerNameArray' could be made final; it is only initialized in the declaration or constructor.
+src/warborn/view/HudView.java:29	Perhaps 'innerBorder' could be replaced by a local variable.
+src/warborn/view/HudView.java:31	It is a good practice to call super() in a constructor
+src/warborn/view/HudView.java:31	Parameter 'model' is not assigned and could be declared final
+src/warborn/view/HudView.java:74	Avoid instantiating new objects inside loops
+src/warborn/view/HudView.java:115	This statement may have some unnecessary parentheses
+src/warborn/view/HudView.java:121	Avoid instantiating new objects inside loops
+src/warborn/view/HudView.java:122	Avoid instantiating new objects inside loops
+src/warborn/view/HudView.java:126	Avoid instantiating new objects inside loops
+src/warborn/view/HudView.java:131	Avoid instantiating new objects inside loops
+src/warborn/view/HudView.java:152	Returning 'buttons' may expose an internal array.
+src/warborn/view/HudView.java:155	Parameter 'playerIndex' is not assigned and could be declared final
+src/warborn/view/HudView.java:167	Avoid variables with short names like e
+src/warborn/view/HudView.java:167	Avoid variables with short names like ml
+src/warborn/view/HudView.java:167	Parameter 'e' is not assigned and could be declared final
+src/warborn/view/HudView.java:167	Parameter 'ml' is not assigned and could be declared final
+src/warborn/view/HudView.java:168	Local variable 'model' could be declared final
+src/warborn/view/HudView.java:172	Local variable 'hsbFloats' could be declared final
+src/warborn/view/HudView.java:207	Avoid if (x != y) ..; else ..;
+src/warborn/view/MenuView.java:15	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/warborn/view/MenuView.java:15	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/warborn/view/MenuView.java:15	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/warborn/view/MenuView.java:15	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/warborn/view/MenuView.java:15	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/warborn/view/MenuView.java:15	Private field 'btBack' could be made final; it is only initialized in the declaration or constructor.
+src/warborn/view/MenuView.java:15	Private field 'btBack2' could be made final; it is only initialized in the declaration or constructor.
+src/warborn/view/MenuView.java:15	Private field 'btCredits' could be made final; it is only initialized in the declaration or constructor.
+src/warborn/view/MenuView.java:15	Private field 'btExit' could be made final; it is only initialized in the declaration or constructor.
+src/warborn/view/MenuView.java:15	Private field 'btNewGame' could be made final; it is only initialized in the declaration or constructor.
+src/warborn/view/MenuView.java:17	Perhaps 'sounds' could be replaced by a local variable.
+src/warborn/view/MenuView.java:22	It is a good practice to call super() in a constructor
+src/warborn/view/MenuView.java:22	Parameter 'model' is not assigned and could be declared final
+src/warborn/view/MoveView.java:21	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/warborn/view/MoveView.java:21	Private field 'buttons' could be made final; it is only initialized in the declaration or constructor.
+src/warborn/view/MoveView.java:22	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/warborn/view/MoveView.java:22	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/warborn/view/MoveView.java:22	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/warborn/view/MoveView.java:22	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/warborn/view/MoveView.java:22	Private field 'btCancel' could be made final; it is only initialized in the declaration or constructor.
+src/warborn/view/MoveView.java:22	Private field 'btDecrease' could be made final; it is only initialized in the declaration or constructor.
+src/warborn/view/MoveView.java:22	Private field 'btIncrease' could be made final; it is only initialized in the declaration or constructor.
+src/warborn/view/MoveView.java:22	Private field 'btMove' could be made final; it is only initialized in the declaration or constructor.
+src/warborn/view/MoveView.java:23	Perhaps 'viewPanel' could be replaced by a local variable.
+src/warborn/view/MoveView.java:25	Avoid variables with short names like t1
+src/warborn/view/MoveView.java:25	Avoid variables with short names like t2
+src/warborn/view/MoveView.java:69	Local variable 'lbTop' could be declared final
+src/warborn/view/MoveView.java:103	Returning 'buttons' may expose an internal array.
+src/warborn/view/MoveView.java:115	Avoid variables with short names like ml
+src/warborn/view/MoveView.java:115	Parameter 'arg1' is not assigned and could be declared final
+src/warborn/view/MoveView.java:115	Parameter 'ml' is not assigned and could be declared final
+src/warborn/view/MoveView.java:116	Local variable 'model' could be declared final
+src/warborn/view/MoveView.java:117	System.out.print is used
+src/warborn/view/MoveView.java:129	Avoid variables with short names like ti
+src/warborn/view/MoveView.java:129	Parameter 'model' is not assigned and could be declared final
+src/warborn/view/MoveView.java:129	Parameter 'ti' is not assigned and could be declared final
+src/warborn/view/MoveView.java:135	Do not add empty strings
+src/warborn/view/MoveView.java:136	Do not add empty strings
+src/warborn/view/OptionsMenuView.java:9	Avoid unused imports such as 'warborn.model.LabelFactory'
+src/warborn/view/OptionsMenuView.java:9	Avoid unused imports such as 'warborn.model.LabelFactory'
+src/warborn/view/OptionsMenuView.java:13	Avoid unused imports such as 'java.awt.FlowLayout'
+src/warborn/view/OptionsMenuView.java:13	Avoid unused imports such as 'java.awt.FlowLayout'
+src/warborn/view/OptionsMenuView.java:14	Avoid unused imports such as 'java.awt.event.ActionListener'
+src/warborn/view/OptionsMenuView.java:14	Avoid unused imports such as 'java.awt.event.ActionListener'
+src/warborn/view/OptionsMenuView.java:15	Avoid unused imports such as 'java.awt.event.ActionEvent'
+src/warborn/view/OptionsMenuView.java:15	Avoid unused imports such as 'java.awt.event.ActionEvent'
+src/warborn/view/OptionsMenuView.java:16	Avoid unused imports such as 'java.util.Observable'
+src/warborn/view/OptionsMenuView.java:16	Avoid unused imports such as 'java.util.Observable'
+src/warborn/view/OptionsMenuView.java:21	Avoid unused private fields such as 'model'.
+src/warborn/view/OptionsMenuView.java:21	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/warborn/view/OptionsMenuView.java:21	Perhaps 'model' could be replaced by a local variable.
+src/warborn/view/OptionsMenuView.java:21	Private field 'model' could be made final; it is only initialized in the declaration or constructor.
+src/warborn/view/OptionsMenuView.java:22	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/warborn/view/OptionsMenuView.java:22	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/warborn/view/OptionsMenuView.java:22	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/warborn/view/OptionsMenuView.java:22	Private field 'btExit' could be made final; it is only initialized in the declaration or constructor.
+src/warborn/view/OptionsMenuView.java:22	Private field 'btMainMenu' could be made final; it is only initialized in the declaration or constructor.
+src/warborn/view/OptionsMenuView.java:22	Private field 'btResume' could be made final; it is only initialized in the declaration or constructor.
+src/warborn/view/OptionsMenuView.java:23	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/warborn/view/OptionsMenuView.java:23	Private field 'frame' could be made final; it is only initialized in the declaration or constructor.
+src/warborn/view/OptionsMenuView.java:28	It is a good practice to call super() in a constructor
+src/warborn/view/OptionsMenuView.java:28	Parameter 'model' is not assigned and could be declared final
+src/warborn/view/PlayerSelectionPanel.java:12	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/warborn/view/PlayerSelectionPanel.java:13	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/warborn/view/PlayerSelectionPanel.java:14	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/warborn/view/PlayerSelectionPanel.java:14	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/warborn/view/PlayerSelectionPanel.java:19	It is a good practice to call super() in a constructor
+src/warborn/view/PlayerSelectionPanel.java:19	Parameter 'number' is not assigned and could be declared final
+src/warborn/view/PlayerSelectionPanel.java:25	Switch statements should have a default label
+src/warborn/view/PlayerSelectionPanel.java:51	Local variable 'lbRace' could be declared final
+src/warborn/view/PlayerSelectionPanel.java:56	Local variable 'lbBackground' could be declared final
+src/warborn/view/PlayerSelectionPanel.java:78	Local variable 'boxModel' could be declared final
+src/warborn/view/PlayerSelectionPanel.java:86	Local variable 'boxModel' could be declared final
+src/warborn/view/SelectionPanel.java:14	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/warborn/view/SelectionPanel.java:14	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/warborn/view/SelectionPanel.java:14	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/warborn/view/SelectionPanel.java:14	Private field 'btAddPlayer' could be made final; it is only initialized in the declaration or constructor.
+src/warborn/view/SelectionPanel.java:14	Private field 'btRemovePlayer' could be made final; it is only initialized in the declaration or constructor.
+src/warborn/view/SelectionPanel.java:14	Private field 'btStartGame' could be made final; it is only initialized in the declaration or constructor.
+src/warborn/view/SelectionPanel.java:15	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/warborn/view/SelectionPanel.java:15	Private field 'cbMap' could be made final; it is only initialized in the declaration or constructor.
+src/warborn/view/SelectionPanel.java:16	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/warborn/view/SelectionPanel.java:16	Private field 'lbMap' could be made final; it is only initialized in the declaration or constructor.
+src/warborn/view/SelectionPanel.java:18	Perhaps 'model' could be replaced by a local variable.
+src/warborn/view/SelectionPanel.java:23	It is a good practice to call super() in a constructor
+src/warborn/view/SelectionPanel.java:23	Parameter 'model' is not assigned and could be declared final
+src/warborn/view/SelectionPanel.java:47	Avoid instantiating new objects inside loops
+src/warborn/view/SelectionPanel.java:64	Avoid variables with short names like I
+src/warborn/view/SelectionPanel.java:78	Local variable 'boxModel' could be declared final
+src/warborn/view/SelectionPanel.java:79	Local variable 'mapNames' could be declared final
+src/warborn/view/SelectionPanel.java:103	Found 'DD'-anomaly for variable 'btColors' (lines '103'-'105').
+src/warborn/view/SelectionPanel.java:105	Found 'DD'-anomaly for variable 'btColors' (lines '105'-'105').
+src/warborn/view/SelectionPanel.java:111	Found 'DD'-anomaly for variable 'names' (lines '111'-'113').
+src/warborn/view/SelectionPanel.java:113	Found 'DD'-anomaly for variable 'names' (lines '113'-'113').
+src/warborn/view/SelectionPanel.java:119	Found 'DD'-anomaly for variable 'colors' (lines '119'-'121').
+src/warborn/view/SelectionPanel.java:121	Found 'DD'-anomaly for variable 'colors' (lines '121'-'121').
+src/warborn/view/SelectionPanel.java:127	Found 'DD'-anomaly for variable 'races' (lines '127'-'129').
+src/warborn/view/SelectionPanel.java:129	Found 'DD'-anomaly for variable 'races' (lines '129'-'129').
+src/warborn/view/SelectionPanel.java:135	Found 'DD'-anomaly for variable 'backgrounds' (lines '135'-'137').
+src/warborn/view/SelectionPanel.java:137	Found 'DD'-anomaly for variable 'backgrounds' (lines '137'-'137').
+src/warborn/view/SelectionPanel.java:147	Avoid variables with short names like I
+src/warborn/view/SelectionPanel.java:147	Found 'DD'-anomaly for variable 'I' (lines '147'-'148').
+src/warborn/view/SpellView.java:16	It is a good practice to call super() in a constructor
+src/warborn/view/SpellView.java:16	Parameter 'spell' is not assigned and could be declared final
+src/warborn/view/SpellView.java:20	Local variable 'spellIconLbl' could be declared final
+src/warborn/view/SpellView.java:25	Local variable 'descriptionLbl' could be declared final
+src/warborn/view/SpellView.java:30	Local variable 'spellNameLbl' could be declared final
+src/warborn/view/SpellView.java:35	Local variable 'spellCostLbl' could be declared final
+src/warborn/view/SpellView.java:37	Do not add empty strings
+src/warborn/view/SpellbookView.java:12	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/warborn/view/SpellbookView.java:12	Private field 'frame' could be made final; it is only initialized in the declaration or constructor.
+src/warborn/view/SpellbookView.java:13	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/warborn/view/SpellbookView.java:13	Perhaps 'spellbook' could be replaced by a local variable.
+src/warborn/view/SpellbookView.java:13	Private field 'spellbook' could be made final; it is only initialized in the declaration or constructor.
+src/warborn/view/SpellbookView.java:18	It is a good practice to call super() in a constructor
+src/warborn/view/SpellbookView.java:18	Parameter 'spellbook' is not assigned and could be declared final
+src/warborn/view/SpellbookView.java:31	Local variable 'page2' could be declared final
+src/warborn/view/SpellbookView.java:36	Local variable 'page1' could be declared final
+src/warborn/view/SpellbookView.java:41	Local variable 'spellbooklbl' could be declared final
+src/warborn/view/SpellbookView.java:52	Avoid instantiating new objects inside loops
+src/warborn/view/SpellbookView.java:55	Avoid instantiating new objects inside loops

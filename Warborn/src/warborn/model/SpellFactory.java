@@ -1,8 +1,11 @@
-package warborn.SupportClasses;
+package warborn.model;
 
 import warborn.model.spells.*;
 
-public class SpellData {
+public final class SpellFactory {
+	
+	private SpellFactory(){
+	}
 	
 	private static Spell[] spellList = {
 		//Churchguard

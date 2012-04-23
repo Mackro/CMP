@@ -6,12 +6,14 @@ import java.awt.Image;
 
 import javax.swing.*;
 
-import warborn.SupportClasses.MapData;
+import warborn.map.MapData;
 import warborn.model.Warborn;
 
 public class SelectionPanel extends JPanel {
 
+	private static final long serialVersionUID = 1L;
 	private JButton btStartGame, btAddPlayer, btRemovePlayer;
+	@SuppressWarnings("rawtypes")
 	private JComboBox cbMap;
 	private JLabel lbMap;
 	private JPanel pPlayer, pMap;
@@ -20,6 +22,7 @@ public class SelectionPanel extends JPanel {
 	/**
 	 * Create the panel.
 	 */
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public SelectionPanel(Warborn model) {
 		
 		this.model = model;
@@ -74,6 +77,7 @@ public class SelectionPanel extends JPanel {
 		pMap.add(btStartGame);
 	}
 	
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	private ComboBoxModel getMaps() {
 		DefaultComboBoxModel boxModel = new DefaultComboBoxModel();
 		String[] mapNames = MapData.getMapNames();
@@ -95,6 +99,7 @@ public class SelectionPanel extends JPanel {
 		return btRemovePlayer;
 	}
 	
+	@SuppressWarnings("rawtypes")
 	public JComboBox getMapComboBox(){
 		return cbMap;
 	}

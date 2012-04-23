@@ -11,7 +11,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
-import warborn.SupportClasses.GenericButton;
 import warborn.model.Battle;
 import warborn.model.LabelFactory;
 import warborn.model.Warborn;

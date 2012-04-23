@@ -1,4 +1,4 @@
-package warborn.SupportClasses;
+package warborn.view;
 
 import java.awt.Font;
 

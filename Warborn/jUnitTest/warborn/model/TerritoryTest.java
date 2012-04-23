@@ -11,21 +11,21 @@ public class TerritoryTest {
 	Territory t4;
 
 	@Before
-	public void Before(){
+	public void before(){
 		t1 = new Territory("Terr1", 1);
 		t2 = new Territory("Terr2", 2);
 		t3 = new Territory("Terr3", 3);
 		t4 = new Territory("Terr4", 4);
 	}
 	@Test
-	public void TestTerritory() {
+	public void testTerritory() {
 		assertTrue(t1.getName().equalsIgnoreCase("Terr1"));
 		assertTrue(t1.getOwner()==null);
 		assertTrue(t1.getNbrOfUnits()==0);
 		assertTrue(t1.getId()==1);
 	}
 	@Test
-	public void TestSetOwner() {
+	public void testSetOwner() {
 		Player player = new Player("player", 1, Color.RED, 0, 0);
 		t1.setOwner(player);
 		assertTrue(t1.getOwner()==player);
@@ -34,7 +34,7 @@ public class TerritoryTest {
 		assertTrue(t1.getOwner()==player2);
 	}
 	@Test
-	public void TestSetNbrOfUnits() {
+	public void testSetNbrOfUnits() {
 		t1.setNbrOfUnits(4);
 		assertTrue(t1.getNbrOfUnits()==4);
 		t2.setNbrOfUnits(8);
@@ -45,7 +45,7 @@ public class TerritoryTest {
 		assertTrue(t1.getNbrOfUnits()==99);
 	}
 	@Test
-	public void TestIncrementUnit() {
+	public void testIncrementUnit() {
 		t1.incrementUnit();
 		assertTrue(t1.getNbrOfUnits()==1);
 		t1.setNbrOfUnits(4);
@@ -55,7 +55,7 @@ public class TerritoryTest {
 		assertTrue(t1.getNbrOfUnits()==9);
 	}
 	@Test
-	public void TestHasConnectionAddConnection() {
+	public void testHasConnectionAddConnection() {
 		t1.addConnection(t2);
 		t1.addConnection(t3);
 		assertTrue(t1.hasConnection(t2));
@@ -67,7 +67,7 @@ public class TerritoryTest {
 		assertTrue(!(t4.hasConnection(t3)));
 	}
 	@Test
-	public void TestEquals() {
+	public void testEquals() {
 		assertFalse(t1.equals(t2));
 		assertTrue(t1.equals(t1));
 		assertFalse(t1.equals(t4));

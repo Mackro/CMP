@@ -3,7 +3,6 @@ package warborn.view;
 import java.awt.*;
 import java.util.*;
 
-import warborn.SupportClasses.*;
 import warborn.model.Warborn;
 
 import javax.swing.*;

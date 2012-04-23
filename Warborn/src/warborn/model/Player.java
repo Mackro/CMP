@@ -3,7 +3,6 @@ package warborn.model;
 import java.awt.Color;
 import java.io.IOException;
 
-import warborn.SupportClasses.PlayerData;
 
 public class Player {
 

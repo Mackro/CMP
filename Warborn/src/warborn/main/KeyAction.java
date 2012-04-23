@@ -10,6 +10,7 @@ import warborn.view.OptionsMenuView;
 
 public class KeyAction extends AbstractAction{
 
+	private static final long serialVersionUID = 1L;
 	private Warborn model;
 	private Launcher launcher;
 	public MainFrame mainFrame;

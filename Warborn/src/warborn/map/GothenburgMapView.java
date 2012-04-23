@@ -6,7 +6,6 @@ import java.util.Observable;
 
 import javax.swing.*;
 
-import warborn.SupportClasses.MapData;
 import warborn.model.Warborn;
 
 public class GothenburgMapView extends JPanel implements IMap { 	
@@ -21,7 +20,11 @@ public class GothenburgMapView extends JPanel implements IMap {
 	public GothenburgMapView(Warborn model) {
 		
 		this.model = model;
-		scalingConstants = MapData.getScalingConstants(this);
+		try{
+			scalingConstants = MapData.getScalingConstants(this);
+		}catch(MapNotFoundException mnfe){
+			mnfe.printStackTrace();
+		}
 		
 		setLayout(null);
 		setSize(model.getWidth(), model.getHeight());

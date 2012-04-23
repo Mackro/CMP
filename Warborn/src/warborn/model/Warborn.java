@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Random;
 
-import warborn.SupportClasses.MapData;
+import warborn.map.MapData;
 import warborn.model.spells.Spell;
 
 
@@ -264,6 +264,7 @@ public class Warborn extends Observable{
 			territories = TerritoryFactory.getTerritories(mapName[selectedMap]);
 		} catch (IOException e) {
 			System.out.println("Selected Map does not exist!");
+			
 		}
 		Random rand = new Random();
 		int sum = 0;
