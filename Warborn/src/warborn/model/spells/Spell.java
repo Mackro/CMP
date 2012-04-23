@@ -25,6 +25,7 @@ public abstract class Spell {
 	}
 	
 	public void tick(Warborn model){
+		//Does nothing by default. Is overrided if necessary.
 	}
 	
 	public int getManaCost(){

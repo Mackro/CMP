@@ -7,7 +7,7 @@ import org.junit.Test;
 public class DiceTest {
 
 	@Test
-	public void TestD6roll() {
+	public void testD6roll() {
 		int d;
 		for (int i=0; i<20; i++){
 			d = Dice.d6Roll();

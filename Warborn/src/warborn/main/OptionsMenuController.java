@@ -1,12 +1,10 @@
-package warborn.controller;
+package warborn.main;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 
-import warborn.main.Launcher;
-import warborn.main.MainFrame;
 import warborn.view.OptionsMenuView;
 
 public class OptionsMenuController implements ActionListener{

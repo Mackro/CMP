@@ -30,9 +30,7 @@ public class MoveView implements Observer {
 	/**
 	 * Create the panel.
 	 */
-	public MoveView(){	//Warborn model){
-	//	this.model = model;
-	//	this.model.addObserver(this);
+	public MoveView(){
 		
 		moveFrame = new JFrame();
 		moveFrame.setUndecorated(true);
@@ -113,7 +111,6 @@ public class MoveView implements Observer {
 	@Override
 	public void update(Observable ml, Object arg1) {
 		Warborn model = (Warborn)ml;
-		System.out.println(model.getState() + ", " + model.getPhase());
 		if(model.getState() == 3 && model.getPhase() == 1){
 			btCancel.setEnabled(true);
 			fillInformation(model, model.getMove());
@@ -131,8 +128,8 @@ public class MoveView implements Observer {
 		lbT1Name.setText(t1.getName());
 		lbT2Name.setText(t2.getName());
 		slider.setValue(t2.getNbrOfUnits());
-		lbT1Troops.setText(t1.getNbrOfUnits() + "");
-		lbT2Troops.setText(t2.getNbrOfUnits() + "");
+		lbT1Troops.setText(Integer.toString(t1.getNbrOfUnits()));
+		lbT2Troops.setText(Integer.toString(t2.getNbrOfUnits()));
 		moveFrame.setLocation((int)((model.getWidth()/2) - (moveFrame.getWidth()/2)), (int)((model.getHeight()*0.7)/2) - (moveFrame.getHeight()/2));
 		moveFrame.setVisible(true);
 	}

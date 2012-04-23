@@ -25,7 +25,6 @@ public class Player {
 		try {
 			spellbook.fill(background);
 		} catch (IOException e) {
-			System.out.println(PlayerData.getBackgroundName(background) + ".txt file not found!");
 			e.printStackTrace();
 		}
 	}

@@ -1,4 +1,4 @@
-package warborn.map;
+package warborn.model;
 
 public final class MapData {
 	
@@ -7,12 +7,12 @@ public final class MapData {
 	
 	public static String[] getMapNames(){
 		return new String[] {
-			GothenburgMapView.getMapName(),	
+			"Asgauter",
 		};
 	}
 	
-	public static double[][] getScalingConstants(IMap map) throws MapNotFoundException{
-		if(map instanceof GothenburgMapView){
+	public static double[][] getScalingConstants(String map) throws MapNotFoundException{
+		if(map.equalsIgnoreCase("Asgauter")){
 			return new double[][]{
 				{0.760, 0.160},
 				{0.590, 0.065},
@@ -38,7 +38,7 @@ public final class MapData {
 				{0.190, 0.260},
 			};
 		}
-		throw new MapNotFoundException();
+		throw new MapNotFoundException("No such Map");
 	}
 	
 }

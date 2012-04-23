@@ -37,7 +37,7 @@ public class Spellbook {
 		spells.add(spell);
 	}
 	
-	public void removeSpell(String name) {
+	public void removeSpell(Spell name) {
 		spells.remove(name);
 	}
 }

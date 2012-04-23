@@ -4,7 +4,6 @@ import java.awt.event.ActionEvent;
 
 import javax.swing.AbstractAction;
 
-import warborn.controller.OptionsMenuController;
 import warborn.model.Warborn;
 import warborn.view.OptionsMenuView;
 

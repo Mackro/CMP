@@ -5,6 +5,8 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 
+import warborn.view.EndGameView;
+
 public class EndGameController implements ActionListener{
 
 	private EndGameView view;

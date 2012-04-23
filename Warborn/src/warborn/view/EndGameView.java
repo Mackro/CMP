@@ -1,4 +1,4 @@
-package warborn.main;
+package warborn.view;
 
 import java.util.Observable;
 import java.util.Observer;

@@ -34,7 +34,6 @@ public class Battle extends TerritoryInteractor {
 		do{
 			d[i-1] = Dice.d6Roll();
 			i++;
-			System.out.println(i);
 		}while(i < unitsDefender && i < 3);
 		
 		if(a[2] <= Math.max(d[0], d[1])){

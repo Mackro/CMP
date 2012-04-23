@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Random;
 
-import warborn.map.MapData;
 import warborn.model.spells.Spell;
 
 
@@ -33,18 +32,6 @@ public class Warborn extends Observable{
 		this.players = new ArrayList<Player>();
 		this.activeSpells = new ArrayList<Spell>();
 		
-		//Going to make random players instead
-		addPlayer("Player 1", Color.blue, 0, 0);
-		addPlayer("Player 2", Color.red, 0, 0);
-		/*try {
-			this.territories = TerritoryFactory.getTerritories("Gothenburg");
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		for(int i = 0; i<territories.length; i++){
-			territories[i].setNbrOfUnits(4);
-		}
-		*/
 		this.battle = new Battle(this);
 		this.move = new Move(this);
 		
@@ -54,7 +41,7 @@ public class Warborn extends Observable{
 	//Getters
 
 	public Player[] getPlayers(){
-		return (Player[])players.toArray();
+		return players.toArray(new Player[players.size()]);
 	}
 	
 	public Player getPlayer(int index){
@@ -148,7 +135,6 @@ public class Warborn extends Observable{
 	}
 
 	public void setSelectedTerritory(int id){
-		System.out.println(selectedTerritory + ": " + id);
 		if (selectedTerritory != id){
 
 			if(selectedSpell != null){
@@ -263,9 +249,9 @@ public class Warborn extends Observable{
 			String[] mapName = MapData.getMapNames();
 			territories = TerritoryFactory.getTerritories(mapName[selectedMap]);
 		} catch (IOException e) {
-			System.out.println("Selected Map does not exist!");
-			
+			e.printStackTrace();
 		}
+		
 		Random rand = new Random();
 		int sum = 0;
 		int player = 0;
@@ -281,6 +267,13 @@ public class Warborn extends Observable{
 		this.startPhases = 10*this.getNumberOfPlayers();
 		this.phase = 0;
 		nextState();
+	}
+	
+	public void quickStart(){
+		//Going to make random players instead
+		addPlayer("Player 1", Color.blue, 0, 0);
+		addPlayer("Player 2", Color.red, 0, 0);
+		startGame();
 	}
 
 	public boolean attackCompatible(Territory t1, Territory t2){

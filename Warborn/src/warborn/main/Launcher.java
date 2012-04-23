@@ -125,7 +125,6 @@ public class Launcher implements Observer{
 	public void reset(){
 		frame.dispose();
 		frame = null;
-		System.gc();
 		model = new Warborn();
 		init();
 		initialize();

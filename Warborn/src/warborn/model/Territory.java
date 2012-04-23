@@ -80,16 +80,4 @@ public class Territory {
 	public boolean isProtected(){
 		return protection;
 	}
-	
-
-	@Override
-	public boolean equals(Object rhs){
-		if(rhs == null || !(rhs.getClass() == this.getClass())){
-			return false;
-		}
-		Territory toCompare = (Territory)rhs;
-		return this.getId() == toCompare.getId();
-	}
-	
-	
 }

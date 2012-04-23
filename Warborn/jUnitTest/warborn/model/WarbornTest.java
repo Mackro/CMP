@@ -10,11 +10,11 @@ public class WarbornTest {
 	Warborn model;
 	
 	@Before
-	public void Before() {
+	public void before() {
 		model = new Warborn();		
 	}
 	@Test
-	public void TestSetPlayers() {
+	public void testSetPlayers() {
 		String[] names = {"player1", "player2"};
 		Color[] colors = {Color.red, Color.blue};
 		int[] races = {0, 0};
@@ -27,43 +27,43 @@ public class WarbornTest {
 		assertTrue(players[2].getColor().equals(colors[2]));
 	}
 	@Test
-	public void TestSetSelectedMap() {
+	public void testSetSelectedMap() {
 		model.setSelectedMap(3);
 		assertTrue(model.getMapIndex()==3);
 		assertFalse(model.getMapIndex()==0);
 		assertFalse(model.getMapIndex()==1);
 	}
 	@Test
-	public void TestSetSelectedTerritory() {
+	public void testSetSelectedTerritory() {
 		model.setSelectedTerritory(4);
 		
 	}
 	@Test
-	public void TestAddPlayer() {
+	public void testAddPlayer() {
 		fail("not implemented yet!");
 	}
 	@Test
-	public void TestNextState() {
+	public void testNextState() {
 		fail("not implemented yet!");
 	}
 	@Test
-	public void TestNextPhase() {
+	public void testNextPhase() {
 		fail("not implemented yet!");
 	}
 	@Test
-	public void TestRemovePlayer() {
+	public void testRemovePlayer() {
 		fail("not implemented yet!");
 	}
 	@Test
-	public void TestStartGame() {
+	public void testStartGame() {
 		fail("not implemented yet!");
 	}
 	@Test
-	public void TestAttackCompatible() {
+	public void testAttackCompatible() {
 		fail("not implemented yet!");
 	}
 	@Test
-	public void TestMoveCompatible() {
+	public void testMoveCompatible() {
 		fail("not implemented yet!");
 	}
 }

@@ -8,11 +8,11 @@ public class TerritoryFactoryTest {
 	Territory[] territories;
 	
 	@Before
-	public void Before() throws IOException {
+	public void before() throws IOException {
 		territories = TerritoryFactory.getTerritories("Gothenburg");
 	}
 	@Test
-	public void TestGetTerritories(){
+	public void testGetTerritories(){
 		assertTrue(territories[1].hasConnection(territories[2]));
 		assertTrue(territories[1].hasConnection(territories[4]));
 		
