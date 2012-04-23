@@ -23,7 +23,7 @@ public class GothenburgMapView extends JPanel implements IMap {
 		
 		this.model = model;
 		try{
-			scalingConstants = MapData.getScalingConstants(this.getName());
+			scalingConstants = MapData.getScalingConstants(getMapName());
 		}catch(MapNotFoundException mnfe){
 			mnfe.printStackTrace();
 		}

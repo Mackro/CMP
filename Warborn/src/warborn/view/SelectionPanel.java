@@ -46,7 +46,7 @@ public class SelectionPanel extends JPanel {
 		btRemovePlayer.setLocation(pPlayer.getWidth() - btRemovePlayer.getWidth() - btAddPlayer.getWidth() - 20, 5);
 		this.add(btRemovePlayer, 0);
 		
-		for(int i = 0; i < this.model.getNumberOfPlayers(); i++){
+		for(int i = 0; i < (this.model.getNumberOfPlayers()>2?this.model.getNumberOfPlayers():2); i++){
 			pPlayer.add(new PlayerSelectionPanel(i+1));
 		}
 
