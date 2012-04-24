@@ -5,7 +5,6 @@ import java.util.Observer;
 
 import javax.swing.*;
 
-import warborn.model.LabelFactory;
 import warborn.model.Player;
 import warborn.model.Warborn;
 import java.awt.Font;
@@ -36,13 +35,13 @@ public class EndGameView extends JPanel implements Observer{
 		setLayout(null);
 		setSize(model.getWidth(), model.getHeight());
 		
-		JLabel lbHead = LabelFactory.makeLabel("Game Over!");
+		JLabel lbHead = new GenericLabel("Game Over!");
 		lbHead.setFont(new Font("Rod", Font.BOLD | Font.ITALIC, 50));
 		lbHead.setSize(345, 200);
 		lbHead.setLocation(196, 30);
 		add(lbHead);
 		
-		lbTime = LabelFactory.makeLabel("Victory after 00:50:15");
+		lbTime = new GenericLabel("Victory after 00:50:15");
 		lbTime.setFont(new Font("Rod", Font.BOLD | Font.ITALIC, 50));
 		lbTime.setSize(782, 150);
 		lbTime.setLocation(28, 190);

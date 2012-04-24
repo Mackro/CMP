@@ -10,7 +10,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSlider;
 
-import warborn.model.LabelFactory;
 import warborn.model.TerritoryInteractor;
 import warborn.model.Warborn;
 import warborn.model.Territory;
@@ -47,23 +46,23 @@ public class MoveView implements Observer {
 		slider.setBounds(171, 91, 200, 23);
 		viewPanel.add(slider);
 		
-		lbT1Name = LabelFactory.makeLabel("");
+		lbT1Name = new GenericLabel("");
 		lbT1Name.setBounds(10, 54, 235, 23);
 		viewPanel.add(lbT1Name);
 		
-		lbT2Name = LabelFactory.makeLabel("");
+		lbT2Name = new GenericLabel("");
 		lbT2Name.setBounds(304, 54, 235, 23);
 		viewPanel.add(lbT2Name);
 		
-		lbT1Troops = LabelFactory.makeLabel("");
+		lbT1Troops = new GenericLabel("");
 		lbT1Troops.setBounds(10, 100, 85, 14);
 		viewPanel.add(lbT1Troops);
 		
-		lbT2Troops = LabelFactory.makeLabel("");
+		lbT2Troops = new GenericLabel("");
 		lbT2Troops.setBounds(451, 100, 83, 14);
 		viewPanel.add(lbT2Troops);
 		
-		JLabel lbTop = LabelFactory.makeLabel("Move");
+		JLabel lbTop = new GenericLabel("Move");
 		lbTop.setFont(new Font("Rod", Font.BOLD | Font.ITALIC, 40));
 		lbTop.setBounds(217, 11, 124, 47);
 		viewPanel.add(lbTop);
