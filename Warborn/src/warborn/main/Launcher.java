@@ -73,6 +73,8 @@ public class Launcher implements Observer{
 		EndGameView end = new EndGameView(model, System.currentTimeMillis());
 		new EndGameController(end, this);
 		
+		model.addObserver(new StatePanelViewCreator());
+		
 		model.addObserver(end);
 		model.addObserver(move);
 		model.addObserver(battle);

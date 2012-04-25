@@ -222,7 +222,7 @@ public class Warborn extends Observable{
 		}else if(this.state == 0){
 			startPhases--;
 		}
-		changed();
+		changed(1);
 	}
 
 	public void nextPhase(){
@@ -335,6 +335,11 @@ public class Warborn extends Observable{
 	protected void changed() {
 		setChanged();
 		notifyObservers();
+	}
+	
+	protected void changed(int stateChange) {
+		setChanged();
+		notifyObservers(stateChange);
 	}
 
 }
