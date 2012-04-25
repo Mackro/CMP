@@ -19,6 +19,7 @@ public class Launcher implements Observer{
 	private MainFrame frame;
 	private Warborn model;
 	private KeyAction keyAction;
+	private MenuView menu;
 
 	/**
 	 * Launch the application.
@@ -56,9 +57,9 @@ public class Launcher implements Observer{
 		c.gridx = 0;
 		c.gridy = 0;
 		c.weighty = 1;
-		MenuView view = new MenuView(model);
-		new MenuController(model, view);
-		frame.add(view, c);
+		menu = new MenuView(model);
+		new MenuController(model, menu);
+		frame.add(menu, c);
 	}
 	
 	/**
@@ -80,9 +81,7 @@ public class Launcher implements Observer{
 	
 	public void createGame(int mapIndex){
 		
-		frame.dispose();
-		frame = new MainFrame(model);
-		frame.setVisible(true);
+		frame.remove(menu);
 		model.addObserver(frame);
 		
 		GridBagConstraints c = new GridBagConstraints();
