@@ -200,10 +200,27 @@ public class Warborn extends Observable{
 		this.state++;
 		if(this.state > 3){
 			this.state = 1;
+			for(Player player : players){
+				boolean alive = false;
+				for(Territory terry : territories){
+					if(terry.getOwner() == player){
+						alive = true;
+						break;
+					}
+				}
+				if(!alive){
+					player.defeated(true);
+				}
+			}
 			if(players.get(currentPlayer).hasConquered()){
 				players.get(currentPlayer).addCard(deck.drawCard());
 			}
 			this.currentPlayer = (++this.currentPlayer)%players.size();
+			for(int i = 0; i < players.size(); i++){
+				if(players.get(currentPlayer).isDefeated()){
+					this.currentPlayer = (++this.currentPlayer)%players.size();
+				}
+			}
 			players.get(currentPlayer).conquered(false);
 		}
 		if(this.state == 1){

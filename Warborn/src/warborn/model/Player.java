@@ -11,7 +11,7 @@ public class Player {
 	private int race, background;
 	private Color color;
 	private Card[] cards = new Card[5];
-	private boolean hasConquered;
+	private boolean hasConquered, defeated;
 	private Spellbook spellbook;
 	
 	public Player(String name, int id, Color color, int race, int background){
@@ -84,8 +84,16 @@ public class Player {
 		this.color = copiedColor;
 	}
 	
+	public void defeated(boolean defeat){
+		this.defeated = defeat;
+	}
+	
 	public boolean hasConquered(){
 		return hasConquered;
+	}
+	
+	public boolean isDefeated(){
+		return defeated;
 	}
 
 	public void addTerritory(Territory toAdd){

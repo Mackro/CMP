@@ -210,7 +210,11 @@ public class HudView extends JPanel implements Observer{
 		}
 		
 		for (int i = 0; i < model.getNumberOfPlayers(); i++){
-			playerNameArray[i].setText(model.getPlayer(i).getName());
+			if(!model.getPlayer(i).isDefeated()){
+				playerNameArray[i].setText(model.getPlayer(i).getName());
+			}else{
+				playerNameArray[i].setText(model.getPlayer(i).getName() + " is Defeated");
+			}
 			territoriesArray[i].setText("Number of Territories:  " + model.getPlayer(i).getNbrOfTerritories());
 			troopsArray[i].setText("Number of Troups:  " + calculateNbrOfUnits(i));
 			manaArray[i].setText("Mana:  " + model.getPlayer(i).getMana());
