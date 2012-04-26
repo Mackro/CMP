@@ -1,6 +1,5 @@
 package warborn.model.spells;
 
-
 import warborn.model.Territory;
 import warborn.model.Warborn;
 
