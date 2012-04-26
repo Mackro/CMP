@@ -17,16 +17,16 @@ public class SpellbookView extends JPanel {
 	 */
 	public SpellbookView(Spellbook spellbook) {
 		this.spellbook = spellbook;
+		
 		frame = new JFrame();
 		frame.setLocationRelativeTo(null);
 		frame.setUndecorated(true);
 		frame.setSize(800, 576);
 		frame.setLocation(2, 2);
-		com.sun.awt.AWTUtilities.setWindowOpacity(frame, 0.5f);	
-		
-		
+				
 		setLayout(null);
-		setOpaque(true);
+		setOpaque(false);
+		//this.setVisible(false);
 		
 		JPanel page2 = new JPanel();
 		page2.setBounds(400, 11, 358, 554);
@@ -39,7 +39,7 @@ public class SpellbookView extends JPanel {
 		page1.setLayout(new GridLayout(2, 3));
 		
 		JLabel spellbooklbl = new JLabel();
-		spellbooklbl.setIcon(new ImageIcon("WarbornData/images/SpellBook.jpg"));
+		spellbooklbl.setIcon(new ImageIcon("WarbornData/images/SpellBook.png"));
 		spellbooklbl.setBounds(0, 0, 890, 595);
 		add(spellbooklbl);
 		
