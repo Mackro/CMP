@@ -171,6 +171,7 @@ public class Warborn extends Observable{
 			move.resetTerritories();
 		}
 		changed();
+		changed(0);
 	}
 	
 	public void resetSelectedTerritory(){

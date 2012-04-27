@@ -43,11 +43,18 @@ public class SpellInvoker implements Observer{
 
 	@Override
 	public void update(Observable o, Object arg) {
-		if(o.getClass()==Warborn.class && arg!=null && (int)(arg)==1){
-			for(int i = 0; i < activeSpells.size(); i++){
-				activeSpells.get(i).tick(model);
-				if(activeSpells.get(i).getTimer() <= 0){
-					activeSpells.remove(i);
+		if(o.getClass()==Warborn.class && arg!=null){
+			if ((Integer)(arg)==1 && model.getState()==1){
+				for(int i = 0; i < activeSpells.size(); i++){
+					activeSpells.get(i).tick(model);
+					if(activeSpells.get(i).getTimer() <= 0){
+						activeSpells.remove(i);
+					}
+				}
+			}
+			if ((Integer)(arg)==0){
+				if(selectedSpell != null){
+					invokeSpell(selectedSpell);
 				}
 			}
 		}
