@@ -10,7 +10,7 @@ public class MoveTest {
 
 	private String name1 = "name1", name2 = "name2";
 	private int one=1, two=2;
-	Move move;
+	private Move move;
 	
 	@Before
 	public void before() {

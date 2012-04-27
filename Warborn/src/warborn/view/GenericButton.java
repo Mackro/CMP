@@ -6,14 +6,16 @@ import javax.swing.JButton;
 
 
 public class GenericButton extends JButton {
-	
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 
+	public GenericButton() {
+		super();
+		this.setFont(new Font("Rod", Font.BOLD | Font.ITALIC, 14));
+		this.setBorder(new RoundedBorder(5));
+	}
 	public GenericButton(String s){
-		this.setText(s);
+		super(s);
 		this.setFont(new Font("Rod", Font.BOLD | Font.ITALIC, 14));
 		this.setBorder(new RoundedBorder(5));
 	}

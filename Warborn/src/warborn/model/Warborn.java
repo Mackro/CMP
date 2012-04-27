@@ -8,9 +8,6 @@ import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Random;
 
-import warborn.model.spells.Spell;
-
-
 public class Warborn extends Observable{
 
 	private ArrayList<Player> players;
@@ -21,8 +18,6 @@ public class Warborn extends Observable{
 	private int state = -1, phase = 0, startPhases;
 	private Dimension dimension;
 	private CardDeck deck;
-	private Spell selectedSpell;
-	private ArrayList<Spell> activeSpells;
 
 
 	public Warborn (){
@@ -30,7 +25,6 @@ public class Warborn extends Observable{
 		Toolkit kit = Toolkit.getDefaultToolkit();
 		dimension = kit.getScreenSize();
 		this.players = new ArrayList<Player>();
-		this.activeSpells = new ArrayList<Spell>();
 		
 		this.battle = new Battle(this);
 		this.move = new Move(this);
@@ -137,10 +131,7 @@ public class Warborn extends Observable{
 	public void setSelectedTerritory(int id){
 		if (selectedTerritory != id){
 
-			if(selectedSpell != null){
-				selectedTerritory = id;
-				invokeSpell(selectedSpell);
-			}else if(state == 1 && players.get(currentPlayer) == territories[id].getOwner() && nbrOfReinforcements > 0){
+			if(state == 1 && players.get(currentPlayer) == territories[id].getOwner() && nbrOfReinforcements > 0){
 				territories[id].incrementUnit();
 				nbrOfReinforcements--;
 			}else if(state == 0 && players.get(currentPlayer) == territories[id].getOwner()){
@@ -182,11 +173,8 @@ public class Warborn extends Observable{
 		changed();
 	}
 	
-	public void setSelectedSpell(Spell spell){
-		selectedSpell = spell;
-		if(spell.isInstant()){
-			invokeSpell(spell);
-		}
+	public void resetSelectedTerritory(){
+		selectedTerritory = -1;
 	}
 
 	//End Setters
@@ -228,12 +216,6 @@ public class Warborn extends Observable{
 			for(Territory terry : territories){
 				if(terry.getOwner() == players.get(currentPlayer)){
 					terry.setProtected(false);
-				}
-			}
-			for(int i = 0; i < activeSpells.size(); i++){
-				activeSpells.get(i).tick(this);
-				if(activeSpells.get(i).getTimer() <= 0){
-					activeSpells.remove(i);
 				}
 			}
 		}else if(this.state == 0){
@@ -334,18 +316,6 @@ public class Warborn extends Observable{
 			}
 		}
 		this.changed();
-	}
-	
-	public void invokeSpell(Spell spell){
-		if(spell.validTarget(this) && players.get(currentPlayer).getMana() >= spell.getManaCost()){
-			spell.invoke(this);
-			if(spell.getTimer() > 0){
-				activeSpells.add(spell);
-			}
-		}
-		selectedTerritory = -1;
-		selectedSpell = null;
-		changed();
 	}
 
 
