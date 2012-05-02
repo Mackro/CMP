@@ -21,7 +21,7 @@ public class Purge extends Spell {
 	@Override
 	public String getDescription() {
 		// TODO Auto-generated method stub
-		return "Destroy every troop in one territory and and take over the setting the troop number to one" + "\n \n \" Mine \" ";
+		return "Destroy every troop in one territory and take it over, setting the troop number to one" + "\n \n \" Mine \" ";
 	}
 
 	@Override
