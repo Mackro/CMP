@@ -2,11 +2,12 @@ package warborn.model;
 
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.Toolkit;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Random;
+
+import warborn.main.ScreenManager;
 
 
 public class Warborn extends Observable{
