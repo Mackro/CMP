@@ -23,7 +23,7 @@ public class StatePanel extends JPanel implements Runnable {
 		initialise(model);
 	}
 	
-	public void initialise(Warborn model){
+	private void initialise(Warborn model){
 		height = (int)(model.getHeight()/8);
 		width = (int)(model.getWidth()/8);
 		frame = new JFrame();

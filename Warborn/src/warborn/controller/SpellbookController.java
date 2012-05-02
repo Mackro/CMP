@@ -13,9 +13,9 @@ public class SpellbookController implements ActionListener{
 	public SpellbookController(SpellInvoker invoker, SpellbookView view){
 		this.invoker = invoker;
 		this.view = view;
-		for (int i=0; i<view.getButtons().length ;i++){
-			view.getButtons()[i].addActionListener(this);
-		}
+		/*for (int i=0; i<view.getSpellViews().length ;i++){
+			view.getSpellViews()[i].getButton().addActionListener(this);
+		}*/
 	}
 
 	@Override

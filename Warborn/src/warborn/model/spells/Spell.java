@@ -16,12 +16,12 @@ public abstract class Spell {
 	public abstract String getDescription();
 	public abstract void invoke (Warborn model);
 	
-	public Image getImage(){
-		return new ImageIcon("WarbornData/images/spells/" + getName().replaceAll(" ", "") + ".jpg").getImage();
-	}
-	
 	public Spell(int mana){
 		manaCost = mana;
+	}
+	
+	public Image getImage(){
+		return new ImageIcon("WarbornData/images/spells/" + getName().replaceAll(" ", "") + ".jpg").getImage();
 	}
 	
 	public void tick(Warborn model){

@@ -1,7 +1,5 @@
 package warborn.model;
 
-import warborn.map.GothenburgMapView;
-
 public final class MapData {
 	
 	private MapData() {
@@ -14,7 +12,7 @@ public final class MapData {
 	}
 	
 	public static double[][] getScalingConstants(String map) throws MapNotFoundException{
-		if(map.equalsIgnoreCase(GothenburgMapView.getMapName())){
+		if(map.equalsIgnoreCase("Asgauter")){
 			return new double[][]{
 				{0.760, 0.160},
 				{0.590, 0.065},

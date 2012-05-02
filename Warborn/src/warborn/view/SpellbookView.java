@@ -11,7 +11,7 @@ public class SpellbookView extends JPanel {
 	private static final long serialVersionUID = 1L;
 	private JFrame frame;
 	private Spellbook spellbook;
-	private GenericButton[] buttons;
+	private SpellView[] spells;
 
 	/**
 	 * Create the panel.
@@ -24,10 +24,10 @@ public class SpellbookView extends JPanel {
 		frame.setUndecorated(true);
 		frame.setSize(800, 576);
 		frame.setLocation(2, 2);
+		frame.getRootPane().setOpaque(false);
 
 		setLayout(null);
 		setOpaque(false);
-		//this.setVisible(false);
 		
 		JPanel page2 = new JPanel();
 		page2.setBounds(400, 11, 358, 554);
@@ -44,18 +44,18 @@ public class SpellbookView extends JPanel {
 		spellbooklbl.setBounds(0, 0, 890, 595);
 		add(spellbooklbl);
 		
-		buttons = new GenericButton[spellbook.getNumberOfSpells()];
+		spells = new SpellView[spellbook.getNumberOfSpells()];
 		
 		page1.setOpaque(false);
 		page2.setOpaque(false);
 		
 		for (int i = 0; i < this.spellbook.getNumberOfSpells(); i++){
-			buttons[i] = new SpellView(spellbook.getSpell(i));
+			spells[i] = new SpellView(spellbook.getSpell(i));
 			if(i < 7){
-				page1.add(buttons[i]);
+				page1.add(spells[i]);
 			}
 			else{
-				page2.add(buttons[i]);
+				page2.add(spells[i]);
 			}
 		frame.getContentPane().add(this);
 		frame.setResizable(false);
@@ -66,7 +66,7 @@ public class SpellbookView extends JPanel {
 		return this.frame;
 	}
 	
-	public GenericButton[] getButtons(){
-		return buttons;
+	public JPanel[] getSpellViews(){
+		return spells;
 	}
 }
