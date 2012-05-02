@@ -20,6 +20,7 @@ public class Launcher implements Observer{
 	private Warborn model;
 	private KeyAction keyAction;
 	private MenuView menu;
+	private ScreenManager screen;
 
 	/**
 	 * Launch the application.
@@ -31,15 +32,17 @@ public class Launcher implements Observer{
 	}
 	
 	public void run() {
-		frame.setVisible(true);
+		//frame.setVisible(true);
 	}
 	
 	/**
 	 * Create the application.
 	 */
 	public Launcher() {
-		model = new Warborn();
-		keyAction = new KeyAction(model, this);
+		screen = new ScreenManager();
+		screen.setFullScreen(new DisplayMode(1366, 768, 32, 0));
+		model = new Warborn(screen);
+		screen.restoreScreen();
 		init();
 		initialize();
 		model.addObserver(this);
@@ -60,6 +63,7 @@ public class Launcher implements Observer{
 		menu = new MenuView(model);
 		new MenuController(model, menu);
 		frame.add(menu, c);
+		screen.setFullScreen(new DisplayMode(1366, 768, 32, 0), frame);
 	}
 	
 	/**
@@ -85,6 +89,7 @@ public class Launcher implements Observer{
 		
 		frame.remove(menu);
 		model.addObserver(frame);
+		keyAction = new KeyAction(model, this, frame);
 		
 		GridBagConstraints c = new GridBagConstraints();
 		
@@ -113,6 +118,8 @@ public class Launcher implements Observer{
 		c.weighty = 0.2;
 		frame.add((JPanel)hud, c);
 		hud.update(model, null);
+		
+		
 	}
 
 	@Override
@@ -126,7 +133,7 @@ public class Launcher implements Observer{
 	public void reset(){
 		frame.dispose();
 		frame = null;
-		model = new Warborn();
+		model = new Warborn(screen);
 		init();
 		initialize();
 		model.addObserver(this);
@@ -138,6 +145,11 @@ public class Launcher implements Observer{
 		return new IMap[] {
 				new GothenburgMapView(model),
 		};
+	}
+	
+	public void exit(){
+		screen.restoreScreen();
+		System.exit(0);
 	}
 
 }

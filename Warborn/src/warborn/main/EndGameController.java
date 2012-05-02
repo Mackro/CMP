@@ -29,7 +29,7 @@ public class EndGameController implements ActionListener{
 			launcher.reset();
 		}else if(evt.getSource() == view.getButtonArray()[1]){
 			//Exit
-			System.exit(0);
+			launcher.exit();
 		}
 	}
 	

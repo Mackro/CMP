@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Random;
 
+
 public class Warborn extends Observable{
 
 	private ArrayList<Player> players;
@@ -20,10 +21,15 @@ public class Warborn extends Observable{
 	private CardDeck deck;
 
 
-	public Warborn (){
+	public Warborn (ScreenManager screen){
 		this.deck = new CardDeck();
-		Toolkit kit = Toolkit.getDefaultToolkit();
-		dimension = kit.getScreenSize();
+		/*
+		 * Toolkit kit = Toolkit.getDefaultToolkit();
+		 *
+		 * dimension = kit.getScreenSize();
+		 */
+		dimension = new Dimension(screen.getWidth(), screen.getHeight());
+		System.out.println(dimension.width + ":" + dimension.height);
 		this.players = new ArrayList<Player>();
 		
 		this.battle = new Battle(this);

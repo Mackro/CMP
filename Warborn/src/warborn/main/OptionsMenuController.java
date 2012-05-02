@@ -28,14 +28,16 @@ public class OptionsMenuController implements ActionListener{
 		
 		if(buttonPressed == view.getButtonArray()[0]){
 			//Main Menu
-			view.getFrame().dispose();
+			mainFrame.getLayeredPane().remove(view);
+			mainFrame.repaint();
 			launcher.reset();
 		}else if(buttonPressed == view.getButtonArray()[1]){
 			//Exit
-			System.exit(0);
+			launcher.exit();
 		}else if(buttonPressed == view.getButtonArray()[2]){
 			//Resume
-			view.getFrame().dispose();
+			mainFrame.getLayeredPane().remove(view);
+			mainFrame.repaint();
 			if(mainFrame != null){
 				mainFrame.setEnabled(true);
 				mainFrame.setFocusable(true);

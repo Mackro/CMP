@@ -14,21 +14,18 @@ public class KeyAction extends AbstractAction{
 	private Launcher launcher;
 	public MainFrame mainFrame;
 	
-	public KeyAction(Warborn model, Launcher launcher){
+	public KeyAction(Warborn model, Launcher launcher, MainFrame mainFrame){
 		this.model = model;
 		this.launcher = launcher;
+		this.mainFrame = mainFrame;
 	}
 	
 	@Override
 	public void actionPerformed(ActionEvent evt) {
 		if(evt.getID() == 1001){
 			//Open Options Menu
-			OptionsMenuView view = new OptionsMenuView(model);
+			OptionsMenuView view = new OptionsMenuView(model, mainFrame);
 			new OptionsMenuController(view, launcher, mainFrame);
-			if(mainFrame != null){
-				mainFrame.setEnabled(false);
-				mainFrame.setFocusable(false);
-			}
 		}
 	}
 	

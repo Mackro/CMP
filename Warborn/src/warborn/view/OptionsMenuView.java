@@ -4,6 +4,7 @@ import javax.swing.*;
 
 import java.awt.Color;
 import java.awt.Font;
+
 import javax.swing.border.TitledBorder;
 
 import warborn.model.Warborn;
@@ -12,20 +13,16 @@ public class OptionsMenuView extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 	private JButton btMainMenu, btExit, btResume;
-	private JFrame frame;
 	
 	/**
 	 * Create the panel.
 	 */
-	public OptionsMenuView(Warborn model){
+	public OptionsMenuView(Warborn model, JFrame fullScreenWindow){
 		
-		frame = new JFrame();
-		frame.setUndecorated(true);
-		frame.setResizable(false);
-		frame.setSize(400, 600);
-		frame.setLocation((int)((model.getWidth()/2) - (frame.getWidth()/2)), 60);
-		frame.getContentPane().add(this);
-		frame.setVisible(true);
+		
+		fullScreenWindow.getLayeredPane().add(this, JLayeredPane.MODAL_LAYER);
+		setSize(400, 600);
+		setLocation((int)((model.getWidth()/2)-200), 60);
 		setLayout(null);
 		this.setBorder(BorderFactory.createTitledBorder(BorderFactory.createLineBorder(Color.black, 5, true),
 				"Options", TitledBorder.CENTER , TitledBorder.TOP, new Font(Font.SERIF, Font.ITALIC, 40)));
@@ -40,7 +37,6 @@ public class OptionsMenuView extends JPanel {
 		btExit.setBounds(140, 500, 113, 31);
 		add(btExit);
 		
-		frame.getContentPane().add(this);
 		
 		btResume = new GenericButton("Resume");
 		btResume.setFont(new Font("Tahoma", Font.PLAIN, 15));
@@ -57,7 +53,4 @@ public class OptionsMenuView extends JPanel {
 		
 	}
 
-	public JFrame getFrame() {
-		return frame;
-	}
 }
