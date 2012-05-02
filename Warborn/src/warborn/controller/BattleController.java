@@ -2,14 +2,19 @@ package warborn.controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+import javax.swing.JFrame;
+
 import warborn.model.Warborn;
 import warborn.view.BattleView;
 
 public class BattleController implements ActionListener{
 	private Warborn model;
-	private BattleView view;	
+	private BattleView view;
+	private JFrame frame;
 	
-	public BattleController(Warborn model, BattleView view){
+	public BattleController(Warborn model,JFrame frame, BattleView view){
+		this.frame = frame;
 		this.model = model;
 		this.view = view;
 		for(int i=0; i<view.getButtons().length; i++){
@@ -28,7 +33,8 @@ public class BattleController implements ActionListener{
 			}
 		}
 		if((e).getSource() == view.getButtons()[2]){
-			view.getFrame().setVisible(false);
+			frame.getLayeredPane().remove(view);
+			frame.repaint();
 			view.logClean();
 			if(view.getHeaderText().equalsIgnoreCase("Victory!")){
 				model.getBattle().move();

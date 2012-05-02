@@ -6,34 +6,30 @@ import warborn.model.Warborn;
 
 public class StatePanel extends JPanel implements Runnable {
 	private static final long serialVersionUID = 1L;
-	private JFrame frame;
+	private JFrame mainFrame;
 	private int height, width;
 	
-	public StatePanel (Warborn model, String text) {
+	public StatePanel (Warborn model, JFrame frame, String text) {
 		GenericLabel message = new GenericLabel(text);
 		this.add(message);
-		initialise(model);
+		initialise(model, frame);
 	}
 	
-	public StatePanel (Warborn model, String name, String text) {
+	public StatePanel (Warborn model, JFrame frame, String name, String text) {
 		GenericLabel nameLabel = new GenericLabel(name);
 		GenericLabel message = new GenericLabel(text);
 		this.add(nameLabel);
 		this.add(message);
-		initialise(model);
+		initialise(model, frame);
 	}
 	
-	private void initialise(Warborn model){
+	private void initialise(Warborn model, JFrame frame){
+		frame.getLayeredPane().add(this, JLayeredPane.MODAL_LAYER);
+		this.mainFrame = frame;
 		height = (int)(model.getHeight()/8);
 		width = (int)(model.getWidth()/8);
-		frame = new JFrame();
-		frame.setSize(width, height);
-		frame.setResizable(false);
-		frame.add(this);
-		frame.setLocation((int)(model.getWidth()/2-width/2), (int)(model.getHeight()/2-height/2));
-		frame.setAlwaysOnTop(true);
-		frame.setUndecorated(true);
-		frame.setVisible(true);
+		setSize(width, height);
+		setLocation((int)(model.getWidth()/2-width/2), (int)(model.getHeight()/2-height/2));
 	}
 
 	@Override
@@ -43,7 +39,7 @@ public class StatePanel extends JPanel implements Runnable {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		frame.setVisible(false);
-		frame.dispose();
+		mainFrame.getLayeredPane().remove(this);
+		mainFrame.repaint();
 	}
 }

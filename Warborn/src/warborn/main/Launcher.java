@@ -70,14 +70,12 @@ public class Launcher implements Observer{
 	 * Initialize all the views and controllers
 	 */
 	private void init(){
-		MoveView move = new MoveView(/*model*/);
-		new MoveController(model, move);
-		BattleView battle = new BattleView(/*model*/);
-		new BattleController(model, battle);
+		MoveView move = new MoveView(frame);
+		new MoveController(model, frame, move);
+		BattleView battle = new BattleView(frame);
+		new BattleController(model, frame, battle);
 		EndGameView end = new EndGameView(model, System.currentTimeMillis());
 		new EndGameController(end, this);
-		
-		model.addObserver(new StatePanelViewCreator());
 		
 		model.addObserver(end);
 		model.addObserver(move);
@@ -90,6 +88,7 @@ public class Launcher implements Observer{
 		frame.remove(menu);
 		model.addObserver(frame);
 		keyAction = new KeyAction(model, this, frame);
+		model.addObserver(new StatePanelViewCreator(frame));
 		
 		GridBagConstraints c = new GridBagConstraints();
 		
@@ -111,7 +110,7 @@ public class Launcher implements Observer{
 		
 		
 		HudView hud = new HudView(model);
-		new HudController(model, hud);
+		new HudController(model, frame, hud);
 		model.addObserver(hud);
 		c.ipady = (int) (model.getHeight()*0.25);
 		c.gridy = 1;
