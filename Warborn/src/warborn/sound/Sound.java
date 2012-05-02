@@ -5,7 +5,15 @@ import java.io.IOException;
 import java.util.Observable;
 import java.util.Observer;
 
-import javax.sound.sampled.*;
+import javax.sound.sampled.AudioFormat;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.DataLine;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.SourceDataLine;
+import javax.sound.sampled.UnsupportedAudioFileException;
+
+import paulscode.sound.SoundSystem;
 
 import warborn.model.Warborn;
 /**
@@ -22,6 +30,7 @@ public class Sound extends Thread implements Observer{
 	SourceDataLine auline;
 	private final int EXTERNAL_BUFFER_SIZE = 524288;
 	private boolean startMenu = false, activeGame = false, battle = false, move = false;
+	SoundSystem mySoundSystem;
 	
 
 	public Sound(){
@@ -51,6 +60,8 @@ public class Sound extends Thread implements Observer{
 			return;
 		}
 	}
+	
+	
 	
 	public void startMusic(){
 		auline.start();
