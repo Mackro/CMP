@@ -16,15 +16,11 @@ public class SpellbookView extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public SpellbookView(Spellbook spellbook) {
+	public SpellbookView(Spellbook spellbook, JFrame window) {
 		this.spellbook = spellbook;
 		
-		frame = new JFrame();
-		frame.setLocationRelativeTo(null);
-		frame.setUndecorated(true);
-		frame.setSize(800, 576);
-		frame.setLocation(2, 2);
-		frame.getRootPane().setOpaque(false);
+		setSize(800, 576);
+		setLocation(2, 2);
 
 		setLayout(null);
 		setOpaque(false);
@@ -57,8 +53,7 @@ public class SpellbookView extends JPanel {
 			else{
 				page2.add(spells[i]);
 			}
-		frame.getContentPane().add(this);
-		frame.setResizable(false);
+			window.getLayeredPane().add(this, JLayeredPane.MODAL_LAYER);
 		}
 	}
 	
