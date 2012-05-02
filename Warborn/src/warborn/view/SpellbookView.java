@@ -66,7 +66,7 @@ public class SpellbookView extends JPanel {
 		return this.frame;
 	}
 	
-	public JPanel[] getSpellViews(){
+	public SpellView[] getSpellViews(){
 		return spells;
 	}
 }
