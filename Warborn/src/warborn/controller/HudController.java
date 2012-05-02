@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import warborn.model.Warborn;
+import warborn.model.spells.SpellInvoker;
 import warborn.view.HudView;
 import warborn.view.SpellbookView;
 
@@ -29,7 +30,8 @@ public class HudController implements ActionListener {
 		}
 		if((e).getSource() == view.getButtons()[2]){
 			SpellbookView spellbookView = new SpellbookView(model.getCurrentPlayer().getSpellbook());
-			//add contråller
+			SpellInvoker spellInvoker = new SpellInvoker(model);
+			new SpellbookController(spellInvoker, spellbookView);
 			spellbookView.getFrame().setVisible(true);
 		}
 	}
