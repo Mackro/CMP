@@ -1,4 +1,4 @@
-package warborn.model;
+package warborn.model.spells;
 
 import warborn.model.spells.*;
 
@@ -12,9 +12,10 @@ public final class SpellFactory {
 		new Protect(5),
 		new TimeOfTruce(10),
 		new HolyLight(3),
-		//Mindfucker/Jester/Trickster/Voodoo
+		new Purge(8),
+		///Jester/Trickster/Voodoo
 		new Confusion(1),
-		//Elementalist/Magician/Smith/
+		//Elementalist/Magician/Smith
 		new FireBall(2),
 		new Armageddon(15),
 	};
