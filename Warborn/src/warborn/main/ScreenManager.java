@@ -49,18 +49,13 @@ public class ScreenManager {
 	
 	//Makes frame fullScreen
 	public void setFullScreen(DisplayMode mode, JFrame frame){
-		//JPanel p = new JPanel();
-		//p.setBackground(Color.BLUE);
-		//frame.add(p);
 		frame.setUndecorated(true);
-		//frame.setIgnoreRepaint(true);
 		frame.setResizable(false);
 		videoCard.setFullScreenWindow(frame);
 		
 		if(mode != null && videoCard.isDisplayChangeSupported()){
 			try{
 				videoCard.setDisplayMode(mode);
-				System.out.println("hej");
 			}catch(Exception e){
 				e.printStackTrace();
 			}

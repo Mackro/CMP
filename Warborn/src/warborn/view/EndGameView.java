@@ -18,22 +18,17 @@ public class EndGameView extends JPanel implements Observer{
 	private JFrame frame;
 	private JButton btRestart, btExit;
 	
-	public EndGameView(Warborn model, long startTime){
+	public EndGameView(Warborn model, JFrame frame, long startTime){
 		if(startTime < System.currentTimeMillis()){
 			this.startTime = startTime;
 		}else{
 			this.startTime = System.currentTimeMillis();
 		}
 		this.model = model;
-		frame = new JFrame();
-		frame.setUndecorated(true);
-		frame.setVisible(false);
-		frame.setSize(800, 600);
-		frame.setLocation((int)((model.getWidth()/2) - (frame.getWidth()/2)), (int)((model.getHeight()*0.7)/2) - (frame.getHeight()/2));
-		frame.getContentPane().add(this);
-		
+		this.frame = frame;
+		setSize(800, 600);
+		setLocation((int)((model.getWidth()/2) - (frame.getWidth()/2)), (int)((model.getHeight()*0.7)/2) - (frame.getHeight()/2));
 		setLayout(null);
-		setSize(model.getWidth(), model.getHeight());
 		
 		JLabel lbHead = new GenericLabel("Game Over!");
 		lbHead.setFont(new Font("Rod", Font.BOLD | Font.ITALIC, 50));
@@ -91,6 +86,6 @@ public class EndGameView extends JPanel implements Observer{
 		
 		lbTime.setText("Victory after " + (hours>10?"" + hours:"0" + hours) + ":" + (minutes>10?"" + minutes:"0" + minutes) + ":" + (seconds>10?"" + seconds:"0" + seconds));
 		
-		frame.setVisible(true);
+		frame.getLayeredPane().add(this, JLayeredPane.MODAL_LAYER);
 	}
 }

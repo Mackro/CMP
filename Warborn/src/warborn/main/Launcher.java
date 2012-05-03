@@ -21,6 +21,7 @@ public class Launcher implements Observer{
 	private KeyAction keyAction;
 	private MenuView menu;
 	private ScreenManager screen;
+	private DisplayMode compatibleDM;
 
 	/**
 	 * Launch the application.
@@ -40,11 +41,12 @@ public class Launcher implements Observer{
 	 */
 	public Launcher() {
 		screen = new ScreenManager();
-		screen.setFullScreen(new DisplayMode(1366, 768, 32, 0));
-		model = new Warborn(screen);
+		model = new Warborn();
+		compatibleDM = screen.getFirstCompatibleDisplayMode(model.getDisplayModes());
+		model.setDimensions(compatibleDM.getWidth(), compatibleDM.getHeight());
 		screen.restoreScreen();
-		init();
 		initialize();
+		init();
 		model.addObserver(this);
 	}
 
@@ -63,7 +65,7 @@ public class Launcher implements Observer{
 		menu = new MenuView(model);
 		new MenuController(model, menu);
 		frame.add(menu, c);
-		screen.setFullScreen(new DisplayMode(1366, 768, 32, 0), frame);
+		screen.setFullScreen(compatibleDM, frame);
 	}
 	
 	/**
@@ -74,12 +76,12 @@ public class Launcher implements Observer{
 		new MoveController(model, frame, move);
 		BattleView battle = new BattleView(frame);
 		new BattleController(model, frame, battle);
-		EndGameView end = new EndGameView(model, System.currentTimeMillis());
-		new EndGameController(end, this);
+		EndGameView end = new EndGameView(model, frame, System.currentTimeMillis());
+		new EndGameController(end, frame, this);
 		
-		model.addObserver(end);
 		model.addObserver(move);
 		model.addObserver(battle);
+		model.addObserver(end);
 	}
 
 	
@@ -132,7 +134,7 @@ public class Launcher implements Observer{
 	public void reset(){
 		frame.dispose();
 		frame = null;
-		model = new Warborn(screen);
+		model = new Warborn();
 		init();
 		initialize();
 		model.addObserver(this);

@@ -2,12 +2,11 @@ package warborn.model;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.DisplayMode;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Random;
-
-import warborn.main.ScreenManager;
 
 
 public class Warborn extends Observable{
@@ -20,17 +19,29 @@ public class Warborn extends Observable{
 	private int state = -1, phase = 0, startPhases;
 	private Dimension dimension;
 	private CardDeck deck;
+	
+	private DisplayMode[] modes = {
+			new DisplayMode(1366, 768, 32, 0),
+			new DisplayMode(1366, 768, 24, 0),
+			new DisplayMode(1280, 1024, 32, 0),
+			new DisplayMode(1280, 1024, 24, 0),
+			new DisplayMode(1024, 768, 32, 0),
+			new DisplayMode(1024, 768, 24, 0),
+			new DisplayMode(1280, 800, 32, 0),
+			new DisplayMode(1280, 800, 24, 0),
+			new DisplayMode(800, 600, 32, 0),
+			new DisplayMode(800, 600, 24, 0),
+	};
 
 
-	public Warborn (ScreenManager screen){
+	public Warborn (){
 		this.deck = new CardDeck();
 		/*
 		 * Toolkit kit = Toolkit.getDefaultToolkit();
 		 *
 		 * dimension = kit.getScreenSize();
 		 */
-		dimension = new Dimension(screen.getWidth(), screen.getHeight());
-		System.out.println(dimension.width + ":" + dimension.height);
+		//dimension = new Dimension(screen.getWidth(), screen.getHeight());
 		this.players = new ArrayList<Player>();
 		
 		this.battle = new Battle(this);
@@ -118,9 +129,21 @@ public class Warborn extends Observable{
 		return nbrOfReinforcements;
 	}
 
+	public DisplayMode[] getDisplayModes(){
+		return modes;
+	}
+	
 
 	//Setters:
 
+	public void setDimensions(int width, int height){
+		setDimensions(new Dimension(width, height));
+	}
+	
+	public void setDimensions(Dimension dim){
+		dimension = dim;
+	}
+	
 	public void setPlayers(String[] names, Color[] colors, int[] race, int[] background){
 		players.clear();
 		for(int i = 0; i < names.length; i++){

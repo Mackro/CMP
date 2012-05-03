@@ -107,7 +107,7 @@ public class BattleView extends JPanel implements Observer {
 		
 		if(model.getState() == 2 && model.getPhase() == 1){
 			frame.getLayeredPane().add(this, JLayeredPane.MODAL_LAYER);
-			frame.repaint();
+			//frame.repaint();
 			Battle battle = model.getBattle();
 			t1 = battle.getFirstTerritory();
 			t2 = battle.getSecondTerritory();

@@ -3,7 +3,6 @@ package warborn.model.spells;
 import static org.junit.Assert.*;
 import org.junit.*;
 
-import warborn.main.ScreenManager;
 import warborn.model.Warborn;
 
 public class SpellInvokerTest {
@@ -15,7 +14,7 @@ public class SpellInvokerTest {
 	
 	@Before
 	public void before(){
-		spellInvoker = new SpellInvoker(new Warborn(new ScreenManager()));
+		spellInvoker = new SpellInvoker(new Warborn());
 		armageddon = new Armageddon(1);
 		protect = new Protect(2);
 		fireBall = new FireBall(3);

@@ -3,7 +3,6 @@ package warborn.model;
 import static org.junit.Assert.*;
 import org.junit.*;
 
-import warborn.main.ScreenManager;
 import warborn.model.Move;
 import warborn.model.Territory;
 import warborn.model.Warborn;
@@ -16,7 +15,7 @@ public class MoveTest {
 	
 	@Before
 	public void before() {
-		Warborn model = new Warborn(new ScreenManager());
+		Warborn model = new Warborn();
 		move = new Move(model);
 	}
 	

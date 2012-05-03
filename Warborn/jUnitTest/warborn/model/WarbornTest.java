@@ -6,14 +6,12 @@ import java.awt.Color;
 
 import org.junit.*;
 
-import warborn.main.ScreenManager;
-
 public class WarbornTest {
 	Warborn model;
 	
 	@Before
 	public void before() {
-		model = new Warborn(new ScreenManager());		
+		model = new Warborn();		
 	}
 	@Test
 	public void testSetPlayers() {

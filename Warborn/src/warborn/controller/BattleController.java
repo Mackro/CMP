@@ -13,7 +13,7 @@ public class BattleController implements ActionListener{
 	private BattleView view;
 	private JFrame frame;
 	
-	public BattleController(Warborn model,JFrame frame, BattleView view){
+	public BattleController(Warborn model, JFrame frame, BattleView view){
 		this.frame = frame;
 		this.model = model;
 		this.view = view;
