@@ -2,13 +2,16 @@ package warborn.model;
 
 public final class MapData {
 	
-	private MapData() {
-	}
+	private static String[] mapNames = {
+		"Asgauter",
+	};
 	
 	public static String[] getMapNames(){
-		return new String[] {
-			"Asgauter",
-		};
+		return mapNames;
+	}
+	
+	public static String getMapName(int index){
+		return mapNames[index];
 	}
 	
 	public static double[][] getScalingConstants(String map) throws MapNotFoundException{
