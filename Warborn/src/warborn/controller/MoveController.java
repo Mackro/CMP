@@ -2,7 +2,6 @@ package warborn.controller;
 
 import java.awt.event.*;
 
-import javax.swing.JFrame;
 import javax.swing.event.*;
 
 import warborn.model.Warborn;
@@ -11,11 +10,9 @@ import warborn.view.MoveView;
 public class MoveController implements ActionListener, ChangeListener {
 	private Warborn model;
 	private MoveView view;
-	private JFrame mainFrame;
 	
-	public MoveController(Warborn model, JFrame mainFrame, MoveView view){
+	public MoveController(Warborn model, MoveView view){
 		this.model = model;
-		this.mainFrame = mainFrame;
 		this.view = view;
 		for(int i=0; i<view.getButtons().length; i++){
 			view.getButtons()[i].addActionListener(this);
@@ -26,13 +23,11 @@ public class MoveController implements ActionListener, ChangeListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if((e).getSource() == view.getButtons()[0]){
-			mainFrame.getLayeredPane().remove(view);
-			mainFrame.repaint();
+			view.setVisible(false);
 			model.getMove().resetTerritories();
 			model.nextPhase();
 		}else if((e).getSource() == view.getButtons()[1]){
-			mainFrame.getLayeredPane().remove(view);
-			mainFrame.repaint();
+			view.setVisible(false);
 			model.getMove().moveUnits(view.getSlider().getValue());
 			if(model.getBattle().shallMove()){
 				model.getBattle().shallNotMove();

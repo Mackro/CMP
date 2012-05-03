@@ -21,7 +21,6 @@ public class MoveView extends JPanel implements Observer {
 	private JButton btCancel, btDecrease, btIncrease, btMove;
 	private JSlider slider;
 	private Territory t1, t2;
-	private JFrame mainFrame;
 	private JLabel lbT1Name, lbT2Name;
 	private JLabel lbT1Troops;
 	private JLabel lbT2Troops;
@@ -31,8 +30,8 @@ public class MoveView extends JPanel implements Observer {
 	 */
 	public MoveView(JFrame mainFrame){
 		
-		this.mainFrame = mainFrame;
-		
+		mainFrame.getLayeredPane().add(this, JLayeredPane.MODAL_LAYER);
+		this.setVisible(false);
 		setSize(560, 229);
 		setLayout(null);
 		
@@ -123,8 +122,7 @@ public class MoveView extends JPanel implements Observer {
 		lbT2Troops.setText(Integer.toString(t2.getNbrOfUnits()));
 		setLocation((int)((model.getWidth()/2) - (getWidth()/2)), (int)((model.getHeight()*0.7)/2) - (getHeight()/2));
 
-		mainFrame.getLayeredPane().add(this, JLayeredPane.MODAL_LAYER);
-		mainFrame.repaint();
+		this.setVisible(true);
 	}
 	
 }

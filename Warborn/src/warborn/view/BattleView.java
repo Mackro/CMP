@@ -22,7 +22,6 @@ public class BattleView extends JPanel implements Observer {
 	private JButton[] buttons;
 	private JButton btOneAttack, btAutoAttack, btRetreat;
 	private Territory t1, t2;
-	private JFrame frame;
 	private JLabel lbAttacker, lbDefender, lbAtkTroops, lbDefTroops, lbBattle;
 	private JTextArea taBattleLog;
 	/**
@@ -30,11 +29,11 @@ public class BattleView extends JPanel implements Observer {
 	 */
 	public BattleView(JFrame frame){
 		
-		this.frame = frame;
-		
-		//setSize(535,331);
-		setSize(451, 300);
+		frame.getLayeredPane().add(this, JLayeredPane.MODAL_LAYER);
+		this.setVisible(false);
+		setSize(535,331);
 		setLayout(null);
+		setLocation(10, 10);
 		
 		lbBattle = new GenericLabel("Battle!");
 		lbBattle.setFont(new Font("Rod", Font.BOLD | Font.ITALIC, 40));
@@ -106,8 +105,7 @@ public class BattleView extends JPanel implements Observer {
 		Warborn model = (Warborn)ml;
 		
 		if(model.getState() == 2 && model.getPhase() == 1){
-			frame.getLayeredPane().add(this, JLayeredPane.MODAL_LAYER);
-			//frame.repaint();
+			this.setVisible(true);
 			Battle battle = model.getBattle();
 			t1 = battle.getFirstTerritory();
 			t2 = battle.getSecondTerritory();

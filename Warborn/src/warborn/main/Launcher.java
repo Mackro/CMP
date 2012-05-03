@@ -46,7 +46,7 @@ public class Launcher implements Observer{
 		model.setDimensions(compatibleDM.getWidth(), compatibleDM.getHeight());
 		screen.restoreScreen();
 		initialize();
-		init();
+		//init();
 		model.addObserver(this);
 	}
 
@@ -73,7 +73,7 @@ public class Launcher implements Observer{
 	 */
 	private void init(){
 		MoveView move = new MoveView(frame);
-		new MoveController(model, frame, move);
+		new MoveController(model, move);
 		BattleView battle = new BattleView(frame);
 		new BattleController(model, frame, battle);
 		EndGameView end = new EndGameView(model, frame, System.currentTimeMillis());
@@ -91,6 +91,7 @@ public class Launcher implements Observer{
 		model.addObserver(frame);
 		keyAction = new KeyAction(model, this, frame);
 		model.addObserver(new StatePanelViewCreator(frame));
+		init();
 		
 		GridBagConstraints c = new GridBagConstraints();
 		
