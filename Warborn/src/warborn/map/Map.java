@@ -94,32 +94,39 @@ public abstract class Map extends JPanel implements Observer {
 	public JButton[] getButtons() {
 		return buttons;
 	}
-	
-	public String toString(){
+
+	public String toString() {
 		return MapData.getMapName(model.getMapIndex());
 	}
-	
+
 	public void update(Observable arg0, Object arg1) {
-		if(model.getPhase() == 0){
+		if (model.getPhase() == 0) {
 			this.requestFocus();
 		}
-		for(int i = 0; i < buttons.length; i++){
-			buttons[i].setText(model.getTerritory(Integer.parseInt(buttons[i].getActionCommand())).getNbrOfUnits() + "");
-			buttons[i].setBackground(model.getTerritory(i).getOwner().getColor());
-			if(buttons[i].getBackground().getRed() + buttons[i].getBackground().getGreen() + buttons[i].getBackground().getBlue() < 250){
+		for (int i = 0; i < buttons.length; i++) {
+			buttons[i].setText(model.getTerritory(
+					Integer.parseInt(buttons[i].getActionCommand()))
+					.getNbrOfUnits()
+					+ "");
+			buttons[i].setBackground(model.getTerritory(i).getOwner()
+					.getColor());
+			if (buttons[i].getBackground().getRed()
+					+ buttons[i].getBackground().getGreen()
+					+ buttons[i].getBackground().getBlue() < 250) {
 				buttons[i].setForeground(Color.WHITE);
-			}else{
+			} else {
 				buttons[i].setForeground(Color.BLACK);
 			}
-			if(model.getTerritory(i).isProtected()){
-				buttons[i].setBackground(new Color(
-						buttons[i].getBackground().getRed()+10,
-						buttons[i].getBackground().getGreen()+10,
-						buttons[i].getBackground().getBlue()+10));
+			if (model.getTerritory(i).isProtected()) {
+				buttons[i].setBackground(new Color(buttons[i].getBackground()
+						.getRed() + 10,
+						buttons[i].getBackground().getGreen() + 10, buttons[i]
+								.getBackground().getBlue() + 10));
 			}
 		}
-		if (model.getSelectedTerritoryIndex()>-1){
-			buttons[model.getSelectedTerritoryIndex()].setBackground(Color.GRAY);
+		if (model.getSelectedTerritoryIndex() > -1) {
+			buttons[model.getSelectedTerritoryIndex()]
+					.setBackground(Color.GRAY);
 		}
 	}
 
