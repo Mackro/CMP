@@ -1,7 +1,5 @@
 package warborn.model.spells;
 
-import warborn.model.spells.*;
-
 public final class SpellFactory {
 	
 	private SpellFactory(){

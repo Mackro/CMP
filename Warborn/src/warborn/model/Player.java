@@ -3,7 +3,6 @@ package warborn.model;
 import java.awt.Color;
 import java.io.IOException;
 
-import warborn.model.spells.Spellbook;
 
 public class Player {
 
@@ -13,7 +12,7 @@ public class Player {
 	private Color color;
 	private Card[] cards = new Card[5];
 	private boolean hasConquered, defeated;
-	private ISpellbook spellbook;
+	private Spellbook spellbook;
 	
 	public Player(String name, int id, Color color, int race, int background){
 		this.name = name;
@@ -76,7 +75,7 @@ public class Player {
 		return mana;
 	}
 	
-	public ISpellbook getSpellbook(){
+	public Spellbook getSpellbook(){
 		return spellbook;
 	}
 	

@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
 
-import warborn.model.spells.SpellInvoker;
+import warborn.model.SpellInvoker;
 import warborn.view.SpellbookView;
 
 public class SpellbookController implements ActionListener{

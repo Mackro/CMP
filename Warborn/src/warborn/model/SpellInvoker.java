@@ -1,36 +1,34 @@
-package warborn.model.spells;
+package warborn.model;
 
 import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
 
-import warborn.model.Warborn;
-
 //TestDriv skiten!!!!
 public class SpellInvoker implements Observer{
 	private Warborn model;
-	private Spell selectedSpell;
-	private ArrayList<Spell> activeSpells;
+	private ISpell selectedSpell;
+	private ArrayList<ISpell> activeSpells;
 
 	public SpellInvoker(Warborn model) {
-		this.activeSpells = new ArrayList<Spell>();
+		this.activeSpells = new ArrayList<ISpell>();
 		this.model = model;
 		model.addObserver(this);
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Spell getSelectedSpell(){
+	public ISpell getSelectedSpell(){
 		return selectedSpell;
 	}
 	
-	public void setSelectedSpell(Spell spell){
+	public void setSelectedSpell(ISpell spell){
 		selectedSpell = spell;
 		if(spell.isInstant()){
 			invokeSpell(spell);
 		}
 	}
 	
-	public void invokeSpell(Spell spell){
+	public void invokeSpell(ISpell spell){
 		if(spell.validTarget(model) && model.getCurrentPlayer().getMana() >= spell.getManaCost()){
 			spell.invoke(model);
 			if(spell.getTimer() > 0){

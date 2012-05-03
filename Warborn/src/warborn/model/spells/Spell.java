@@ -4,9 +4,10 @@ import java.awt.Image;
 
 import javax.swing.ImageIcon;
 
+import warborn.model.ISpell;
 import warborn.model.Warborn;
 
-public abstract class Spell {
+public abstract class Spell implements ISpell{
 	
 	private int manaCost;
 	private int timer;

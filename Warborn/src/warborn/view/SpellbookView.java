@@ -4,8 +4,7 @@ import java.awt.GridLayout;
 
 import javax.swing.*;
 
-import warborn.model.ISpellbook;
-import warborn.model.spells.Spellbook;
+import warborn.model.Spellbook;
 
 public class SpellbookView extends JPanel {
 	
@@ -16,8 +15,8 @@ public class SpellbookView extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public SpellbookView(ISpellbook spellbook, JFrame window) {
-		this.spellbook = (Spellbook) spellbook;
+	public SpellbookView(Spellbook spellbook, JFrame window) {
+		this.spellbook = spellbook;
 		
 		setSize(800, 576);
 		setLocation(2, 2);

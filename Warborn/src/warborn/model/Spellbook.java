@@ -1,12 +1,14 @@
-package warborn.model.spells;
+package warborn.model;
 
 import java.io.*;
 import java.util.ArrayList;
 
-import warborn.model.ISpellbook;
-import warborn.model.PlayerData;
+import warborn.model.spells.Spell;
+import warborn.model.spells.SpellFactory;
 
-public class Spellbook implements ISpellbook{
+
+
+public class Spellbook {
 	
 	private ArrayList<Spell> spells;
 	

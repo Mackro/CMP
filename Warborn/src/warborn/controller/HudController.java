@@ -5,8 +5,8 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
 
+import warborn.model.SpellInvoker;
 import warborn.model.Warborn;
-import warborn.model.spells.SpellInvoker;
 import warborn.view.HudView;
 import warborn.view.SpellbookView;
 
