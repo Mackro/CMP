@@ -5,6 +5,7 @@ import java.awt.Color;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
 
 import warborn.model.Warborn;
 import warborn.sound.Sound;
@@ -14,6 +15,7 @@ public class MenuView extends JPanel {
 	private JButton btNewGame, btCredits, btExit, btQuickStart, btStart, btBack, btBack2;
 	private SelectionPanel pSelection;
 	private Sound sounds;
+	private JTextArea tARaceDescription, tAGodDescription, tAMapDescription;
 	
 	/**
 	 * Create the panel.
@@ -67,6 +69,14 @@ public class MenuView extends JPanel {
 		pSelection.setLocation((int)(this.getWidth()*0.5), 0);
 		pSelection.setVisible(false);
 		add(pSelection);
+		
+		tARaceDescription = new JTextArea();
+		tARaceDescription.setSize((int)(model.getHeight()*0.5), (int)(model.getWidth()*0.3));
+		tARaceDescription.setLocation((int)(model.getHeight()*0.8), (int)(model.getWidth()*0.625));
+		//tARaceDescription.setEditable(false);
+		tARaceDescription.setVisible(false);
+		add(tARaceDescription);
+		tARaceDescription.setText("HELL YEAH!");
 		
 		
 	}
@@ -126,6 +136,7 @@ public class MenuView extends JPanel {
 		btExit.setVisible(false);
 		btBack2.setVisible(false);
 		pSelection.setVisible(false);
+		tARaceDescription.setVisible(false);
 	}
 	
 	public void openSelectionMenu(){
@@ -138,6 +149,7 @@ public class MenuView extends JPanel {
 		
 		btBack2.setVisible(true);
 		pSelection.setVisible(true);
+		tARaceDescription.setVisible(true);
 	}
 	
 	public void closeNewGameMenu(){

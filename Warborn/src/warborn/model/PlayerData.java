@@ -4,8 +4,14 @@ public class PlayerData {
 
 	private static final String[] RACE = new String[]{
 			"Human",
+			"Orc",
+			"Elf",
+			"Titan",
+			"The Forgotten",
 	}, BACKGROUND = new String[]{
-			"Churchguard",
+			"Civitatis",
+			"Insanus",
+			"Falcitier",
 	};
 	
 	public static int getNumberOfRaces(){
