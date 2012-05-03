@@ -3,6 +3,8 @@ package warborn.controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JFrame;
+
 import warborn.model.spells.SpellInvoker;
 import warborn.view.SpellbookView;
 
@@ -21,5 +23,8 @@ public class SpellbookController implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent evt) {
 		System.out.println(evt.getSource().toString());
+		JFrame frame = (JFrame) view.getParent();
+		frame.remove(view);
+		frame.repaint();
 	}
 }

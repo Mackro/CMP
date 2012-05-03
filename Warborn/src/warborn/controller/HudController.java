@@ -36,7 +36,7 @@ public class HudController implements ActionListener {
 			SpellbookView spellbookView = new SpellbookView(model.getCurrentPlayer().getSpellbook(), window);
 			SpellInvoker spellInvoker = new SpellInvoker(model);
 			new SpellbookController(spellInvoker, spellbookView);
-			spellbookView.getFrame().setVisible(true);
+			window.repaint();
 		}
 	}
 }

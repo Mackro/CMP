@@ -10,7 +10,6 @@ import warborn.model.spells.Spellbook;
 public class SpellbookView extends JPanel {
 	
 	private static final long serialVersionUID = 1L;
-	private JFrame frame;
 	private Spellbook spellbook;
 	private SpellView[] spells;
 
@@ -54,12 +53,8 @@ public class SpellbookView extends JPanel {
 			else{
 				page2.add(spells[i]);
 			}
-			window.getLayeredPane().add(this, JLayeredPane.MODAL_LAYER);
 		}
-	}
-	
-	public JFrame getFrame(){
-		return this.frame;
+		window.getLayeredPane().add(this, JLayeredPane.MODAL_LAYER);
 	}
 	
 	public SpellView[] getSpellViews(){
