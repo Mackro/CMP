@@ -29,12 +29,7 @@ public class Launcher implements Observer{
 	 */
 	public static void main(String[] args) {
 		
-		Launcher l = new Launcher();
-		l.run();
-	}
-	
-	public void run() {
-		//frame.setVisible(true);
+		new Launcher();
 	}
 	
 	/**
@@ -43,11 +38,10 @@ public class Launcher implements Observer{
 	public Launcher() {
 		screen = new ScreenManager();
 		model = new Warborn();
-		compatibleDM = screen.getFirstCompatibleDisplayMode(model.getDisplayModes());
+		compatibleDM = screen.getHighestResolutionDisplayMode();
 		model.setDimensions(compatibleDM.getWidth(), compatibleDM.getHeight());
 		screen.restoreScreen();
 		initialize();
-		//init();
 		model.addObserver(this);
 	}
 
@@ -134,13 +128,9 @@ public class Launcher implements Observer{
 	}
 	
 	public void reset(){
+		screen.restoreScreen();
 		frame.dispose();
-		frame = null;
-		model = new Warborn();
-		init();
-		initialize();
-		model.addObserver(this);
-		run();
+		new Launcher();
 		
 	}
 	

@@ -4,55 +4,45 @@ import java.awt.*;
 import javax.swing.*;
 
 public class ScreenManager {
-	
+
 	private GraphicsDevice videoCard;
-	
+
 	//Give videoCard access to monitor
 	public ScreenManager(){
 		GraphicsEnvironment env = GraphicsEnvironment.getLocalGraphicsEnvironment();
 		videoCard = env.getDefaultScreenDevice();
 	}
 
-	//Compare DisplayModes to see if find a matching pair
-	public DisplayMode getFirstCompatibleDisplayMode(DisplayMode[] modes){
+	//returns the DisplayMode with the highest width
+	public DisplayMode getHighestResolutionDisplayMode(){
 		DisplayMode[] videoCardModes = videoCard.getDisplayModes();
-		for(int i = 0; i < modes.length; i++){
-			for(int k = 0; k < videoCardModes.length; k++){
-				if(displayModesMatch(modes[i], videoCardModes[k])){
-					return modes[i];
-				}
+		int highest = 0;
+		for(int k = 1; k < videoCardModes.length; k++){
+			if(videoCardModes[highest].getWidth() < videoCardModes[k].getWidth()){
+				highest = k;
+			}else if(videoCardModes[highest].getWidth() == videoCardModes[k].getWidth()
+					&& videoCardModes[highest].getHeight() < videoCardModes[k].getHeight()){
+				highest = k;
+			}else if(videoCardModes[highest].getWidth() == videoCardModes[k].getWidth()
+					&& videoCardModes[highest].getHeight() == videoCardModes[k].getHeight()
+					&& videoCardModes[highest].getBitDepth() < videoCardModes[k].getBitDepth()){
+				highest = k;
 			}
 		}
-		return null;
+		return videoCardModes[highest];
 	}
 
-	//checks if two modes match each other
-	private boolean displayModesMatch(DisplayMode mode, DisplayMode mode2) {
-		if(mode.getWidth() != mode2.getWidth() || mode.getHeight() != mode2.getHeight()){
-			return false;
-		}else if(mode.getBitDepth() != DisplayMode.BIT_DEPTH_MULTI &&
-				mode2.getBitDepth() != DisplayMode.BIT_DEPTH_MULTI &&
-				mode.getBitDepth() != mode2.getBitDepth()){
-			return false;
-		}else if(mode.getRefreshRate() != DisplayMode.REFRESH_RATE_UNKNOWN &&
-				mode2.getRefreshRate() != DisplayMode.REFRESH_RATE_UNKNOWN &&
-				mode.getRefreshRate() != mode2.getRefreshRate()){
-			return false;
-		}
-		return true;
-	}
-	
 	//Makes new frame fullScreen
 	public void setFullScreen(DisplayMode mode){
 		setFullScreen(mode, new JFrame());
 	}
-	
+
 	//Makes frame fullScreen
 	public void setFullScreen(DisplayMode mode, JFrame frame){
 		frame.setUndecorated(true);
 		frame.setResizable(false);
 		videoCard.setFullScreenWindow(frame);
-		
+
 		if(mode != null && videoCard.isDisplayChangeSupported()){
 			try{
 				videoCard.setDisplayMode(mode);
@@ -61,9 +51,9 @@ public class ScreenManager {
 			}
 		}
 		frame.createBufferStrategy(2);
-		
+
 	}
-	
+
 	//Restore screen to normal i.e. Exit program
 	public void restoreScreen(){
 		Window window = videoCard.getFullScreenWindow();
@@ -72,7 +62,7 @@ public class ScreenManager {
 		}
 		videoCard.setFullScreenWindow(null);
 	}
-	
+
 	public int getWidth(){
 		Window window = videoCard.getFullScreenWindow();
 		if(window != null){
@@ -80,7 +70,7 @@ public class ScreenManager {
 		}
 		return 0;
 	}
-	
+
 	public int getHeight(){
 		Window window = videoCard.getFullScreenWindow();
 		if(window != null){
@@ -88,5 +78,5 @@ public class ScreenManager {
 		}
 		return 0;
 	}
-	
+
 }

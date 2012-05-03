@@ -2,7 +2,6 @@ package warborn.model;
 
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.DisplayMode;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Observable;
@@ -19,29 +18,10 @@ public class Warborn extends Observable{
 	private int state = -1, phase = 0, startPhases;
 	private Dimension dimension;
 	private CardDeck deck;
-	
-	private DisplayMode[] modes = {
-			new DisplayMode(1366, 768, 32, 0),
-			new DisplayMode(1366, 768, 24, 0),
-			new DisplayMode(1280, 1024, 32, 0),
-			new DisplayMode(1280, 1024, 24, 0),
-			new DisplayMode(1024, 768, 32, 0),
-			new DisplayMode(1024, 768, 24, 0),
-			new DisplayMode(1280, 800, 32, 0),
-			new DisplayMode(1280, 800, 24, 0),
-			new DisplayMode(800, 600, 32, 0),
-			new DisplayMode(800, 600, 24, 0),
-	};
 
 
 	public Warborn (){
 		this.deck = new CardDeck();
-		/*
-		 * Toolkit kit = Toolkit.getDefaultToolkit();
-		 *
-		 * dimension = kit.getScreenSize();
-		 */
-		//dimension = new Dimension(screen.getWidth(), screen.getHeight());
 		this.players = new ArrayList<Player>();
 		
 		this.battle = new Battle(this);
@@ -128,12 +108,8 @@ public class Warborn extends Observable{
 	public int getNbrOfReinforcements(){
 		return nbrOfReinforcements;
 	}
-
-	public DisplayMode[] getDisplayModes(){
-		return modes;
-	}
 	
-
+	
 	//Setters:
 
 	public void setDimensions(int width, int height){
