@@ -29,7 +29,7 @@ public abstract class Map extends JPanel implements Observer {
 		this.model = model;
 
 		try {
-			scalingConstants = MapData.getScalingConstants(getMapName());
+			scalingConstants = MapData.getScalingConstants(toString());
 		} catch (MapNotFoundException mnfe) {
 			mnfe.printStackTrace();
 		}
@@ -43,7 +43,7 @@ public abstract class Map extends JPanel implements Observer {
 				(int) (model.getHeight() * 0.75));
 
 		// Scaling the Map image to fit the screensize
-		Image I = new ImageIcon("WarbornData/images/" + getMapName() + ".png")
+		Image I = new ImageIcon("WarbornData/images/" + toString() + ".png")
 				.getImage();
 		I = I.getScaledInstance(model.getWidth(),
 				(int) ((model.getHeight()) * 0.75), 0);

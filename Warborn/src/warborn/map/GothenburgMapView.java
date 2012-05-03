@@ -10,15 +10,5 @@ public class GothenburgMapView extends Map {
 	public GothenburgMapView(Warborn model) {
 		super(model);
 
-	}	
-
-	public static String getMapName(){
-		return "Asgauter";
 	}
-	
-	public String toString(){
-		return "Asgauter";
-	}
-
-
 }
