@@ -92,8 +92,7 @@ public abstract class Map extends JPanel implements Observer {
 	}
 
 	public JButton[] getButtons() {
-		// TODO Auto-generated method stub
-		return null;
+		return buttons;
 	}
 	
 	public String toString(){

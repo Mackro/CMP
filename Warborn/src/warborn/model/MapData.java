@@ -4,6 +4,7 @@ public final class MapData {
 	
 	private static String[] mapNames = {
 		"Asgauter",
+		"Archipelago"
 	};
 	
 	public static String[] getMapNames(){

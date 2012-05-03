@@ -10,6 +10,7 @@ import javax.swing.*;
 
 import warborn.controller.*;
 import warborn.map.GothenburgMapView;
+import warborn.map.HellboundArchipelagoMapView;
 import warborn.map.Map;
 import warborn.model.Warborn;
 import warborn.view.*;
@@ -146,6 +147,7 @@ public class Launcher implements Observer{
 	public Map[] getMapList(){
 		return new Map[] {
 				new GothenburgMapView(model),
+				new HellboundArchipelagoMapView(model),
 		};
 	}
 	
