@@ -1,5 +1,8 @@
 package warborn.model.spells;
 
+import warborn.model.Territory;
+import warborn.model.Warborn;
+
 public class Protect extends Spell {
 	
 	private Territory protectedTerritory;

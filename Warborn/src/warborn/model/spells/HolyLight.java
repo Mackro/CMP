@@ -1,5 +1,7 @@
 package warborn.model.spells;
 
+import warborn.model.Warborn;
+
 public class HolyLight extends Spell {
 
 	public HolyLight(int mana) {

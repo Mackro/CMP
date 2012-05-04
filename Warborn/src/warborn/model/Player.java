@@ -3,6 +3,8 @@ package warborn.model;
 import java.awt.Color;
 import java.io.IOException;
 
+import warborn.model.spells.Spellbook;
+
 
 public class Player {
 

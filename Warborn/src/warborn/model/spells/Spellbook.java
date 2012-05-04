@@ -1,10 +1,9 @@
-package warborn.model;
+package warborn.model.spells;
 
 import java.io.*;
 import java.util.ArrayList;
 
-import warborn.model.spells.Spell;
-import warborn.model.spells.SpellFactory;
+import warborn.model.PlayerData;
 
 
 
