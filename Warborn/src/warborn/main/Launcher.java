@@ -36,11 +36,10 @@ public class Launcher implements Observer{
 	 * Create the application.
 	 */
 	public Launcher() {
-		screen = new ScreenManager();
+		//screen = new ScreenManager();
 		model = new Warborn();
-		compatibleDM = screen.getHighestResolutionDisplayMode();
-		model.setDimensions(compatibleDM.getWidth(), compatibleDM.getHeight());
-		screen.restoreScreen();
+		//compatibleDM = screen.getHighestResolutionDisplayMode();
+		model.setDimensions(/*compatibleDM.getWidth(), compatibleDM.getHeight()*/1366, 768);
 		initialize();
 		model.addObserver(this);
 	}
@@ -60,7 +59,8 @@ public class Launcher implements Observer{
 		menu = new MenuView(model);
 		new MenuController(model, menu);
 		frame.add(menu, c);
-		screen.setFullScreen(compatibleDM, frame);
+		//screen.setFullScreen(compatibleDM, frame);
+		frame.setVisible(true);
 	}
 	
 	/**
