@@ -8,6 +8,7 @@ import java.util.Observable;
 import java.util.Random;
 
 import warborn.constants.MapData;
+import warborn.constants.PlayerData;
 
 
 public class Warborn extends Observable{
@@ -283,8 +284,8 @@ public class Warborn extends Observable{
 	
 	public void quickStart(){
 		//Going to make random players instead
-		addPlayer("Player 1", Color.blue, 0, 0);
-		addPlayer("Player 2", Color.red, 0, 0);
+		addPlayer("Erez", Color.CYAN, (int)(Math.random()*PlayerData.getNumberOfRaces()), (int)(Math.random()*PlayerData.getNumberOfBackgrounds()));
+		addPlayer("Metho", Color.RED, (int)(Math.random()*PlayerData.getNumberOfRaces()), (int)(Math.random()*PlayerData.getNumberOfBackgrounds()));
 		startGame();
 	}
 

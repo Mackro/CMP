@@ -24,18 +24,23 @@ public class PlayerSelectionPanel extends JPanel {
 		setLayout(null);
 		
 		Color color = Color.BLACK;
+		String name = "Player 1";
 		switch(number){
 		case 1:
-			color = Color.BLUE;
+			color = Color.DARK_GRAY;
+			name = "Erez";
 			break;
 		case 2:
 			color = Color.RED;
+			name = "Metho";
 			break;
 		case 3:
 			color = Color.GREEN;
+			name = "Rirouu";
 			break;
 		case 4:
 			color = Color.MAGENTA;
+			name = "Inaria";
 			break;
 		}
 		
@@ -45,7 +50,7 @@ public class PlayerSelectionPanel extends JPanel {
 		btColor.setBackground(color);
 		add(btColor);
 		
-		tfPlayerName = new JTextField("Player " + number);
+		tfPlayerName = new JTextField(name);
 		tfPlayerName.setLocation(20, 80);
 		tfPlayerName.setSize(100, 30);
 		add(tfPlayerName);

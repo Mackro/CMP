@@ -15,7 +15,7 @@ public class RagingElements extends Spell {
 
 	@Override
 	public String getName() {
-		return "RagingElements";
+		return "Raging Elements";
 	}
 
 	@Override

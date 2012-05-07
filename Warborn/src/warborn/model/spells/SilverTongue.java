@@ -15,7 +15,7 @@ public class SilverTongue extends Spell {
 
 	@Override
 	public String getName() {
-		return "SilverTongue";
+		return "Silver Tongue";
 	}
 
 	@Override

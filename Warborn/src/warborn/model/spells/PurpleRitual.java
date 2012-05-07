@@ -15,7 +15,7 @@ public class PurpleRitual extends Spell {
 
 	@Override
 	public String getName() {
-		return "PurpleRitual";
+		return "Purple Ritual";
 	}
 
 	@Override
