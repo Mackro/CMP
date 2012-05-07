@@ -2,6 +2,7 @@ package warborn.view;
 
 import java.awt.Font;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
 
@@ -11,11 +12,17 @@ public class GenericButton extends JButton {
 
 	public GenericButton() {
 		super();
-		this.setFont(new Font("Rod", Font.BOLD | Font.ITALIC, 14));
-		this.setBorder(new RoundedBorder(5));
+		setLook();
 	}
 	public GenericButton(String s){
 		super(s);
+		setLook();
+	}
+	public GenericButton(ImageIcon i){
+		super(i);
+		setLook();
+	}
+	private void setLook(){
 		this.setFont(new Font("Rod", Font.BOLD | Font.ITALIC, 14));
 		this.setBorder(new RoundedBorder(5));
 	}

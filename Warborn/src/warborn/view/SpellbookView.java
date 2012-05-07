@@ -11,6 +11,7 @@ public class SpellbookView extends JPanel {
 	private static final long serialVersionUID = 1L;
 	private Spellbook spellbook;
 	private SpellView[] spells;
+	private GenericButton closeButton;
 
 	/**
 	 * Create the panel.
@@ -24,15 +25,15 @@ public class SpellbookView extends JPanel {
 		setLayout(null);
 		setOpaque(false);
 		
-		JPanel page2 = new JPanel();
-		page2.setBounds(400, 11, 358, 554);
-		add(page2);
-		page2.setLayout(new GridLayout(4, 3));
-		
 		JPanel page1 = new JPanel();
-		page1.setBounds(55, 11, 345, 554);
+		page1.setBounds(55, 11, 350, 554);
 		add(page1);
-		page1.setLayout(new GridLayout(4, 3));
+		page1.setLayout(new GridLayout(4, 2));
+		
+		JPanel page2 = new JPanel();
+		page2.setBounds(400, 11, 350, 554);
+		add(page2);
+		page2.setLayout(new GridLayout(4, 2));
 		
 		JLabel spellbooklbl = new JLabel();
 		spellbooklbl.setIcon(new ImageIcon("WarbornData/images/SpellBook.png"));
@@ -53,10 +54,21 @@ public class SpellbookView extends JPanel {
 				page2.add(spells[i]);
 			}
 		}
+		
+		closeButton = new GenericButton("Close");
+		closeButton.setSize(40, 20);
+		closeButton.setBorderPainted(false);
+		closeButton.setContentAreaFilled(false);
+		page2.add(closeButton);
+		
 		window.getLayeredPane().add(this, JLayeredPane.MODAL_LAYER);
 	}
 	
 	public SpellView[] getSpellViews(){
 		return spells;
+	}
+
+	public GenericButton getCancelButton() {
+		return closeButton;
 	}
 }
