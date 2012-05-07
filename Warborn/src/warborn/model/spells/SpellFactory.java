@@ -36,20 +36,20 @@ public final class SpellFactory {
 				//Insanus
 				return new Confusion(1);
 			case 5:
-				return new FireBall(2);
+				return new FireBall(4);
 			case 6:
-				return new Armageddon(15);
+				return PurpleRitual(5);
 			case 7:
-				return null;
+				return new Armageddon(15)
 			case 8:
 				//Falciter
-				return new Purge(8);
+				 return new Beguile(1);
 			case 9:
-				return null;
+				 return new SilverTongue(4);
 			case 10:
-				return null;
+				return new Purge(8);
 			case 11:
-				return null;
+				return new massCajole(15);
 			default :
 				//Something went wrong
 				return null;
