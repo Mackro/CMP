@@ -200,7 +200,7 @@ public class HudView extends JPanel implements Observer{
 			
 			reinforcements.setText("Reinforcements: " + model.getNbrOfReinforcements());
 			reinforcements.setVisible(true);
-			currentState.setText(" Reinforce your Troops");
+			currentState.setText("Reinforce your Troops");
 		}
 		
 		if (model.getNbrOfReinforcements() != 0){
