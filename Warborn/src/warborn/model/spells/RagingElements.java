@@ -10,7 +10,7 @@ public class RagingElements extends Spell {
 
 	@Override
 	public boolean validTarget(Warborn model) {
-		return model.getSelectedTerritory().getOwner() != model.getCurrentPlayer();
+		return 	(model.getSelectedTerritory().getNbrOfUnits() > 1) && (model.getSelectedTerritory().getOwner() != model.getCurrentPlayer());
 	}
 
 	@Override
@@ -25,10 +25,8 @@ public class RagingElements extends Spell {
 
 	@Override
 	public void invoke(Warborn model) {
-		if(model.getSelectedTerritory().getNbrOfUnits() > 1){
-			model.getSelectedTerritory().decrementUnit();
-			model.getCurrentPlayer().changeMana(-this.getManaCost());
-		}
+		model.getSelectedTerritory().decrementUnit();
+		model.getCurrentPlayer().changeMana(-this.getManaCost());
 	}
 
 }

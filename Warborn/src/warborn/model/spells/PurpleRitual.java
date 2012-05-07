@@ -10,7 +10,7 @@ public class PurpleRitual extends Spell {
 
 	@Override
 	public boolean validTarget(Warborn model) {
-		return (model.getNbrOfReinforcements() <= 4) && (model.getSelectedTerritory().getOwner() != model.getCurrentPlayer());
+		return (model.getNbrOfReinforcements() <= 4) && (model.getSelectedTerritory().getOwner() != model.getCurrentPlayer()) && (model.getState() == 1);
 	}
 
 	@Override
