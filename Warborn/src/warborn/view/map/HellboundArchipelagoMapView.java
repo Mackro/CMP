@@ -1,4 +1,4 @@
-package warborn.map;
+package warborn.view.map;
 
 
 import warborn.model.Warborn;

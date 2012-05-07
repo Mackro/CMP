@@ -1,4 +1,4 @@
-package warborn.model;
+package warborn.constants;
 
 public class PlayerData {
 

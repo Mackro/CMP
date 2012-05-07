@@ -9,11 +9,11 @@ import java.util.Observer;
 import javax.swing.*;
 
 import warborn.controller.*;
-import warborn.map.GothenburgMapView;
-import warborn.map.HellboundArchipelagoMapView;
-import warborn.map.Map;
 import warborn.model.Warborn;
 import warborn.view.*;
+import warborn.view.map.GothenburgMapView;
+import warborn.view.map.HellboundArchipelagoMapView;
+import warborn.view.map.Map;
 
 public class Launcher implements Observer{
 

@@ -1,4 +1,6 @@
-package warborn.model;
+package warborn.constants;
+
+import warborn.model.MapNotFoundException;
 
 public final class MapData {
 	

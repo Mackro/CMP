@@ -1,4 +1,4 @@
-package warborn.map;
+package warborn.view.map;
 
 import java.awt.Color;
 import java.awt.Image;
@@ -11,7 +11,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
-import warborn.model.MapData;
+import warborn.constants.MapData;
 import warborn.model.MapNotFoundException;
 import warborn.model.Warborn;
 

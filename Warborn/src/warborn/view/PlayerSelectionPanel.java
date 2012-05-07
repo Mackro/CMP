@@ -4,7 +4,7 @@ import java.awt.Color;
 
 import javax.swing.*;
 
-import warborn.model.PlayerData;
+import warborn.constants.PlayerData;
 
 public class PlayerSelectionPanel extends JPanel {
 	private static final long serialVersionUID = 1L;

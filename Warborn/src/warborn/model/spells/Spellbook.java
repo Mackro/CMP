@@ -3,7 +3,7 @@ package warborn.model.spells;
 import java.io.*;
 import java.util.ArrayList;
 
-import warborn.model.PlayerData;
+import warborn.constants.PlayerData;
 
 
 

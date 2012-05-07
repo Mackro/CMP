@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Random;
 
+import warborn.constants.MapData;
+
 
 public class Warborn extends Observable{
 

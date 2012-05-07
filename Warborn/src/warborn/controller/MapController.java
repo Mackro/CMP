@@ -5,8 +5,8 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 
-import warborn.map.Map;
 import warborn.model.Warborn;
+import warborn.view.map.Map;
 
 public class MapController implements ActionListener {
 	

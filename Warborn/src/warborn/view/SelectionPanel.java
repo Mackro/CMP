@@ -6,7 +6,7 @@ import java.awt.Image;
 
 import javax.swing.*;
 
-import warborn.model.MapData;
+import warborn.constants.MapData;
 import warborn.model.Warborn;
 
 public class SelectionPanel extends JPanel {
