@@ -25,7 +25,7 @@ public class SpellView extends JPanel {
 		button = new GenericButton();
 		button.setBorderPainted(false);
 		button.setOpaque(false);
-		button.setBounds(20, 10, 40, 40);
+		button.setBounds(20, 5, 40, 40);
 		button.add(spellIconLbl);
 		
 		JLabel spellNameLbl = new JLabel(spell.getName());
