@@ -124,19 +124,19 @@ public class HudView extends JPanel implements Observer{
 					
 			playerNameArray[i] = new GenericLabel();
 			playerNameArray[i].setForeground(model.getPlayer(i).getColor());
-			playerNameArray[i].setLocation(0, 0);
+			playerNameArray[i].setLocation(5, 0);
 			playerPanelsArray[i].add(playerNameArray[i]);
 			
 			territoriesArray[i] = new GenericLabel();
-			territoriesArray[i].setLocation(0, (int)(playerPanelsArray[i].getHeight()*0.2));
+			territoriesArray[i].setLocation(5, (int)(playerPanelsArray[i].getHeight()*0.2));
 			playerPanelsArray[i].add(territoriesArray[i]);
 			
 			troopsArray[i] = new GenericLabel();
-			troopsArray[i].setLocation(0, (int)(playerPanelsArray[i].getHeight()*0.4));
+			troopsArray[i].setLocation(5, (int)(playerPanelsArray[i].getHeight()*0.4));
 			playerPanelsArray[i].add(troopsArray[i]);
 			
 			manaArray[i] = new GenericLabel();
-			manaArray[i].setLocation(0, (int)(playerPanelsArray[i].getHeight()*0.6));
+			manaArray[i].setLocation(5, (int)(playerPanelsArray[i].getHeight()*0.6));
 			playerPanelsArray[i].add(manaArray[i]);
 			
 			playersPanel.add(playerPanelsArray[i], i);
