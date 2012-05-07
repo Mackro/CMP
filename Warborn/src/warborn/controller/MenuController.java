@@ -41,6 +41,7 @@ public class MenuController implements ActionListener, ItemListener{
 			view.openNewGameMenu();
 		}else if(buttonPressed == this.view.getButtonArray()[1]){
 			//Credits
+			view.showCredits();
 		}else if(buttonPressed == this.view.getButtonArray()[2]){
 			//Exit
 			System.exit(0);

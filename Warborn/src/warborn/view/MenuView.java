@@ -14,6 +14,7 @@ public class MenuView extends JPanel {
 	private static final long serialVersionUID = 1L;
 	private JButton btNewGame, btCredits, btExit, btQuickStart, btStart, btBack, btBack2;
 	private SelectionPanel pSelection;
+	private CreditsPanel pCredits;
 	private Sound sounds;
 	private JTextArea tARaceDescription, tAGodDescription, tAMapDescription;
 	
@@ -64,11 +65,16 @@ public class MenuView extends JPanel {
 		btBack2.setSize(150, 150);
 		btBack2.setVisible(false);
 		add(btBack2, 0);
-		
+
 		pSelection = new SelectionPanel(model);
 		pSelection.setLocation((int)(this.getWidth()*0.5), 0);
 		pSelection.setVisible(false);
 		add(pSelection);
+		
+		pCredits = new CreditsPanel();
+		pCredits.setLocation((int)(this.getWidth()*0.25), (int)(this.getHeight()*0.10));
+		pCredits.setVisible(false);
+		add(pCredits);
 		
 		tARaceDescription = new JTextArea();
 		tARaceDescription.setSize((int)(model.getHeight()*0.5), (int)(model.getWidth()*0.3));
@@ -125,6 +131,16 @@ public class MenuView extends JPanel {
 		return pSelection.getSelectedMapIndex();
 	}
 	
+	public void showCredits(){
+		btBack.setVisible(true);
+		btCredits.setVisible(true);
+		pCredits.setVisible(true);
+		
+		btNewGame.setVisible(false);
+		btCredits.setEnabled(false);
+		btExit.setVisible(false);
+	}
+	
 	public void openNewGameMenu(){
 		btQuickStart.setVisible(true);
 		btStart.setVisible(true);
@@ -156,8 +172,11 @@ public class MenuView extends JPanel {
 		btQuickStart.setVisible(false);
 		btStart.setVisible(false);
 		btBack.setVisible(false);
-		
+		pCredits.setVisible(false);
+
 		btNewGame.setEnabled(true);
+		btNewGame.setVisible(true);
+		btCredits.setEnabled(true);
 		btCredits.setVisible(true);
 		btExit.setVisible(true);
 	}
