@@ -10,7 +10,7 @@ import warborn.model.Warborn;
 public abstract class Spell implements ISpell{
 	
 	private int manaCost;
-	private int timer;
+	private int timer = 0;
 	
 	public abstract boolean validTarget(Warborn model);
 	public abstract String getName();
