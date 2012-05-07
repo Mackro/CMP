@@ -41,6 +41,15 @@ public final class MapData {
 				{0.260, 0.220},
 				{0.190, 0.260},
 			};
+		}else if(map.equalsIgnoreCase("Archipelago")){
+			return new double[][]{
+				{,},
+				{,},
+				{,},
+				{,},
+				{,},
+				{,},
+			};
 		}
 		throw new MapNotFoundException("No such Map");
 	}

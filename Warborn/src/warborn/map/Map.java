@@ -95,6 +95,7 @@ public abstract class Map extends JPanel implements Observer {
 		return buttons;
 	}
 
+	@Override
 	public String toString() {
 		return MapData.getMapName(model.getMapIndex());
 	}

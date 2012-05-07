@@ -9,7 +9,7 @@ public class CardDeck {
 	public CardDeck(){
 		
 	infantryImage = new ImageIcon("WarbornData/images/infantry.jpg");
-	cavaleryImage = new ImageIcon("WarbornData/images/cavalery.jpg");
+	cavaleryImage = new ImageIcon("WarbornData/images/cavalry.jpg");
 	artilleryImage =new ImageIcon("WarbornData/images/artillery.jpg");
 	}
 	
