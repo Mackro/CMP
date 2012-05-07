@@ -62,7 +62,7 @@ public class HudView extends JPanel implements Observer{
 		
 		cardPanel = new JPanel();
 		cardPanel.setLayout(new GridLayout());
-		cardPanel.setBounds(0, (int)(this.getHeight()*0.03), (int)(this.getWidth()*0.25),(int)(this.getHeight()*0.45));
+		cardPanel.setBounds(0, (int)(this.getHeight()*0.03), (int)(this.getWidth()*0.25),(int)(this.getHeight()*0.39));
 		cardPanel.setBorder(roundBorder);
 		this.add(cardPanel);
 		

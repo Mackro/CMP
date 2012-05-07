@@ -31,19 +31,19 @@ public class CreditsPanel extends JPanel {
 		add(lblLeadProgrammer);
 		
 		JLabel lblTeodorOstwald = new JLabel("Teodor Ostwald");
-		lblTeodorOstwald.setBounds(195, 68, 179, 14);
+		lblTeodorOstwald.setBounds(195, 68, 200, 14);
 		add(lblTeodorOstwald);
 		
 		JLabel lblEmilhsberg = new JLabel("Emil \u00C5hsberg");
-		lblEmilhsberg.setBounds(195, 93, 179, 14);
+		lblEmilhsberg.setBounds(195, 93, 200, 14);
 		add(lblEmilhsberg);
 		
 		JLabel lblRickardHallberg = new JLabel("Rickard Hallberg");
-		lblRickardHallberg.setBounds(195, 118, 179, 14);
+		lblRickardHallberg.setBounds(195, 118, 200, 14);
 		add(lblRickardHallberg);
 		
 		JLabel lblMarkusOtterberg = new JLabel("Markus Otterberg");
-		lblMarkusOtterberg.setBounds(195, 143, 179, 14);
+		lblMarkusOtterberg.setBounds(195, 143, 200, 14);
 		add(lblMarkusOtterberg);
 		
 		JLabel lblSpecialThanks = new JLabel("Special Thanks");
@@ -56,7 +56,7 @@ public class CreditsPanel extends JPanel {
 		add(lblSoundtracks);
 		
 		JLabel lblVoid = new JLabel("VOID");
-		lblVoid.setBounds(195, 223, 179, 14);
+		lblVoid.setBounds(195, 223, 200, 14);
 		add(lblVoid);
 		
 		JLabel lblMapBackground = new JLabel("Map Background:");
@@ -64,7 +64,7 @@ public class CreditsPanel extends JPanel {
 		add(lblMapBackground);
 		
 		JLabel lblYamogogydeviantartcom = new JLabel("yamogogy.deviantart.com");
-		lblYamogogydeviantartcom.setBounds(195, 248, 179, 14);
+		lblYamogogydeviantartcom.setBounds(195, 248, 200, 14);
 		add(lblYamogogydeviantartcom);
 		
 		JLabel lblSpellbookBackground = new JLabel("Spellbook Background:");
@@ -72,15 +72,23 @@ public class CreditsPanel extends JPanel {
 		add(lblSpellbookBackground);
 		
 		JLabel lblAshleyleedeviantartcom = new JLabel("ashley-lee.deviantart.com");
-		lblAshleyleedeviantartcom.setBounds(195, 273, 179, 14);
+		lblAshleyleedeviantartcom.setBounds(195, 273, 200, 14);
 		add(lblAshleyleedeviantartcom);
 		
 		JLabel lblSupervisor = new JLabel("Supervisor:");
-		lblSupervisor.setBounds(10, 298, 135, 14);
+		lblSupervisor.setBounds(10, 323, 135, 14);
 		add(lblSupervisor);
 		
 		JLabel lblAdamWaldenberg = new JLabel("Adam Waldenberg");
-		lblAdamWaldenberg.setBounds(195, 298, 179, 14);
+		lblAdamWaldenberg.setBounds(195, 323, 200, 14);
 		add(lblAdamWaldenberg);
+		
+		JLabel lblNewLabel = new JLabel("Most Other Images:");
+		lblNewLabel.setBounds(10, 298, 135, 14);
+		add(lblNewLabel);
+		
+		JLabel lblJwbjerkMeopengameartorg = new JLabel("\n\nJ.W.Bjerk\nme / opengameart.org");
+		lblJwbjerkMeopengameartorg.setBounds(195, 298, 200, 14);
+		add(lblJwbjerkMeopengameartorg);
 	}
 }
