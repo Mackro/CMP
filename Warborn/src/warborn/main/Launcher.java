@@ -21,7 +21,7 @@ public class Launcher implements Observer{
 	private Warborn model;
 	private KeyAction keyAction;
 	private MenuView menu;
-	private ScreenManager screen;
+	//private ScreenManager screen;
 	private HudView hud;
 	private Map map;
 	//private DisplayMode compatibleDM;
@@ -159,7 +159,7 @@ public class Launcher implements Observer{
 	}
 	
 	public void exit(){
-		screen.restoreScreen();
+		//screen.restoreScreen();
 		System.exit(0);
 	}
 
