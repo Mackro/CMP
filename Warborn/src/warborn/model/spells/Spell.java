@@ -22,7 +22,7 @@ public abstract class Spell implements ISpell{
 	}
 	
 	public Image getImage(){
-		return new ImageIcon("WarbornData/images/spells/" + getName().replaceAll(" ", "") + ".jpg").getImage();
+		return new ImageIcon("WarbornData/images/spells/" + getName().replaceAll(" ", "") + ".png").getImage();
 	}
 	
 	public void tick(Warborn model){

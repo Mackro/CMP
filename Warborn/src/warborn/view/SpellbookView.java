@@ -35,7 +35,7 @@ public class SpellbookView extends JPanel {
 		page2.setBounds(410, 11, 350, 554);
 		page2.setBorder(new RoundedBorder(5));
 		add(page2);
-		page2.setLayout(new GridLayout(4, 2));
+		page2.setLayout(new GridLayout(3, 1));
 		
 		JLabel spellbooklbl = new JLabel();
 		spellbooklbl.setIcon(new ImageIcon("WarbornData/images/SpellBook.png"));
@@ -49,7 +49,7 @@ public class SpellbookView extends JPanel {
 		
 		for (int i = 0; i < this.spellbook.getNumberOfSpells(); i++){
 			spells[i] = new SpellView(this.spellbook.getSpell(i));
-			if(i < 7){
+			if(i < 3){
 				page1.add(spells[i]);
 			}
 			else{
