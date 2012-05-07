@@ -42,14 +42,14 @@ public final class SpellFactory {
 			case 7:
 				return new Armageddon(15)
 			case 8:
-				//Falciter
+				//Falcitier
 				 return new Beguile(1);
 			case 9:
 				 return new SilverTongue(4);
 			case 10:
 				return new Purge(8);
 			case 11:
-				return new massCajole(15);
+				return new MassCajole(15);
 			default :
 				//Something went wrong
 				return null;

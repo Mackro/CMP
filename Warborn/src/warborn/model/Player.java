@@ -3,6 +3,7 @@ package warborn.model;
 import java.awt.Color;
 import java.io.IOException;
 
+import warborn.constants.PlayerData;
 import warborn.model.spells.Spellbook;
 
 
@@ -10,22 +11,26 @@ public class Player {
 
 	private int id, nbrOfTerritories = 0, mana = 2;
 	private String name;
-	private int race, background;
+	private String godName;
+	private String additionalName;
+	private String fullName = name + " of " + godName + additionalName;
+	private int race, god;
 	private Color color;
 	private Card[] cards = new Card[5];
 	private boolean hasConquered, defeated;
 	private Spellbook spellbook;
 	
-	public Player(String name, int id, Color color, int race, int background){
+	public Player(String name, int id, Color color, int race, int god){
 		this.name = name;
+		this.godName = PlayerData.getBackgroundName(god);
 		this.id = id;
 		Color copiedColor = new Color(color.getRed(), color.getGreen(), color.getBlue());
 		this.color = copiedColor;
 		this.race = race;
-		this.background = background;
+		this.god = god;
 		this.spellbook = new Spellbook();
 		try {
-			spellbook.fill(background);
+			spellbook.fill(god);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -48,12 +53,16 @@ public class Player {
 		return name;
 	}
 	
+	public String getFullName(){
+		return fullName;
+	}
+	
 	public int getRaceIndex(){
 		return race;
 	}
 	
 	public int getBackgroundIndex(){
-		return background;
+		return god;
 	}
 	
 	public Card[] getCards(){
@@ -88,6 +97,9 @@ public class Player {
 	
 	public void setName(String name){
 		this.name = name;
+	}
+	public void setAdditionalName(String additionalName){
+		this.additionalName = additionalName;
 	}
 	
 	public void defeated(boolean defeat){
