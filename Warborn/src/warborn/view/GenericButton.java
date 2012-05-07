@@ -4,6 +4,7 @@ import java.awt.Font;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 
 
 public class GenericButton extends JButton {
@@ -20,6 +21,11 @@ public class GenericButton extends JButton {
 	}
 	public GenericButton(ImageIcon i){
 		super(i);
+		setLook();
+	}
+	public GenericButton(JLabel label) {
+		super();
+		this.add(label);
 		setLook();
 	}
 	private void setLook(){

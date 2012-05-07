@@ -27,11 +27,13 @@ public class SpellbookView extends JPanel {
 		
 		JPanel page1 = new JPanel();
 		page1.setBounds(55, 11, 350, 554);
+		page1.setBorder(new RoundedBorder(5));
 		add(page1);
-		page1.setLayout(new GridLayout(4, 2));
+		page1.setLayout(new GridLayout(3, 1));
 		
 		JPanel page2 = new JPanel();
-		page2.setBounds(400, 11, 350, 554);
+		page2.setBounds(410, 11, 350, 554);
+		page2.setBorder(new RoundedBorder(5));
 		add(page2);
 		page2.setLayout(new GridLayout(4, 2));
 		
@@ -56,7 +58,6 @@ public class SpellbookView extends JPanel {
 		}
 		
 		closeButton = new GenericButton("Close");
-		closeButton.setSize(40, 20);
 		closeButton.setBorderPainted(false);
 		closeButton.setContentAreaFilled(false);
 		page2.add(closeButton);

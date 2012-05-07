@@ -16,7 +16,7 @@ public class SpellbookController implements ActionListener{
 		this.invoker = invoker;
 		this.view = view;
 		for (int i=0; i<view.getSpellViews().length ;i++){
-			view.getSpellViews()[i].addActionListener(this);
+			view.getSpellViews()[i].getButton().addActionListener(this);
 		}
 		view.getCancelButton().addActionListener(this);
 	}
