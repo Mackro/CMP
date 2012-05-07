@@ -20,12 +20,12 @@ public class HudView extends JPanel implements Observer{
 	private GenericLabel[] troopsArray;
 	private GenericLabel[] manaArray;
 	private JButton[] buttons;
-	private JButton next, useCards, spellbookButton;
+	private EllipseButton next, useCards, spellbookButton;
 	private GenericLabel currentPlayer, currentState;
 	private JButton[] cardPanelbtns;
 	private GenericLabel reinforcements;
 	private Warborn model;
-	private Border innerBorder, border;
+	private Border innerBorder, roundBorder;
 	
 	public HudView(Warborn model){
 		
@@ -36,7 +36,7 @@ public class HudView extends JPanel implements Observer{
 		troopsArray = new GenericLabel[model.getNumberOfPlayers()];
 		manaArray = new GenericLabel[model.getNumberOfPlayers()];
 		cardPanelbtns = new JButton[5];
-		border = new RoundedBorder(3);
+		roundBorder = new RoundedBorder(3);
 		innerBorder = new LineBorder(Color.gray);
 		
 		this.setLayout(null);
@@ -47,7 +47,7 @@ public class HudView extends JPanel implements Observer{
 		phaseInfo.setBounds((int)(this.getWidth()*0.25),(int)(this.getHeight()*0.03),
 				(int)(this.getWidth()/7),(int)(this.getHeight()*0.9));
 		phaseInfo.setLayout(null);
-		phaseInfo.setBorder(border);
+		phaseInfo.setBorder(roundBorder);
 		this.add(phaseInfo);
 		
 		playersPanel = new JPanel();
@@ -56,14 +56,14 @@ public class HudView extends JPanel implements Observer{
 				(int)(this.getHeight()*0.03),
 				(int)((this.getWidth()-(this.getWidth()*0.25)-(this.getWidth()/7)-(this.getWidth()/14))),
 				(int)(this.getHeight()*0.9));
-		playersPanel.setBorder(border);
+		playersPanel.setBorder(roundBorder);
 		this.add(playersPanel);
 		
 		
 		cardPanel = new JPanel();
 		cardPanel.setLayout(new GridLayout());
 		cardPanel.setBounds(0, (int)(this.getHeight()*0.03), (int)(this.getWidth()*0.25),(int)(this.getHeight()*0.45));
-		cardPanel.setBorder(border);
+		cardPanel.setBorder(roundBorder);
 		this.add(cardPanel);
 		
 		
@@ -74,7 +74,7 @@ public class HudView extends JPanel implements Observer{
 			cardPanel.add(cardPanelbtns[i]);
 		}
 		
-		next = new GenericButton("Next");
+		next = new EllipseButton("Next");
 		next.setBounds((int)((this.getWidth())-this.getWidth()/14),
 				(int)(this.getHeight()*0.4),
 				(int)(this.getWidth()/14),
@@ -82,15 +82,15 @@ public class HudView extends JPanel implements Observer{
 		this.add(next);
 		buttons[0] = next;
 		
-		useCards = new GenericButton("Souls");
-		useCards.setBounds((int)((this.getWidth()*0.125)-(this.getWidth()/(2*13))), 
+		useCards = new EllipseButton("Absorb Souls");
+		useCards.setBounds((int)((this.getWidth()*0.125)-(this.getWidth()/(2*9))), 
 				(int)(this.getHeight()*0.5),
-				(int)(this.getWidth()/13),
+				(int)(this.getWidth()/9),
 				(int)(this.getHeight()/10));
 		this.add(useCards);
 		buttons[1] = useCards;
 		
-		spellbookButton = new GenericButton("Spellbook");
+		spellbookButton = new EllipseButton("Spellbook");
 		spellbookButton.setBounds((int)((this.getWidth()*0.125)-(this.getWidth()/(2*10))), 
 				(int)(this.getHeight()*0.7),
 				(int)(this.getWidth()/10),
@@ -99,19 +99,19 @@ public class HudView extends JPanel implements Observer{
 		buttons[2] = spellbookButton;
 		
 		for (int i=0; i<buttons.length; i++){
-			buttons[i].setBorder(border);
+			buttons[i].setBorder(roundBorder);
 		}
 		
 		currentPlayer = new GenericLabel();
-		currentPlayer.setBounds(0, (int)(this.getHeight()*0.2), 400, 20);
+		currentPlayer.setBounds(5, (int)(this.getHeight()*0.2), 400, 20);
 		phaseInfo.add(currentPlayer);
 		
 		currentState = new GenericLabel();
-		currentState.setBounds(0, (int)(this.getHeight()*0.4), 400, 20);
+		currentState.setBounds(5, (int)(this.getHeight()*0.4), 400, 20);
 		phaseInfo.add(currentState);
 		
 		reinforcements = new GenericLabel("Reinforcements");
-		reinforcements.setBounds((0), (int)(this.getHeight()*0.6), 400, 20);
+		reinforcements.setBounds(5, (int)(this.getHeight()*0.6), 400, 20);
 		phaseInfo.add(reinforcements);
 		
 
@@ -166,8 +166,8 @@ public class HudView extends JPanel implements Observer{
 	public void update(Observable ml, Object e) {
 		Warborn model = (Warborn)ml;
 		
-		currentPlayer.setText(" "+model.getCurrentPlayer().getName());
-		currentState.setText(" Battle Phase");
+		currentPlayer.setText(model.getCurrentPlayer().getName());
+		currentState.setText("Battle Phase");
 		float[] hsbFloats = {0,0,0};
 		Color.RGBtoHSB(model.getCurrentPlayer().getColor().brighter().getRed(),
 				model.getCurrentPlayer().getColor().brighter().getGreen(),
@@ -191,14 +191,14 @@ public class HudView extends JPanel implements Observer{
 		
 		if (model.getState() == 3){
 			next.setText("End Turn");
-			currentState.setText(" Troop Movement");
+			currentState.setText("Troop Movement");
 		}else{
 			next.setText("Next Phase");
 		}
 		
 		if (model.getState()==1){
 			
-			reinforcements.setText(" Reinforcements: " + model.getNbrOfReinforcements());
+			reinforcements.setText("Reinforcements: " + model.getNbrOfReinforcements());
 			reinforcements.setVisible(true);
 			currentState.setText(" Reinforce your Troops");
 		}
@@ -220,7 +220,7 @@ public class HudView extends JPanel implements Observer{
 			manaArray[i].setText("Mana:  " + model.getPlayer(i).getMana());
 		}
 		if(model.getState() == 0){
-			currentState.setText(" Reinforce");
+			currentState.setText("Reinforce");
 		}
 		
 	}

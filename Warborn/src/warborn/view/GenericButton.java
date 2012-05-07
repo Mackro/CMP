@@ -29,7 +29,7 @@ public class GenericButton extends JButton {
 		setLook();
 	}
 	private void setLook(){
-		this.setFont(new Font("Rod", Font.BOLD | Font.ITALIC, 14));
+		this.setFont(new Font("WarbornFont", Font.BOLD | Font.ITALIC, 14));
 		this.setBorder(new RoundedBorder(5));
 	}
 }

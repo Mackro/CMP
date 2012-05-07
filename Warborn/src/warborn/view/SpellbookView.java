@@ -58,7 +58,6 @@ public class SpellbookView extends JPanel {
 		}
 		
 		closeButton = new GenericButton("Close");
-		closeButton.setBorderPainted(false);
 		closeButton.setContentAreaFilled(false);
 		page2.add(closeButton);
 		
