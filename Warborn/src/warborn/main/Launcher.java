@@ -22,6 +22,8 @@ public class Launcher implements Observer{
 	private KeyAction keyAction;
 	private MenuView menu;
 	private ScreenManager screen;
+	private HudView hud;
+	private Map map;
 	//private DisplayMode compatibleDM;
 
 	/**
@@ -104,23 +106,24 @@ public class Launcher implements Observer{
 		GridBagConstraints c = new GridBagConstraints();
 		
 		Map[] mapList = getMapList();
-		new MapController(model, mapList[mapIndex]);
-		model.addObserver(mapList[mapIndex]);
+		map = mapList[mapIndex];
+		new MapController(model, map);
+		model.addObserver(map);
 		c.weightx = 1;
 		c.ipady = (int) (model.getHeight()*0.8);
 		c.fill = GridBagConstraints.HORIZONTAL;
 		c.gridx = 0;
 		c.gridy = 0;
 		c.weighty = 0.75;
-		frame.add((JPanel)mapList[mapIndex], c);
-		((JPanel)(mapList[mapIndex])).getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), "options");
-		((JPanel)(mapList[mapIndex])).getInputMap().put(KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), "options");
-		((JPanel)(mapList[mapIndex])).getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_F10, 0), "options");
-		((JPanel)(mapList[mapIndex])).getInputMap().put(KeyStroke.getKeyStroke(KeyEvent.VK_F10, 0), "options");
-		((JPanel)(mapList[mapIndex])).getActionMap().put("options", keyAction);
+		frame.add(map, c);
+		map.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), "options");
+		map.getInputMap().put(KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), "options");
+		map.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_F10, 0), "options");
+		map.getInputMap().put(KeyStroke.getKeyStroke(KeyEvent.VK_F10, 0), "options");
+		map.getActionMap().put("options", keyAction);
 		
 		
-		HudView hud = new HudView(model);
+		hud = new HudView(model);
 		new HudController(model, frame, hud);
 		model.addObserver(hud);
 		c.ipady = (int) (model.getHeight()*0.25);
@@ -142,7 +145,8 @@ public class Launcher implements Observer{
 	
 	public void reset(){
 		//screen.restoreScreen();
-		frame.removeAll();
+		frame.remove(map);
+		frame.remove(hud);
 		new Launcher(frame);
 		
 	}
