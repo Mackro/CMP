@@ -27,7 +27,7 @@ public class PlayerSelectionPanel extends JPanel {
 		String name = "Player 1";
 		switch(number){
 		case 1:
-			color = Color.DARK_GRAY;
+			color = new Color(0, 0, 200);
 			name = "Erez";
 			break;
 		case 2:

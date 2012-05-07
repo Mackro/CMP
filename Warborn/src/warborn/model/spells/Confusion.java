@@ -22,7 +22,7 @@ public class Confusion extends Spell{
 
 	@Override
 	public String getDescription() {
-		return "Swaps the colors of players to increase confusion";
+		return "Swaps the colors of players to increase confusion \"Change is a necessary step in evolution\"";
 	}
 
 	@Override
