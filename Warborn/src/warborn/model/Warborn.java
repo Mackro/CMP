@@ -111,6 +111,10 @@ public class Warborn extends Observable{
 	
 	
 	//Setters:
+	
+	public void setNbrOfReinforcements(int nbrOfReinforcements){
+		this.nbrOfReinforcements = nbrOfReinforcements;
+	}
 
 	public void setDimensions(int width, int height){
 		setDimensions(new Dimension(width, height));

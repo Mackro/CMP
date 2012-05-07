@@ -86,6 +86,10 @@ public class Player {
 		this.color = copiedColor;
 	}
 	
+	public void setName(String name){
+		this.name = name;
+	}
+	
 	public void defeated(boolean defeat){
 		this.defeated = defeat;
 	}
