@@ -22,7 +22,7 @@ public class Launcher implements Observer{
 	private KeyAction keyAction;
 	private MenuView menu;
 	private ScreenManager screen;
-	private DisplayMode compatibleDM;
+	//private DisplayMode compatibleDM;
 
 	/**
 	 * Launch the application.
@@ -40,6 +40,20 @@ public class Launcher implements Observer{
 		model = new Warborn();
 		//compatibleDM = screen.getHighestResolutionDisplayMode();
 		model.setDimensions(/*compatibleDM.getWidth(), compatibleDM.getHeight()*/1366, 768);
+		frame = new MainFrame(model);
+		initialize();
+		model.addObserver(this);
+	}
+	
+	/**
+	 * Create the application.
+	 */
+	public Launcher(MainFrame frame) {
+		//screen = new ScreenManager();
+		model = new Warborn();
+		//compatibleDM = screen.getHighestResolutionDisplayMode();
+		model.setDimensions(/*compatibleDM.getWidth(), compatibleDM.getHeight()*/1366, 768);
+		this.frame = frame;
 		initialize();
 		model.addObserver(this);
 	}
@@ -48,7 +62,6 @@ public class Launcher implements Observer{
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new MainFrame(model);
 		GridBagConstraints c = new GridBagConstraints();
 		c.weightx = 1;
 		c.ipady = (int) (model.getHeight());
@@ -128,9 +141,9 @@ public class Launcher implements Observer{
 	}
 	
 	public void reset(){
-		screen.restoreScreen();
-		frame.dispose();
-		new Launcher();
+		//screen.restoreScreen();
+		frame.removeAll();
+		new Launcher(frame);
 		
 	}
 	
