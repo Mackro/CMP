@@ -111,12 +111,6 @@ public class Sound extends Thread implements Observer{
 				theme = "WarbornData/sounds/battleTheme.wav";
 				stopMusic();
 			}
-			else if(model.getState() == 3 && model.getPhase() == 1 && move == false){
-				activeGame = false;
-				move = true;
-				//theme = "WarbornData/sounds/moveTheme;
-				stopMusic();
-			}
 		}
 		
 	}
