@@ -17,7 +17,7 @@ import warborn.model.Warborn;
  */
 public class Sound extends Thread implements Observer{
 	
-	private String intro;
+	private String theme;
 	private AudioInputStream audioInputStream;
 	SourceDataLine auline;
 	private final int EXTERNAL_BUFFER_SIZE = 524288;
@@ -25,30 +25,33 @@ public class Sound extends Thread implements Observer{
 	
 
 	public Sound(){
-		intro = "WarbornData/sounds/intro.wav";
+		theme = "WarbornData/sounds/introTheme.wav";
 	}
-	
-	public void loadMusic(String track){
-		File soundFile = new File(track);
-		try {
-			audioInputStream = AudioSystem.getAudioInputStream(soundFile);
-		} catch (UnsupportedAudioFileException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		AudioFormat format = audioInputStream.getFormat();
-		DataLine.Info info = new DataLine.Info(SourceDataLine.class, format);
 
-		try { 
-			auline = (SourceDataLine)AudioSystem.getLine(info);
-			auline.open(format);
-		} catch (LineUnavailableException e) { 
-			e.printStackTrace();
-			return;
-		} catch (Exception e) { 
-			e.printStackTrace();
-			return;
+	public void loadMusic(){
+		while(true){
+			File soundFile = new File(theme);
+			try {
+				audioInputStream = AudioSystem.getAudioInputStream(soundFile);
+			} catch (UnsupportedAudioFileException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			AudioFormat format = audioInputStream.getFormat();
+			DataLine.Info info = new DataLine.Info(SourceDataLine.class, format);
+
+			try { 
+				auline = (SourceDataLine)AudioSystem.getLine(info);
+				auline.open(format);
+				startMusic();
+			} catch (LineUnavailableException e) { 
+				e.printStackTrace();
+				return;
+			} catch (Exception e) { 
+				e.printStackTrace();
+				return;
+			}
 		}
 	}
 	
@@ -57,30 +60,30 @@ public class Sound extends Thread implements Observer{
 	public void startMusic(){
 		auline.start();
 		int nBytesRead = 0;
-        byte[] abData = new byte[EXTERNAL_BUFFER_SIZE];
- 
-        try { 
-            while (nBytesRead != -1) { 
-                nBytesRead = audioInputStream.read(abData, 0, abData.length);
-                if (nBytesRead >= 0) 
-                    auline.write(abData, 0, nBytesRead);
-            } 
-        } catch (IOException e) { 
-            e.printStackTrace();
-            return;
-        } finally { 
-            auline.drain();
-            auline.close();
-        } 
+		byte[] abData = new byte[EXTERNAL_BUFFER_SIZE];
+
+		try { 
+			while (nBytesRead != -1) { 
+				nBytesRead = audioInputStream.read(abData, 0, abData.length);
+				if (nBytesRead >= 0) 
+					auline.write(abData, 0, nBytesRead);
+			} 
+		} catch (IOException e) { 
+			e.printStackTrace();
+			return;
+		} finally { 
+			stopMusic();
+		} 	
 	}
 	
 	public void stopMusic(){
 		auline.stop();
+		auline.drain();
+		auline.close();
 	}
 	
 	public void run(){
-		loadMusic(intro);
-		startMusic();
+		loadMusic();
 	}
 
 	@Override
@@ -89,29 +92,29 @@ public class Sound extends Thread implements Observer{
 			Warborn model = (Warborn)o;
 			if(model.getState() == -1 && startMenu == false){
 				startMenu = true;
-				auline.stop();
-				loadMusic(intro);
+				stopMusic();
+				theme = "WarbornData/sounds/introTheme.wav";
 			}
 			else if(model.getState() == 0 && activeGame == false){
 				startMenu = false;
 				activeGame = true;
-				auline.stop();
-				//loadMusic(gameTheme);
+				stopMusic();
+				theme = "WarbornData/sounds/gameBackground.wav";
 			}
 			else if(model.getState() == 2 && model.getPhase() == 0 && battle){
 				battle = false;
-				auline.stop();
-				//loadMusic(gameTheme);
+				stopMusic();
+				theme = "WarbornData/sounds/gameBackground.wav";
 			}
 			else if(model.getState() == 2 && model.getPhase() == 1 && battle == false){
 				battle = true;
-				auline.stop();
-				//loadMusic(battleTheme);
+				stopMusic();
+				theme = "WarbornData/sounds/battleTheme.wav";
 			}
 			else if(model.getState() == 3 && model.getPhase() == 1 && move == false){
 				activeGame = false;
 				move = true;
-				auline.stop();
+				stopMusic();
 				//loadMusic(moveTheme);
 			}
 		}
