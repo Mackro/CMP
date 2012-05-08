@@ -13,7 +13,6 @@ public class Player {
 	private String name;
 	private String godName;
 	private String additionalName;
-	private String fullName = name + " of " + godName + additionalName;
 	private int race, god;
 	private Color color;
 	private Card[] cards = new Card[5];
@@ -23,6 +22,7 @@ public class Player {
 	public Player(String name, int id, Color color, int race, int god){
 		this.name = name;
 		this.godName = PlayerData.getGodName(god);
+		this.additionalName = "";
 		this.id = id;
 		Color copiedColor = new Color(color.getRed(), color.getGreen(), color.getBlue());
 		this.color = copiedColor;
@@ -54,7 +54,7 @@ public class Player {
 	}
 	
 	public String getFullName(){
-		return fullName;
+		return  name + " of " + godName + " " + additionalName;
 	}
 	
 	public int getRaceIndex(){
