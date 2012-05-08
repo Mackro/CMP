@@ -126,10 +126,10 @@ public abstract class Map extends JPanel implements Observer {
 					buttons[i].setForeground(Color.BLACK);
 				}
 				if (model.getTerritory(i).isProtected()) {
-					buttons[i].setBackground(new Color(buttons[i].getBackground()
-							.getRed() + 10,
-							buttons[i].getBackground().getGreen() + 10, buttons[i]
-									.getBackground().getBlue() + 10));
+					buttons[i].setBackground(new Color(
+							buttons[i].getBackground().getRed() + 40>255?255:buttons[i].getBackground().getRed() + 40,
+							buttons[i].getBackground().getGreen() + 40>255?255:buttons[i].getBackground().getGreen() + 40,
+									buttons[i].getBackground().getBlue() + 40>255?255:buttons[i].getBackground().getBlue() + 40));
 				}
 			}
 			if (model.getSelectedTerritoryIndex() > -1) {
