@@ -16,11 +16,11 @@ public class Move extends TerritoryInteractor {
 		this.resetTerritories();
 		model.getBattle().resetTerritories();
 		if(!model.getBattle().shallMove()){
-			model.nextPhase();
 			model.nextState();
 		}else{
 			model.getBattle().shallNotMove();
 		}
+		model.nextPhase();
 		model.changed();
 	}
 	

@@ -5,11 +5,13 @@ import java.awt.Image;
 import java.util.Observable;
 import java.util.Observer;
 
+import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
+import javax.swing.border.BevelBorder;
 
 import warborn.constants.MapData;
 import warborn.constants.MapNotFoundException;
@@ -112,6 +114,7 @@ public abstract class Map extends JPanel implements Observer {
 			this.requestFocus();
 			
 			for (int i = 0; i < buttons.length; i++) {
+				buttons[i].setBorder(null);
 				buttons[i].setText(model.getTerritory(
 						Integer.parseInt(buttons[i].getActionCommand()))
 						.getNbrOfUnits()
@@ -126,10 +129,12 @@ public abstract class Map extends JPanel implements Observer {
 					buttons[i].setForeground(Color.BLACK);
 				}
 				if (model.getTerritory(i).isProtected()) {
-					buttons[i].setBackground(new Color(
-							buttons[i].getBackground().getRed() + 40>255?255:buttons[i].getBackground().getRed() + 40,
-							buttons[i].getBackground().getGreen() + 40>255?255:buttons[i].getBackground().getGreen() + 40,
-									buttons[i].getBackground().getBlue() + 40>255?255:buttons[i].getBackground().getBlue() + 40));
+					float[] hsbFloats = {0,0,0};
+					Color.RGBtoHSB(buttons[i].getBackground().getRed(),
+							buttons[i].getBackground().getGreen(),
+							buttons[i].getBackground().getBlue(), hsbFloats);
+					buttons[i].setBackground(Color.getHSBColor(hsbFloats[0],hsbFloats[1]/2,hsbFloats[2]+((1-hsbFloats[2])/2)));
+					buttons[i].setBorder(BorderFactory.createSoftBevelBorder(BevelBorder.RAISED, Color.WHITE, Color.gray));
 				}
 			}
 			if (model.getSelectedTerritoryIndex() > -1) {

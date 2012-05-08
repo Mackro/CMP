@@ -41,11 +41,11 @@ public class BattleController implements ActionListener{
 			}else{
 				model.getBattle().resetTerritories();
 				model.getMove().resetTerritories();
+				model.nextPhase();
 			}
 			view = new BattleView(frame);
 			new BattleController(model, frame, view);
 			model.addObserver(view);
-			model.nextPhase();
 		}
 	}
 }
