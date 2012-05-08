@@ -12,7 +12,7 @@ public class HolyLight extends Spell {
 	@Override
 	public void invoke(Warborn model) {
 		model.getCurrentPlayer().changeMana(-this.getManaCost());
-		model.getSelectedTerritory().incrementUnits(2);
+		model.getSelectedTerritory().incrementUnits(4);
 		
 	}
 	@Override
@@ -27,7 +27,7 @@ public class HolyLight extends Spell {
 
 	@Override
 	public String getDescription() {
-		return "Reinforce target territory with two troops \n \n \"A gift from the skies \" ";
+		return "Reinforce target territory with 4 troops \n \n \"A gift from the skies \" ";
 	}
 
 }
