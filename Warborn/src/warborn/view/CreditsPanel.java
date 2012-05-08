@@ -15,19 +15,19 @@ public class CreditsPanel extends JPanel {
 		add(lblCredits);
 		
 		JLabel lblProjectleader = new JLabel("Project Leader:");
-		lblProjectleader.setBounds(10, 68, 135, 14);
+		lblProjectleader.setBounds(10, 68, 153, 14);
 		add(lblProjectleader);
 		
 		JLabel lblLeadDesigner = new JLabel("Lead Designer:");
-		lblLeadDesigner.setBounds(10, 93, 135, 14);
+		lblLeadDesigner.setBounds(10, 93, 153, 14);
 		add(lblLeadDesigner);
 		
 		JLabel lblLead = new JLabel("Lead Sound/Story Writer:");
-		lblLead.setBounds(10, 118, 135, 14);
+		lblLead.setBounds(10, 118, 153, 14);
 		add(lblLead);
 		
 		JLabel lblLeadProgrammer = new JLabel("Lead Programmer:");
-		lblLeadProgrammer.setBounds(10, 143, 135, 14);
+		lblLeadProgrammer.setBounds(10, 143, 153, 14);
 		add(lblLeadProgrammer);
 		
 		JLabel lblTeodorOstwald = new JLabel("Teodor Ostwald");
@@ -52,7 +52,7 @@ public class CreditsPanel extends JPanel {
 		add(lblSpecialThanks);
 		
 		JLabel lblSoundtracks = new JLabel("Soundtracks:");
-		lblSoundtracks.setBounds(10, 223, 135, 14);
+		lblSoundtracks.setBounds(10, 223, 153, 14);
 		add(lblSoundtracks);
 		
 		JLabel lblVoid = new JLabel("VOID");
@@ -60,7 +60,7 @@ public class CreditsPanel extends JPanel {
 		add(lblVoid);
 		
 		JLabel lblMapBackground = new JLabel("Map Background:");
-		lblMapBackground.setBounds(10, 248, 135, 14);
+		lblMapBackground.setBounds(10, 248, 153, 14);
 		add(lblMapBackground);
 		
 		JLabel lblYamogogydeviantartcom = new JLabel("yamogogy.deviantart.com");
@@ -68,7 +68,7 @@ public class CreditsPanel extends JPanel {
 		add(lblYamogogydeviantartcom);
 		
 		JLabel lblSpellbookBackground = new JLabel("Spellbook Background:");
-		lblSpellbookBackground.setBounds(10, 273, 135, 14);
+		lblSpellbookBackground.setBounds(10, 273, 153, 14);
 		add(lblSpellbookBackground);
 		
 		JLabel lblAshleyleedeviantartcom = new JLabel("ashley-lee.deviantart.com");
@@ -76,7 +76,7 @@ public class CreditsPanel extends JPanel {
 		add(lblAshleyleedeviantartcom);
 		
 		JLabel lblSupervisor = new JLabel("Supervisor:");
-		lblSupervisor.setBounds(10, 323, 135, 14);
+		lblSupervisor.setBounds(10, 323, 153, 14);
 		add(lblSupervisor);
 		
 		JLabel lblAdamWaldenberg = new JLabel("Adam Waldenberg");
@@ -84,7 +84,7 @@ public class CreditsPanel extends JPanel {
 		add(lblAdamWaldenberg);
 		
 		JLabel lblNewLabel = new JLabel("Most Other Images:");
-		lblNewLabel.setBounds(10, 298, 135, 14);
+		lblNewLabel.setBounds(10, 298, 153, 14);
 		add(lblNewLabel);
 		
 		JLabel lblJwbjerkMeopengameartorg = new JLabel("\n\nJ.W.Bjerk\nme / opengameart.org");
