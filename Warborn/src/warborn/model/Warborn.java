@@ -21,6 +21,7 @@ public class Warborn extends Observable{
 	private int state = -1, phase = 0, startPhases;
 	private Dimension dimension;
 	private CardDeck deck;
+	private boolean spellReady;
 
 
 	public Warborn (){
@@ -142,7 +143,6 @@ public class Warborn extends Observable{
 	}
 
 	public void setSelectedTerritory(int id){
-		
 		
 		if (selectedTerritory != id){
 			if(state == 1 && players.get(currentPlayer) == territories[id].getOwner() && nbrOfReinforcements > 0){

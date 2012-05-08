@@ -6,7 +6,6 @@ import java.io.IOException;
 import warborn.constants.PlayerData;
 import warborn.model.spells.Spellbook;
 
-
 public class Player {
 
 	private int id, nbrOfTerritories = 0, mana = 2;

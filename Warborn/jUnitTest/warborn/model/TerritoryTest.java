@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 import java.awt.Color;
 import org.junit.*;
 
+
 public class TerritoryTest {
 	Territory t1;
 	Territory t2;

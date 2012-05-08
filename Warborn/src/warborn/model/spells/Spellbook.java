@@ -4,9 +4,8 @@ import java.io.*;
 import java.util.ArrayList;
 
 import warborn.constants.PlayerData;
-import warborn.model.ISpellbook;
 
-public class Spellbook implements ISpellbook {
+public class Spellbook {
 	
 	private ArrayList<Spell> spells;
 	
