@@ -84,8 +84,8 @@ public class PlayerSelectionPanel extends JPanel {
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	private ComboBoxModel getBackgrounds() {
 		DefaultComboBoxModel boxModel = new DefaultComboBoxModel();
-		for(int i = 0; i < PlayerData.getNumberOfBackgrounds(); i++){
-			boxModel.addElement(PlayerData.getBackgroundName(i));
+		for(int i = 0; i < PlayerData.getNumberOfGods(); i++){
+			boxModel.addElement(PlayerData.getGodName(i));
 		}
 		return boxModel;
 	}

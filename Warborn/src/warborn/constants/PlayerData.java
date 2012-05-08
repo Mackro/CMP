@@ -6,7 +6,7 @@ public class PlayerData {
 			"Human",
 			"Titan",
 			"The Forgotten",
-	}, BACKGROUND = new String[]{
+	}, GODS = new String[]{
 			"Civitatis",
 			"Insanus",
 			"Falcitier",
@@ -16,16 +16,16 @@ public class PlayerData {
 		return RACE.length;
 	}
 	
-	public static int getNumberOfBackgrounds(){
-		return BACKGROUND.length;
+	public static int getNumberOfGods(){
+		return GODS.length;
 	}
 	
 	public static String getRaceName(int index){
 		return RACE[index];
 	}
 	
-	public static String getBackgroundName(int index){
-		return BACKGROUND[index];
+	public static String getGodName(int index){
+		return GODS[index];
 	}
 	
 }

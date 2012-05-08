@@ -24,7 +24,7 @@ public class Spellbook {
 	}
 	
 	public void fill(int background) throws IOException{
-		BufferedReader in = new BufferedReader(new FileReader(new File("WarbornData/gods/" + PlayerData.getBackgroundName(background) + ".txt")));
+		BufferedReader in = new BufferedReader(new FileReader(new File("WarbornData/gods/" + PlayerData.getGodName(background) + ".txt")));
 		for(String line = in.readLine(); line != null; line = in.readLine()){
 			for(int i = 0; i < SpellFactory.getNbrOfSpells(); i++){
 				if(SpellFactory.getSpell(i).toString().equalsIgnoreCase(line)){

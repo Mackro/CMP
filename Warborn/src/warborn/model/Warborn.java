@@ -284,8 +284,8 @@ public class Warborn extends Observable{
 	
 	public void quickStart(){
 		//Going to make random players instead
-		addPlayer("Erez", new Color(0, 0, 200), (int)(Math.random()*PlayerData.getNumberOfRaces()), (int)(Math.random()*PlayerData.getNumberOfBackgrounds()));
-		addPlayer("Metho", Color.RED, (int)(Math.random()*PlayerData.getNumberOfRaces()), (int)(Math.random()*PlayerData.getNumberOfBackgrounds()));
+		addPlayer("Erez", new Color(0, 0, 200), (int)(Math.random()*PlayerData.getNumberOfRaces()), (int)(Math.random()*PlayerData.getNumberOfGods()));
+		addPlayer("Metho", Color.RED, (int)(Math.random()*PlayerData.getNumberOfRaces()), (int)(Math.random()*PlayerData.getNumberOfGods()));
 		startGame();
 	}
 

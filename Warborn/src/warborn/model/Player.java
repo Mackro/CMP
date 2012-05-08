@@ -22,7 +22,7 @@ public class Player {
 	
 	public Player(String name, int id, Color color, int race, int god){
 		this.name = name;
-		this.godName = PlayerData.getBackgroundName(god);
+		this.godName = PlayerData.getGodName(god);
 		this.id = id;
 		Color copiedColor = new Color(color.getRed(), color.getGreen(), color.getBlue());
 		this.color = copiedColor;
