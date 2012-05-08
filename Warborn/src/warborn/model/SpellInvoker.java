@@ -34,6 +34,7 @@ public class SpellInvoker implements Observer{
 				activeSpells.add(spell);
 			}
 		}
+		model.changed();
 		model.resetSelectedTerritory();
 		selectedSpell = null;
 	}
