@@ -12,7 +12,7 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
 import warborn.constants.MapData;
-import warborn.model.MapNotFoundException;
+import warborn.constants.MapNotFoundException;
 import warborn.model.Warborn;
 
 public abstract class Map extends JPanel implements Observer {
