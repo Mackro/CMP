@@ -21,7 +21,7 @@ public class Warborn extends Observable{
 	private int state = -1, phase = 0, startPhases;
 	private Dimension dimension;
 	private CardDeck deck;
-	private boolean spellReady;
+	private boolean spellLoaded;
 
 
 	public Warborn (){
@@ -113,6 +113,10 @@ public class Warborn extends Observable{
 		return nbrOfReinforcements;
 	}
 	
+	public boolean isSpellLoaded(){
+		return spellLoaded;
+	}
+	
 	
 	//Setters:
 	
@@ -186,6 +190,10 @@ public class Warborn extends Observable{
 		}
 		changed();
 		changed(0);
+	}
+	
+	public void setSpellLoaded(boolean loaded){
+		spellLoaded = loaded;
 	}
 	
 	public void resetSelectedTerritory(){

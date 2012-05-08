@@ -25,6 +25,7 @@ public class SpellInvoker implements Observer{
 		if(spell.isInstant()){
 			invokeSpell(spell);
 		}
+		model.setSpellLoaded(true);
 	}
 	
 	public void invokeSpell(ISpell spell){
@@ -51,8 +52,9 @@ public class SpellInvoker implements Observer{
 				}
 			}
 			if ((Integer)(arg)==0 && model.getSelectedTerritoryIndex()!=-1){
-				if(selectedSpell != null){
+				if(selectedSpell != null && model.isSpellLoaded()){
 					invokeSpell(selectedSpell);
+					model.setSpellLoaded(false);
 				}
 			}
 		}
