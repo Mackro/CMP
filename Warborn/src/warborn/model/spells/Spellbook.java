@@ -23,8 +23,9 @@ public class Spellbook {
 		return spells.size();
 	}
 	
-	public void fill(int background) throws IOException{
-		BufferedReader in = new BufferedReader(new FileReader(new File("WarbornData/gods/" + PlayerData.getGodName(background) + ".txt")));
+	public void fill(int god, int race) throws IOException{
+		//Adding God spells
+		BufferedReader in = new BufferedReader(new FileReader(new File("WarbornData/gods/" + PlayerData.getGodName(god) + ".txt")));
 		for(String line = in.readLine(); line != null; line = in.readLine()){
 			for(int i = 0; i < SpellFactory.getNbrOfSpells(); i++){
 				if(SpellFactory.getSpell(i).toString().equalsIgnoreCase(line)){
@@ -33,6 +34,17 @@ public class Spellbook {
 			}
 		}
 		in.close();
+		
+		//Adding Race Spells
+		BufferedReader Racein = new BufferedReader(new FileReader(new File("WarbornData/race/" + PlayerData.getRaceName(race) + ".txt")));
+		for(String line = Racein.readLine(); line != null; line = Racein.readLine()){
+			for(int i = 0; i < SpellFactory.getNbrOfSpells(); i++){
+				if(SpellFactory.getSpell(i).toString().equalsIgnoreCase(line)){
+					addSpell(SpellFactory.getSpell(i));
+				}
+			}
+		}
+		Racein.close();
 	}
 	
 	public void addSpell(Spell spell) {

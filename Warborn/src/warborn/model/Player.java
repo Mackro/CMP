@@ -30,7 +30,7 @@ public class Player {
 		this.god = god;
 		this.spellbook = new Spellbook();
 		try {
-			spellbook.fill(god);
+			spellbook.fill(god, race);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

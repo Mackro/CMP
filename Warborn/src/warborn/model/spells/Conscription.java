@@ -22,7 +22,7 @@ public class Conscription extends Spell {
 	public String getDescription() {
 		return "add two additional troops to target territory  \n " +
 				"unless you controll 5 or less territories then add 5 troops instead " +
-				"\n \n  \"We need volunteers... you and...9 you follow me\"";
+				"\n \n  \"We need volunteers... you and you follow me\"";
 	}
 
 	@Override

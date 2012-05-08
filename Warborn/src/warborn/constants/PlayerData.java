@@ -5,7 +5,7 @@ public class PlayerData {
 	private static final String[] RACE = new String[]{
 			"Human",
 			"Titan",
-			"The Forgotten",
+			"Forgotten",
 	}, GODS = new String[]{
 			"Civitatis",
 			"Insanus",
