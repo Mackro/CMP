@@ -92,30 +92,30 @@ public class Sound extends Thread implements Observer{
 			Warborn model = (Warborn)o;
 			if(model.getState() == -1 && startMenu == false){
 				startMenu = true;
-				stopMusic();
 				theme = "WarbornData/sounds/introTheme.wav";
+				stopMusic();
 			}
 			else if(model.getState() == 0 && activeGame == false){
 				startMenu = false;
 				activeGame = true;
+				theme = "WarbornData/sounds/gameTheme.wav";
 				stopMusic();
-				theme = "WarbornData/sounds/gameBackground.wav";
 			}
 			else if(model.getState() == 2 && model.getPhase() == 0 && battle){
 				battle = false;
+				theme = "WarbornData/sounds/gameTheme.wav";
 				stopMusic();
-				theme = "WarbornData/sounds/gameBackground.wav";
 			}
 			else if(model.getState() == 2 && model.getPhase() == 1 && battle == false){
 				battle = true;
-				stopMusic();
 				theme = "WarbornData/sounds/battleTheme.wav";
+				stopMusic();
 			}
 			else if(model.getState() == 3 && model.getPhase() == 1 && move == false){
 				activeGame = false;
 				move = true;
+				//theme = "WarbornData/sounds/moveTheme;
 				stopMusic();
-				//loadMusic(moveTheme);
 			}
 		}
 		
