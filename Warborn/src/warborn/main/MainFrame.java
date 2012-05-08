@@ -19,7 +19,7 @@ public class MainFrame extends JFrame implements Observer{
 		setBounds(0, 0, model.getWidth(), model.getHeight());
 		setUndecorated(true);
 		setResizable(false);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 
 		
 	}
@@ -27,10 +27,10 @@ public class MainFrame extends JFrame implements Observer{
 	public MainFrame(GraphicsConfiguration defaultConfiguration, Warborn model) {
 		super(defaultConfiguration);
 		this.setLayout(new GridBagLayout());
-		setBounds(0, 0, model.getWidth(), model.getHeight());
+		//setBounds(0, 0, model.getWidth(), model.getHeight());
 		setUndecorated(true);
 		setResizable(false);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 	}
 	
 

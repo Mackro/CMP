@@ -21,10 +21,10 @@ public class Launcher implements Observer{
 	private Warborn model;
 	private KeyAction keyAction;
 	private MenuView menu;
-	//private ScreenManager screen;
+	private ScreenManager screen;
 	private HudView hud;
 	private Map map;
-	//private DisplayMode compatibleDM;
+	private DisplayMode compatibleDM;
 
 	/**
 	 * Launch the application.
@@ -38,11 +38,11 @@ public class Launcher implements Observer{
 	 * Create the application.
 	 */
 	public Launcher() {
-		//screen = new ScreenManager();
+		screen = new ScreenManager();
 		model = new Warborn();
-		//compatibleDM = screen.getHighestResolutionDisplayMode();
-		model.setDimensions(/*compatibleDM.getWidth(), compatibleDM.getHeight()*/1366, 768);
-		frame = new MainFrame(model);
+		compatibleDM = screen.getHighestResolutionDisplayMode();
+		model.setDimensions(compatibleDM.getWidth(), compatibleDM.getHeight()/*1366, 768*/);
+		frame = new MainFrame(screen.getDefaultGraphicsConfiguration(), model);
 		initialize();
 		model.addObserver(this);
 	}
@@ -51,10 +51,10 @@ public class Launcher implements Observer{
 	 * Create the application.
 	 */
 	public Launcher(MainFrame frame) {
-		//screen = new ScreenManager();
+		screen = new ScreenManager();
 		model = new Warborn();
-		//compatibleDM = screen.getHighestResolutionDisplayMode();
-		model.setDimensions(/*compatibleDM.getWidth(), compatibleDM.getHeight()*/1366, 768);
+		compatibleDM = screen.getHighestResolutionDisplayMode();
+		model.setDimensions(compatibleDM.getWidth(), compatibleDM.getHeight()/*1366, 768*/);
 		this.frame = frame;
 		initialize();
 		model.addObserver(this);
@@ -74,7 +74,7 @@ public class Launcher implements Observer{
 		menu = new MenuView(model);
 		new MenuController(model, menu);
 		frame.add(menu, c);
-		//screen.setFullScreen(compatibleDM, frame);
+		screen.setFullScreen(compatibleDM, frame);
 		frame.setVisible(true);
 	}
 	
@@ -159,7 +159,7 @@ public class Launcher implements Observer{
 	}
 	
 	public void exit(){
-		//screen.restoreScreen();
+		screen.restoreScreen();
 		System.exit(0);
 	}
 

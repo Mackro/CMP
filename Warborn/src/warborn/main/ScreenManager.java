@@ -31,25 +31,31 @@ public class ScreenManager {
 		}
 		return videoCardModes[highest];
 	}
+	
+	//Returns the default Graphics Configuration of this Graphics Device
+	public GraphicsConfiguration getDefaultGraphicsConfiguration(){
+		return videoCard.getDefaultConfiguration();
+	}
 
 	//Makes new frame fullScreen
 	public void setFullScreen(DisplayMode mode){
-		setFullScreen(mode, new JFrame());
+		setFullScreen(mode, new JFrame(videoCard.getDefaultConfiguration()));
 	}
 
 	//Makes frame fullScreen
 	public void setFullScreen(DisplayMode mode, JFrame frame){
-		frame.setUndecorated(true);
-		frame.setResizable(false);
+		//frame.setUndecorated(true);
+		//frame.setResizable(false);
 		videoCard.setFullScreenWindow(frame);
+		frame.validate();
 
-		if(mode != null && videoCard.isDisplayChangeSupported()){
+		/*if(mode != null && videoCard.isDisplayChangeSupported()){
 			try{
 				videoCard.setDisplayMode(mode);
 			}catch(Exception e){
 				e.printStackTrace();
 			}
-		}
+		}*/
 		frame.createBufferStrategy(2);
 
 	}
