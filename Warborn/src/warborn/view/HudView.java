@@ -166,7 +166,7 @@ public class HudView extends JPanel implements Observer{
 	public void update(Observable ml, Object e) {
 		Warborn model = (Warborn)ml;
 		
-		currentPlayer.setText(model.getCurrentPlayer().getName());
+		currentPlayer.setText(model.getCurrentPlayer().getFullName());
 		currentState.setText("Battle Phase");
 		float[] hsbFloats = {0,0,0};
 		Color.RGBtoHSB(model.getCurrentPlayer().getColor().brighter().getRed(),
@@ -211,9 +211,9 @@ public class HudView extends JPanel implements Observer{
 		
 		for (int i = 0; i < model.getNumberOfPlayers(); i++){
 			if(!model.getPlayer(i).isDefeated()){
-				playerNameArray[i].setText(model.getPlayer(i).getName());
+				playerNameArray[i].setText(model.getPlayer(i).getFullName());
 			}else{
-				playerNameArray[i].setText(model.getPlayer(i).getName() + " is Defeated");
+				playerNameArray[i].setText(model.getPlayer(i).getFullName() + " is Defeated");
 			}
 			territoriesArray[i].setText("Number of Territories:  " + model.getPlayer(i).getNbrOfTerritories());
 			troopsArray[i].setText("Number of Troups:  " + calculateNbrOfUnits(i));

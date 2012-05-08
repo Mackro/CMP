@@ -21,13 +21,12 @@ public class Beguile extends Spell{
 
 	@Override
 	public String getDescription() { 
-		return "The owner of target territory becomes your plaything" + "\n \n \" Come here boy \" ";
+		return "The owner of target territory becomes your plaything" + "\n \n \"Come here boy\" ";
 	}
 
 	@Override
 	public void invoke(Warborn model) {
-		model.getSelectedTerritory().getOwner().setName(model.getSelectedTerritory().getOwner().getName()+ 
-				"Plaything of " + model.getCurrentPlayer().getName());
+		model.getSelectedTerritory().getOwner().setAdditionalName(" Plaything of " + model.getCurrentPlayer().getName());
 		model.getCurrentPlayer().changeMana(-this.getManaCost());
 	}
 
