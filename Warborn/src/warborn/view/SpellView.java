@@ -26,7 +26,7 @@ public class SpellView extends JPanel {
 		setBorder(new RoundedBorder(80));
 		
 		description = new String(spell.getDescription().split("\"")[0].trim());
-		flavour = new String(spell.getDescription().split("\"")[1].trim());
+		flavour = new String("\""+spell.getDescription().split("\"")[1].trim()+"\"");
 		
 		
 		GenericLabel spellNameLbl = new GenericLabel(spell.getName());
