@@ -20,7 +20,7 @@ public class Affection extends Spell{
 
 	@Override
 	public String getDescription() {
-		return "Target player expresses his affection towards you";
+		return "Target player expresses his affection towards you \" Love is in the air <3\"";
 	}
 
 	@Override
