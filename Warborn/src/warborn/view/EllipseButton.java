@@ -3,6 +3,7 @@ package warborn.view;
 import java.awt.Font;
 import javax.swing.JButton;
 
+@SuppressWarnings("serial")
 public class EllipseButton extends JButton {
 	
 	public EllipseButton(){

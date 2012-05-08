@@ -21,7 +21,7 @@ public class Sound extends Thread implements Observer{
 	private AudioInputStream audioInputStream;
 	SourceDataLine auline;
 	private final int EXTERNAL_BUFFER_SIZE = 524288;
-	private boolean startMenu = false, activeGame = false, battle = false, move = false;
+	private boolean startMenu = false, activeGame = false, battle = false;
 	
 
 	public Sound(){

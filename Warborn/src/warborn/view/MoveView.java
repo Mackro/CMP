@@ -15,6 +15,7 @@ import warborn.model.TerritoryInteractor;
 import warborn.model.Warborn;
 import warborn.model.Territory;
 
+@SuppressWarnings("serial")
 public class MoveView extends JPanel implements Observer {
 	
 	private JButton[] buttons;

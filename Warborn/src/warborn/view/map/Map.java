@@ -17,6 +17,7 @@ import warborn.constants.MapData;
 import warborn.constants.MapNotFoundException;
 import warborn.model.Warborn;
 
+@SuppressWarnings("serial")
 public abstract class Map extends JPanel implements Observer {
 
 	private Warborn model;
