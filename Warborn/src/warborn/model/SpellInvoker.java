@@ -14,7 +14,6 @@ public class SpellInvoker implements Observer{
 		this.activeSpells = new ArrayList<ISpell>();
 		this.model = model;
 		model.addObserver(this);
-		// TODO Auto-generated constructor stub
 	}
 	
 	public ISpell getSelectedSpell(){
@@ -50,7 +49,7 @@ public class SpellInvoker implements Observer{
 					}
 				}
 			}
-			if ((Integer)(arg)==0){
+			if ((Integer)(arg)==0 && model.getSelectedTerritoryIndex()!=-1){
 				if(selectedSpell != null){
 					invokeSpell(selectedSpell);
 				}

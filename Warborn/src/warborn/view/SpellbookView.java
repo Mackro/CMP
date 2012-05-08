@@ -67,8 +67,12 @@ public class SpellbookView extends JPanel {
 	public SpellView[] getSpellViews(){
 		return spells;
 	}
+	
+	public Spellbook getSpellbook(){
+		return spellbook;
+	}
 
-	public GenericButton getCancelButton() {
+	public GenericButton getCloseButton() {
 		return closeButton;
 	}
 }

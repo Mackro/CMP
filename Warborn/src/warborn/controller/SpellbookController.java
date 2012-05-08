@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JLayeredPane;
 
 import warborn.model.SpellInvoker;
+import warborn.model.spells.SpellFactory;
 import warborn.view.SpellbookView;
 
 public class SpellbookController implements ActionListener{
@@ -18,12 +19,17 @@ public class SpellbookController implements ActionListener{
 		for (int i=0; i<view.getSpellViews().length ;i++){
 			view.getSpellViews()[i].getButton().addActionListener(this);
 		}
-		view.getCancelButton().addActionListener(this);
+		view.getCloseButton().addActionListener(this);
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent evt) {
-		System.out.println(evt.getSource().toString());
+		for (int i=0; i<view.getSpellbook().getNumberOfSpells(); i++){
+			if (evt.getActionCommand().equalsIgnoreCase(view.getSpellbook().getSpell(i).getName())){
+				invoker.setSelectedSpell(view.getSpellbook().getSpell(i));
+			}
+		}
+		
 		JLayeredPane parent = (JLayeredPane) view.getParent();
 		parent.remove(view);
 		parent.repaint();

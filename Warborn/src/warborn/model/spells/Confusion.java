@@ -28,10 +28,10 @@ public class Confusion extends Spell{
 	@Override
 	public void invoke(Warborn model) {
 		Color temp = model.getPlayer(0).getColor();
-		for(int i = 1; i < model.getPlayers().length; i++){
+		for(int i = 1; i < model.getNumberOfPlayers(); i++){
 			model.getPlayer(i-1).setColor(model.getPlayer(i).getColor());
 		}
-		model.getPlayer(model.getPlayers().length).setColor(temp);
+		model.getPlayer((model.getPlayers().length)-1).setColor(temp);
 	}
 	
 	@Override

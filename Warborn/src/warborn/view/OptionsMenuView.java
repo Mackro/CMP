@@ -42,8 +42,6 @@ public class OptionsMenuView extends JPanel {
 		btResume.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btResume.setBounds(140, 113, 113, 31);
 		add(btResume);
-		
-		this.setOpaque(false);
 	}
 
 	public JButton[] getButtonArray() {
