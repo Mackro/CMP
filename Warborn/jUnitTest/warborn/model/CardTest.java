@@ -13,8 +13,8 @@ public class CardTest {
 		ImageIcon img1 = new ImageIcon();
 		ImageIcon img2 = new ImageIcon();
 		int one=1, two=2;
-		Card card1 = new Card(troop1, img1, one);
-		Card card2 = new Card(troop2, img2, two);
+		Soul card1 = new Soul(troop1, img1, one);
+		Soul card2 = new Soul(troop2, img2, two);
 		assertTrue(card1.getName() == troop1);
 		assertTrue(card1.getImage() == img1);
 		assertTrue(card1.getIndex() == 1);

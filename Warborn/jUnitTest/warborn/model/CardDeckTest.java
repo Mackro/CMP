@@ -12,8 +12,8 @@ public class CardDeckTest {
 	/**	ImageIcon infImg = new ImageIcon("images/infantry.jpg");
 		ImageIcon cavImg = new ImageIcon("images/cavalry.jpg");
 		ImageIcon artImg = new ImageIcon("images/artillery.jpg");*/
-		CardDeck deck = new CardDeck();
-		Card card;
+		SoulTomb deck = new SoulTomb();
+		Soul card;
 		for (int i=0; i<5; i++){
 			card = deck.drawCard();
 			assertTrue(card.getIndex()==0 || card.getIndex()==1 || card.getIndex()==2);

@@ -72,7 +72,7 @@ public class TerritoryTest {
 		assertFalse(t1.equals(t2));
 		assertTrue(t1.equals(t1));
 		assertFalse(t1.equals(t4));
-		Card card = new Card("lesser", null, 1);
+		Soul card = new Soul("lesser", null, 1);
 		assertFalse(t3.equals(card));
 	}
 }

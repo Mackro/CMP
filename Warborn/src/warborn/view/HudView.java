@@ -11,7 +11,7 @@ import javax.swing.border.*;
 public class HudView extends JPanel implements Observer{
 	
 	private static final long serialVersionUID = 1L;
-	private JPanel cardPanel;
+	private JPanel soulPanel;
 	private JPanel phaseInfo;
 	private JPanel playersPanel;
 	private JPanel[] playerPanelsArray;
@@ -20,9 +20,9 @@ public class HudView extends JPanel implements Observer{
 	private GenericLabel[] troopsArray;
 	private GenericLabel[] manaArray;
 	private JButton[] buttons;
-	private EllipseButton next, useCards, spellbookButton;
+	private EllipseButton next, useSouls, spellbookButton;
 	private GenericLabel currentPlayer, currentState;
-	private JButton[] cardPanelbtns;
+	private JButton[] soulPanelbtns;
 	private GenericLabel reinforcements;
 	private Warborn model;
 	private Border innerBorder, roundBorder;
@@ -35,7 +35,7 @@ public class HudView extends JPanel implements Observer{
 		territoriesArray = new GenericLabel[model.getNumberOfPlayers()];
 		troopsArray = new GenericLabel[model.getNumberOfPlayers()];
 		manaArray = new GenericLabel[model.getNumberOfPlayers()];
-		cardPanelbtns = new JButton[5];
+		soulPanelbtns = new JButton[5];
 		roundBorder = new RoundedBorder(3);
 		innerBorder = new LineBorder(Color.gray);
 		
@@ -60,18 +60,18 @@ public class HudView extends JPanel implements Observer{
 		this.add(playersPanel);
 		
 		
-		cardPanel = new JPanel();
-		cardPanel.setLayout(new GridLayout());
-		cardPanel.setBounds(0, (int)(this.getHeight()*0.03), (int)(this.getWidth()*0.25),(int)(this.getHeight()*0.39));
-		cardPanel.setBorder(roundBorder);
-		this.add(cardPanel);
+		soulPanel = new JPanel();
+		soulPanel.setLayout(new GridLayout());
+		soulPanel.setBounds(0, (int)(this.getHeight()*0.03), (int)(this.getWidth()*0.25),(int)(this.getHeight()*0.39));
+		soulPanel.setBorder(roundBorder);
+		this.add(soulPanel);
 		
 		
 		buttons = new JButton[3];
 		
-		for(int i = 0; i < cardPanelbtns.length; i++){
-			cardPanelbtns[i] = new JButton();
-			cardPanel.add(cardPanelbtns[i]);
+		for(int i = 0; i < soulPanelbtns.length; i++){
+			soulPanelbtns[i] = new JButton();
+			soulPanel.add(soulPanelbtns[i]);
 		}
 		
 		next = new EllipseButton("Next");
@@ -82,13 +82,13 @@ public class HudView extends JPanel implements Observer{
 		this.add(next);
 		buttons[0] = next;
 		
-		useCards = new EllipseButton("Absorb Souls");
-		useCards.setBounds((int)((this.getWidth()*0.125)-(this.getWidth()/(2*9))), 
+		useSouls = new EllipseButton("Absorb Souls");
+		useSouls.setBounds((int)((this.getWidth()*0.125)-(this.getWidth()/(2*9))), 
 				(int)(this.getHeight()*0.5),
 				(int)(this.getWidth()/9),
 				(int)(this.getHeight()/10));
-		this.add(useCards);
-		buttons[1] = useCards;
+		this.add(useSouls);
+		buttons[1] = useSouls;
 		
 		spellbookButton = new EllipseButton("Spellbook");
 		spellbookButton.setBounds((int)((this.getWidth()*0.125)-(this.getWidth()/(2*10))), 
@@ -175,18 +175,19 @@ public class HudView extends JPanel implements Observer{
 		this.setBackground(Color.getHSBColor(hsbFloats[0],hsbFloats[1]/3,hsbFloats[2]+((1-hsbFloats[2])/2)));
 		phaseInfo.setBackground(Color.getHSBColor(hsbFloats[0],hsbFloats[1]/4,hsbFloats[2]+((1-hsbFloats[2])/2)));
 		reinforcements.setVisible(false);
-		for (int i=0; i<cardPanelbtns.length; i++){
-			cardPanelbtns[i].setIcon(null);
+		for (int i=0; i<soulPanelbtns.length; i++){
+			soulPanelbtns[i].setIcon(null);
 			if (model.getCurrentPlayer().getCards()[i]!=null){
-				cardPanelbtns[i].setIcon(model.getCurrentPlayer().getCard(i).getImage());
+				soulPanelbtns[i].setIcon(model.getCurrentPlayer().getCard(i).getImage());
+				soulPanelbtns[i].setToolTipText(model.getCurrentPlayer().getCard(i).getName());
 			}
 		}
 		playersPanel.revalidate();
 		
-		if (model.getCurrentPlayer().canExchangeCards()){
-			useCards.setEnabled(true);
+		if (model.getCurrentPlayer().canExchangeSouls()){
+			useSouls.setEnabled(true);
 		}else{
-			useCards.setEnabled(false);
+			useSouls.setEnabled(false);
 		}
 		
 		if (model.getState() == 3){

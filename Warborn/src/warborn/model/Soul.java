@@ -2,13 +2,13 @@ package warborn.model;
 
 import javax.swing.ImageIcon;
 
-public class Card {
+public class Soul {
 	
 	private ImageIcon image;
 	private String name;
 	private int index;
 	
-	public Card(String troop, ImageIcon image, int index){
+	public Soul(String troop, ImageIcon image, int index){
 		this.name = troop;
 		this.image = image;
 		this.index = index;

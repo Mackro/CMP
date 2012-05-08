@@ -20,12 +20,12 @@ public class Warborn extends Observable{
 	private int selectedMap = 0, currentPlayer = 0, selectedTerritory = -1, nbrOfReinforcements = 0;
 	private int state = -1, phase = 0, startPhases;
 	private Dimension dimension;
-	private CardDeck deck;
+	private SoulTomb deck;
 	private boolean spellLoaded;
 
 
 	public Warborn (){
-		this.deck = new CardDeck();
+		this.deck = new SoulTomb();
 		this.players = new ArrayList<Player>();
 		
 		this.battle = new Battle(this);
@@ -313,7 +313,7 @@ public class Warborn extends Observable{
 	}
 	
 	public void exchangeSouls(){
-		int[] nbrOfCards = new int[CardDeck.getMaxValue()];
+		int[] nbrOfCards = new int[SoulTomb.getMaxValue()];
 		for (int i=0; i<players.get(currentPlayer).getNumberOfCards(); i++){
 			nbrOfCards[players.get(currentPlayer).getCards()[i].getIndex()]++;
 		}

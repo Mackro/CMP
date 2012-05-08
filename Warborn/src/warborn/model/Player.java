@@ -14,7 +14,7 @@ public class Player {
 	private String additionalName;
 	private int race, god;
 	private Color color;
-	private Card[] cards = new Card[5];
+	private Soul[] cards = new Soul[5];
 	private boolean hasConquered, defeated;
 	private Spellbook spellbook;
 	
@@ -64,7 +64,7 @@ public class Player {
 		return god;
 	}
 	
-	public Card[] getCards(){
+	public Soul[] getCards(){
 		return cards;
 	}
 
@@ -77,7 +77,7 @@ public class Player {
 		return cards.length;
 	}
 	
-	public Card getCard(int index){
+	public Soul getCard(int index){
 		return cards[index];
 	}
 	
@@ -123,7 +123,7 @@ public class Player {
 	}
 	
 	
-	public void addCard(Card newCard){
+	public void addCard(Soul newCard){
 		for(int i = 0; i < cards.length; i++){
 			if(cards[i] == null){
 				cards[i] = newCard;
@@ -146,8 +146,8 @@ public class Player {
 	}
 
 	
-	public boolean canExchangeCards(){
-		int[] nbrOfCards = new int[CardDeck.getMaxValue()];
+	public boolean canExchangeSouls(){
+		int[] nbrOfCards = new int[SoulTomb.getMaxValue()];
 		for (int i = 0; i < getNumberOfCards(); i++){
 			nbrOfCards[cards[i].getIndex()]++;
 			if(nbrOfCards[cards[i].getIndex()] > 2){
