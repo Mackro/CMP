@@ -24,10 +24,12 @@ public class EndGameView extends JPanel implements Observer{
 		}else{
 			this.startTime = System.currentTimeMillis();
 		}
+		frame.getLayeredPane().add(this, JLayeredPane.MODAL_LAYER);
+		setVisible(false);
 		this.model = model;
 		this.frame = frame;
 		setSize(800, 600);
-		setLocation((int)((model.getWidth()/2) - (frame.getWidth()/2)), (int)((model.getHeight()*0.7)/2) - (frame.getHeight()/2));
+		setLocation((int)((model.getWidth()/2) - (this.getWidth()/2)), (int)((model.getHeight()*0.7)/2) - (this.getHeight()/2));
 		setLayout(null);
 		
 		JLabel lbHead = new GenericLabel("Game Over!");
@@ -85,7 +87,6 @@ public class EndGameView extends JPanel implements Observer{
 		minutes %= 60;
 		
 		lbTime.setText("Victory after " + (hours>10?"" + hours:"0" + hours) + ":" + (minutes>10?"" + minutes:"0" + minutes) + ":" + (seconds>10?"" + seconds:"0" + seconds));
-		
-		frame.getLayeredPane().add(this, JLayeredPane.MODAL_LAYER);
+		setVisible(true);
 	}
 }

@@ -192,5 +192,10 @@ public class MenuView extends JPanel {
 	public void removePlayer(){
 		pSelection.removePlayer();
 	}
+	
+	@SuppressWarnings("deprecation")
+	public void killMusic(){
+		sounds.stop();
+	}
 
 }

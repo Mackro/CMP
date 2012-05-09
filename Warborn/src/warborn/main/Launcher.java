@@ -147,6 +147,7 @@ public class Launcher implements Observer{
 		//screen.restoreScreen();
 		frame.remove(map);
 		frame.remove(hud);
+		menu.killMusic();
 		new Launcher(frame);
 		
 	}
