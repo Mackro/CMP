@@ -11,19 +11,13 @@ import javax.swing.border.*;
 public class HudView extends JPanel implements Observer{
 	
 	private static final long serialVersionUID = 1L;
-	private JPanel soulPanel;
-	private JPanel phaseInfo;
-	private JPanel playersPanel;
+	private JPanel soulPanel, phaseInfo, playersPanel;
 	private JPanel[] playerPanelsArray;
-	private GenericLabel[] playerNameArray;
-	private GenericLabel[] territoriesArray;
-	private GenericLabel[] troopsArray;
-	private GenericLabel[] manaArray;
-	private JButton[] buttons;
-	private EllipseButton next, useSouls, spellbookButton;
-	private GenericLabel currentPlayer, currentState;
+	private GenericLabel currentPlayer, currentState, reinforcements;
+	private GenericLabel[] playerNameArray, manaArray, territoriesArray, troopsArray;
 	private JButton[] soulPanelbtns;
-	private GenericLabel reinforcements;
+	private GenericButton[] buttons;
+	private GenericButton next, useSouls, spellbookButton;
 	private Warborn model;
 	private Border innerBorder, roundBorder;
 	
@@ -36,6 +30,7 @@ public class HudView extends JPanel implements Observer{
 		troopsArray = new GenericLabel[model.getNumberOfPlayers()];
 		manaArray = new GenericLabel[model.getNumberOfPlayers()];
 		soulPanelbtns = new JButton[5];
+		buttons = new GenericButton[3];
 		roundBorder = new RoundedBorder(3);
 		innerBorder = new LineBorder(Color.gray);
 		
@@ -67,14 +62,13 @@ public class HudView extends JPanel implements Observer{
 		this.add(soulPanel);
 		
 		
-		buttons = new JButton[3];
-		
 		for(int i = 0; i < soulPanelbtns.length; i++){
 			soulPanelbtns[i] = new JButton();
 			soulPanel.add(soulPanelbtns[i]);
 		}
 		
-		next = new EllipseButton("Next");
+		next = new GenericButton("Next");
+		next.setBorder(new RoundedBorder(100));
 		next.setBounds((int)((this.getWidth())-this.getWidth()/14),
 				(int)(this.getHeight()*0.4),
 				(int)(this.getWidth()/14),
@@ -82,7 +76,8 @@ public class HudView extends JPanel implements Observer{
 		this.add(next);
 		buttons[0] = next;
 		
-		useSouls = new EllipseButton("Absorb Souls");
+		useSouls = new GenericButton("Absorb Souls");
+		next.setBorder(new RoundedBorder(100));
 		useSouls.setBounds((int)((this.getWidth()*0.125)-(this.getWidth()/(2*9))), 
 				(int)(this.getHeight()*0.5),
 				(int)(this.getWidth()/9),
@@ -90,7 +85,8 @@ public class HudView extends JPanel implements Observer{
 		this.add(useSouls);
 		buttons[1] = useSouls;
 		
-		spellbookButton = new EllipseButton("Spellbook");
+		spellbookButton = new GenericButton("Spellbook");
+		next.setBorder(new RoundedBorder(100));
 		spellbookButton.setBounds((int)((this.getWidth()*0.125)-(this.getWidth()/(2*10))), 
 				(int)(this.getHeight()*0.7),
 				(int)(this.getWidth()/10),
@@ -223,6 +219,7 @@ public class HudView extends JPanel implements Observer{
 		}
 		if(model.getState() == 0){
 			currentState.setText("Reinforce");
+			next.setEnabled(false);
 		}
 		
 	}

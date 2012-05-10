@@ -44,6 +44,7 @@ public class SelectionPanel extends JPanel {
 		btRemovePlayer = new JButton("Remove a player");
 		btRemovePlayer.setSize(pPlayer.getWidth()/2, 40);
 		btRemovePlayer.setLocation(pPlayer.getWidth() - btRemovePlayer.getWidth() - btAddPlayer.getWidth() - 20, 5);
+		btRemovePlayer.setEnabled(false);
 		this.add(btRemovePlayer, 0);
 		
 		for(int i = 0; i < (this.model.getNumberOfPlayers()>2?this.model.getNumberOfPlayers():2); i++){
@@ -159,13 +160,21 @@ public class SelectionPanel extends JPanel {
 		if(pPlayer.getComponentCount() < 4){
 			pPlayer.add(new PlayerSelectionPanel(pPlayer.getComponentCount()+1));
 			pPlayer.revalidate();
+			btRemovePlayer.setEnabled(true);
+			if(pPlayer.getComponentCount() > 3){
+				btAddPlayer.setEnabled(false);
+			}
 		}
 	}
 	
 	public void removePlayer(){
 		if(pPlayer.getComponentCount() > 2){
 			pPlayer.remove(pPlayer.getComponentCount()-1);
+			btAddPlayer.setEnabled(true);
 			pPlayer.repaint();
+			if(pPlayer.getComponentCount() < 3){
+				btRemovePlayer.setEnabled(false);
+			}
 		}
 	}
 	
