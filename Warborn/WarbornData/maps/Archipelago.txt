@@ -1,0 +1,36 @@
+Omria:Withering Abyss
+Infernal Flats:Withering Abyss;Agos
+Withering Abyss:Omria;Infernal Flats;Ashen Cliffs;Etirth;Infected Ruins
+Ashen Cliffs:Withering Abyss;Etirth;Infected Ruins
+Iberthin:Etirth;Themolia
+Etirth:Withering Abyss;Ashen Cliffs;Iberthin;Infected Ruins;Lithi
+Infected Ruins:Ashen Cliffs;Etirth;Dol'ek
+Themolia:Iberthin;Lithi
+Lithi:Etirth;Themolia;Molgyrd
+Molgyrd:Infected Ruins;Lithi;Ryztel'ek
+Agos:Infernal Flats;Amros;Athos
+Amros:Agos;Athos;Ina T'zek;Om' T'zek 
+Athos:Agos;Amros;Kydastrum
+Kydastrum:Athos;Kymat
+Ina T'zek:Amros;Kymat;Om' Zelat;Il' Awbari
+Kymat:Kydastrum;Ina T'zek;Il' Awbari
+Dol'ek:Infected Ruins;Om' T'zek;Om' Zelat;Ryztel'ek
+Om' T'zek:Amros;Dol'ek;Om' Zelat
+Om' Zelat:Ina T'zek;Dol'ek;Om' T'zek;Dol' Tzel;Ryztel'ek
+Dol' Tzel:Om' Zelat;Ohrzevt;Ryztel'ek;Rol' Zuwe;Madrigal bay
+Ohrzevt:Dol' Tzel;Madrigal bay;Amberfell
+Ryztel'ek:Molgyrd;Dol'ek;Om' T'zek;Om' Zelat;Dol' Tzel;Ugar Losh;Rol' Zuwe
+Ugar Losh:Ryztel'ek;Agéer;Rol' Zuwe
+Agéer:Ugar Losh;Rol' Zuwe;Emerald Thicket
+Rol' Zuwe:Dol' Tzel;Ryztel'ek;Ugar Losh;Agéer;Madrigal bay;South Madrigal bay;Emerald Thicket
+Madrigal bay:Dol' Tzel;Ohrzevt;Rol' Zuwe;South Madrigal bay;Inland Ridge
+South Madrigal bay:Rol' Zuwe;Madrigal bay;Emerald Thicket
+Emerald Thicket:Agéer;Rol' Zuwe;South Madrigal bay
+Ramerkh:Il' Awbari
+Il' Awbari:Ina T'zek;Kymat;Ramerkh;Coast of Al'kydam;Okrobar
+Coast of Al'kydam:Il' Awbari;Okrobar;Amberfell
+Okrobar:Il' Awbari;Coast of Al'kydam
+Amberfell:Ohrzevt;Coast of Al'kydam;Royal Hills
+Royal Hills:Amberfell;Inland Ridge
+Inland Ridge:Madrigal bay;Royal Hills -Hintercoast
+Hintercoast:Inland Ridge
