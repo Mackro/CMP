@@ -21,7 +21,7 @@ public class Sound extends Thread implements Observer{
 	private AudioInputStream audioInputStream;
 	SourceDataLine auline;
 	private final int EXTERNAL_BUFFER_SIZE = 524288;
-	private boolean startMenu = false, activeGame = false, battle = false;
+	private boolean startMenu = false, activeGame = false, battle = false, shallRun = false;
 	
 
 	public Sound(){
@@ -30,27 +30,29 @@ public class Sound extends Thread implements Observer{
 
 	public void loadMusic(){
 		while(true){
-			File soundFile = new File(theme);
-			try {
-				audioInputStream = AudioSystem.getAudioInputStream(soundFile);
-			} catch (UnsupportedAudioFileException e) {
-				e.printStackTrace();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-			AudioFormat format = audioInputStream.getFormat();
-			DataLine.Info info = new DataLine.Info(SourceDataLine.class, format);
+			while(shallRun){
+				File soundFile = new File(theme);
+				try {
+					audioInputStream = AudioSystem.getAudioInputStream(soundFile);
+				} catch (UnsupportedAudioFileException e) {
+					e.printStackTrace();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+				AudioFormat format = audioInputStream.getFormat();
+				DataLine.Info info = new DataLine.Info(SourceDataLine.class, format);
 
-			try { 
-				auline = (SourceDataLine)AudioSystem.getLine(info);
-				auline.open(format);
-				startMusic();
-			} catch (LineUnavailableException e) { 
-				e.printStackTrace();
-				return;
-			} catch (Exception e) { 
-				e.printStackTrace();
-				return;
+				try { 
+					auline = (SourceDataLine)AudioSystem.getLine(info);
+					auline.open(format);
+					startMusic();
+				} catch (LineUnavailableException e) { 
+					e.printStackTrace();
+					return;
+				} catch (Exception e) { 
+					e.printStackTrace();
+					return;
+				}
 			}
 		}
 	}
@@ -72,17 +74,18 @@ public class Sound extends Thread implements Observer{
 			e.printStackTrace();
 			return;
 		} finally { 
-			stopMusic();
+			auline.drain();
+			auline.close();
 		} 	
 	}
 	
 	public void stopMusic(){
+		shallRun = false;
 		auline.stop();
-		auline.drain();
-		auline.close();
 	}
 	
 	public void run(){
+		shallRun = true;
 		loadMusic();
 	}
 
@@ -94,22 +97,26 @@ public class Sound extends Thread implements Observer{
 				startMenu = true;
 				theme = "WarbornData/sounds/introTheme.wav";
 				stopMusic();
+				shallRun = true;
 			}
 			else if(model.getState() == 0 && activeGame == false){
 				startMenu = false;
 				activeGame = true;
 				theme = "WarbornData/sounds/gameTheme.wav";
 				stopMusic();
+				shallRun = true;
 			}
 			else if(model.getState() == 2 && model.getPhase() == 0 && battle){
 				battle = false;
 				theme = "WarbornData/sounds/gameTheme.wav";
 				stopMusic();
+				shallRun = true;
 			}
 			else if(model.getState() == 2 && model.getPhase() == 1 && battle == false){
 				battle = true;
 				theme = "WarbornData/sounds/battleTheme.wav";
 				stopMusic();
+				shallRun = true;
 			}
 		}
 		
