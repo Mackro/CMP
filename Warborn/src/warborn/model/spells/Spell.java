@@ -26,7 +26,7 @@ public abstract class Spell implements ISpell{
 	}
 	
 	public void tick(Warborn model){
-		//Does nothing by default. Is overrided if necessary.
+		;//Does nothing by default. Is overrided if necessary.
 	}
 	
 	public int getManaCost(){
