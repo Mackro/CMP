@@ -56,34 +56,18 @@ public abstract class Map extends JPanel implements Observer {
 
 			buttons[i] = new JButton();
 
-			buttons[i].setText(model.getTerritory(i).getNbrOfUnits() + "");
-
 			buttons[i].setActionCommand(Integer.toString(i));
 
-			buttons[i].setBackground(model.getTerritory(i).getOwner()
-					.getColor());
-
-			if (buttons[i].getBackground().getRed()
-					+ buttons[i].getBackground().getGreen()
-					+ buttons[i].getBackground().getBlue() < 200) {
-				buttons[i].setForeground(Color.WHITE);
-			}
-
-			else {
-				buttons[i].setForeground(Color.BLACK);
-			}
 			buttons[i].setBounds(
 					(int) (model.getWidth() * scalingConstants[i][0]),
 					(int) (model.getHeight() * scalingConstants[i][1]), 50, 45);
-			
-
 		}
 
 		add(maplbl, 0);
 		for (int i = 0; i < model.getTerritories().length; i++) {
 			add(buttons[i], 0);
 		}
-
+			update(null, null);
 	}
 
 	public JButton[] getButtons() {
@@ -95,7 +79,7 @@ public abstract class Map extends JPanel implements Observer {
 		return MapData.getMapName(model.getMapIndex());
 	}
 
-	public void update(Observable arg0, Object arg1) {
+	public void update(Observable lol, Object lol1) {
 		if (model.getPhase() == 1) {
 			for (int i=0; i<buttons.length; i++){
 				buttons[i].setEnabled(false);
@@ -107,13 +91,10 @@ public abstract class Map extends JPanel implements Observer {
 			this.requestFocus();
 			
 			for (int i = 0; i < buttons.length; i++) {
-				buttons[i].setBorder(null);
-				buttons[i].setText(model.getTerritory(
-						Integer.parseInt(buttons[i].getActionCommand()))
-						.getNbrOfUnits()
-						+ "");
-				buttons[i].setBackground(model.getTerritory(i).getOwner()
-						.getColor());
+				buttons[i].setText(Integer.toString(model.getTerritory(i).getNbrOfUnits()));
+				buttons[i].setBackground(model.getTerritory(i).getOwner().getColor());
+				
+				
 				if (buttons[i].getBackground().getRed()
 						+ buttons[i].getBackground().getGreen()
 						+ buttons[i].getBackground().getBlue() < 250) {

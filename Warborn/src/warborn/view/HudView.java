@@ -14,7 +14,8 @@ public class HudView extends JPanel implements Observer{
 	private JPanel soulPanel, phaseInfo, playersPanel;
 	private JPanel[] playerPanelsArray;
 	private GenericLabel currentPlayer, currentState, reinforcements;
-	private GenericLabel[] playerNameArray, manaArray, territoriesArray, troopsArray;
+	private GenericLabel[] manaArray, territoriesArray, troopsArray;
+	private JTextArea[] playerNameArray;
 	private JButton[] soulPanelbtns;
 	private GenericButton[] buttons;
 	private GenericButton next, useSouls, spellbookButton;
@@ -25,7 +26,7 @@ public class HudView extends JPanel implements Observer{
 		
 		this.model = model;
 		playerPanelsArray = new JPanel[model.getNumberOfPlayers()];
-		playerNameArray = new GenericLabel[model.getNumberOfPlayers()];
+		playerNameArray = new JTextArea[model.getNumberOfPlayers()];
 		territoriesArray = new GenericLabel[model.getNumberOfPlayers()];
 		troopsArray = new GenericLabel[model.getNumberOfPlayers()];
 		manaArray = new GenericLabel[model.getNumberOfPlayers()];
@@ -118,9 +119,10 @@ public class HudView extends JPanel implements Observer{
 			playerPanelsArray[i].setSize((int)(playersPanel.getWidth()/model.getNumberOfPlayers()), playersPanel.getHeight());
 			playerPanelsArray[i].setBorder(innerBorder);
 					
-			playerNameArray[i] = new GenericLabel();
+			playerNameArray[i] = new JTextArea();
 			playerNameArray[i].setForeground(model.getPlayer(i).getColor());
 			playerNameArray[i].setLocation(5, 0);
+			playerNameArray[i].setOpaque(false);
 			playerPanelsArray[i].add(playerNameArray[i]);
 			
 			territoriesArray[i] = new GenericLabel();
@@ -220,6 +222,9 @@ public class HudView extends JPanel implements Observer{
 		if(model.getState() == 0){
 			currentState.setText("Reinforce");
 			next.setEnabled(false);
+			spellbookButton.setEnabled(false);
+		}else{
+			spellbookButton.setEnabled(true);
 		}
 		
 	}

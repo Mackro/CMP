@@ -53,7 +53,7 @@ public class Player {
 	}
 	
 	public String getFullName(){
-		return  name + " of " + godName + " " + additionalName;
+		return  name + " of " + godName + "\n" + additionalName;
 	}
 	
 	public int getRaceIndex(){
