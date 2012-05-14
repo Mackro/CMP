@@ -80,7 +80,8 @@ public class MenuView extends JPanel {
 		tARaceDescription.setSize((int)(model.getHeight()*0.2), (int)(model.getWidth()*0.3));
 		tARaceDescription.setLocation((int)(model.getHeight()*0.2), (int)(model.getWidth()*0.25));
 		tARaceDescription.setOpaque(false);
-		//tARaceDescription.setEditable(false);
+		tARaceDescription.setBorder(new RoundedBorder(10));
+		tARaceDescription.setEditable(false);
 		tARaceDescription.setVisible(false);
 		add(tARaceDescription, 0);
 		tARaceDescription.setText("HELL YEAH!");

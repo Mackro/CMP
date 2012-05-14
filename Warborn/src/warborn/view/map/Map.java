@@ -58,14 +58,14 @@ public abstract class Map extends JPanel implements Observer {
 
 			buttons[i].setText(model.getTerritory(i).getNbrOfUnits() + "");
 
-			buttons[i].setActionCommand(i + "");
+			buttons[i].setActionCommand(Integer.toString(i));
 
 			buttons[i].setBackground(model.getTerritory(i).getOwner()
 					.getColor());
 
 			if (buttons[i].getBackground().getRed()
 					+ buttons[i].getBackground().getGreen()
-					+ buttons[i].getBackground().getBlue() < 250) {
+					+ buttons[i].getBackground().getBlue() < 200) {
 				buttons[i].setForeground(Color.WHITE);
 			}
 
@@ -75,16 +75,8 @@ public abstract class Map extends JPanel implements Observer {
 			buttons[i].setBounds(
 					(int) (model.getWidth() * scalingConstants[i][0]),
 					(int) (model.getHeight() * scalingConstants[i][1]), 50, 45);
+			
 
-			/**
-			 * buttons[i].setOpaque(false); buttons[i].setFocusPainted(false);
-			 * buttons[i].setBorderPainted(false);
-			 * buttons[i].setContentAreaFilled(false);
-			 * buttons[i].setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
-			 * buttons[i].setBorder(new RoundedBorder(22));
-			 * buttons[i].setForeground
-			 * (model.getTerritory(i).getOwner().getColor());
-			 */
 		}
 
 		add(maplbl, 0);
