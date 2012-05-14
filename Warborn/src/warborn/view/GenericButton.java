@@ -15,9 +15,17 @@ public class GenericButton extends JButton {
 		super();
 		setLook();
 	}
+	public GenericButton(int i) {
+		super();
+		setLook(i);
+	}
 	public GenericButton(String s){
 		super(s);
 		setLook();
+	}
+	public GenericButton(String s,int i){
+		super(s);
+		setLook(i);
 	}
 	public GenericButton(ImageIcon i){
 		super(i);
@@ -30,6 +38,10 @@ public class GenericButton extends JButton {
 	}
 	private void setLook(){
 		this.setFont(new Font("WarbornFont", Font.BOLD | Font.ITALIC, 14));
+		this.setBorder(new RoundedBorder(5));
+	}
+	private void setLook(int i){
+		this.setFont(new Font("WarbornFont", Font.BOLD | Font.ITALIC, i));
 		this.setBorder(new RoundedBorder(5));
 	}
 }

@@ -24,6 +24,5 @@ public class MapController implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		model.setSelectedTerritory(Integer.parseInt(((JButton)e.getSource()).getActionCommand() + ""));
-	
 	}
 }

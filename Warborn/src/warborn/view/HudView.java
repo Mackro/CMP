@@ -13,7 +13,8 @@ public class HudView extends JPanel implements Observer{
 	private static final long serialVersionUID = 1L;
 	private JPanel soulPanel, phaseInfo, playersPanel;
 	private JPanel[] playerPanelsArray;
-	private GenericLabel currentPlayer, currentState, reinforcements;
+	private GenericLabel currentState, reinforcements;
+	private JTextArea currentPlayer;
 	private GenericLabel[] manaArray, territoriesArray, troopsArray;
 	private JTextArea[] playerNameArray;
 	private JButton[] soulPanelbtns;
@@ -99,8 +100,10 @@ public class HudView extends JPanel implements Observer{
 			buttons[i].setBorder(roundBorder);
 		}
 		
-		currentPlayer = new GenericLabel();
-		currentPlayer.setBounds(5, (int)(this.getHeight()*0.2), 400, 20);
+		currentPlayer = new JTextArea();
+		currentPlayer.setFont(new Font("WarbornFont", Font.ITALIC, 15));
+		currentPlayer.setOpaque(false);
+		currentPlayer.setBounds(5, (int)(this.getHeight()*0.17), 400, 50);
 		phaseInfo.add(currentPlayer);
 		
 		currentState = new GenericLabel();
@@ -120,6 +123,7 @@ public class HudView extends JPanel implements Observer{
 			playerPanelsArray[i].setBorder(innerBorder);
 					
 			playerNameArray[i] = new JTextArea();
+			playerNameArray[i].setFont(new Font("WarbornFont", Font.ITALIC, 15));
 			playerNameArray[i].setForeground(model.getPlayer(i).getColor());
 			playerNameArray[i].setLocation(5, 0);
 			playerNameArray[i].setOpaque(false);

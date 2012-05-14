@@ -49,7 +49,7 @@ public class SpellView extends JPanel {
 		add(button);
 		
 		JTextArea textArea = new JTextArea(description);
-		textArea.setBounds(140, 50, 170, 90);
+		textArea.setBounds(140, 45, 170, 100);
 		textArea.setLineWrap(true);
 		textArea.setWrapStyleWord(true);
 		textArea.setFont(new Font("fonting", Font.PLAIN, 12));
