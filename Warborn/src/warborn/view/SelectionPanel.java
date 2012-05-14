@@ -12,7 +12,7 @@ import warborn.model.Warborn;
 public class SelectionPanel extends JPanel {
 
 	private static final long serialVersionUID = 1L;
-	private JButton btStartGame, btAddPlayer, btRemovePlayer;
+	private GenericButton btStartGame, btAddPlayer, btRemovePlayer;
 	@SuppressWarnings("rawtypes")
 	private JComboBox cbMap;
 	private JLabel lbMap;
@@ -37,12 +37,12 @@ public class SelectionPanel extends JPanel {
 		pPlayer.setBounds(10, 10 + 40, (int)(this.getWidth()*0.5)-15, this.getHeight()-60);
 		add(pPlayer);
 		
-		btAddPlayer = new JButton("Add a player");
+		btAddPlayer = new GenericButton("Add a player");
 		btAddPlayer.setSize(pPlayer.getWidth()/3, 40);
 		btAddPlayer.setLocation(pPlayer.getWidth() - btAddPlayer.getWidth(), 5);
 		this.add(btAddPlayer, 0);
 		
-		btRemovePlayer = new JButton("Remove a player");
+		btRemovePlayer = new GenericButton("Remove a player");
 		btRemovePlayer.setSize(pPlayer.getWidth()/2, 40);
 		btRemovePlayer.setLocation(pPlayer.getWidth() - btRemovePlayer.getWidth() - btAddPlayer.getWidth() - 20, 5);
 		btRemovePlayer.setEnabled(false);
@@ -73,7 +73,7 @@ public class SelectionPanel extends JPanel {
 
 		cbMap.setLocation((pMap.getWidth()/2) - (cbMap.getWidth()/2), I.getHeight(null) + 30);
 		
-		btStartGame = new JButton("Start Game");
+		btStartGame = new GenericButton("Start Game");
 		btStartGame.setLocation(pMap.getWidth()-200, pMap.getHeight()-200);
 		btStartGame.setSize((int)(model.getWidth()*0.117), (int)(model.getHeight()*0.2));
 		pMap.add(btStartGame);

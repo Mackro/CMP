@@ -12,7 +12,7 @@ import warborn.model.Warborn;
 public class OptionsMenuView extends JPanel {
 
 	private static final long serialVersionUID = 1L;
-	private JButton btMainMenu, btExit, btResume;
+	private GenericButton btMainMenu, btExit, btResume;
 	
 	/**
 	 * Create the panel.
@@ -28,18 +28,15 @@ public class OptionsMenuView extends JPanel {
 				"Options", TitledBorder.CENTER , TitledBorder.TOP, new Font(Font.SERIF, Font.ITALIC, 40)));
 		
 		btMainMenu = new GenericButton("Main Menu");
-		btMainMenu.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btMainMenu.setBounds(140, 400, 113, 31);
 		add(btMainMenu);
 		
 		btExit = new GenericButton("Exit Game");
-		btExit.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btExit.setBounds(140, 500, 113, 31);
 		add(btExit);
 		
 		
 		btResume = new GenericButton("Resume");
-		btResume.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btResume.setBounds(140, 113, 113, 31);
 		add(btResume);
 	}
