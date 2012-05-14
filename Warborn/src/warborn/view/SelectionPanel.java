@@ -18,6 +18,7 @@ public class SelectionPanel extends JPanel {
 	private JLabel lbMap;
 	private JPanel pPlayer, pMap;
 	private Warborn model;
+	private JTextArea tAMapDescription;
 	
 	/**
 	 * Create the panel.
@@ -74,8 +75,17 @@ public class SelectionPanel extends JPanel {
 		
 		btStartGame = new JButton("Start Game");
 		btStartGame.setLocation(pMap.getWidth()-200, pMap.getHeight()-200);
-		btStartGame.setSize(150, 150);
+		btStartGame.setSize((int)(model.getWidth()*0.117), (int)(model.getHeight()*0.2));
 		pMap.add(btStartGame);
+		
+		tAMapDescription = new JTextArea();
+		tAMapDescription.setSize((int)(pMap.getWidth()*0.9), (int)(pMap.getHeight()*0.24));
+		tAMapDescription.setLocation((int)(pMap.getWidth()*0.05), (int)(cbMap.getLocation().getY()*1.2));
+		tAMapDescription.setBorder(new RoundedBorder(10));
+		tAMapDescription.setEditable(false);
+		tAMapDescription.setVisible(true);
+		pMap.add(tAMapDescription, 0);
+		tAMapDescription.setText("HELL TO YEAH YEAH!");
 	}
 	
 	@SuppressWarnings({ "rawtypes", "unchecked" })

@@ -41,6 +41,7 @@ public class Launcher implements Observer{
 		screen = new ScreenManager();
 		model = new Warborn();
 		compatibleDM = screen.getHighestResolutionDisplayMode();
+		System.out.println(compatibleDM.getHeight());
 		model.setDimensions(compatibleDM.getWidth(), compatibleDM.getHeight());
 		frame = new MainFrame(screen.getDefaultGraphicsConfiguration(), model);
 		initialize();

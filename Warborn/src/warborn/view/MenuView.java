@@ -1,9 +1,11 @@
 package warborn.view;
 
 import java.awt.Color;
+import java.awt.Font;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
@@ -16,7 +18,8 @@ public class MenuView extends JPanel {
 	private SelectionPanel pSelection;
 	private CreditsPanel pCredits;
 	private Sound sounds;
-	private JTextArea tARaceDescription, tAGodDescription, tAMapDescription;
+	private JTextArea tARaceDescription, tAGodDescription;
+	private JLabel lTitle;
 	
 	/**
 	 * Create the panel.
@@ -29,40 +32,40 @@ public class MenuView extends JPanel {
 		setSize(model.getWidth(), model.getHeight());
 		btNewGame = new GenericButton("New Game");
 		btNewGame.setLocation(model.getWidth()-200, 50);
-		btNewGame.setSize(150, 150);
+		btNewGame.setSize((int)(model.getWidth()*0.117), (int)(model.getHeight()*0.2));
 		add(btNewGame, 0);
 
 		btCredits = new GenericButton("Credits");
 		btCredits.setLocation(model.getWidth()-200, 250);
-		btCredits.setSize(150, 150);
+		btCredits.setSize((int)(model.getWidth()*0.117), (int)(model.getHeight()*0.2));
 		add(btCredits, 0);
 		
 		btExit = new GenericButton("Exit Game");
 		btExit.setLocation(model.getWidth()-200, 450);
-		btExit.setSize(150, 150);
+		btExit.setSize((int)(model.getWidth()*0.117), (int)(model.getHeight()*0.2));
 		add(btExit, 0);
 		
 		btQuickStart = new GenericButton("Quick Start");
 		btQuickStart.setLocation(100, model.getHeight()-250);
-		btQuickStart.setSize(150, 150);
+		btQuickStart.setSize((int)(model.getWidth()*0.117), (int)(model.getHeight()*0.2));
 		btQuickStart.setVisible(false);
 		add(btQuickStart, 0);
 		
 		btStart = new GenericButton("Start Game");
 		btStart.setLocation(300, model.getHeight()-250);
-		btStart.setSize(150, 150);
+		btStart.setSize((int)(model.getWidth()*0.117), (int)(model.getHeight()*0.2));
 		btStart.setVisible(false);
 		add(btStart, 0);
 		
 		btBack = new GenericButton("Back");
 		btBack.setLocation(500, model.getHeight()-250);
-		btBack.setSize(150, 150);
+		btBack.setSize((int)(model.getWidth()*0.117), (int)(model.getHeight()*0.2));
 		btBack.setVisible(false);
 		add(btBack, 0);
 		
 		btBack2 = new GenericButton("Back");
 		btBack2.setLocation(100, model.getHeight()-250);
-		btBack2.setSize(150, 150);
+		btBack2.setSize((int)(model.getWidth()*0.117), (int)(model.getHeight()*0.2));
 		btBack2.setVisible(false);
 		add(btBack2, 0);
 
@@ -76,15 +79,34 @@ public class MenuView extends JPanel {
 		pCredits.setVisible(false);
 		add(pCredits);
 		
+		lTitle = new JLabel();
+		lTitle.setSize((int)(model.getWidth()*0.4), (int)(model.getHeight()*0.15));
+		lTitle.setText("Warborn");
+		lTitle.setFont(new Font("Gabriola", 0, 130));
+		lTitle.setForeground(Color.RED);
+		lTitle.setVisible(true);
+		lTitle.setLocation((int)(model.getWidth()*0.11), (int)(model.getHeight()*0.02));
+		add(lTitle);
+		
 		tARaceDescription = new JTextArea();
-		tARaceDescription.setSize((int)(model.getHeight()*0.2), (int)(model.getWidth()*0.3));
-		tARaceDescription.setLocation((int)(model.getHeight()*0.2), (int)(model.getWidth()*0.25));
+		tARaceDescription.setSize((int)(model.getWidth()*0.4), (int)(model.getHeight()*0.2));
+		tARaceDescription.setLocation((int)(model.getWidth()*0.05), (int)(model.getHeight()*0.2));
 		tARaceDescription.setOpaque(false);
 		tARaceDescription.setBorder(new RoundedBorder(10));
 		tARaceDescription.setEditable(false);
 		tARaceDescription.setVisible(false);
 		add(tARaceDescription, 0);
 		tARaceDescription.setText("HELL YEAH!");
+		
+		tAGodDescription = new JTextArea();
+		tAGodDescription.setSize((int)(model.getWidth()*0.4), (int)(model.getHeight()*0.2));
+		tAGodDescription.setLocation((int)(model.getWidth()*0.05), (int)((tARaceDescription.getHeight()*1.2) + (model.getHeight()*0.2)));
+		tAGodDescription.setOpaque(false);
+		tAGodDescription.setBorder(new RoundedBorder(10));
+		tAGodDescription.setEditable(false);
+		tAGodDescription.setVisible(false);
+		add(tAGodDescription, 0);
+		tAGodDescription.setText("HELL TO YEAH!");
 		
 		
 	}
@@ -155,6 +177,7 @@ public class MenuView extends JPanel {
 		btBack2.setVisible(false);
 		pSelection.setVisible(false);
 		tARaceDescription.setVisible(false);
+		tAGodDescription.setVisible(false);
 	}
 	
 	public void openSelectionMenu(){
@@ -168,6 +191,7 @@ public class MenuView extends JPanel {
 		btBack2.setVisible(true);
 		pSelection.setVisible(true);
 		tARaceDescription.setVisible(true);
+		tAGodDescription.setVisible(true);
 	}
 	
 	public void closeNewGameMenu(){
