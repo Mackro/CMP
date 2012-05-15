@@ -43,6 +43,11 @@ public class Launcher implements Observer{
 		compatibleDM = screen.getHighestResolutionDisplayMode();
 		model.setDimensions(compatibleDM.getWidth(), compatibleDM.getHeight());
 		frame = new MainFrame(screen.getDefaultGraphicsConfiguration(), model);
+		IntroMovie.play(frame);
+		screen.setFullScreen(compatibleDM, frame);
+		while(IntroMovie.isPlaying()){
+		}
+		IntroMovie.stopPlaying(frame);
 		initialize();
 		model.addObserver(this);
 	}
@@ -73,9 +78,10 @@ public class Launcher implements Observer{
 		c.weighty = 1;
 		menu = new MenuView(model);
 		new MenuController(model, menu);
-		frame.add(menu, c);
+		frame.add(menu, c, 0);
+		frame.validate();
 		screen.setFullScreen(compatibleDM, frame);
-		frame.setVisible(true);
+		//frame.setVisible(true);
 	}
 	
 	/**
@@ -98,7 +104,6 @@ public class Launcher implements Observer{
 	public void createGame(int mapIndex){
 		
 		frame.remove(menu);
-		model.addObserver(frame);
 		keyAction = new KeyAction(model, this, frame);
 		model.addObserver(new StatePanelViewCreator(frame));
 		init();

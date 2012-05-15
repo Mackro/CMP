@@ -43,7 +43,7 @@ public class MediaTest
 				MediaPanel mediaPanel = new MediaPanel( mediaURL );
 				mediaTest.add( mediaPanel );
 
-				mediaTest.setSize( 300, 300 );
+				mediaTest.setSize( 1366, 768 );
 				mediaTest.setVisible( true );
 			} // end inner if
 		} // end outer if

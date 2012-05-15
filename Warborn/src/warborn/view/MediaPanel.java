@@ -4,15 +4,20 @@ import java.awt.Component;
 import java.io.IOException;
 import java.net.URL;
 import javax.media.*;
+import javax.media.format.AudioFormat;
+import javax.media.format.VideoFormat;
 import javax.swing.JPanel;
 
 /**
  * 
  * @author Deitel
+ * @modifiedBy Markus Otterberg with help by Luca Bruno aka Lethalman
  *
  */
 public class MediaPanel extends JPanel
 {
+	private Player mediaPlayer;
+	
 	public MediaPanel( URL mediaURL )
 	{
 		setLayout( new BorderLayout() ); // use a BorderLayout
@@ -22,20 +27,23 @@ public class MediaPanel extends JPanel
 
 		try
 		{
+			Format[] inFormats = { new VideoFormat ("DIVX") };
+			Format[] inFormats2 = { new AudioFormat ("mpeglayer3") };
+
+			PlugInManager.addPlugIn ("net.sourceforge.jffmpeg.VideoDecoder", inFormats, null, PlugInManager.CODEC);
+			PlugInManager.addPlugIn ("net.sourceforge.jffmpeg.AudioDecoder", inFormats2, null, PlugInManager.CODEC);
+
+			PlugInManager.commit ();
+			
 			// create a player to play the media specified in the URL
-			Player mediaPlayer = Manager.createRealizedPlayer( mediaURL );
+			mediaPlayer = Manager.createRealizedPlayer( mediaURL );
 
 			// get the components for the video and the playback controls
 			Component video = mediaPlayer.getVisualComponent();
-			Component controls = mediaPlayer.getControlPanelComponent();
 
 			if ( video != null )
 				add( video, BorderLayout.CENTER ); // add video component
 
-			if ( controls != null )
-				add( controls, BorderLayout.SOUTH ); // add controls
-
-			mediaPlayer.start(); // start playing the media clip
 		} // end try
 		catch ( NoPlayerException noPlayerException )
 		{
@@ -50,4 +58,17 @@ public class MediaPanel extends JPanel
 			System.err.println( "Error reading from the source" );
 		} // end catch
 	} // end MediaPanel constructor
+
+	public void startPlaying(){
+		mediaPlayer.prefetch();
+		mediaPlayer.start();
+	}
+	
+	public void stopPlaying(){
+
+		mediaPlayer.stop();
+		mediaPlayer.close();
+	}
+
+	
 } // end class MediaPanel

@@ -7,7 +7,7 @@ import javax.swing.JFrame;
 
 import warborn.model.Warborn;
 
-public class MainFrame extends JFrame implements Observer{
+public class MainFrame extends JFrame{
 
 	private static final long serialVersionUID = 1L;
 
@@ -31,20 +31,6 @@ public class MainFrame extends JFrame implements Observer{
 		setUndecorated(true);
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-	}
-	
-
-	@Override
-	public void update(Observable obs, Object arg1) {
-		/*if(obs instanceof Warborn && ((Warborn)obs).getPhase() == 1){
-			this.setEnabled(false);
-			this.setFocusable(false);
-		}else{
-			this.setEnabled(true);
-			this.setFocusable(true);
-			this.requestFocus();
-		}*/
-		
 	}
 	
 

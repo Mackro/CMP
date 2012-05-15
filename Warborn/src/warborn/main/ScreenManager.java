@@ -56,7 +56,7 @@ public class ScreenManager {
 				e.printStackTrace();
 			}
 		}*/
-		frame.createBufferStrategy(2);
+		frame.createBufferStrategy(4);
 
 	}
 

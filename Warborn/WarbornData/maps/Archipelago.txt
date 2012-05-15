@@ -1,6 +1,6 @@
 Omria:Withering Abyss
 Infernal Flats:Withering Abyss;Agos
-Withering Abyss:Omria;Infernal Flats;Ashen Cliffs;Etirth;Infected Ruins
+Withering Abyss:Omria;Infernal Flats;Ashen Cliffs;Etirth
 Ashen Cliffs:Withering Abyss;Etirth;Infected Ruins
 Iberthin:Etirth;Themolia
 Etirth:Withering Abyss;Ashen Cliffs;Iberthin;Infected Ruins;Lithi
