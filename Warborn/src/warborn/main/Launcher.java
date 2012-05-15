@@ -80,6 +80,7 @@ public class Launcher implements Observer{
 		new MenuController(model, menu);
 		frame.add(menu, c, 0);
 		frame.validate();
+		frame.repaint();
 		screen.setFullScreen(compatibleDM, frame);
 		//frame.setVisible(true);
 	}

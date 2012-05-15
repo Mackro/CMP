@@ -48,7 +48,9 @@ public class IntroMovie {
 	
 	public static void stopPlaying(JFrame frame){
 		mediaPanel.stopPlaying();
-		//frame.remove(mediaPanel);
+		frame.remove(mediaPanel);
 		frame.validate();
+		frame.repaint();
+		frame.revalidate();
 	}
 }
