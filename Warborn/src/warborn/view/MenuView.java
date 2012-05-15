@@ -2,6 +2,11 @@ package warborn.view;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -18,8 +23,11 @@ public class MenuView extends JPanel {
 	private SelectionPanel pSelection;
 	private CreditsPanel pCredits;
 	private Sound sounds;
+	private String raceDescription, godDescription;
 	private JTextArea tARaceDescription, tAGodDescription;
 	private JLabel lTitle;
+	private File text;
+	private FileReader reader;
 	
 	/**
 	 * Create the panel.
@@ -73,6 +81,7 @@ public class MenuView extends JPanel {
 		pSelection.setLocation((int)(this.getWidth()*0.5), 0);
 		pSelection.setVisible(false);
 		add(pSelection);
+		pSelection.updateMap();
 		
 		pCredits = new CreditsPanel();
 		pCredits.setLocation((int)(this.getWidth()*0.25), (int)(this.getHeight()*0.10));
@@ -94,9 +103,11 @@ public class MenuView extends JPanel {
 		tARaceDescription.setOpaque(false);
 		tARaceDescription.setBorder(new RoundedBorder(10));
 		tARaceDescription.setEditable(false);
+		tARaceDescription.setLineWrap(true);
+		tARaceDescription.setWrapStyleWord(true);
 		tARaceDescription.setVisible(false);
 		add(tARaceDescription, 0);
-		tARaceDescription.setText("HELL YEAH!");
+		updateRaceDescription("Human");
 		
 		tAGodDescription = new JTextArea();
 		tAGodDescription.setSize((int)(model.getWidth()*0.4), (int)(model.getHeight()*0.2));
@@ -104,10 +115,11 @@ public class MenuView extends JPanel {
 		tAGodDescription.setOpaque(false);
 		tAGodDescription.setBorder(new RoundedBorder(10));
 		tAGodDescription.setEditable(false);
+		tAGodDescription.setLineWrap(true);
+		tAGodDescription.setWrapStyleWord(true);
 		tAGodDescription.setVisible(false);
 		add(tAGodDescription, 0);
-		tAGodDescription.setText("HELL TO YEAH!");
-		
+		updateGodDescription("Civitatis");
 		
 	}
 	
@@ -147,8 +159,8 @@ public class MenuView extends JPanel {
 	}
 	
 	@SuppressWarnings("rawtypes")
-	public JComboBox getMapComboBox(){
-		return pSelection.getMapComboBox();
+	public JComboBox[] getComboBoxes(){
+		return pSelection.getComboBoxes();
 	}
 	
 	public int getSelectedMapIndex(){
@@ -222,6 +234,40 @@ public class MenuView extends JPanel {
 	@SuppressWarnings("deprecation")
 	public void killMusic(){
 		sounds.stop();
+	}
+
+	public void updateRaceDescription(String element) {
+		text = new File("WarbornData/bios/"+element.replace(" ", "")+"Bio.txt");
+		try {
+			reader = new FileReader(text);
+		} catch (FileNotFoundException e) {
+			System.out.println("RaceBioNotFound");
+		}
+		BufferedReader buffReader = new BufferedReader(reader);
+		try {
+			raceDescription = buffReader.readLine();
+		} catch (IOException e) {
+			System.out.println("Something wrong with raceBio reading");
+		}
+		tARaceDescription.setText(raceDescription);
+		repaint();
+	}
+
+	public void updateGodDescription(String element) {
+		text = new File("WarbornData/bios/"+element.replace(" ", "")+"Bio.txt");
+		try {
+			reader = new FileReader(text);
+		} catch (FileNotFoundException e) {
+			System.out.println("GodBioNotFound");
+		}
+		BufferedReader buffReader = new BufferedReader(reader);
+		try {
+			godDescription = buffReader.readLine();
+		} catch (IOException e) {
+			System.out.println("Something wrong with godBio reading");
+		}
+		tAGodDescription.setText(godDescription);
+		repaint();
 	}
 
 }

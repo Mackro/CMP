@@ -28,8 +28,9 @@ public class MenuController implements ActionListener, ItemListener{
 		for(int i = 0; i < buttonArray2.length; i++){
 			buttonArray2[i].addActionListener(this);
 		}
-		view.getMapComboBox().addItemListener(this);
-		
+		for (int i=0; i<view.getComboBoxes().length; i++){
+			view.getComboBoxes()[i].addItemListener(this);
+		}		
 	}
 
 	@Override
@@ -84,7 +85,21 @@ public class MenuController implements ActionListener, ItemListener{
 
 	@Override
 	public void itemStateChanged(ItemEvent iEvt) {
-		//Display another Map
-		view.updateMap();
+		String[] paramElements = iEvt.paramString().split("=");
+		if(paramElements.length==3 && paramElements[2].equalsIgnoreCase("SELECTED")){
+			String element = paramElements[1].split(",")[0];
+			if(element.equalsIgnoreCase("Human")||element.equalsIgnoreCase("Titan")||
+					element.equalsIgnoreCase("Forgotten")||element.equalsIgnoreCase("Random Race")){
+				System.out.println("RaceChanged");
+				view.updateRaceDescription(element);
+			}else if(element.equalsIgnoreCase("Civitatis")||element.equalsIgnoreCase("Falcitier")||
+					element.equalsIgnoreCase("Insanus")||element.equalsIgnoreCase("Random God")){
+				System.out.println("GodChanged");
+				view.updateGodDescription(element);
+			}else{
+				System.out.println("elseChanged");
+				view.updateMap();
+			}
+		}
 	}
 }

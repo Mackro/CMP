@@ -11,13 +11,11 @@ public class PlayerSelectionPanel extends JPanel {
 	
 	public JTextField tfPlayerName;
 	public JButton btColor;
-	@SuppressWarnings("rawtypes")
-	public JComboBox cbRace, cbBackground;
+	public JComboBox<String> cbRace, cbGod;
 	
 	/**
 	 * Create the panel.
 	 */
-	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public PlayerSelectionPanel(int number) {
 		
 		
@@ -65,39 +63,37 @@ public class PlayerSelectionPanel extends JPanel {
 		lbBackground.setSize(100, 30);
 		add(lbBackground);
 
-		cbRace = new JComboBox();
+		cbRace = new JComboBox<String>();
 		cbRace.setLocation(212, 20);
 		cbRace.setSize(100, 30);
 		cbRace.setBackground(Color.WHITE);
 		cbRace.setModel(getRaces());
 		add(cbRace);
 		
-		cbBackground = new JComboBox();
-		cbBackground.setLocation(212, 61);
-		cbBackground.setSize(100, 30);
-		cbBackground.setBackground(Color.WHITE);
-		cbBackground.setModel(getBackgrounds());
-		add(cbBackground);
+		cbGod = new JComboBox<String>();
+		cbGod.setLocation(212, 61);
+		cbGod.setSize(100, 30);
+		cbGod.setBackground(Color.WHITE);
+		cbGod.setModel(getGods());
+		add(cbGod);
 		
 	}
 
-	@SuppressWarnings({ "rawtypes", "unchecked" })
-	private ComboBoxModel getBackgrounds() {
-		DefaultComboBoxModel boxModel = new DefaultComboBoxModel();
+	private ComboBoxModel<String> getGods() {
+		DefaultComboBoxModel<String> boxModel = new DefaultComboBoxModel<String>();
 		for(int i = 0; i < PlayerData.getNumberOfGods(); i++){
 			boxModel.addElement(PlayerData.getGodName(i));
 		}
-		boxModel.addElement("Random");
+		boxModel.addElement("Random God");
 		return boxModel;
 	}
 
-	@SuppressWarnings({ "rawtypes", "unchecked" })
-	private ComboBoxModel getRaces() {
-		DefaultComboBoxModel boxModel = new DefaultComboBoxModel();
+	private ComboBoxModel<String> getRaces() {
+		DefaultComboBoxModel<String> boxModel = new DefaultComboBoxModel<String>();
 		for(int i = 0; i < PlayerData.getNumberOfRaces(); i++){
 			boxModel.addElement(PlayerData.getRaceName(i));
 		}
-		boxModel.addElement("Random");
+		boxModel.addElement("Random Race");
 		return boxModel;
 	}
 	
@@ -114,11 +110,19 @@ public class PlayerSelectionPanel extends JPanel {
 	}
 	
 	public int getPlayerBackground(){
-		return cbBackground.getSelectedIndex();
+		return cbGod.getSelectedIndex();
 	}
 	
 	public JButton getColorButton(){
 		return btColor;
+	}
+	
+	public JComboBox<String> getGodComboBox(){
+		return cbGod;
+	}
+	
+	public JComboBox<String> getRaceComboBox(){
+		return cbRace;
 	}
 
 }

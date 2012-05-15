@@ -1,8 +1,15 @@
 package warborn.view;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.Image;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.swing.*;
 
@@ -13,17 +20,18 @@ public class SelectionPanel extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 	private GenericButton btStartGame, btAddPlayer, btRemovePlayer;
-	@SuppressWarnings("rawtypes")
-	private JComboBox cbMap;
+	private JComboBox<String> cbMap;
 	private JLabel lbMap;
 	private JPanel pPlayer, pMap;
 	private Warborn model;
 	private JTextArea tAMapDescription;
-	
+	private FileReader reader;
+	private String mapDescription;
+	private File text;
+
 	/**
 	 * Create the panel.
 	 */
-	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public SelectionPanel(Warborn model) {
 		
 		this.model = model;
@@ -57,7 +65,7 @@ public class SelectionPanel extends JPanel {
 		pMap.setBounds((int)(this.getWidth()*0.5)+10, 10, (int)(this.getWidth()*0.5)-15, this.getHeight()-20);
 		add(pMap);
 		
-		cbMap = new JComboBox();
+		cbMap = new JComboBox<String>();
 		cbMap.setSize(100, 40);
 		cbMap.setBackground(Color.WHITE);
 		cbMap.setModel(getMaps());
@@ -81,16 +89,18 @@ public class SelectionPanel extends JPanel {
 		tAMapDescription = new JTextArea();
 		tAMapDescription.setSize((int)(pMap.getWidth()*0.9), (int)(pMap.getHeight()*0.24));
 		tAMapDescription.setLocation((int)(pMap.getWidth()*0.05), (int)(cbMap.getLocation().getY()*1.2));
-		tAMapDescription.setBorder(new RoundedBorder(10));
+		tAMapDescription.setOpaque(false);
 		tAMapDescription.setEditable(false);
+		tAMapDescription.setLineWrap(true);
+		tAMapDescription.setWrapStyleWord(true);
+		tAMapDescription.setFont(new Font("WarbornFont", Font.ITALIC, 13));
 		tAMapDescription.setVisible(true);
 		pMap.add(tAMapDescription, 0);
-		tAMapDescription.setText("HELL TO YEAH YEAH!");
+		tAMapDescription.setText(mapDescription);
 	}
 	
-	@SuppressWarnings({ "rawtypes", "unchecked" })
-	private ComboBoxModel getMaps() {
-		DefaultComboBoxModel boxModel = new DefaultComboBoxModel();
+	private ComboBoxModel<String> getMaps() {
+		DefaultComboBoxModel<String> boxModel = new DefaultComboBoxModel<String>();
 		String[] mapNames = MapData.getMapNames();
 		for(int i = 0; i < mapNames.length; i++){
 			boxModel.addElement(mapNames[i]);
@@ -111,8 +121,15 @@ public class SelectionPanel extends JPanel {
 	}
 	
 	@SuppressWarnings("rawtypes")
-	public JComboBox getMapComboBox(){
-		return cbMap;
+	public JComboBox[] getComboBoxes(){
+		ArrayList<JComboBox> boxesList = new ArrayList<JComboBox>();
+		JComboBox[] boxes = new JComboBox[3];
+		boxesList.add(cbMap);
+		for (int i=0; i<pPlayer.getComponentCount(); i++){
+			boxesList.add(((PlayerSelectionPanel)(pPlayer.getComponent(i))).getGodComboBox());
+			boxesList.add(((PlayerSelectionPanel)(pPlayer.getComponent(i))).getRaceComboBox());
+		}
+		return boxesList.toArray(boxes);
 	}
 	
 	public JButton[] getColorButtons(){
@@ -164,6 +181,23 @@ public class SelectionPanel extends JPanel {
 		I = I.getScaledInstance(pMap.getWidth(), -1, 0);
 		lbMap.setIcon(new ImageIcon(I));
 		pMap.revalidate();
+		
+		text = new File("WarbornData/bios/"+cbMap.getSelectedItem()+"Bio.txt");
+		try {
+			reader = new FileReader(text);
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+			System.out.println("MapBioNotFound");
+		}
+		BufferedReader buffReader = new BufferedReader(reader);
+		try {
+			mapDescription = buffReader.readLine();
+		} catch (IOException e) {
+			e.printStackTrace();
+			System.out.println("Something wrong with mapBio reading");
+		}
+		tAMapDescription.setText(mapDescription);
+		repaint();
 	}
 	
 	public void addPlayer(){
