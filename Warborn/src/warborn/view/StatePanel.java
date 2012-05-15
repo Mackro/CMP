@@ -1,6 +1,9 @@
 package warborn.view;
 
+import java.awt.Color;
+
 import javax.swing.*;
+import javax.swing.border.EtchedBorder;
 
 import warborn.model.Warborn;
 
@@ -30,6 +33,7 @@ public class StatePanel extends JPanel implements Runnable {
 		width = (int)(model.getWidth()/8);
 		setSize(width, height);
 		setLocation((int)(model.getWidth()/2-width/2), (int)(model.getHeight()/2-height/2));
+		setBorder(BorderFactory.createEtchedBorder(EtchedBorder.RAISED, Color.lightGray, Color.black));
 	}
 
 	@Override
