@@ -19,6 +19,17 @@ public class Player {
 	private Spellbook spellbook;
 	
 	public Player(String name, int id, Color color, int race, int god){
+		if(race==3 || god==3){
+			double d = Math.random()*3;
+			if(race>2){
+				System.out.println(d);
+				race = (int) (d);
+			}
+			if(god>2){
+				System.out.println(d);
+				god = (int) (d);
+			}
+		}
 		this.name = name;
 		this.godName = PlayerData.getGodName(god);
 		this.additionalName = "";

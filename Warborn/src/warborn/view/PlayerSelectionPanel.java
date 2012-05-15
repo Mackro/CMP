@@ -87,6 +87,7 @@ public class PlayerSelectionPanel extends JPanel {
 		for(int i = 0; i < PlayerData.getNumberOfGods(); i++){
 			boxModel.addElement(PlayerData.getGodName(i));
 		}
+		boxModel.addElement("Random");
 		return boxModel;
 	}
 
@@ -96,6 +97,7 @@ public class PlayerSelectionPanel extends JPanel {
 		for(int i = 0; i < PlayerData.getNumberOfRaces(); i++){
 			boxModel.addElement(PlayerData.getRaceName(i));
 		}
+		boxModel.addElement("Random");
 		return boxModel;
 	}
 	

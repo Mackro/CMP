@@ -5,7 +5,6 @@ import javax.swing.*;
 import java.awt.Color;
 import java.awt.Font;
 
-import javax.swing.border.BevelBorder;
 import javax.swing.border.TitledBorder;
 
 import warborn.model.Warborn;
@@ -25,7 +24,7 @@ public class OptionsMenuView extends JPanel {
 		setSize(400, 600);
 		setLocation((int)((model.getWidth()/2)-200), 60);
 		setLayout(null);
-		this.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createBevelBorder(BevelBorder.LOWERED), 				
+		this.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createEtchedBorder(),			
 				BorderFactory.createTitledBorder(BorderFactory.createLineBorder(Color.black, 3, true),
 				"Options", TitledBorder.CENTER , TitledBorder.TOP, new Font(Font.SERIF, Font.ITALIC, 40))));
 		
