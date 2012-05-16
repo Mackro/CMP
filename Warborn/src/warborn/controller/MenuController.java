@@ -90,14 +90,11 @@ public class MenuController implements ActionListener, ItemListener{
 			String element = paramElements[1].split(",")[0];
 			if(element.equalsIgnoreCase("Human")||element.equalsIgnoreCase("Titan")||
 					element.equalsIgnoreCase("Forgotten")||element.equalsIgnoreCase("Random Race")){
-				System.out.println("RaceChanged");
 				view.updateRaceDescription(element);
 			}else if(element.equalsIgnoreCase("Civitatis")||element.equalsIgnoreCase("Falcitier")||
 					element.equalsIgnoreCase("Insanus")||element.equalsIgnoreCase("Random God")){
-				System.out.println("GodChanged");
 				view.updateGodDescription(element);
 			}else{
-				System.out.println("elseChanged");
 				view.updateMap();
 			}
 		}
