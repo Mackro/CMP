@@ -8,11 +8,13 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
+import javax.swing.border.BevelBorder;
 
 import warborn.model.Warborn;
 import warborn.sound.Sound;
@@ -100,8 +102,8 @@ public class MenuView extends JPanel {
 		tARaceDescription = new JTextArea();
 		tARaceDescription.setSize((int)(model.getWidth()*0.4), (int)(model.getHeight()*0.2));
 		tARaceDescription.setLocation((int)(model.getWidth()*0.05), (int)(model.getHeight()*0.2));
-		tARaceDescription.setOpaque(false);
-		tARaceDescription.setBorder(new RoundedBorder(10));
+		tARaceDescription.setBackground(Color.getHSBColor(0.02f, 0.05f, 0.95f));
+		tARaceDescription.setBorder(BorderFactory.createBevelBorder(BevelBorder.LOWERED, Color.getHSBColor(0.04f, 0.4f, 0.8f), Color.DARK_GRAY));
 		tARaceDescription.setEditable(false);
 		tARaceDescription.setLineWrap(true);
 		tARaceDescription.setWrapStyleWord(true);
@@ -111,9 +113,9 @@ public class MenuView extends JPanel {
 		
 		tAGodDescription = new JTextArea();
 		tAGodDescription.setSize((int)(model.getWidth()*0.4), (int)(model.getHeight()*0.2));
+		tAGodDescription.setBackground(Color.getHSBColor(0.02f, 0.05f, 0.95f));
 		tAGodDescription.setLocation((int)(model.getWidth()*0.05), (int)((tARaceDescription.getHeight()*1.2) + (model.getHeight()*0.2)));
-		tAGodDescription.setOpaque(false);
-		tAGodDescription.setBorder(new RoundedBorder(10));
+		tAGodDescription.setBorder(BorderFactory.createBevelBorder(BevelBorder.LOWERED, Color.getHSBColor(0.04f, 0.4f, 0.8f), Color.DARK_GRAY));
 		tAGodDescription.setEditable(false);
 		tAGodDescription.setLineWrap(true);
 		tAGodDescription.setWrapStyleWord(true);
