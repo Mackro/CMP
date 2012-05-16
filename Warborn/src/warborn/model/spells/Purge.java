@@ -26,9 +26,8 @@ public class Purge extends Spell {
 
 	@Override
 	public void invoke(Warborn model) {
-		model.getSelectedTerritory().setOwner(model.getCurrentPlayer());
-		model.getSelectedTerritory().setNbrOfUnits(1);
-		
+		model.getCurrentPlayer().addTerritory(model.getSelectedTerritory());
+		model.getSelectedTerritory().setNbrOfUnits(1);		
 	}
 
 }

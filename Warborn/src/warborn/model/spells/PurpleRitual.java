@@ -27,9 +27,7 @@ public class PurpleRitual extends Spell {
 	@Override
 	public void invoke(Warborn model) {
 		model.getSelectedTerritory().decrementUnits(model.getNbrOfReinforcements()*2);
-		model.setNbrOfReinforcements(0);
-		model.getCurrentPlayer().changeMana(-this.getManaCost());
-		
+		model.setNbrOfReinforcements(0);		
 	}
 
 }

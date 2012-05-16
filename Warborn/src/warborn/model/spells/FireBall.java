@@ -25,7 +25,6 @@ public class FireBall extends Spell {
 
 	@Override
 	public void invoke(Warborn model) {
-		model.getCurrentPlayer().changeMana(-this.getManaCost());
 		if(model.getSelectedTerritory().getNbrOfUnits() < 4){
 			model.getSelectedTerritory().setNbrOfUnits(1);
 		}

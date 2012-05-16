@@ -12,7 +12,6 @@ public class TimeOfTruce extends Spell {
 	@Override
 	public void invoke(Warborn model) {
 		this.setTimer(0);
-		model.getCurrentPlayer().changeMana(-this.getManaCost());
 		for(Territory territory : model.getTerritories()){
 			territory.setProtected(true);
 		}

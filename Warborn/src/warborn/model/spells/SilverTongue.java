@@ -28,7 +28,6 @@ public class SilverTongue extends Spell {
 	public void invoke(Warborn model) {
 		model.getSelectedTerritory().decrementUnit();
 		model.setNbrOfReinforcements(model.getNbrOfReinforcements()+1);
-		model.getCurrentPlayer().changeMana(-this.getManaCost());
 	}
 
 }

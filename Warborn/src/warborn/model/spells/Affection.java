@@ -26,7 +26,6 @@ public class Affection extends Spell{
 	@Override
 	public void invoke(Warborn model) {
 		model.getSelectedTerritory().getOwner().setAdditionalName(" <3 " + model.getCurrentPlayer().getName());
-		model.getCurrentPlayer().changeMana(-this.getManaCost());
 	}
 
 }

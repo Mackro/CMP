@@ -28,7 +28,6 @@ public class AwakenTheLost extends Spell {
 	@Override
 	public void invoke(Warborn model) {
 		setTimer(model.getNumberOfPlayers()*3);
-		model.getCurrentPlayer().changeMana(-this.getManaCost());
 		for(Territory territory : model.getTerritories()){
 			if(territory.getOwner() == model.getCurrentPlayer()){
 				territory.incrementUnit();
@@ -45,5 +44,10 @@ public class AwakenTheLost extends Spell {
 				}
 			}
 		}
+	}
+	
+	@Override
+	public boolean isInstant(){
+		return true;
 	}
 }

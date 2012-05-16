@@ -27,7 +27,6 @@ public class Beguile extends Spell{
 	@Override
 	public void invoke(Warborn model) {
 		model.getSelectedTerritory().getOwner().setAdditionalName(" Plaything of " + model.getCurrentPlayer().getName());
-		model.getCurrentPlayer().changeMana(-this.getManaCost());
 	}
 
 }

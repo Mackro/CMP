@@ -27,7 +27,6 @@ public class Armageddon extends Spell {
 	@Override
 	public void invoke(Warborn model) {
 		setTimer(model.getPlayers().length);
-		model.getCurrentPlayer().changeMana(-this.getManaCost());
 		for(Territory territory : model.getTerritories()){
 			if(territory.getNbrOfUnits() < 6){
 				territory.setNbrOfUnits(1);
@@ -50,5 +49,10 @@ public class Armageddon extends Spell {
 				}
 			}
 		}
+	}
+	
+	@Override
+	public boolean isInstant(){
+		return true;
 	}
 }

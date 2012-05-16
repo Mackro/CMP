@@ -35,7 +35,7 @@ public class SpellView extends JPanel {
 		
 		GenericLabel spellCostLbl = new GenericLabel("Mana: " + Integer.toString(spell.getManaCost()));
 		spellCostLbl.setForeground(Color.BLUE);
-		spellCostLbl.setBounds(150, 10, 150, 20);
+		spellCostLbl.setBounds(250, 10, 150, 20);
 		add(spellCostLbl);
 		
 		button = new GenericButton();

@@ -33,6 +33,5 @@ public class Conscription extends Spell {
 		else {
 			model.getSelectedTerritory().incrementUnits(5);
 		}
-		model.getCurrentPlayer().changeMana(-this.getManaCost());
 	}
 }

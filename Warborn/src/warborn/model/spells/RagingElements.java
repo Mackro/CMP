@@ -25,8 +25,7 @@ public class RagingElements extends Spell {
 
 	@Override
 	public void invoke(Warborn model) {
-		model.getSelectedTerritory().decrementUnit();
-		model.getCurrentPlayer().changeMana(-this.getManaCost());
+		model.getSelectedTerritory().decrementUnits(2);
 	}
 
 }

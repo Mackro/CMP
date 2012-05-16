@@ -42,7 +42,7 @@ public final class SpellFactory {
 				return new Conscription(2);
 			case 13:
 				//Titan
-				return new RagingElements(1);
+				return new RagingElements(3);
 			case 14:
 				//Forgotten
 				return new AwakenTheLost(12);

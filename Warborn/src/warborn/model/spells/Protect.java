@@ -14,7 +14,6 @@ public class Protect extends Spell {
 	@Override
 	public void invoke(Warborn model) {
 		setTimer(model.getNumberOfPlayers()-1);
-		model.getCurrentPlayer().changeMana(-this.getManaCost());
 		protectedTerritory = model.getSelectedTerritory();
 		protectedTerritory.setProtected(true);
 	}

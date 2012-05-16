@@ -4,7 +4,7 @@ Withering Abyss:Omria;Infernal Flats;Ashen Cliffs;Etirth
 Ashen Cliffs:Withering Abyss;Etirth;Infected Ruins
 Iberthin:Etirth;Themolia
 Etirth:Withering Abyss;Ashen Cliffs;Iberthin;Infected Ruins;Lithi
-Infected Ruins:Ashen Cliffs;Etirth;Dol'ek
+Infected Ruins:Ashen Cliffs;Etirth;Dol'ek;Molgyrd
 Themolia:Iberthin;Lithi
 Lithi:Etirth;Themolia;Molgyrd
 Molgyrd:Infected Ruins;Lithi;Ryztel'ek
@@ -32,5 +32,5 @@ Coast of Al'kydam:Il' Awbari;Okrobar;Amberfell
 Okrobar:Il' Awbari;Coast of Al'kydam
 Amberfell:Ohrzevt;Coast of Al'kydam;Royal Hills
 Royal Hills:Amberfell;Inland Ridge
-Inland Ridge:Madrigal bay;Royal Hills -Hintercoast
+Inland Ridge:Madrigal bay;Royal Hills;Hintercoast
 Hintercoast:Inland Ridge

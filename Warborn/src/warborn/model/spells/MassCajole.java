@@ -32,7 +32,6 @@ public class MassCajole extends Spell {
 	@Override
 	public void invoke(Warborn model) {
 		setTimer(model.getNumberOfPlayers());
-		model.getCurrentPlayer().changeMana(-this.getManaCost());
 		for(Territory territory : model.getTerritories()){
 			if(territory.getOwner() != model.getCurrentPlayer()){
 				bonusTroops++;
@@ -46,5 +45,9 @@ public class MassCajole extends Spell {
 			warborn.setNbrOfReinforcements(warborn.getNbrOfReinforcements() + bonusTroops);
 		}
 	}
-
+	
+	@Override
+	public boolean isInstant(){
+		return true;
+	}
 }
