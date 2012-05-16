@@ -155,7 +155,7 @@ public class MenuView extends JPanel {
 	}
 	
 	public int[] getBackgrounds(){
-		return pSelection.getBackgrounds();
+		return pSelection.getGods();
 	}
 	
 	@SuppressWarnings("rawtypes")

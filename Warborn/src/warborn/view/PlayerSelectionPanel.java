@@ -58,10 +58,10 @@ public class PlayerSelectionPanel extends JPanel {
 		lbRace.setSize(50, 30);
 		add(lbRace);
 		
-		JLabel lbBackground = new JLabel("Background:");
-		lbBackground.setLocation(130, 61);
-		lbBackground.setSize(100, 30);
-		add(lbBackground);
+		JLabel lbGod = new JLabel("God:");
+		lbGod.setLocation(130, 61);
+		lbGod.setSize(100, 30);
+		add(lbGod);
 
 		cbRace = new JComboBox<String>();
 		cbRace.setLocation(212, 20);
@@ -109,7 +109,7 @@ public class PlayerSelectionPanel extends JPanel {
 		return cbRace.getSelectedIndex();
 	}
 	
-	public int getPlayerBackground(){
+	public int getPlayerGod(){
 		return cbGod.getSelectedIndex();
 	}
 	

@@ -164,10 +164,10 @@ public class SelectionPanel extends JPanel {
 		return races;
 	}
 	
-	public int[] getBackgrounds(){
+	public int[] getGods(){
 		int[] backgrounds = new int[pPlayer.getComponentCount()];
 		for(int i = 0; i < pPlayer.getComponentCount(); i++){
-			backgrounds[i] = ((PlayerSelectionPanel)(pPlayer.getComponent(i))).getPlayerBackground();
+			backgrounds[i] = ((PlayerSelectionPanel)(pPlayer.getComponent(i))).getPlayerGod();
 		}
 		return backgrounds;
 	}

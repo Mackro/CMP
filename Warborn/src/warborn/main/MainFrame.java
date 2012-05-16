@@ -1,7 +1,6 @@
 package warborn.main;
 
 import java.awt.*;
-import java.util.*;
 
 import javax.swing.JFrame;
 
@@ -27,7 +26,6 @@ public class MainFrame extends JFrame{
 	public MainFrame(GraphicsConfiguration defaultConfiguration, Warborn model) {
 		super(defaultConfiguration);
 		this.setLayout(new GridBagLayout());
-		//setBounds(0, 0, model.getWidth(), model.getHeight());
 		setUndecorated(true);
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);

@@ -18,6 +18,7 @@ public class IntroMovie {
 	private static MediaPanel mediaPanel;
 	private static boolean forceStopPlay = false;
 
+	@SuppressWarnings("deprecation")
 	public static void play(JFrame frame, KeyAction keyAction) {
 		File intro = new File("WarbornData/images/CMP1920.avi");
 		URL mediaUrl = null;
