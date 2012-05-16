@@ -239,7 +239,7 @@ public class MenuView extends JPanel {
 	}
 
 	public void updateRaceDescription(String element) {
-		text = new File("WarbornData/bios/"+element.replace(" ", "")+"Bio.txt");
+		text = new File("WarbornData/bios/"+element+"Bio.txt");
 		try {
 			reader = new FileReader(text);
 		} catch (FileNotFoundException e) {
@@ -256,7 +256,7 @@ public class MenuView extends JPanel {
 	}
 
 	public void updateGodDescription(String element) {
-		text = new File("WarbornData/bios/"+element.replace(" ", "")+"Bio.txt");
+		text = new File("WarbornData/bios/"+element+"Bio.txt");
 		try {
 			reader = new FileReader(text);
 		} catch (FileNotFoundException e) {

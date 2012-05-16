@@ -1,17 +1,14 @@
 package warborn.controller;
 
 import java.awt.Color;
-import java.awt.Dialog;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
-import java.awt.Container.*;
 
 import javax.swing.JButton;
 import javax.swing.JColorChooser;
 import javax.swing.JFrame;
-import javax.swing.JLayeredPane;
 
 import warborn.model.Warborn;
 import warborn.view.MenuView;
@@ -83,12 +80,7 @@ public class MenuController implements ActionListener, ItemListener{
 			//Color choosing
 			for(JButton colorButton : this.view.getColorButtons()){
 				if(buttonPressed == colorButton){
-					//Dialog chooser = JColorChooser.createDialog(view, "Choose your color", true, new JColorChooser(), null, null);
-					//JColorChooser.createDialog(c, title, modal, , okListener, cancelListener)
-					JColorChooser chooser = new JColorChooser(colorButton.getBackground());
-					chooser.setLocation(model.getWidth()/2, model.getHeight()/2);
-					frame.getLayeredPane().add(chooser, JLayeredPane.MODAL_LAYER);
-					//colorButton.setBackground(JColorChooser.showDialog(frame, "Choose your color", colorButton.getBackground()));
+					colorButton.setBackground(JColorChooser.showDialog(frame, "Choose your color", colorButton.getBackground()));
 				}
 			}
 		}
@@ -100,10 +92,10 @@ public class MenuController implements ActionListener, ItemListener{
 		if(paramElements.length==3 && paramElements[2].equalsIgnoreCase("SELECTED")){
 			String element = paramElements[1].split(",")[0];
 			if(element.equalsIgnoreCase("Human")||element.equalsIgnoreCase("Titan")||
-					element.equalsIgnoreCase("Forgotten")||element.equalsIgnoreCase("Random Race")){
+					element.equalsIgnoreCase("Forgotten")||element.equalsIgnoreCase("Random")){
 				view.updateRaceDescription(element);
 			}else if(element.equalsIgnoreCase("Civitatis")||element.equalsIgnoreCase("Falcitier")||
-					element.equalsIgnoreCase("Insanus")||element.equalsIgnoreCase("Random God")){
+					element.equalsIgnoreCase("Insanus")||element.equalsIgnoreCase("Any")){
 				view.updateGodDescription(element);
 			}else{
 				view.updateMap();

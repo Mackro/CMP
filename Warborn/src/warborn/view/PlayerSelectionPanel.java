@@ -59,8 +59,8 @@ public class PlayerSelectionPanel extends JPanel {
 		add(lbRace);
 		
 		JLabel lbGod = new JLabel("God:");
-		lbGod.setLocation(130, 61);
-		lbGod.setSize(100, 30);
+		lbGod.setLocation(162, 61);
+		lbGod.setSize(68, 30);
 		add(lbGod);
 
 		cbRace = new JComboBox<String>();
