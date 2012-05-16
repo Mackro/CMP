@@ -47,6 +47,10 @@ public class Launcher implements Observer{
 		IntroMovie.play(frame, keyAction);
 		screen.setFullScreen(compatibleDM, frame);
 		while(IntroMovie.isPlaying()){
+			try {
+				Thread.sleep(200);
+			} catch (InterruptedException e) {
+			}
 		}
 		IntroMovie.stopPlaying(frame);
 		initialize();

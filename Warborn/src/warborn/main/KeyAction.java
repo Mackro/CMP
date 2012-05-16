@@ -25,7 +25,6 @@ public class KeyAction extends AbstractAction{
 		if(evt.getID() == 1001){
 			if(IntroMovie.isPlaying()){
 				//skip intro movie
-				System.out.println("Destroy");
 				IntroMovie.stopPlaying(mainFrame);
 			}else{
 				//Open Options Menu
