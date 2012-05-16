@@ -83,7 +83,7 @@ public class Launcher implements Observer{
 		c.gridy = 0;
 		c.weighty = 1;
 		menu = new MenuView(model);
-		new MenuController(model, menu);
+		new MenuController(model, frame, menu);
 		frame.add(menu, c, 0);
 		frame.validate();
 		frame.repaint();

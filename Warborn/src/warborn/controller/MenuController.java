@@ -1,13 +1,17 @@
 package warborn.controller;
 
 import java.awt.Color;
+import java.awt.Dialog;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.awt.Container.*;
 
 import javax.swing.JButton;
 import javax.swing.JColorChooser;
+import javax.swing.JFrame;
+import javax.swing.JLayeredPane;
 
 import warborn.model.Warborn;
 import warborn.view.MenuView;
@@ -15,10 +19,12 @@ import warborn.view.MenuView;
 public class MenuController implements ActionListener, ItemListener{
 	
 	private Warborn model;
+	private JFrame frame;
 	private MenuView view;
 	
-	public MenuController(Warborn model, MenuView view){
+	public MenuController(Warborn model, JFrame frame, MenuView view){
 		this.model = model;
+		this.frame = frame;
 		this.view = view;
 		JButton[] buttonArray = view.getButtonArray();
 		for(int i = 0; i < buttonArray.length; i++){
@@ -77,7 +83,12 @@ public class MenuController implements ActionListener, ItemListener{
 			//Color choosing
 			for(JButton colorButton : this.view.getColorButtons()){
 				if(buttonPressed == colorButton){
-					colorButton.setBackground(JColorChooser.showDialog(view, "Choose your color", colorButton.getBackground()));
+					//Dialog chooser = JColorChooser.createDialog(view, "Choose your color", true, new JColorChooser(), null, null);
+					//JColorChooser.createDialog(c, title, modal, , okListener, cancelListener)
+					JColorChooser chooser = new JColorChooser(colorButton.getBackground());
+					chooser.setLocation(model.getWidth()/2, model.getHeight()/2);
+					frame.getLayeredPane().add(chooser, JLayeredPane.MODAL_LAYER);
+					//colorButton.setBackground(JColorChooser.showDialog(frame, "Choose your color", colorButton.getBackground()));
 				}
 			}
 		}
