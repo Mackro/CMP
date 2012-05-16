@@ -43,7 +43,8 @@ public class Launcher implements Observer{
 		compatibleDM = screen.getHighestResolutionDisplayMode();
 		model.setDimensions(compatibleDM.getWidth(), compatibleDM.getHeight());
 		frame = new MainFrame(screen.getDefaultGraphicsConfiguration(), model);
-		IntroMovie.play(frame);
+		keyAction = new KeyAction(model, this, frame);
+		IntroMovie.play(frame, keyAction);
 		screen.setFullScreen(compatibleDM, frame);
 		while(IntroMovie.isPlaying()){
 		}
@@ -56,6 +57,7 @@ public class Launcher implements Observer{
 	 * Create the application.
 	 */
 	public Launcher(MainFrame frame) {
+		keyAction = new KeyAction(model, this, frame);
 		screen = new ScreenManager();
 		model = new Warborn();
 		compatibleDM = screen.getHighestResolutionDisplayMode();
@@ -105,7 +107,6 @@ public class Launcher implements Observer{
 	public void createGame(int mapIndex){
 		
 		frame.remove(menu);
-		keyAction = new KeyAction(model, this, frame);
 		model.addObserver(new StatePanelViewCreator(frame));
 		init();
 		
