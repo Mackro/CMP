@@ -1,8 +1,6 @@
 package warborn.view.map;
 
 import java.awt.Color;
-import java.awt.Graphics2D;
-import java.awt.GraphicsDevice;
 import java.awt.Image;
 import java.util.Observable;
 import java.util.Observer;
