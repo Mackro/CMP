@@ -20,7 +20,7 @@ public class RagingElements extends Spell {
 
 	@Override
 	public String getDescription() {
-		return "Destroy 1 troop in target territory  \n \n \" Achtung enraged titan \" ";
+		return "Destroy 2 troop in target territory  \n \n \" Achtung enraged titan \" ";
 	}
 
 	@Override
