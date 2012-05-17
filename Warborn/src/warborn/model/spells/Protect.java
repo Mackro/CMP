@@ -2,6 +2,10 @@ package warborn.model.spells;
 
 public class Protect extends Spell {
 	
+	private final static String DESCRIPTION = "Protects target territory from being attacked or targeted by spells for one turn \n \n \"Always use protection \" ";
+	
+	private final static String NAME = "Protect";
+	
 	private Liveable protectedTerritory;
 	
 	public Protect(int mana) {
@@ -22,12 +26,12 @@ public class Protect extends Spell {
 
 	@Override
 	public String getName() {
-		return "Protect";
+		return NAME;
 	}
 
 	@Override
 	public String getDescription() {
-		return "Protects target territory from being attacked or targeted by spells for one turn \n \n \"Always use protection \" ";
+		return DESCRIPTION;
 	}
 	
 	@Override

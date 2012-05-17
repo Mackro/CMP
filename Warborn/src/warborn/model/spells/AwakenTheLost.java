@@ -1,6 +1,10 @@
 package warborn.model.spells;
 
 public class AwakenTheLost extends Spell {
+	
+	private final static String DESCRIPTION = "Add 1 troop to each territory you control during three rounds \n \n \" Wakey Wakey \" ";
+	
+	private final static String NAME = "Awaken The Lost";
 
 	public AwakenTheLost(int mana) {
 		super(mana);
@@ -13,12 +17,12 @@ public class AwakenTheLost extends Spell {
 
 	@Override
 	public String getName() {
-		return "Awaken The Lost";
+		return NAME;
 	}
 
 	@Override
 	public String getDescription() {
-		return "Add 1 troop to each territory you control during three rounds \n \n \" Wakey Wakey \" ";
+		return DESCRIPTION;
 	}
 
 	@Override

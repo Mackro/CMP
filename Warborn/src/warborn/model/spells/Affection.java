@@ -1,7 +1,11 @@
 package warborn.model.spells;
 
 public class Affection extends Spell{
-
+	
+	private final static String DESCRIPTION  = "Target player expresses his affection towards you \" Love is in the air <3\"";
+			
+	private final static String NAME = "Affection";	
+			
 	public Affection(int mana) {
 		super(mana);
 	}
@@ -13,12 +17,12 @@ public class Affection extends Spell{
 
 	@Override
 	public String getName() {
-		return "Affection";
+		return NAME;
 	}
 
 	@Override
 	public String getDescription() {
-		return "Target player expresses his affection towards you \" Love is in the air <3\"";
+		return DESCRIPTION;
 	}
 
 	@Override

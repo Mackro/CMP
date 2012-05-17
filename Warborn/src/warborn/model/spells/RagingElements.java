@@ -1,6 +1,10 @@
 package warborn.model.spells;
 
 public class RagingElements extends Spell {
+	
+	private final static String DESCRIPTION = "Destroy 2 troop in target territory  \n \n \" Achtung enraged titan \" ";
+			
+	private final static String NAME = "Raging Elements";
 
 	public RagingElements(int mana) {
 		super(mana);
@@ -13,12 +17,12 @@ public class RagingElements extends Spell {
 
 	@Override
 	public String getName() {
-		return "Raging Elements";
+		return NAME;
 	}
 
 	@Override
 	public String getDescription() {
-		return "Destroy 2 troop in target territory  \n \n \" Achtung enraged titan \" ";
+		return DESCRIPTION;
 	}
 
 	@Override

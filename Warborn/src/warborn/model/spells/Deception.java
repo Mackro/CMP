@@ -1,7 +1,10 @@
 package warborn.model.spells;
 
 public class Deception extends Spell {
-
+	
+	private final static String description = "Destroy every troop in one territory and claim it for your own, setting the number of troops to one" + "\n \n \" Mine \" ";
+	private final static String name = "Deception";
+	
 	public Deception(int mana) {
 		super(mana);
 	}
@@ -13,12 +16,12 @@ public class Deception extends Spell {
 
 	@Override
 	public String getName() {
-		return "Purge";
+		return name;
 	}
 
 	@Override
 	public String getDescription() {
-		return "Destroy every troop in one territory and claim it for your own, setting the number of troops to one" + "\n \n \" Mine \" ";
+		return description;
 	}
 
 	@Override

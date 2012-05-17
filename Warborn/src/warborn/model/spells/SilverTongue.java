@@ -1,6 +1,11 @@
 package warborn.model.spells;
 
 public class SilverTongue extends Spell {
+	
+	private final static String DESCRIPTION = "cajole 1 enemy troop in target territory to join your cause " +
+			"\n Use only in your reinforcement phase, on territories with more than 1 troop \n \n \"Come over to the dark side we have... \" "; 
+	
+	private final static String NAME = "Silver Tongue";
 
 	public SilverTongue(int mana) {
 		super(mana);
@@ -13,13 +18,12 @@ public class SilverTongue extends Spell {
 
 	@Override
 	public String getName() {
-		return "Silver Tongue";
+		return NAME;
 	}
 
 	@Override
 	public String getDescription() {
-		return "cajole 1 enemy troop in target territory to join your cause " +
-				"\n Use only in your reinforcement phase, on territories with more than 1 troop \n \n \"Come over to the dark side we have... \" ";
+		return DESCRIPTION;
 	}
 
 	@Override

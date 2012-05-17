@@ -1,7 +1,10 @@
 package warborn.model.spells;
 
 public class FireBall extends Spell {
-
+	
+	private final static String description = "Destroy 3 troops in target territory to a minium of 1 \n \n \" Toast 'em \" ";
+	private final static String name = "Fireball";
+	
 	public FireBall(int mana) {
 		super(mana);
 	}
@@ -13,12 +16,12 @@ public class FireBall extends Spell {
 
 	@Override
 	public String getName() {
-		return "Fireball";
+		return "name";
 	}
 
 	@Override
 	public String getDescription() {
-		return "Destroy 3 troops in target territory to a minium of 1 \n \n \" Toast 'em \" ";
+		return description;
 	}
 
 	@Override

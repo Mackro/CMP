@@ -3,6 +3,10 @@ package warborn.model.spells;
 import java.awt.Color;
 
 public class Confusion extends Spell{
+	
+	private final static String DESCRIPTION = "Swaps the colors of players to increase confusion \"Change is a necessary step in evolution\"";
+	
+	private final static String NAME = "Confusion"; 
 
 	public Confusion(int mana) {
 		super(mana);
@@ -15,12 +19,12 @@ public class Confusion extends Spell{
 
 	@Override
 	public String getName() {
-		return "Confusion";
+		return NAME;
 	}
 
 	@Override
 	public String getDescription() {
-		return "Swaps the colors of players to increase confusion \"Change is a necessary step in evolution\"";
+		return DESCRIPTION;
 	}
 
 	@Override

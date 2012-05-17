@@ -1,5 +1,7 @@
 package warborn.view;
 
+import java.awt.Component;
+import java.awt.Container;
 import java.awt.GridLayout;
 
 import javax.swing.*;
@@ -27,15 +29,13 @@ public class SpellbookView extends JPanel {
 		
 		JPanel page1 = new JPanel();
 		page1.setBounds(55, 11, 350, 554);
-		page1.setBorder(new RoundedBorder(5));
+		setPageParameters(page1);
 		add(page1);
-		page1.setLayout(new GridLayout(3, 1));
 		
 		JPanel page2 = new JPanel();
 		page2.setBounds(410, 11, 350, 554);
-		page2.setBorder(new RoundedBorder(5));
+		setPageParameters(page2);
 		add(page2);
-		page2.setLayout(new GridLayout(3, 1));
 		
 		JLabel spellbooklbl = new JLabel();
 		spellbooklbl.setIcon(new ImageIcon("WarbornData/images/SpellBook.png"));
@@ -43,9 +43,6 @@ public class SpellbookView extends JPanel {
 		add(spellbooklbl);
 		
 		spells = new SpellView[spellbook.getNumberOfSpells()];
-		
-		page1.setOpaque(false);
-		page2.setOpaque(false);
 		
 		for (int i = 0; i < this.spellbook.getNumberOfSpells(); i++){
 			spells[i] = new SpellView(this.spellbook.getSpell(i));
@@ -74,5 +71,12 @@ public class SpellbookView extends JPanel {
 
 	public GenericButton getCloseButton() {
 		return closeButton;
+	}
+	
+	private void setPageParameters(Component page){
+		((JComponent) page).setBorder(new RoundedBorder(5));
+		((JComponent) page).setLayout(new GridLayout(3, 1));
+		((JComponent) page).setOpaque(false);
+
 	}
 }

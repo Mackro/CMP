@@ -1,6 +1,12 @@
 package warborn.model.spells;
 
 public class Conscription extends Spell {
+	
+	private final static String DESCRIPTION =  "add two additional troops to target territory  \n " +
+			"unless you controll 5 or less territories then add 5 troops instead " +
+			"\n \n  \"We need volunteers... you and you follow me\""; 
+	
+	private final static String NAME = "Conscription";
 
 	public Conscription(int mana) {
 		super(mana);
@@ -13,14 +19,12 @@ public class Conscription extends Spell {
 
 	@Override
 	public String getName() {
-		return "Conscription";
+		return NAME;
 	}
 
 	@Override
 	public String getDescription() {
-		return "add two additional troops to target territory  \n " +
-				"unless you controll 5 or less territories then add 5 troops instead " +
-				"\n \n  \"We need volunteers... you and you follow me\"";
+		return DESCRIPTION;
 	}
 
 	@Override

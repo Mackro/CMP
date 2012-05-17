@@ -1,6 +1,10 @@
 package warborn.model.spells;
 
 public class TimeOfTruce extends Spell {
+	
+	private final static String DESCRIPTION = "Protects all territories on the map from being attacked or targeted by spells until each controlling players turn \n \n \"Much work for making sure nothing happens \" "; 
+	
+	private final static String NAME = "Time Of Truce";
 
 	public TimeOfTruce(int mana) {
 		super(mana);
@@ -21,12 +25,12 @@ public class TimeOfTruce extends Spell {
 
 	@Override
 	public String getName() {
-		return "Time Of Truce";
+		return NAME;
 	}
 
 	@Override
 	public String getDescription() {
-		return "Protects all territories on the map from being attacked or targeted by spells until each controlling players turn \n \n \"Much work for making sure nothing happens \" ";
+		return DESCRIPTION;
 	}
 	
 	public boolean isInstant(){

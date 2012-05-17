@@ -2,6 +2,11 @@ package warborn.model.spells;
 
 public class MassCajole extends Spell {
 	
+	private final static String DESCRIPTION = "Destroy 1 troop in each enemy territory to a minimum of 1," +
+			" each troop destroyed this way you get as reinforcements during your reinforcement phase " +
+			"\" The grass is always greener on the other side \" ";
+	
+	private final static String NAME = "Mass Cajole";	
 	private int bonusTroops;
 
 	public MassCajole(int mana) {
@@ -15,14 +20,12 @@ public class MassCajole extends Spell {
 
 	@Override
 	public String getName() {
-		return "Mass Cajole";
+		return NAME;
 	}
 
 	@Override
 	public String getDescription() {
-		return "Destroy 1 troop in each enemy territory to a minimum of 1," +
-				" each troop destroyed this way you get as reinforcements during your reinforcement phase " +
-				"\" The grass is always greener on the other side \" ";
+		return DESCRIPTION;
 	}
 
 	@Override

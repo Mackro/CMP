@@ -1,6 +1,11 @@
 package warborn.model.spells;
 
 public class PurpleRitual extends Spell {
+	
+	private final static String DESCRIPTION = "Sacrifice your remaining reiforcements and destroy twice as many troops in target enemy territory to a minimum of 1. \n " +
+			"Usable only during your reinforcement phase and you have more than 4 reinforcements \n \n \"You're of more use to me this way\" ";
+	
+	private final static String NAME = "Purple Ritual";
 
 	public PurpleRitual(int mana) {
 		super(mana);
@@ -13,13 +18,12 @@ public class PurpleRitual extends Spell {
 
 	@Override
 	public String getName() {
-		return "Purple Ritual";
+		return NAME;
 	}
 
 	@Override
 	public String getDescription() {
-		return "Sacrifice your remaining reiforcements and destroy twice as many troops in target enemy territory to a minimum of 1. \n " +
-				"Usable only during your reinforcement phase and you have more than 4 reinforcements \n \n \"You're of more use to me this way\" ";
+		return DESCRIPTION;
 	}
 
 	@Override

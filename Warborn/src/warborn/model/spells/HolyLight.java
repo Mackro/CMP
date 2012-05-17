@@ -2,9 +2,11 @@ package warborn.model.spells;
 
 public class HolyLight extends Spell {
 
+	private final static String DESCRIPTION = "Reinforce target territory with 4 troops \n \n \"A gift from the skies \" "; 
+	private final static String NAME = "Holy Light";
+	
 	public HolyLight(int mana) {
 		super(mana);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
@@ -19,12 +21,12 @@ public class HolyLight extends Spell {
 
 	@Override
 	public String getName() {
-		return "Holy Light";
+		return NAME;
 	}
 
 	@Override
 	public String getDescription() {
-		return "Reinforce target territory with 4 troops \n \n \"A gift from the skies \" ";
+		return DESCRIPTION;
 	}
 
 }

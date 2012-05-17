@@ -1,6 +1,9 @@
 package warborn.model.spells;
 
 public class Beguile extends Spell{
+	private final static String DESCRIPTION = "The owner of target territory becomes your plaything" + "\n \n \"Come here boy\" ";
+	
+	private final static String NAME = "Beguile";
 
 	public Beguile(int mana) {
 		super(mana);
@@ -14,12 +17,12 @@ public class Beguile extends Spell{
 
 	@Override
 	public String getName() {
-		return "Beguile";
+		return NAME;
 	}
 
 	@Override
 	public String getDescription() { 
-		return "The owner of target territory becomes your plaything" + "\n \n \"Come here boy\" ";
+		return DESCRIPTION;
 	}
 
 	@Override
