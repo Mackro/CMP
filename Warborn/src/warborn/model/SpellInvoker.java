@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
 
-//TestDriv skiten!!!!
 public class SpellInvoker implements Observer{
 	private Warborn model;
 	private ISpell selectedSpell;
