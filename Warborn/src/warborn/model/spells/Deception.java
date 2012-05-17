@@ -2,9 +2,9 @@ package warborn.model.spells;
 
 import warborn.model.Warborn;
 
-public class Purge extends Spell {
+public class Deception extends Spell {
 
-	public Purge(int mana) {
+	public Deception(int mana) {
 		super(mana);
 	}
 

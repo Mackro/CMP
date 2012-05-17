@@ -34,7 +34,7 @@ public final class SpellFactory {
 			case 9:
 				return new SilverTongue(4);
 			case 10:
-				return new Purge(8);
+				return new Deception(8);
 			case 11:
 				return new MassCajole(15);
 			case 12:

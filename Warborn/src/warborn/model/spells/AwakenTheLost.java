@@ -7,12 +7,11 @@ public class AwakenTheLost extends Spell {
 
 	public AwakenTheLost(int mana) {
 		super(mana);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	public boolean validTarget(Warborn model) {
-		return model.getCurrentPlayer() == model.getSelectedTerritory().getOwner();
+		return true;
 	}
 
 	@Override
@@ -22,7 +21,7 @@ public class AwakenTheLost extends Spell {
 
 	@Override
 	public String getDescription() {
-		return "Add 1 troop to each territory you control under three rounds \n \n \" Wakey Wakey \" ";
+		return "Add 1 troop to each territory you control during three rounds \n \n \" Wakey Wakey \" ";
 	}
 
 	@Override
