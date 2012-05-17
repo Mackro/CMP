@@ -24,7 +24,7 @@ public class KeyAction extends AbstractAction{
 	public void actionPerformed(ActionEvent evt) {
 		if(evt.getID() == 1001){
 			if(IntroMovie.isPlaying()){
-				//skip intro movie
+				//skip intro-movie
 				IntroMovie.stopPlaying(mainFrame);
 			}else{
 				//Open Options Menu
@@ -32,10 +32,6 @@ public class KeyAction extends AbstractAction{
 				new OptionsMenuController(view, launcher, mainFrame);
 			}
 		}
-	}
-
-	public void addMainFrame(MainFrame main){
-		mainFrame = main;
 	}
 
 }

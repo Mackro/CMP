@@ -61,12 +61,12 @@ public class Launcher implements Observer{
 	 * Create the application.
 	 */
 	public Launcher(MainFrame frame) {
-		keyAction = new KeyAction(model, this, frame);
 		screen = new ScreenManager();
 		model = new Warborn();
 		compatibleDM = screen.getHighestResolutionDisplayMode();
 		model.setDimensions(compatibleDM.getWidth(), compatibleDM.getHeight());
 		this.frame = frame;
+		keyAction = new KeyAction(model, this, frame);
 		initialize();
 		model.addObserver(this);
 	}

@@ -165,11 +165,11 @@ public class SelectionPanel extends JPanel {
 	}
 	
 	public int[] getGods(){
-		int[] backgrounds = new int[pPlayer.getComponentCount()];
+		int[] gods = new int[pPlayer.getComponentCount()];
 		for(int i = 0; i < pPlayer.getComponentCount(); i++){
-			backgrounds[i] = ((PlayerSelectionPanel)(pPlayer.getComponent(i))).getPlayerGod();
+			gods[i] = ((PlayerSelectionPanel)(pPlayer.getComponent(i))).getPlayerGod();
 		}
-		return backgrounds;
+		return gods;
 	}
 	
 	public int getSelectedMapIndex(){

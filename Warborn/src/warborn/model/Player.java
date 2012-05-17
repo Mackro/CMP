@@ -17,18 +17,17 @@ public class Player {
 	private Soul[] cards = new Soul[5];
 	private boolean hasConquered, defeated;
 	private Spellbook spellbook;
-	
+
 	public Player(String name, int id, Color color, int race, int god){
-		if(race==3 || god==3){
-			double d = Math.random()*3;
-			if(race>2){
-				System.out.println(d);
-				race = (int) (d);
-			}
-			if(god>2){
-				System.out.println(d);
-				god = (int) (d);
-			}
+		if(race==PlayerData.getNumberOfRaces()){
+			double d = Math.random()*race;
+			System.out.println(d);
+			race = (int) (d);
+		}
+		if(god==PlayerData.getNumberOfGods()){
+			double d = Math.random()*god;
+			System.out.println(d);
+			god = (int) (d);
 		}
 		this.name = name;
 		this.godName = PlayerData.getGodName(god);
@@ -45,36 +44,36 @@ public class Player {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public int getID(){
 		return id;
 	}
-	
+
 	public int getNbrOfTerritories(){
 		return nbrOfTerritories;
 	}
-	
+
 	public Color getColor(){
 		Color copiedColor = new Color(color.getRed(), color.getGreen(), color.getBlue());
 		return copiedColor;
 	}
-	
+
 	public String getName(){
 		return name;
 	}
-	
+
 	public String getFullName(){
 		return  name + " of " + godName + "\n" + additionalName;
 	}
-	
+
 	public int getRaceIndex(){
 		return race;
 	}
-	
+
 	public int getBackgroundIndex(){
 		return god;
 	}
-	
+
 	public Soul[] getCards(){
 		return cards;
 	}
@@ -87,39 +86,39 @@ public class Player {
 		}
 		return cards.length;
 	}
-	
+
 	public Soul getCard(int index){
 		return cards[index];
 	}
-	
+
 	public int getMana(){
 		return mana;
 	}
-	
+
 	public Spellbook getSpellbook(){
 		return spellbook;
 	}
-	
+
 	public void setColor(Color color){
 		Color copiedColor = new Color(color.getRed(), color.getGreen(), color.getBlue());
 		this.color = copiedColor;
 	}
-	
+
 	public void setName(String name){
 		this.name = name;
 	}
 	public void setAdditionalName(String additionalName){
 		this.additionalName = additionalName;
 	}
-	
+
 	public void defeated(boolean defeat){
 		this.defeated = defeat;
 	}
-	
+
 	public boolean hasConquered(){
 		return hasConquered;
 	}
-	
+
 	public boolean isDefeated(){
 		return defeated;
 	}
@@ -128,12 +127,12 @@ public class Player {
 		toAdd.setOwner(this);
 		nbrOfTerritories++;
 	}
-	
+
 	public void removeTerritory(){
 		nbrOfTerritories--;
 	}
-	
-	
+
+
 	public void addCard(Soul newCard){
 		for(int i = 0; i < cards.length; i++){
 			if(cards[i] == null){
@@ -156,7 +155,7 @@ public class Player {
 		}
 	}
 
-	
+
 	public boolean canExchangeSouls(){
 		int[] nbrOfCards = new int[SoulTomb.getMaxValue()];
 		for (int i = 0; i < getNumberOfCards(); i++){
@@ -172,11 +171,11 @@ public class Player {
 		}
 		return true;
 	}
-	
+
 	public void conquered(boolean b){
 		hasConquered = b;
 	}
-	
+
 	public void changeMana(int mana){
 		this.mana = this.mana + mana;
 	}

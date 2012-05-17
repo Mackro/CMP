@@ -5,18 +5,18 @@ import javax.swing.ImageIcon;
 public class SoulTomb {
 	private ImageIcon lesserImage, commonImage, greaterImage;
 	private final String LESSERSOUL = "Lesser Soul", COMMONSOUL = "Common Soul", GREATERSOUL = "Greater Soul"; 
-	
+
 	public SoulTomb(){
-		
-	lesserImage = new ImageIcon("WarbornData/images/infantry.png");
-	commonImage = new ImageIcon("WarbornData/images/cavalry.png");
-	greaterImage = new ImageIcon("WarbornData/images/artillery.png");
+
+		lesserImage = new ImageIcon("WarbornData/images/infantry.png");
+		commonImage = new ImageIcon("WarbornData/images/cavalry.png");
+		greaterImage = new ImageIcon("WarbornData/images/artillery.png");
 	}
-	
+
 	public static int getMaxValue(){
 		return 3;
 	}
-	
+
 	public Soul drawCard(){
 		double d = Math.random()*getMaxValue();
 		int i = (int)d;
@@ -32,5 +32,5 @@ public class SoulTomb {
 			return new Soul("Something went wrong!!", null, -1);
 		}	
 	}
-	
+
 }

@@ -156,7 +156,7 @@ public class MenuView extends JPanel {
 		return pSelection.getRaces();
 	}
 	
-	public int[] getBackgrounds(){
+	public int[] getGods(){
 		return pSelection.getGods();
 	}
 	
