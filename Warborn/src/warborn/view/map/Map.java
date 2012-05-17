@@ -1,6 +1,8 @@
 package warborn.view.map;
 
 import java.awt.Color;
+import java.awt.Graphics2D;
+import java.awt.GraphicsDevice;
 import java.awt.Image;
 import java.util.Observable;
 import java.util.Observer;
@@ -51,6 +53,8 @@ public abstract class Map extends JPanel implements Observer {
 		I = I.getScaledInstance(model.getWidth(),
 				(int) ((model.getHeight()) * 0.75), 0);
 		maplbl.setIcon(new ImageIcon(I));
+		
+		add(maplbl, 0);
 
 		for (int i = 0; i < model.getTerritories().length; i++) {
 
@@ -61,13 +65,11 @@ public abstract class Map extends JPanel implements Observer {
 			buttons[i].setBounds(
 					(int) (model.getWidth() * scalingConstants[i][0]),
 					(int) (model.getHeight() * scalingConstants[i][1]), 50, 45);
-		}
-
-		add(maplbl, 0);
-		for (int i = 0; i < model.getTerritories().length; i++) {
+			
 			add(buttons[i], 0);
 		}
-			update(null, null);
+
+		update(null, null);
 	}
 
 	public JButton[] getButtons() {
@@ -91,7 +93,6 @@ public abstract class Map extends JPanel implements Observer {
 			this.requestFocus();
 			
 			for (int i = 0; i < buttons.length; i++) {
-				buttons[i].setText(Integer.toString(model.getTerritory(i).getNbrOfUnits()));
 				buttons[i].setBackground(model.getTerritory(i).getOwner().getColor());
 				
 				
@@ -109,12 +110,13 @@ public abstract class Map extends JPanel implements Observer {
 							buttons[i].getBackground().getBlue(), hsbFloats);
 					buttons[i].setBackground(Color.getHSBColor(hsbFloats[0],hsbFloats[1]/2,hsbFloats[2]+((1-hsbFloats[2])/2)));
 					buttons[i].setBorder(BorderFactory.createSoftBevelBorder(BevelBorder.RAISED, Color.WHITE, Color.gray));
+					buttons[i].setText(Integer.toString(model.getTerritory(i).getNbrOfUnits()));
 				}
 			}
 			if (model.getSelectedTerritoryIndex() > -1) {
 				buttons[model.getSelectedTerritoryIndex()]
-						.setBackground(Color.GRAY);
-			}
+						.setBackground(buttons[model.getSelectedTerritoryIndex()].getBackground().brighter());
+			}			
 		}
 	}
 }
