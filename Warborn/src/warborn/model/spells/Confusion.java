@@ -2,8 +2,6 @@ package warborn.model.spells;
 
 import java.awt.Color;
 
-import warborn.model.Warborn;
-
 public class Confusion extends Spell{
 
 	public Confusion(int mana) {
@@ -11,7 +9,7 @@ public class Confusion extends Spell{
 	}
 
 	@Override
-	public boolean validTarget(Warborn model) {
+	public boolean validTarget(SpellTargetable target) {
 		return true;
 	}
 
@@ -26,12 +24,12 @@ public class Confusion extends Spell{
 	}
 
 	@Override
-	public void invoke(Warborn model) {
-		Color temp = model.getPlayer(0).getColor();
-		for(int i = 1; i < model.getNumberOfPlayers(); i++){
-			model.getPlayer(i-1).setColor(model.getPlayer(i).getColor());
+	public void invoke(SpellTargetable target) {
+		Color temp = target.getPlayer(0).getColor();
+		for(int i = 1; i < target.getNumberOfPlayers(); i++){
+			target.getPlayer(i-1).setColor(target.getPlayer(i).getColor());
 		}
-		model.getPlayer((model.getPlayers().length)-1).setColor(temp);
+		target.getPlayer((target.getPlayers().length)-1).setColor(temp);
 	}
 	
 	@Override

@@ -2,7 +2,9 @@ package warborn.model;
 
 import java.util.ArrayList;
 
-public class Territory {
+import warborn.model.spells.Liveable;
+
+public class Territory implements Liveable{
 	
 	private ArrayList <Territory> connections;
 	private Player owner;

@@ -1,8 +1,5 @@
 package warborn.model.spells;
 
-import warborn.model.Territory;
-import warborn.model.Warborn;
-
 public class MassCajole extends Spell {
 	
 	private int bonusTroops;
@@ -12,7 +9,7 @@ public class MassCajole extends Spell {
 	}
 
 	@Override
-	public boolean validTarget(Warborn model) {
+	public boolean validTarget(SpellTargetable target) {
 		return true;
 	}
 
@@ -23,26 +20,25 @@ public class MassCajole extends Spell {
 
 	@Override
 	public String getDescription() {
-		// TODO Auto-generated method stub
 		return "Destroy 1 troop in each enemy territory to a minimum of 1," +
 				" each troop destroyed this way you get as reinforcements during your reinforcement phase " +
 				"\" The grass is always greener on the other side \" ";
 	}
 
 	@Override
-	public void invoke(Warborn model) {
-		setTimer(model.getNumberOfPlayers());
-		for(Territory territory : model.getTerritories()){
-			if(territory.getOwner() != model.getCurrentPlayer()){
+	public void invoke(SpellTargetable target) {
+		setTimer(target.getNumberOfPlayers());
+		for(Liveable territory : target.getTerritories()){
+			if(territory.getOwner() != target.getCurrentPlayer()){
 				bonusTroops++;
 			}
 		}
 	}
 	
-	public void tick(Warborn warborn){
+	public void tick(SpellTargetable target){
 		decrementTimer();
 		if(getTimer() == 0){
-			warborn.setNbrOfReinforcements(warborn.getNbrOfReinforcements() + bonusTroops);
+			target.setNbrOfReinforcements(target.getNbrOfReinforcements() + bonusTroops);
 		}
 	}
 	

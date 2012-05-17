@@ -1,7 +1,5 @@
 package warborn.model.spells;
 
-import warborn.model.Warborn;
-
 public class HolyLight extends Spell {
 
 	public HolyLight(int mana) {
@@ -10,13 +8,13 @@ public class HolyLight extends Spell {
 	}
 
 	@Override
-	public void invoke(Warborn model) {
-		model.getSelectedTerritory().incrementUnits(3);
+	public void invoke(SpellTargetable target) {
+		target.getSelectedTerritory().incrementUnits(3);
 		
 	}
 	@Override
-	public boolean validTarget(Warborn model) {
-		return model.getSelectedTerritory().getOwner() == model.getCurrentPlayer();
+	public boolean validTarget(SpellTargetable target) {
+		return target.getSelectedTerritory().getOwner() == target.getCurrentPlayer();
 	}
 
 	@Override

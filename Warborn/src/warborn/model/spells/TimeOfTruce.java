@@ -1,8 +1,5 @@
 package warborn.model.spells;
 
-import warborn.model.Territory;
-import warborn.model.Warborn;
-
 public class TimeOfTruce extends Spell {
 
 	public TimeOfTruce(int mana) {
@@ -10,15 +7,15 @@ public class TimeOfTruce extends Spell {
 	}
 
 	@Override
-	public void invoke(Warborn model) {
+	public void invoke(SpellTargetable target) {
 		this.setTimer(0);
-		for(Territory territory : model.getTerritories()){
+		for(Liveable territory : target.getTerritories()){
 			territory.setProtected(true);
 		}
 	}
 
 	@Override
-	public boolean validTarget(Warborn model) {
+	public boolean validTarget(SpellTargetable target) {
 		return true;
 	}
 

@@ -3,7 +3,6 @@ package warborn.model.spells;
 import static org.junit.Assert.*;
 import org.junit.*;
 
-import warborn.model.SpellInvoker;
 import warborn.model.Warborn;
 
 public class SpellInvokerTest {

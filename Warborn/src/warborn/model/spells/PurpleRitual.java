@@ -1,7 +1,5 @@
 package warborn.model.spells;
 
-import warborn.model.Warborn;
-
 public class PurpleRitual extends Spell {
 
 	public PurpleRitual(int mana) {
@@ -9,8 +7,8 @@ public class PurpleRitual extends Spell {
 	}
 
 	@Override
-	public boolean validTarget(Warborn model) {
-		return (model.getNbrOfReinforcements() <= 4) && (model.getSelectedTerritory().getOwner() != model.getCurrentPlayer()) && (model.getState() == 1);
+	public boolean validTarget(SpellTargetable target) {
+		return (target.getNbrOfReinforcements() <= 4) && (target.getSelectedTerritory().getOwner() != target.getCurrentPlayer()) && (target.getState() == 1);
 	}
 
 	@Override
@@ -25,14 +23,14 @@ public class PurpleRitual extends Spell {
 	}
 
 	@Override
-	public void invoke(Warborn model) {
-		if(model.getSelectedTerritory().getNbrOfUnits() <= model.getNbrOfReinforcements()*2){
-			model.getSelectedTerritory().setNbrOfUnits(1);
+	public void invoke(SpellTargetable target) {
+		if(target.getSelectedTerritory().getNbrOfUnits() <= target.getNbrOfReinforcements()*2){
+			target.getSelectedTerritory().setNbrOfUnits(1);
 		}
 		else{
-			model.getSelectedTerritory().decrementUnits(model.getNbrOfReinforcements()*2);		
+			target.getSelectedTerritory().decrementUnits(target.getNbrOfReinforcements()*2);		
 		}
-		model.setNbrOfReinforcements(0);
+		target.setNbrOfReinforcements(0);
 	}	
 
 }

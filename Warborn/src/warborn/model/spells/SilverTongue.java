@@ -1,7 +1,5 @@
 package warborn.model.spells;
 
-import warborn.model.Warborn;
-
 public class SilverTongue extends Spell {
 
 	public SilverTongue(int mana) {
@@ -9,8 +7,8 @@ public class SilverTongue extends Spell {
 	}
 
 	@Override
-	public boolean validTarget(Warborn model) {
-		return (model.getSelectedTerritory().getNbrOfUnits() > 1) && (model.getSelectedTerritory().getOwner() != model.getCurrentPlayer()) && (model.getState() == 1);
+	public boolean validTarget(SpellTargetable target) {
+		return (target.getSelectedTerritory().getNbrOfUnits() > 1) && (target.getSelectedTerritory().getOwner() != target.getCurrentPlayer()) && (target.getState() == 1);
 	}
 
 	@Override
@@ -25,9 +23,9 @@ public class SilverTongue extends Spell {
 	}
 
 	@Override
-	public void invoke(Warborn model) {
-		model.getSelectedTerritory().decrementUnit();
-		model.setNbrOfReinforcements(model.getNbrOfReinforcements()+1);
+	public void invoke(SpellTargetable target) {
+		target.getSelectedTerritory().decrementUnit();
+		target.setNbrOfReinforcements(target.getNbrOfReinforcements()+1);
 	}
 
 }

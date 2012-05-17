@@ -1,8 +1,5 @@
 package warborn.model.spells;
 
-import warborn.model.Territory;
-import warborn.model.Warborn;
-
 public class AwakenTheLost extends Spell {
 
 	public AwakenTheLost(int mana) {
@@ -10,7 +7,7 @@ public class AwakenTheLost extends Spell {
 	}
 
 	@Override
-	public boolean validTarget(Warborn model) {
+	public boolean validTarget(SpellTargetable target) {
 		return true;
 	}
 
@@ -25,20 +22,20 @@ public class AwakenTheLost extends Spell {
 	}
 
 	@Override
-	public void invoke(Warborn model) {
-		setTimer(model.getNumberOfPlayers()*3);
-		for(Territory territory : model.getTerritories()){
-			if(territory.getOwner() == model.getCurrentPlayer()){
+	public void invoke(SpellTargetable target) {
+		setTimer(target.getNumberOfPlayers()*3);
+		for(Liveable territory : target.getTerritories()){
+			if(territory.getOwner() == target.getCurrentPlayer()){
 				territory.incrementUnit();
 			}
 		}
 	}
 	
-	public void tick(Warborn model){
+	public void tick(SpellTargetable target){
 		decrementTimer();
-		if(getTimer() % model.getNumberOfPlayers() == 0){
-			for(Territory territory : model.getTerritories()){
-				if(territory.getOwner() == model.getCurrentPlayer()){
+		if(getTimer() % target.getNumberOfPlayers() == 0){
+			for(Liveable territory : target.getTerritories()){
+				if(territory.getOwner() == target.getCurrentPlayer()){
 					territory.incrementUnit();
 				}
 			}

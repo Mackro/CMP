@@ -1,25 +1,22 @@
 package warborn.model.spells;
 
-import warborn.model.Territory;
-import warborn.model.Warborn;
-
 public class Protect extends Spell {
 	
-	private Territory protectedTerritory;
+	private Liveable protectedTerritory;
 	
 	public Protect(int mana) {
 		super(mana);
 	}
 
 	@Override
-	public void invoke(Warborn model) {
-		setTimer(model.getNumberOfPlayers()-1);
-		protectedTerritory = model.getSelectedTerritory();
+	public void invoke(SpellTargetable target) {
+		setTimer(target.getNumberOfPlayers()-1);
+		protectedTerritory = target.getSelectedTerritory();
 		protectedTerritory.setProtected(true);
 	}
 
 	@Override
-	public boolean validTarget(Warborn model) {
+	public boolean validTarget(SpellTargetable target) {
 		return true;
 	}
 
@@ -34,7 +31,7 @@ public class Protect extends Spell {
 	}
 	
 	@Override
-	public void tick(Warborn model){
+	public void tick(SpellTargetable target){
 		decrementTimer();
 		if(getTimer() > 0){
 			protectedTerritory.setProtected(true);

@@ -1,7 +1,5 @@
 package warborn.model.spells;
 
-import warborn.model.Warborn;
-
 public class Conscription extends Spell {
 
 	public Conscription(int mana) {
@@ -9,8 +7,8 @@ public class Conscription extends Spell {
 	}
 
 	@Override
-	public boolean validTarget(Warborn model) {
-		return model.getSelectedTerritory().getOwner() == model.getCurrentPlayer();
+	public boolean validTarget(SpellTargetable target) {
+		return target.getSelectedTerritory().getOwner() == target.getCurrentPlayer();
 	}
 
 	@Override
@@ -26,12 +24,12 @@ public class Conscription extends Spell {
 	}
 
 	@Override
-	public void invoke(Warborn model) {
-		if(model.getCurrentPlayer().getNbrOfTerritories() > 5){
-			model.getSelectedTerritory().incrementUnits(2);
+	public void invoke(SpellTargetable target) {
+		if(target.getCurrentPlayer().getNbrOfTerritories() > 5){
+			target.getSelectedTerritory().incrementUnits(2);
 		}
 		else {
-			model.getSelectedTerritory().incrementUnits(5);
+			target.getSelectedTerritory().incrementUnits(5);
 		}
 	}
 }

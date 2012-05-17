@@ -1,7 +1,5 @@
 package warborn.model.spells;
 
-import warborn.model.Warborn;
-
 public class Deception extends Spell {
 
 	public Deception(int mana) {
@@ -9,8 +7,8 @@ public class Deception extends Spell {
 	}
 
 	@Override
-	public boolean validTarget(Warborn model) {
-		return model.getSelectedTerritory().getOwner() != model.getCurrentPlayer(); //&& model.getSelectedTerritory().hasConnection(model.getCurrentPlayer().);
+	public boolean validTarget(SpellTargetable target) {
+		return target.getSelectedTerritory().getOwner() != target.getCurrentPlayer(); //&& model.getSelectedTerritory().hasConnection(model.getCurrentPlayer().);
 	}
 
 	@Override
@@ -20,14 +18,13 @@ public class Deception extends Spell {
 
 	@Override
 	public String getDescription() {
-		// TODO Auto-generated method stub
 		return "Destroy every troop in one territory and claim it for your own, setting the number of troops to one" + "\n \n \" Mine \" ";
 	}
 
 	@Override
-	public void invoke(Warborn model) {
-		model.getCurrentPlayer().addTerritory(model.getSelectedTerritory());
-		model.getSelectedTerritory().setNbrOfUnits(1);		
+	public void invoke(SpellTargetable target) {
+		target.getCurrentPlayer().addTerritory(target.getSelectedTerritory());
+		target.getSelectedTerritory().setNbrOfUnits(1);		
 	}
 
 }

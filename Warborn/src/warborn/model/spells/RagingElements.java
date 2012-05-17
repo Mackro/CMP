@@ -1,7 +1,5 @@
 package warborn.model.spells;
 
-import warborn.model.Warborn;
-
 public class RagingElements extends Spell {
 
 	public RagingElements(int mana) {
@@ -9,8 +7,8 @@ public class RagingElements extends Spell {
 	}
 
 	@Override
-	public boolean validTarget(Warborn model) {
-		return 	(model.getSelectedTerritory().getNbrOfUnits() > 1) && (model.getSelectedTerritory().getOwner() != model.getCurrentPlayer());
+	public boolean validTarget(SpellTargetable target) {
+		return 	(target.getSelectedTerritory().getNbrOfUnits() > 1) && (target.getSelectedTerritory().getOwner() != target.getCurrentPlayer());
 	}
 
 	@Override
@@ -24,8 +22,8 @@ public class RagingElements extends Spell {
 	}
 
 	@Override
-	public void invoke(Warborn model) {
-		model.getSelectedTerritory().decrementUnits(2);
+	public void invoke(SpellTargetable target) {
+		target.getSelectedTerritory().decrementUnits(2);
 	}
 
 }

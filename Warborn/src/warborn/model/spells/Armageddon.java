@@ -1,8 +1,5 @@
 package warborn.model.spells;
 
-import warborn.model.Territory;
-import warborn.model.Warborn;
-
 public class Armageddon extends Spell {
 
 	public Armageddon(int mana) {
@@ -10,7 +7,7 @@ public class Armageddon extends Spell {
 	}
 
 	@Override
-	public boolean validTarget(Warborn model) {
+	public boolean validTarget(SpellTargetable target) {
 		return true;
 	}
 
@@ -25,9 +22,9 @@ public class Armageddon extends Spell {
 	}
 
 	@Override
-	public void invoke(Warborn model) {
+	public void invoke(SpellTargetable model) {
 		setTimer(model.getPlayers().length);
-		for(Territory territory : model.getTerritories()){
+		for(Liveable territory : model.getTerritories()){
 			if(territory.getNbrOfUnits() < 6){
 				territory.setNbrOfUnits(1);
 			}
@@ -38,10 +35,10 @@ public class Armageddon extends Spell {
 	}
 	
 	@Override
-	public void tick(Warborn model){
+	public void tick(SpellTargetable model){
 		decrementTimer();
 		if(getTimer() == 0){
-			for(Territory terry : model.getTerritories()){
+			for(Liveable terry : model.getTerritories()){
 				if(terry.getNbrOfUnits() < 2){
 					terry.setNbrOfUnits(1);
 				}else{

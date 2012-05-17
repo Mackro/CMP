@@ -4,9 +4,9 @@ import java.awt.Color;
 import java.io.IOException;
 
 import warborn.constants.PlayerData;
-import warborn.model.spells.Spellbook;
+import warborn.model.spells.*;
 
-public class Player {
+public class Player implements LandOwner{
 
 	private int id, nbrOfTerritories = 0, mana = 2;
 	private String name;
@@ -121,6 +121,11 @@ public class Player {
 
 	public boolean isDefeated(){
 		return defeated;
+	}
+
+	@Override
+	public void addTerritory(Liveable toAdd) {
+		this.addTerritory(toAdd);
 	}
 
 	public void addTerritory(Territory toAdd){

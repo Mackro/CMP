@@ -1,7 +1,5 @@
 package warborn.model.spells;
 
-import warborn.model.Warborn;
-
 public class Beguile extends Spell{
 
 	public Beguile(int mana) {
@@ -10,8 +8,8 @@ public class Beguile extends Spell{
 	}
 
 	@Override
-	public boolean validTarget(Warborn model) {
-		return model.getSelectedTerritory().getOwner() != model.getCurrentPlayer();
+	public boolean validTarget(SpellTargetable target) {
+		return target.getSelectedTerritory().getOwner() != target.getCurrentPlayer();
 	}
 
 	@Override
@@ -25,8 +23,8 @@ public class Beguile extends Spell{
 	}
 
 	@Override
-	public void invoke(Warborn model) {
-		model.getSelectedTerritory().getOwner().setAdditionalName(" Plaything of " + model.getCurrentPlayer().getName());
+	public void invoke(SpellTargetable target) {
+		target.getSelectedTerritory().getOwner().setAdditionalName(" Plaything of " + target.getCurrentPlayer().getName());
 	}
 
 }

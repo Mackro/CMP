@@ -1,7 +1,5 @@
 package warborn.model.spells;
 
-import warborn.model.Warborn;
-
 public class FireBall extends Spell {
 
 	public FireBall(int mana) {
@@ -9,8 +7,8 @@ public class FireBall extends Spell {
 	}
 
 	@Override
-	public boolean validTarget(Warborn model) {
-		return model.getSelectedTerritory().getOwner() != model.getCurrentPlayer();
+	public boolean validTarget(SpellTargetable target) {
+		return target.getSelectedTerritory().getOwner() != target.getCurrentPlayer();
 	}
 
 	@Override
@@ -24,12 +22,12 @@ public class FireBall extends Spell {
 	}
 
 	@Override
-	public void invoke(Warborn model) {
-		if(model.getSelectedTerritory().getNbrOfUnits() < 4){
-			model.getSelectedTerritory().setNbrOfUnits(1);
+	public void invoke(SpellTargetable target) {
+		if(target.getSelectedTerritory().getNbrOfUnits() < 4){
+			target.getSelectedTerritory().setNbrOfUnits(1);
 		}
 		else{
-			model.getSelectedTerritory().setNbrOfUnits(model.getSelectedTerritory().getNbrOfUnits() - 3);
+			target.getSelectedTerritory().setNbrOfUnits(target.getSelectedTerritory().getNbrOfUnits() - 3);
 		}
 	}
 

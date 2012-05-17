@@ -1,7 +1,5 @@
 package warborn.model.spells;
 
-import warborn.model.Warborn;
-
 public class Affection extends Spell{
 
 	public Affection(int mana) {
@@ -9,8 +7,8 @@ public class Affection extends Spell{
 	}
 
 	@Override
-	public boolean validTarget(Warborn model) {
-		return model.getSelectedTerritory().getOwner() != model.getCurrentPlayer();
+	public boolean validTarget(SpellTargetable target) {
+		return target.getSelectedTerritory().getOwner() != target.getCurrentPlayer();
 	}
 
 	@Override
@@ -24,8 +22,8 @@ public class Affection extends Spell{
 	}
 
 	@Override
-	public void invoke(Warborn model) {
-		model.getSelectedTerritory().getOwner().setAdditionalName(" <3 " + model.getCurrentPlayer().getName());
+	public void invoke(SpellTargetable target) {
+		target.getSelectedTerritory().getOwner().setAdditionalName(" <3 " + target.getCurrentPlayer().getName());
 	}
 
 }

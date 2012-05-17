@@ -9,9 +9,9 @@ import java.util.Random;
 
 import warborn.constants.MapData;
 import warborn.constants.PlayerData;
+import warborn.model.spells.SpellTargetable;
 
-
-public class Warborn extends Observable{
+public class Warborn extends Observable implements SpellTargetable{
 
 	private ArrayList<Player> players;
 	private Territory[] territories;
@@ -346,7 +346,7 @@ public class Warborn extends Observable{
 	}
 
 
-	protected void changed() {
+	public void changed() {
 		setChanged();
 		notifyObservers();
 	}

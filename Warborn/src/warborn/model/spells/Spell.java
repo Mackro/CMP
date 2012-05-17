@@ -4,18 +4,15 @@ import java.awt.Image;
 
 import javax.swing.ImageIcon;
 
-import warborn.model.ISpell;
-import warborn.model.Warborn;
-
-public abstract class Spell implements ISpell{
+public abstract class Spell{
 	
 	private int manaCost;
 	private int timer = 0;
 	
-	public abstract boolean validTarget(Warborn model);
+	public abstract boolean validTarget(SpellTargetable target);
 	public abstract String getName();
 	public abstract String getDescription();
-	public abstract void invoke (Warborn model);
+	public abstract void invoke (SpellTargetable target);
 	
 	public Spell(int mana){
 		manaCost = mana;
@@ -25,7 +22,7 @@ public abstract class Spell implements ISpell{
 		return new ImageIcon("WarbornData/images/spells/" + getName().replaceAll(" ", "") + ".png").getImage();
 	}
 	
-	public void tick(Warborn model){
+	public void tick(SpellTargetable model){
 		;//Does nothing by default. Is overrided if necessary.
 	}
 	
