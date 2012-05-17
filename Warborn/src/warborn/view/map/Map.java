@@ -108,12 +108,11 @@ public abstract class Map extends JPanel implements Observer {
 							buttons[i].getBackground().getBlue(), hsbFloats);
 					buttons[i].setBackground(Color.getHSBColor(hsbFloats[0],hsbFloats[1]/2,hsbFloats[2]+((1-hsbFloats[2])/2)));
 					buttons[i].setBorder(BorderFactory.createSoftBevelBorder(BevelBorder.RAISED, Color.WHITE, Color.gray));
-					buttons[i].setText(Integer.toString(model.getTerritory(i).getNbrOfUnits()));
 				}
+				buttons[i].setText(Integer.toString(model.getTerritory(i).getNbrOfUnits()));
 			}
 			if (model.getSelectedTerritoryIndex() > -1) {
-				buttons[model.getSelectedTerritoryIndex()]
-						.setBackground(buttons[model.getSelectedTerritoryIndex()].getBackground().brighter());
+				buttons[model.getSelectedTerritoryIndex()].setBackground(Color.lightGray);
 			}			
 		}
 	}
