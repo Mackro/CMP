@@ -149,14 +149,13 @@ public class Warborn extends Observable implements SpellTargetable{
 	public void setSelectedTerritory(int id){
 		
 		if (selectedTerritory != id){
-			if(state == 1){
-				if(spellLoaded){
-					selectedTerritory = id;
-				}else if(players.get(currentPlayer) == territories[id].getOwner() && nbrOfReinforcements > 0){
-					territories[id].incrementUnit();
-					nbrOfReinforcements--;
-				}
-			}else if(state==0 && players.get(currentPlayer) == territories[id].getOwner()){
+			if(spellLoaded){
+				selectedTerritory = id;
+			}else if(state==1 && players.get(currentPlayer) == territories[id].getOwner() && nbrOfReinforcements > 0){
+				territories[id].incrementUnit();
+				nbrOfReinforcements--;
+			}
+			else if(state==0 && players.get(currentPlayer) == territories[id].getOwner()){
 				territories[id].incrementUnit();
 				this.currentPlayer = (++this.currentPlayer)%players.size();
 				startPhases--;
@@ -167,8 +166,9 @@ public class Warborn extends Observable implements SpellTargetable{
 				;
 			}else if(state != 1){
 				if(selectedTerritory == -1 && players.get(currentPlayer) != territories[id].getOwner()){
-					selectedTerritory = id;
-					
+					if (state !=3){
+						selectedTerritory = id;
+					}
 				}else if((selectedTerritory == -1 || territories[selectedTerritory].getOwner() != players.get(currentPlayer)) &&
 											players.get(currentPlayer) == territories[id].getOwner()){
 					battle.add(territories[id]);

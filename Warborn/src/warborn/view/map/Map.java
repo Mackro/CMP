@@ -91,9 +91,8 @@ public abstract class Map extends JPanel implements Observer {
 			this.requestFocus();
 			
 			for (int i = 0; i < buttons.length; i++) {
+				buttons[i].setText(Integer.toString(model.getTerritory(i).getNbrOfUnits()));
 				buttons[i].setBackground(model.getTerritory(i).getOwner().getColor());
-				
-				
 				if (buttons[i].getBackground().getRed()
 						+ buttons[i].getBackground().getGreen()
 						+ buttons[i].getBackground().getBlue() < 250) {
@@ -102,14 +101,13 @@ public abstract class Map extends JPanel implements Observer {
 					buttons[i].setForeground(Color.BLACK);
 				}
 				if (model.getTerritory(i).isProtected()) {
-					float[] hsbFloats = {0,0,0};
+					float[] hsbFloats = {0f,0f,0f};
 					Color.RGBtoHSB(buttons[i].getBackground().getRed(),
 							buttons[i].getBackground().getGreen(),
 							buttons[i].getBackground().getBlue(), hsbFloats);
 					buttons[i].setBackground(Color.getHSBColor(hsbFloats[0],hsbFloats[1]/2,hsbFloats[2]+((1-hsbFloats[2])/2)));
 					buttons[i].setBorder(BorderFactory.createSoftBevelBorder(BevelBorder.RAISED, Color.WHITE, Color.gray));
 				}
-				buttons[i].setText(Integer.toString(model.getTerritory(i).getNbrOfUnits()));
 			}
 			if (model.getSelectedTerritoryIndex() > -1) {
 				buttons[model.getSelectedTerritoryIndex()].setBackground(Color.lightGray);
