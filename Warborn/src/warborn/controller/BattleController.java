@@ -12,6 +12,7 @@ public class BattleController implements ActionListener{
 	private Warborn model;
 	private BattleView view;
 	private JFrame frame;
+	private final static int ATTACKONCE = 0, AUTOATTACK = 1, RETREAT = 2;
 	
 	public BattleController(Warborn model, JFrame frame, BattleView view){
 		this.frame = frame;
@@ -24,15 +25,15 @@ public class BattleController implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if((e).getSource() == view.getButtons()[0]){
+		if((e).getSource() == view.getButtons()[ATTACKONCE]){
 			view.logUpdate(model.getBattle().fight());
 		}
-		if((e).getSource() == view.getButtons()[1]){
+		if((e).getSource() == view.getButtons()[AUTOATTACK]){
 			while(model.getBattle().getFirstTerritory().getNbrOfUnits() > 1 && (model.getBattle().getSecondTerritory().getNbrOfUnits()) != 0){
 				view.logUpdate(model.getBattle().fight());
 			}
 		}
-		if((e).getSource() == view.getButtons()[2]){
+		if((e).getSource() == view.getButtons()[RETREAT]){
 			frame.getLayeredPane().remove(view);
 			frame.repaint();
 			view.logClean();

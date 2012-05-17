@@ -9,6 +9,7 @@ public class Battle extends TerritoryInteractor {
 	private int[] a = new int[3], d = new int[2];
 	private int unitsAttacker, unitsDefender;
 	private boolean shallMove = false;
+	private final static int DEFENDERFIRST = 0, DEFENDERSECOND = 1, ATTACKERFIRST = 0, ATTACKERSECOND = 1, ATTACKERTHIRD = 2;
 	
 	public Battle(Warborn model){
 		this.model = model;
@@ -17,11 +18,12 @@ public class Battle extends TerritoryInteractor {
 		int aLost = 0;
 		int dLost = 0;
 		
-		d[0]=0;
-		d[1]=0;
-		a[0]=0;
-		a[1]=0;
-		a[2]=0;
+		// Resets dice values
+		d[DEFENDERFIRST]=0;
+		d[DEFENDERSECOND]=0;
+		a[ATTACKERFIRST]=0;
+		a[ATTACKERSECOND]=0;
+		a[ATTACKERTHIRD]=0;
 		
 		unitsAttacker = getFirstTerritory().getNbrOfUnits() - 1;
 		unitsDefender = getSecondTerritory().getNbrOfUnits();
@@ -36,7 +38,7 @@ public class Battle extends TerritoryInteractor {
 			i++;
 		}while(i < unitsDefender && i < 3);
 		
-		if(a[2] <= Math.max(d[0], d[1])){
+		if(a[ATTACKERTHIRD] <= Math.max(d[DEFENDERFIRST], d[DEFENDERSECOND])){
 			getFirstTerritory().setNbrOfUnits(unitsAttacker);
 			aLost++;
 		}
@@ -44,11 +46,11 @@ public class Battle extends TerritoryInteractor {
 			getSecondTerritory().setNbrOfUnits(unitsDefender - 1);
 			dLost++;
 		}
-			if(a[1] != 0 && a[1] <= Math.min(d[0], d[1]) ){
+			if(a[ATTACKERFIRST] != 0 && a[ATTACKERSECOND] <= Math.min(d[DEFENDERFIRST], d[DEFENDERSECOND]) ){
 				getFirstTerritory().setNbrOfUnits(getFirstTerritory().getNbrOfUnits() - 1);
 				aLost++;
 			}	
-		else if(Math.min(d[0], d[1]) != 0 && Math.min(d[0], d[1]) < a[1]){
+		else if(Math.min(d[DEFENDERFIRST], d[DEFENDERSECOND]) != 0 && Math.min(d[DEFENDERFIRST], d[DEFENDERSECOND]) < a[ATTACKERSECOND]){
 			getSecondTerritory().setNbrOfUnits(getSecondTerritory().getNbrOfUnits() -1);
 			dLost++;
 		}

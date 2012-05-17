@@ -20,7 +20,7 @@ public class Sound extends Thread implements Observer{
 	private String theme;
 	private AudioInputStream audioInputStream;
 	SourceDataLine auline;
-	private final int EXTERNAL_BUFFER_SIZE = 524288;
+	private final int EXTERNAL_BUFFER_SIZE = 524288, OFFSET = 0;
 	private boolean startMenu = false, activeGame = false, battle = false, shallRun = false;
 	
 
@@ -66,9 +66,9 @@ public class Sound extends Thread implements Observer{
 
 		try { 
 			while (nBytesRead != -1) { 
-				nBytesRead = audioInputStream.read(abData, 0, abData.length);
+				nBytesRead = audioInputStream.read(abData, OFFSET, abData.length);
 				if (nBytesRead >= 0) 
-					auline.write(abData, 0, nBytesRead);
+					auline.write(abData, OFFSET, nBytesRead);
 			} 
 		} catch (IOException e) { 
 			e.printStackTrace();

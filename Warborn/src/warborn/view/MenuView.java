@@ -20,7 +20,8 @@ import warborn.model.Warborn;
 import warborn.sound.Sound;
 
 public class MenuView extends JPanel {
-	private static final long serialVersionUID = 1L;
+	private final static long serialVersionUID = 1L;
+	private int height, width;
 	private JButton btNewGame, btCredits, btExit, btQuickStart, btStart, btBack, btBack2;
 	private SelectionPanel pSelection;
 	private CreditsPanel pCredits;
@@ -30,11 +31,14 @@ public class MenuView extends JPanel {
 	private JLabel lTitle;
 	private File text;
 	private FileReader reader;
+
 	
 	/**
 	 * Create the panel.
 	 */
 	public MenuView(Warborn model) {
+		width = (int)(model.getWidth()*0.117);
+		height = (int)(model.getHeight()*0.2);
 		sounds = new Sound();
 		model.addObserver(sounds);
 		sounds.start();
@@ -42,40 +46,40 @@ public class MenuView extends JPanel {
 		setSize(model.getWidth(), model.getHeight());
 		btNewGame = new GenericButton("New Game");
 		btNewGame.setLocation(model.getWidth()-200, 50);
-		btNewGame.setSize((int)(model.getWidth()*0.117), (int)(model.getHeight()*0.2));
+		btNewGame.setSize(width, height);
 		add(btNewGame, 0);
 
 		btCredits = new GenericButton("Credits");
 		btCredits.setLocation(model.getWidth()-200, 250);
-		btCredits.setSize((int)(model.getWidth()*0.117), (int)(model.getHeight()*0.2));
+		btCredits.setSize(width, height);
 		add(btCredits, 0);
 		
 		btExit = new GenericButton("Exit Game");
 		btExit.setLocation(model.getWidth()-200, 450);
-		btExit.setSize((int)(model.getWidth()*0.117), (int)(model.getHeight()*0.2));
+		btExit.setSize(width, height);
 		add(btExit, 0);
 		
 		btQuickStart = new GenericButton("Quick Start");
 		btQuickStart.setLocation(100, model.getHeight()-250);
-		btQuickStart.setSize((int)(model.getWidth()*0.117), (int)(model.getHeight()*0.2));
+		btQuickStart.setSize(width, height);
 		btQuickStart.setVisible(false);
 		add(btQuickStart, 0);
 		
 		btStart = new GenericButton("Start Game");
 		btStart.setLocation(300, model.getHeight()-250);
-		btStart.setSize((int)(model.getWidth()*0.117), (int)(model.getHeight()*0.2));
+		btStart.setSize(width, height);
 		btStart.setVisible(false);
 		add(btStart, 0);
 		
 		btBack = new GenericButton("Back");
 		btBack.setLocation(500, model.getHeight()-250);
-		btBack.setSize((int)(model.getWidth()*0.117), (int)(model.getHeight()*0.2));
+		btBack.setSize(width, height);
 		btBack.setVisible(false);
 		add(btBack, 0);
 		
 		btBack2 = new GenericButton("Back");
 		btBack2.setLocation(100, model.getHeight()-250);
-		btBack2.setSize((int)(model.getWidth()*0.117), (int)(model.getHeight()*0.2));
+		btBack2.setSize(width, height);
 		btBack2.setVisible(false);
 		add(btBack2, 0);
 
@@ -100,28 +104,27 @@ public class MenuView extends JPanel {
 		add(lTitle);
 		
 		tARaceDescription = new JTextArea();
-		tARaceDescription.setSize((int)(model.getWidth()*0.4), (int)(model.getHeight()*0.2));
+		setTextAreaParameters(tARaceDescription, model);
 		tARaceDescription.setLocation((int)(model.getWidth()*0.05), (int)(model.getHeight()*0.2));
-		tARaceDescription.setBackground(Color.getHSBColor(0.02f, 0.05f, 0.95f));
-		tARaceDescription.setBorder(BorderFactory.createBevelBorder(BevelBorder.LOWERED, Color.getHSBColor(0.04f, 0.4f, 0.8f), Color.DARK_GRAY));
-		tARaceDescription.setEditable(false);
-		tARaceDescription.setLineWrap(true);
-		tARaceDescription.setWrapStyleWord(true);
-		tARaceDescription.setVisible(false);
 		add(tARaceDescription, 0);
 		updateRaceDescription("Human");
 		
 		tAGodDescription = new JTextArea();
-		tAGodDescription.setSize((int)(model.getWidth()*0.4), (int)(model.getHeight()*0.2));
-		tAGodDescription.setBackground(Color.getHSBColor(0.02f, 0.05f, 0.95f));
+		setTextAreaParameters(tAGodDescription, model);
 		tAGodDescription.setLocation((int)(model.getWidth()*0.05), (int)((tARaceDescription.getHeight()*1.2) + (model.getHeight()*0.2)));
-		tAGodDescription.setBorder(BorderFactory.createBevelBorder(BevelBorder.LOWERED, Color.getHSBColor(0.04f, 0.4f, 0.8f), Color.DARK_GRAY));
-		tAGodDescription.setEditable(false);
-		tAGodDescription.setLineWrap(true);
-		tAGodDescription.setWrapStyleWord(true);
-		tAGodDescription.setVisible(false);
 		add(tAGodDescription, 0);
 		updateGodDescription("Civitatis");
+		
+	}
+	
+	public void setTextAreaParameters(JTextArea ta, Warborn model){
+		ta.setSize((int)(model.getWidth()*0.4), (int)(model.getHeight()*0.2));
+		ta.setBackground(Color.getHSBColor(0.02f, 0.05f, 0.95f));
+		ta.setBorder(BorderFactory.createBevelBorder(BevelBorder.LOWERED, Color.getHSBColor(0.04f, 0.4f, 0.8f), Color.DARK_GRAY));
+		ta.setEditable(false);
+		ta.setLineWrap(true);
+		ta.setWrapStyleWord(true);
+		ta.setVisible(false);
 		
 	}
 	

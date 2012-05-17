@@ -18,6 +18,7 @@ import warborn.model.Territory;
 @SuppressWarnings("serial")
 public class MoveView extends JPanel implements Observer {
 	
+	private static final int CANCEL = 0, MOVE = 1, DECREASE = 2, INCREASE = 3;
 	private JButton[] buttons;
 	private JButton btCancel, btDecrease, btIncrease, btMove;
 	private JSlider slider;
@@ -67,22 +68,22 @@ public class MoveView extends JPanel implements Observer {
 		btCancel = new GenericButton("Cancel");
 		btCancel.setBounds(55, 139, 89, 23);
 		add(btCancel);
-		buttons[0] = btCancel;
+		buttons[CANCEL] = btCancel;
 		
 		btMove = new GenericButton("Move");
 		btMove.setBounds(400, 139, 89, 23);
 		add(btMove);
-		buttons[1] = btMove;
+		buttons[MOVE] = btMove;
 		
 		btDecrease = new GenericButton("-");
 		btDecrease.setBounds(116, 91, 47, 23);
 		add(btDecrease);
-		buttons[2] = btDecrease;
+		buttons[DECREASE] = btDecrease;
 		
 		btIncrease = new GenericButton("+");
 		btIncrease.setBounds(381, 91, 47, 23);
 		add(btIncrease);
-		buttons[3] = btIncrease;
+		buttons[INCREASE] = btIncrease;
 
 	}
 	

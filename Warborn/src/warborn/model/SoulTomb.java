@@ -5,6 +5,7 @@ import javax.swing.ImageIcon;
 public class SoulTomb {
 	private ImageIcon lesserImage, commonImage, greaterImage;
 	private final String LESSERSOUL = "Lesser Soul", COMMONSOUL = "Common Soul", GREATERSOUL = "Greater Soul"; 
+	private final static int LESSERINDEX = 0, COMMONINDEX = 1, GREATERINDEX = 2, ERRORINDEX = -1;
 
 	public SoulTomb(){
 
@@ -22,14 +23,14 @@ public class SoulTomb {
 		int i = (int)d;
 		switch(i){
 		case 0:
-			return new Soul(LESSERSOUL, lesserImage, 0);
+			return new Soul(LESSERSOUL, lesserImage, LESSERINDEX);
 		case 1:
-			return new Soul(COMMONSOUL, commonImage, 1);
+			return new Soul(COMMONSOUL, commonImage, COMMONINDEX);
 		case 2:
-			return new Soul(GREATERSOUL, greaterImage, 2);
+			return new Soul(GREATERSOUL, greaterImage, GREATERINDEX);
 		default:
 			//If this card is created something went wrong
-			return new Soul("Something went wrong!!", null, -1);
+			return new Soul("Something went wrong!!", null, ERRORINDEX);
 		}	
 	}
 

@@ -38,10 +38,7 @@ public class Launcher implements Observer{
 	 * Create the application.
 	 */
 	public Launcher() {
-		screen = new ScreenManager();
-		model = new Warborn();
-		compatibleDM = screen.getHighestResolutionDisplayMode();
-		model.setDimensions(compatibleDM.getWidth(), compatibleDM.getHeight());
+		setLauncherParameters();
 		frame = new MainFrame(screen.getDefaultGraphicsConfiguration(), model);
 		keyAction = new KeyAction(model, this, frame);
 		IntroMovie.play(frame, keyAction);
@@ -61,14 +58,18 @@ public class Launcher implements Observer{
 	 * Create the application.
 	 */
 	public Launcher(MainFrame frame) {
-		screen = new ScreenManager();
-		model = new Warborn();
-		compatibleDM = screen.getHighestResolutionDisplayMode();
-		model.setDimensions(compatibleDM.getWidth(), compatibleDM.getHeight());
+		setLauncherParameters();
 		this.frame = frame;
 		keyAction = new KeyAction(model, this, frame);
 		initialize();
 		model.addObserver(this);
+	}
+	
+	public void setLauncherParameters(){
+		screen = new ScreenManager();
+		model = new Warborn();
+		compatibleDM = screen.getHighestResolutionDisplayMode();
+		model.setDimensions(compatibleDM.getWidth(), compatibleDM.getHeight());
 	}
 
 	/**
@@ -155,7 +156,6 @@ public class Launcher implements Observer{
 	}
 	
 	public void reset(){
-		//screen.restoreScreen();
 		frame.remove(map);
 		frame.remove(hud);
 		menu.killMusic();

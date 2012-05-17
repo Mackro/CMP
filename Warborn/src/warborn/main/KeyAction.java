@@ -22,15 +22,13 @@ public class KeyAction extends AbstractAction{
 
 	@Override
 	public void actionPerformed(ActionEvent evt) {
-		if(evt.getID() == 1001){
-			if(IntroMovie.isPlaying()){
-				//skip intro-movie
-				IntroMovie.stopPlaying(mainFrame);
-			}else{
-				//Open Options Menu
-				OptionsMenuView view = new OptionsMenuView(model, mainFrame);
-				new OptionsMenuController(view, launcher, mainFrame);
-			}
+		if(IntroMovie.isPlaying()){
+			//skip intro-movie
+			IntroMovie.stopPlaying(mainFrame);
+		}else{
+			//Open Options Menu
+			OptionsMenuView view = new OptionsMenuView(model, mainFrame);
+			new OptionsMenuController(view, launcher, mainFrame);
 		}
 	}
 

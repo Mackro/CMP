@@ -9,6 +9,7 @@ import warborn.view.OptionsMenuView;
 
 public class OptionsMenuController implements ActionListener{
 
+	private static final int MAINMENU = 0, EXITGAME = 1, RESUME = 2;
 	private OptionsMenuView view;
 	private Launcher launcher;
 	private MainFrame mainFrame;
@@ -26,15 +27,15 @@ public class OptionsMenuController implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		JButton buttonPressed = (JButton)(e.getSource());
 		
-		if(buttonPressed == view.getButtonArray()[0]){
+		if(buttonPressed == view.getButtonArray()[MAINMENU]){
 			//Main Menu
 			mainFrame.getLayeredPane().remove(view);
 			mainFrame.repaint();
 			launcher.reset();
-		}else if(buttonPressed == view.getButtonArray()[1]){
+		}else if(buttonPressed == view.getButtonArray()[EXITGAME]){
 			//Exit
 			launcher.exit();
-		}else if(buttonPressed == view.getButtonArray()[2]){
+		}else if(buttonPressed == view.getButtonArray()[RESUME]){
 			//Resume
 			mainFrame.getLayeredPane().remove(view);
 			mainFrame.repaint();

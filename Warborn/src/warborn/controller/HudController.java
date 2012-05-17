@@ -14,6 +14,7 @@ public class HudController implements ActionListener {
 	private Warborn model;
 	private HudView view;
 	private JFrame window;
+	private final static int NEXTSTATE = 0, ABSORBSOULS = 1, SPELLBOOK = 2;
 	
 	public HudController(Warborn model, JFrame window, HudView view){
 		this.model = model;
@@ -26,13 +27,13 @@ public class HudController implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if((e).getSource() == view.getButtons()[0]){
+		if((e).getSource() == view.getButtons()[NEXTSTATE]){
 			model.nextState();
 		}
-		if((e).getSource() == view.getButtons()[1]){
+		if((e).getSource() == view.getButtons()[ABSORBSOULS]){
 			model.exchangeSouls();
 		}
-		if((e).getSource() == view.getButtons()[2]){
+		if((e).getSource() == view.getButtons()[SPELLBOOK]){
 			SpellbookView spellbookView = new SpellbookView(model.getCurrentPlayer().getSpellbook(), window);
 			SpellInvoker spellInvoker = new SpellInvoker(model);
 			new SpellbookController(spellInvoker, spellbookView);

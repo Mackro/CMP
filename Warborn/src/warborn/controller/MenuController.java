@@ -18,6 +18,8 @@ public class MenuController implements ActionListener, ItemListener{
 	private Warborn model;
 	private JFrame frame;
 	private MenuView view;
+	private final static int NEWGAME = 0, CREDITS = 1, EXIT = 2, QUICKSTART = 3, START = 4, BACK = 5, BACK2 = 6, 
+					ADDPLAYER = 7, REMOVEPLAYER = 8, STARTGAME = 9;
 	
 	public MenuController(Warborn model, JFrame frame, MenuView view){
 		this.model = model;
@@ -40,35 +42,26 @@ public class MenuController implements ActionListener, ItemListener{
 	public void actionPerformed(ActionEvent evt) {
 		JButton buttonPressed = (JButton)(evt.getSource());
 		
-		if(buttonPressed == this.view.getButtonArray()[0]){
-			//NewGame
+		if(buttonPressed == this.view.getButtonArray()[NEWGAME]){
 			view.openNewGameMenu();
-		}else if(buttonPressed == this.view.getButtonArray()[1]){
-			//Credits
+		}else if(buttonPressed == this.view.getButtonArray()[CREDITS]){
 			view.showCredits();
-		}else if(buttonPressed == this.view.getButtonArray()[2]){
-			//Exit
+		}else if(buttonPressed == this.view.getButtonArray()[EXIT]){
 			System.exit(0);
-		}else if(buttonPressed == this.view.getButtonArray()[3]){
-			//Q-Start
+		}else if(buttonPressed == this.view.getButtonArray()[QUICKSTART]){
 			model.quickStart();
-		}else if(buttonPressed == this.view.getButtonArray()[4]){
-			//Start
+		}else if(buttonPressed == this.view.getButtonArray()[START]){
 			view.openSelectionMenu();
-		}else if(buttonPressed == this.view.getButtonArray()[5]){
-			//Back
+		}else if(buttonPressed == this.view.getButtonArray()[BACK]){
 			view.closeNewGameMenu();
-		}else if(buttonPressed == this.view.getButtonArray()[6]){
-			//Back2
+		}else if(buttonPressed == this.view.getButtonArray()[BACK2]){
 			view.openNewGameMenu();
-		}else if(buttonPressed == this.view.getButtonArray()[7]){
-			//AddPlayer
+		}else if(buttonPressed == this.view.getButtonArray()[ADDPLAYER]){
 			view.addPlayer();
-		}else if(buttonPressed == this.view.getButtonArray()[8]){
-			//RemovePlayer
+		}else if(buttonPressed == this.view.getButtonArray()[REMOVEPLAYER]){
 			view.removePlayer();
-		}else if(buttonPressed == this.view.getButtonArray()[9]){
-			//StartGame
+		}else if(buttonPressed == this.view.getButtonArray()[STARTGAME]){
+
 			String[] names = view.getNames();
 			Color[] colors = view.getColors();
 			int[] races = view.getRaces();

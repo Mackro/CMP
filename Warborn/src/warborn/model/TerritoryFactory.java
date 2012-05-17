@@ -3,8 +3,9 @@ package warborn.model;
 import java.io.*;
 
 public class TerritoryFactory {
-
 	
+	private final static int FIRSTHALF = 0, TERRITORYNAME = 0, SECONDHALF = 1;
+			
 	public static Territory[] getTerritories(String mapName) throws IOException{
 		File file = new File("WarbornData/maps/" + mapName + ".txt");
 		LineNumberReader lnr = new LineNumberReader(new FileReader(file));
@@ -19,12 +20,13 @@ public class TerritoryFactory {
 		for(int i = 0; lineToRead != null; i++){
 			String[] territoryNames = lineToRead.split(":"); 
 			
-			territories[i] = new Territory(territoryNames[0], i);
+			territories[i] = new Territory(territoryNames[FIRSTHALF], i);
 
 			String[] connectionsName = new String[territoryNames[1].split(";").length+1];
-			String[] namesToInsert = territoryNames[1].split(";");
+			String[] namesToInsert = territoryNames[SECONDHALF].split(";");
 			
-			connectionsName[0] = territoryNames[0];
+			connectionsName[TERRITORYNAME] = territoryNames[FIRSTHALF];
+			
 			for(int j = 1; j < connectionsName.length; j++){
 				connectionsName[j] = namesToInsert[j-1];
 			}

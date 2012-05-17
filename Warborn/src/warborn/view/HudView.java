@@ -11,6 +11,7 @@ import javax.swing.border.*;
 public class HudView extends JPanel implements Observer{
 	
 	private static final long serialVersionUID = 1L;
+	private static final int NEXT = 0, USESOULS = 1, SPELLBOOK = 2;
 	private JPanel soulPanel, phaseInfo, playersPanel;
 	private JPanel[] playerPanelsArray;
 	private GenericLabel currentState, reinforcements;
@@ -22,6 +23,7 @@ public class HudView extends JPanel implements Observer{
 	private GenericButton next, useSouls, spellbookButton;
 	private Warborn model;
 	private Border innerBorder, roundBorder;
+	
 	
 	public HudView(Warborn model){
 		
@@ -76,7 +78,7 @@ public class HudView extends JPanel implements Observer{
 				(int)(this.getWidth()/14),
 				(int)(this.getHeight()/5));
 		this.add(next);
-		buttons[0] = next;
+		buttons[NEXT] = next;
 		
 		useSouls = new GenericButton("Absorb Souls");
 		next.setBorder(new RoundedBorder(100));
@@ -85,7 +87,7 @@ public class HudView extends JPanel implements Observer{
 				(int)(this.getWidth()/9),
 				(int)(this.getHeight()/10));
 		this.add(useSouls);
-		buttons[1] = useSouls;
+		buttons[USESOULS] = useSouls;
 		
 		spellbookButton = new GenericButton("Spellbook");
 		next.setBorder(new RoundedBorder(100));
@@ -94,7 +96,7 @@ public class HudView extends JPanel implements Observer{
 				(int)(this.getWidth()/10),
 				(int)(this.getHeight()/10));
 		this.add(spellbookButton);
-		buttons[2] = spellbookButton;
+		buttons[SPELLBOOK] = spellbookButton;
 		
 		for (int i=0; i<buttons.length; i++){
 			buttons[i].setBorder(roundBorder);

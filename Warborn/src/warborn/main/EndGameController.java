@@ -13,6 +13,7 @@ public class EndGameController implements ActionListener{
 	private EndGameView view;
 	private Launcher launcher;
 	private JFrame frame;
+	private final static int RESET = 0, EXIT = 1;
 	
 	public EndGameController(EndGameView view, JFrame frame, Launcher launcher){
 		this.view = view;
@@ -26,12 +27,12 @@ public class EndGameController implements ActionListener{
 	}
 	
 	public void actionPerformed(ActionEvent evt){
-		if(evt.getSource() == view.getButtonArray()[0]){
+		if(evt.getSource() == view.getButtonArray()[RESET]){
 			//Reset
 			frame.getLayeredPane().remove(view);
 			frame.repaint();
 			launcher.reset();
-		}else if(evt.getSource() == view.getButtonArray()[1]){
+		}else if(evt.getSource() == view.getButtonArray()[EXIT]){
 			//Exit
 			launcher.exit();
 		}
