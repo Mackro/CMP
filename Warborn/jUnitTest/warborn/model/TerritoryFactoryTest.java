@@ -11,6 +11,12 @@ public class TerritoryFactoryTest {
 	public void before() throws IOException {
 		territories = TerritoryFactory.getTerritories("Gothenburg");
 	}
+	
+	@Test
+	public void testClass(){
+		testGetTerritories();
+	}
+	
 	@Test
 	public void testGetTerritories(){
 		assertTrue(territories[1].hasConnection(territories[2]));

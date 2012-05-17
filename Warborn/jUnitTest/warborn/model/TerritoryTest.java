@@ -19,6 +19,16 @@ public class TerritoryTest {
 		t4 = new Territory("Terr4", 4);
 	}
 	@Test
+	public void testClass(){
+		testTerritory();
+		testSetOwner();
+		testSetNbrOfUnits();
+		testIncrementUnit();
+		testHasConnectionAddConnection();
+		testEquals();
+	}
+	
+	@Test
 	public void testTerritory() {
 		assertTrue(t1.getName().equalsIgnoreCase("Terr1"));
 		assertTrue(t1.getOwner()==null);

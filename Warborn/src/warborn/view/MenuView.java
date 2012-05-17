@@ -86,7 +86,7 @@ public class MenuView extends JPanel {
 		pSelection.updateMap();
 		
 		pCredits = new CreditsPanel();
-		pCredits.setLocation((int)(this.getWidth()*0.25), (int)(this.getHeight()*0.10));
+		pCredits.setLocation((int)(this.getWidth()*0.25), (int)(this.getHeight()*0.17));
 		pCredits.setVisible(false);
 		add(pCredits);
 		

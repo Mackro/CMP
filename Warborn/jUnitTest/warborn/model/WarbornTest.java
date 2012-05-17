@@ -1,10 +1,14 @@
 package warborn.model;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 import java.awt.Color;
 
-import org.junit.*;
+import org.junit.Before;
+import org.junit.Test;
+
 
 public class WarbornTest {
 	Warborn model;
@@ -13,6 +17,21 @@ public class WarbornTest {
 	public void before() {
 		model = new Warborn();		
 	}
+	
+	@Test
+	public void testClass(){
+		testSetPlayers();
+		testSetSelectedMap();
+		testSetSelectedTerritory();
+		testAddPlayer();
+		testNextState();
+		testNextPhase();
+		testRemovePlayer();
+		testStartGame();
+		testAttackCompatible();
+		testMoveCompatible();
+	}
+	
 	@Test
 	public void testSetPlayers() {
 		String[] names = {"player1", "player2"};
