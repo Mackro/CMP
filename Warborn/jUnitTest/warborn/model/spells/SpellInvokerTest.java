@@ -21,6 +21,12 @@ public class SpellInvokerTest {
 		fireBall = new FireBall(3);
 		holyLight = new HolyLight(4);
 	}
+	
+	public void testClass(){
+		testSetSelectedSpell();
+	}
+	
+	@Test
 	public void testSetSelectedSpell(){
 		spellInvoker.setSelectedSpell(armageddon);
 		assertTrue(spellInvoker.getSelectedSpell()==armageddon);
@@ -37,7 +43,6 @@ public class SpellInvokerTest {
 		assertFalse(spellInvoker.getSelectedSpell()==armageddon);
 	}
 	
-	public void testInvoke(){
-		
-	}
+	//tested through usertesting
+	//public void testInvoke();
 }

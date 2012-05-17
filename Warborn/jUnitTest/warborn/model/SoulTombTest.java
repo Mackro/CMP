@@ -5,10 +5,15 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 
-public class CardDeckTest {
+public class SoulTombTest {
 
 	@Test
-	public void testDrawCard() {
+	public void testClass(){
+		testDrawSoul();
+	}
+	
+	@Test
+	public void testDrawSoul() {
 	/**	ImageIcon infImg = new ImageIcon("images/infantry.jpg");
 		ImageIcon cavImg = new ImageIcon("images/cavalry.jpg");
 		ImageIcon artImg = new ImageIcon("images/artillery.jpg");*/

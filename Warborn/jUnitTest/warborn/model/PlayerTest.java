@@ -10,6 +10,15 @@ import org.junit.Test;
 
 
 public class PlayerTest {
+	
+	@Test
+	public void testClass(){
+		testPlayer();
+		testGetNbrOfTerritories();
+		testAddCard();
+		testRemoveCard();
+		testCanExchangeCards();
+	}
 
 	@Test
 	public void testPlayer() {

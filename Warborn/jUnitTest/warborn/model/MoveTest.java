@@ -20,6 +20,15 @@ public class MoveTest {
 	}
 	
 	@Test
+	public void testClass(){
+		testMove();
+		testAdd();
+		testMoveUnits();
+		testResetTerritories();
+		
+	}
+	
+	@Test
 	public void testMove() {
 	}
 	

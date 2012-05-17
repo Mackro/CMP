@@ -5,10 +5,15 @@ import javax.swing.ImageIcon;
 import org.junit.Test;
 
 
-public class CardTest {
+public class SoulTest {
 
 	@Test
-	public void testCard() {
+	public void testClass(){
+		testSoul();
+	}
+	
+	@Test
+	public void testSoul() {
 		String troop1 = "SortOfTroop", troop2 = "OtherTroop"; 
 		ImageIcon img1 = new ImageIcon();
 		ImageIcon img2 = new ImageIcon();

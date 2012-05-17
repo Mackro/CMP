@@ -5,6 +5,11 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 public class DiceTest {
+	
+	@Test
+	public void testClass(){
+		testD6roll();
+	}
 
 	@Test
 	public void testD6roll() {
