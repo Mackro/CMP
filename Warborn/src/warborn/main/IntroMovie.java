@@ -2,7 +2,7 @@ package warborn.main;
 
 import java.awt.GridBagConstraints;
 import java.awt.event.KeyEvent;
-import java.io.File;
+import java.io.*;
 import java.net.MalformedURLException;
 import java.net.URL;
 
@@ -24,8 +24,25 @@ public class IntroMovie {
 		URL mediaUrl = null;
 		try {
 			mediaUrl = intro.toURL();
+			
+			
+
+			BufferedReader buffer = new BufferedReader(new FileReader(intro));
+			String line = buffer.readLine();
+			String totalLine = "";
+			for(;line != null; line = buffer.readLine()){
+				totalLine += line;
+			}
+			byte[] b = totalLine.getBytes();
+			StreamBuffer sb = new StreamBuffer();
 		} catch (MalformedURLException e) {
 			System.err.println( "Could not create URL for the file" );
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		if(mediaUrl != null){
 			GridBagConstraints c = new GridBagConstraints();

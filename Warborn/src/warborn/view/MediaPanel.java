@@ -17,6 +17,7 @@ import javax.swing.JPanel;
 public class MediaPanel extends JPanel
 {
 	private Player mediaPlayer;
+	private final int EXTERNAL_BUFFER_SIZE = 524288;
 	
 	public MediaPanel( URL mediaURL )
 	{
@@ -61,7 +62,22 @@ public class MediaPanel extends JPanel
 
 	public void startPlaying(){
 		mediaPlayer.prefetch();
-		mediaPlayer.start();
+		mediaPlayer.start();int nBytesRead = 0;
+		byte[] abData = new byte[EXTERNAL_BUFFER_SIZE];
+
+		try { 
+			while (nBytesRead != -1) { 
+				nBytesRead = audioInputStream.read(abData, 0, abData.length);
+				if (nBytesRead >= 0) 
+					mediaPlayer.write(abData, 0, nBytesRead);
+			} 
+		} catch (IOException e) { 
+			e.printStackTrace();
+			return;
+		} finally { 
+			auline.drain();
+			auline.close();
+		} 	
 	}
 	
 	public void stopPlaying(){
