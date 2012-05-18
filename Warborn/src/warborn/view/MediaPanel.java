@@ -16,6 +16,7 @@ import javax.swing.JPanel;
  */
 public class MediaPanel extends JPanel
 {
+	private static final int OFFSET = 0;
 	private Player mediaPlayer;
 	private final int EXTERNAL_BUFFER_SIZE = 524288;
 	
@@ -67,9 +68,9 @@ public class MediaPanel extends JPanel
 
 		try { 
 			while (nBytesRead != -1) { 
-				nBytesRead = audioInputStream.read(abData, 0, abData.length);
+				nBytesRead = audioInputStream.read(abData, OFFSET, abData.length);
 				if (nBytesRead >= 0) 
-					mediaPlayer.write(abData, 0, nBytesRead);
+					mediaPlayer.write(abData, OFFSET, nBytesRead);
 			} 
 		} catch (IOException e) { 
 			e.printStackTrace();

@@ -14,6 +14,7 @@ import warborn.view.MediaPanel;
 
 public class IntroMovie {
 	
+	private static final int MODIFIER = 0;
 	private static long startTime;
 	private static MediaPanel mediaPanel;
 	private static boolean forceStopPlay = false;
@@ -55,10 +56,10 @@ public class IntroMovie {
 			mediaPanel = new MediaPanel( mediaUrl );
 			frame.add( mediaPanel, c, 0);
 
-			mediaPanel.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), "skip");
-			mediaPanel.getInputMap().put(KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), "skip");
-			mediaPanel.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0), "skip");
-			mediaPanel.getInputMap().put(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0), "skip");
+			mediaPanel.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, MODIFIER), "skip");
+			mediaPanel.getInputMap().put(KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, MODIFIER), "skip");
+			mediaPanel.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, MODIFIER), "skip");
+			mediaPanel.getInputMap().put(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, MODIFIER), "skip");
 			mediaPanel.getActionMap().put("skip", keyAction);
 			
 			frame.setVisible( true );

@@ -19,7 +19,8 @@ import warborn.model.Warborn;
 
 @SuppressWarnings("serial")
 public abstract class Map extends JPanel implements Observer {
-
+	
+	private static final int HUE = 0, SATURATION = 1, BRIGHTNESS = 2, REINFORCEMENTPHASE = 0;
 	private Warborn model;
 	private JButton[] buttons;
 	private double[][] scalingConstants;
@@ -80,7 +81,7 @@ public abstract class Map extends JPanel implements Observer {
 	}
 
 	public void update(Observable lol, Object lol1) {
-		if (model.getPhase() == 1) {
+		if (model.getPhase() == REINFORCEMENTPHASE) {
 			for (int i=0; i<buttons.length; i++){
 				buttons[i].setEnabled(false);
 			}
@@ -105,7 +106,7 @@ public abstract class Map extends JPanel implements Observer {
 					Color.RGBtoHSB(buttons[i].getBackground().getRed(),
 							buttons[i].getBackground().getGreen(),
 							buttons[i].getBackground().getBlue(), hsbFloats);
-					buttons[i].setBackground(Color.getHSBColor(hsbFloats[0],hsbFloats[1]/2,hsbFloats[2]+((1-hsbFloats[2])/2)));
+					buttons[i].setBackground(Color.getHSBColor(hsbFloats[HUE],hsbFloats[SATURATION]/2,hsbFloats[BRIGHTNESS]+((1-hsbFloats[BRIGHTNESS])/2)));
 					buttons[i].setBorder(BorderFactory.createSoftBevelBorder(BevelBorder.RAISED, Color.WHITE, Color.gray));
 				}
 			}

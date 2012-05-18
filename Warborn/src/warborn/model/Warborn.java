@@ -12,7 +12,8 @@ import warborn.constants.PlayerData;
 import warborn.model.spells.SpellTargetable;
 
 public class Warborn extends Observable implements SpellTargetable{
-
+	
+	private static final int MAINMENU = -1, PREPARATION = 0, REINFORCEMENTPHASE = 1, BATTLEPHASE = 2, MOVEPHASE = 3;
 	private ArrayList<Player> players;
 	private Territory[] territories;
 	private Move move;
@@ -151,22 +152,22 @@ public class Warborn extends Observable implements SpellTargetable{
 		if (selectedTerritory != id){
 			if(spellLoaded){
 				selectedTerritory = id;
-			}else if(state==1 && players.get(currentPlayer) == territories[id].getOwner() && nbrOfReinforcements > 0){
+			}else if(state==REINFORCEMENTPHASE && players.get(currentPlayer) == territories[id].getOwner() && nbrOfReinforcements > 0){
 				territories[id].incrementUnit();
 				nbrOfReinforcements--;
 			}
-			else if(state==0 && players.get(currentPlayer) == territories[id].getOwner()){
+			else if(state == PREPARATION && players.get(currentPlayer) == territories[id].getOwner()){
 				territories[id].incrementUnit();
 				this.currentPlayer = (++this.currentPlayer)%players.size();
 				startPhases--;
 				if (startPhases<0){
 					nextState();
 				}
-			}else if(state==0 && players.get(currentPlayer) != territories[id].getOwner()){
+			}else if(state == PREPARATION && players.get(currentPlayer) != territories[id].getOwner()){
 				;
-			}else if(state != 1){
+			}else if(state != REINFORCEMENTPHASE){
 				if(selectedTerritory == -1 && players.get(currentPlayer) != territories[id].getOwner()){
-					if (state !=3){
+					if (state != MOVEPHASE){
 						selectedTerritory = id;
 					}
 				}else if((selectedTerritory == -1 || territories[selectedTerritory].getOwner() != players.get(currentPlayer)) &&
@@ -175,12 +176,12 @@ public class Warborn extends Observable implements SpellTargetable{
 					move.add(territories[id]);
 					selectedTerritory = id;
 					
-				}else if(state == 2 && attackCompatible(territories[selectedTerritory], territories[id])){
+				}else if(state == BATTLEPHASE && attackCompatible(territories[selectedTerritory], territories[id])){
 					battle.add(territories[id]);
 					selectedTerritory = -1;
 					nextPhase();
 					
-				}else if(state == 3 && moveCompatible(territories[selectedTerritory], territories[id])){
+				}else if(state == MOVEPHASE && moveCompatible(territories[selectedTerritory], territories[id])){
 					move.add(territories[id]);
 					selectedTerritory = -1;
 					nextPhase();
@@ -213,7 +214,7 @@ public class Warborn extends Observable implements SpellTargetable{
 
 	public void nextState(){
 		this.state++;
-		if(this.state > 3){
+		if(this.state > MOVEPHASE){
 			this.state = 1;
 			for(Player player : players){
 				boolean alive = false;
@@ -238,14 +239,14 @@ public class Warborn extends Observable implements SpellTargetable{
 			}
 			players.get(currentPlayer).conquered(false);
 		}
-		if(this.state == 1){
+		if(this.state == REINFORCEMENTPHASE){
 			nbrOfReinforcements = Math.max(players.get(currentPlayer).getNbrOfTerritories()/3, 3);
 			for(Territory terry : territories){
 				if(terry.getOwner() == players.get(currentPlayer)){
 					terry.setProtected(false);
 				}
 			}
-		}else if(this.state == 0){
+		}else if(this.state == PREPARATION){
 			startPhases--;
 		}
 		changed(1);
@@ -267,7 +268,7 @@ public class Warborn extends Observable implements SpellTargetable{
 	}
 
 	public void startGame(){
-		if(this.state != -1){
+		if(this.state != MAINMENU){
 			return;
 		}
 		
