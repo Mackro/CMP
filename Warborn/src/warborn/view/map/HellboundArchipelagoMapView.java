@@ -5,6 +5,7 @@ import warborn.model.Warborn;
 
 
 
+@SuppressWarnings("serial")
 public class HellboundArchipelagoMapView extends Map{
 
 	public HellboundArchipelagoMapView(Warborn model){

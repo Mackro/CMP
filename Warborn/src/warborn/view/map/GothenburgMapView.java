@@ -2,6 +2,7 @@ package warborn.view.map;
 
 import warborn.model.Warborn;
 
+@SuppressWarnings("serial")
 public class GothenburgMapView extends Map { 	
 
 	/**

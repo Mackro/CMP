@@ -4,6 +4,7 @@ import javax.swing.JPanel;
 import javax.swing.JLabel;
 import java.awt.Font;
 
+@SuppressWarnings("serial")
 public class CreditsPanel extends JPanel {
 	public CreditsPanel() {
 		setLayout(null);

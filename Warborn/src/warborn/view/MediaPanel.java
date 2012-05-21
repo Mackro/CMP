@@ -14,6 +14,7 @@ import javax.swing.JPanel;
  * @modifiedBy Markus Otterberg with help by Luca Bruno aka Lethalman
  *
  */
+@SuppressWarnings("serial")
 public class MediaPanel extends JPanel
 {
 	private static final int OFFSET = 0;
