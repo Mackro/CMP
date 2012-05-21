@@ -15,6 +15,7 @@ import javax.swing.*;
 
 import warborn.constants.MapData;
 import warborn.constants.PlayerData;
+import warborn.controller.tooManyPlayersException;
 import warborn.model.Warborn;
 
 public class SelectionPanel extends JPanel {
