@@ -2,7 +2,7 @@ package warborn.model.spells;
 
 public interface Liveable{
 
-	LandOwner getOwner();
+	TerritoryOwner getOwner();
 
 	int getNbrOfUnits();
 

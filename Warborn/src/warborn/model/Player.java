@@ -6,7 +6,7 @@ import java.io.IOException;
 import warborn.constants.PlayerData;
 import warborn.model.spells.*;
 
-public class Player implements LandOwner{
+public class Player implements TerritoryOwner{
 
 	private int id, nbrOfTerritories = 0, mana = 2;
 	private String name;

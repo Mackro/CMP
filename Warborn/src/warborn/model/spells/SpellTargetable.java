@@ -4,11 +4,11 @@ import java.util.Observer;
 
 public interface SpellTargetable{
 
-	LandOwner[] getPlayers();
+	TerritoryOwner[] getPlayers();
 
-	LandOwner getPlayer(int i);
+	TerritoryOwner getPlayer(int i);
 
-	LandOwner getCurrentPlayer();
+	TerritoryOwner getCurrentPlayer();
 
 	int getNumberOfPlayers();
 

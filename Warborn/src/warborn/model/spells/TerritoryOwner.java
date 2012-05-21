@@ -2,7 +2,7 @@ package warborn.model.spells;
 
 import java.awt.Color;
 
-public interface LandOwner{
+public interface TerritoryOwner{
 
 	int getNbrOfTerritories();
 
