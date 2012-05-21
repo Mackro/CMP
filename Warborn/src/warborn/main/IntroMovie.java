@@ -55,17 +55,20 @@ public class IntroMovie {
 
 	public static boolean isPlaying() {
 		
-		return System.currentTimeMillis() - startTime >= 33000?false:(!forceStopPlay);
+		return System.currentTimeMillis() - startTime >= 35000?false:(!forceStopPlay);
 	}
 	
 	public static void stopPlaying(JFrame frame){
-		if(isPlaying()){
-			mediaPanel.stopPlaying();
-			forceStopPlay = true;
-			frame.remove(mediaPanel);
-			frame.validate();
-			frame.repaint();
-			frame.revalidate();
-		}
+		preStopPlaying();
+		mediaPanel.stopPlaying();
+		frame.remove(mediaPanel);
+		frame.validate();
+		frame.repaint();
+		frame.revalidate();
 	}
+	
+	public static void preStopPlaying(){
+		forceStopPlay = true;
+	}
+	
 }

@@ -24,7 +24,7 @@ public class KeyAction extends AbstractAction{
 	public void actionPerformed(ActionEvent evt) {
 		if(IntroMovie.isPlaying()){
 			//skip intro-movie
-			IntroMovie.stopPlaying(mainFrame);
+			IntroMovie.preStopPlaying();
 		}else if(model.getState() > -1){
 			//Open Options Menu
 			OptionsMenuView view = new OptionsMenuView(model, mainFrame);

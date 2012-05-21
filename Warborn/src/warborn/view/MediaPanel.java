@@ -17,7 +17,6 @@ import javax.swing.JPanel;
 @SuppressWarnings("serial")
 public class MediaPanel extends JPanel
 {
-	private static final int OFFSET = 0;
 	private Player mediaPlayer;
 	
 	public MediaPanel( URL mediaURL)
