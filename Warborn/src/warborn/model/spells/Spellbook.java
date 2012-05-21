@@ -34,7 +34,7 @@ public class Spellbook {
 		in.close();
 		
 		//Adding Race Spells
-		BufferedReader Racein = new BufferedReader(new FileReader(new File("WarbornData/race/" + PlayerData.getRaceName(race) + ".txt")));
+		BufferedReader Racein = new BufferedReader(new FileReader(new File("WarbornData/races/" + PlayerData.getRaceName(race) + ".txt")));
 		for(String line = Racein.readLine(); line != null; line = Racein.readLine()){
 			for(int i = 0; i < SpellFactory.getNbrOfSpells(); i++){
 				if(SpellFactory.getSpell(i).toString().equalsIgnoreCase(line)){
