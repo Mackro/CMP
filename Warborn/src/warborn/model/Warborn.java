@@ -14,6 +14,7 @@ import warborn.model.spells.SpellTargetable;
 public class Warborn extends Observable implements SpellTargetable{
 	
 	private static final int MAINMENU = -1, PREPARATION = 0, REINFORCEMENTPHASE = 1, BATTLEPHASE = 2, MOVEPHASE = 3;
+	private static final String[] NAMES = {"Erez", "Metho", "Rioru", "Innura"};
 	private ArrayList<Player> players;
 	private Territory[] territories;
 	private Move move;
@@ -298,8 +299,8 @@ public class Warborn extends Observable implements SpellTargetable{
 	
 	public void quickStart(){
 		//Going to make random players instead
-		addPlayer("Erez", new Color(0, 0, 200), (int)(Math.random()*PlayerData.getNumberOfRaces()), (int)(Math.random()*PlayerData.getNumberOfGods()));
-		addPlayer("Metho", Color.RED, (int)(Math.random()*PlayerData.getNumberOfRaces()), (int)(Math.random()*PlayerData.getNumberOfGods()));
+		addPlayer(NAMES[0], new Color(0, 0, 200), (int)(Math.random()*PlayerData.getNumberOfRaces()), (int)(Math.random()*PlayerData.getNumberOfGods()));
+		addPlayer(NAMES[1], Color.RED, (int)(Math.random()*PlayerData.getNumberOfRaces()), (int)(Math.random()*PlayerData.getNumberOfGods()));
 		startGame();
 	}
 

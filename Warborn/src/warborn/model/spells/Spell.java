@@ -43,6 +43,7 @@ public abstract class Spell{
 	}
 	
 	public boolean isInstant(){
+		//is false by default and overrided if not.
 		return false;
 	}
 	
