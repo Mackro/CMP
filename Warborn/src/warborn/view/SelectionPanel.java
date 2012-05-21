@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import javax.swing.*;
 
 import warborn.constants.MapData;
+import warborn.constants.PlayerData;
 import warborn.model.Warborn;
 
 public class SelectionPanel extends JPanel {
@@ -159,7 +160,11 @@ public class SelectionPanel extends JPanel {
 	public int[] getRaces(){
 		int[] races = new int[pPlayer.getComponentCount()];
 		for(int i = 0; i < pPlayer.getComponentCount(); i++){
-			races[i] = ((PlayerSelectionPanel)(pPlayer.getComponent(i))).getPlayerRace();
+			int selectionNumber = ((PlayerSelectionPanel)(pPlayer.getComponent(i))).getPlayerRace();
+			if(selectionNumber == PlayerData.getNumberOfRaces()){
+				selectionNumber = (int)(Math.random()*PlayerData.getNumberOfRaces());
+			}
+			races[i] = selectionNumber;
 		}
 		return races;
 	}
@@ -167,7 +172,11 @@ public class SelectionPanel extends JPanel {
 	public int[] getGods(){
 		int[] gods = new int[pPlayer.getComponentCount()];
 		for(int i = 0; i < pPlayer.getComponentCount(); i++){
-			gods[i] = ((PlayerSelectionPanel)(pPlayer.getComponent(i))).getPlayerGod();
+			int selectionNumber = ((PlayerSelectionPanel)(pPlayer.getComponent(i))).getPlayerGod();
+			if(selectionNumber == PlayerData.getNumberOfGods()){
+				selectionNumber = (int)(Math.random()*PlayerData.getNumberOfGods());
+			}
+			gods[i] = selectionNumber;
 		}
 		return gods;
 	}
