@@ -15,7 +15,7 @@ import javax.swing.*;
 
 import warborn.constants.MapData;
 import warborn.constants.PlayerData;
-import warborn.controller.tooManyPlayersException;
+import warborn.controller.TooManyPlayersException;
 import warborn.model.Warborn;
 
 public class SelectionPanel extends JPanel {
@@ -210,7 +210,7 @@ public class SelectionPanel extends JPanel {
 		repaint();
 	}
 	
-	public JButton addPlayer() throws tooManyPlayersException{
+	public JButton addPlayer() throws TooManyPlayersException{
 		if(pPlayer.getComponentCount() < 4){
 			PlayerSelectionPanel newPanel = new PlayerSelectionPanel(pPlayer.getComponentCount()+1);
 			pPlayer.add(newPanel);
@@ -221,7 +221,7 @@ public class SelectionPanel extends JPanel {
 			}
 			return newPanel.getColorButton();
 		}
-		throw new tooManyPlayersException();
+		throw new TooManyPlayersException();
 	}
 	
 	public void removePlayer(){

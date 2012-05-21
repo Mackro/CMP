@@ -64,7 +64,7 @@ public class Launcher implements Observer{
 		model.addObserver(this);
 	}
 	
-	public void setLauncherParameters(){
+	public final void setLauncherParameters(){
 		screen = new ScreenManager();
 		model = new Warborn();
 		model.setDimensions((int)screen.getDefaultGraphicsConfiguration().getBounds().getWidth(),

@@ -60,7 +60,7 @@ public class MenuController implements ActionListener, ItemListener{
 			try{
 				view.addPlayer().addActionListener(this);
 			}
-			catch (tooManyPlayersException tmpe){
+			catch (TooManyPlayersException tmpe){
 			}
 		}else if(buttonPressed == this.view.getButtonArray()[REMOVEPLAYER]){
 			view.removePlayer();
