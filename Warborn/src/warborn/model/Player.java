@@ -21,12 +21,10 @@ public class Player implements LandOwner{
 	public Player(String name, int id, Color color, int race, int god){
 		if(race==PlayerData.getNumberOfRaces()){
 			double d = Math.random()*race;
-			System.out.println(d);
 			race = (int) (d);
 		}
 		if(god==PlayerData.getNumberOfGods()){
 			double d = Math.random()*god;
-			System.out.println(d);
 			god = (int) (d);
 		}
 		this.name = name;

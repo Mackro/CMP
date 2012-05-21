@@ -20,7 +20,7 @@ import warborn.model.Warborn;
 @SuppressWarnings("serial")
 public abstract class Map extends JPanel implements Observer {
 	
-	private static final int HUE = 0, SATURATION = 1, BRIGHTNESS = 2, REINFORCEMENTPHASE = 0;
+	private static final int HUE = 0, SATURATION = 1, BRIGHTNESS = 2, IMMOVABLEPHASE = 1;
 	private Warborn model;
 	private JButton[] buttons;
 	private double[][] scalingConstants;
@@ -80,8 +80,8 @@ public abstract class Map extends JPanel implements Observer {
 		return MapData.getMapName(model.getMapIndex());
 	}
 
-	public void update(Observable lol, Object lol1) {
-		if (model.getPhase() == REINFORCEMENTPHASE) {
+	public void update(Observable arg, Object arg0) {
+		if (model.getPhase() == IMMOVABLEPHASE) {
 			for (int i=0; i<buttons.length; i++){
 				buttons[i].setEnabled(false);
 			}
@@ -111,7 +111,7 @@ public abstract class Map extends JPanel implements Observer {
 				}
 			}
 			if (model.getSelectedTerritoryIndex() > -1) {
-				buttons[model.getSelectedTerritoryIndex()].setBackground(Color.lightGray);
+				buttons[model.getSelectedTerritoryIndex()].setBackground(Color.gray);
 			}			
 		}
 	}

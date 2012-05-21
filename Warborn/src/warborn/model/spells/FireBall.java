@@ -16,7 +16,7 @@ public class FireBall extends Spell {
 
 	@Override
 	public String getName() {
-		return "name";
+		return name;
 	}
 
 	@Override

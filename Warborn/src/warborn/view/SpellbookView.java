@@ -1,7 +1,6 @@
 package warborn.view;
 
 import java.awt.Component;
-import java.awt.Container;
 import java.awt.GridLayout;
 
 import javax.swing.*;
