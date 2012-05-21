@@ -77,7 +77,10 @@ public class MenuController implements ActionListener, ItemListener{
 			//Color choosing
 			for(JButton colorButton : this.view.getColorButtons()){
 				if(buttonPressed == colorButton){
-					colorButton.setBackground(JColorChooser.showDialog(frame, "Choose your color", colorButton.getBackground()));
+					Color newColor = JColorChooser.showDialog(frame, "Choose your color", colorButton.getBackground());
+					if(!(newColor==null)){
+						colorButton.setBackground(newColor);
+					}
 				}
 			}
 		}
