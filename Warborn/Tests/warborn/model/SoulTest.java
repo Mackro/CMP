@@ -6,11 +6,6 @@ import org.junit.Test;
 
 
 public class SoulTest {
-
-	@Test
-	public void testClass(){
-		testSoul();
-	}
 	
 	@Test
 	public void testSoul() {

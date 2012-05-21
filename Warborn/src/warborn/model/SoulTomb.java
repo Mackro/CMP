@@ -18,7 +18,7 @@ public class SoulTomb {
 		return 3;
 	}
 
-	public Soul drawCard(){
+	public Soul drawSoul(){
 		double d = Math.random()*getMaxValue();
 		int i = (int)d;
 		switch(i){

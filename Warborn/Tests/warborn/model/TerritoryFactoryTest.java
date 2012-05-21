@@ -9,12 +9,7 @@ public class TerritoryFactoryTest {
 	
 	@Before
 	public void before() throws IOException {
-		territories = TerritoryFactory.getTerritories("Gothenburg");
-	}
-	
-	@Test
-	public void testClass(){
-		testGetTerritories();
+		territories = TerritoryFactory.getTerritories("Asgauter");
 	}
 	
 	@Test

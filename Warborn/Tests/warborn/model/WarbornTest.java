@@ -19,20 +19,6 @@ public class WarbornTest {
 	}
 	
 	@Test
-	public void testClass(){
-		testSetPlayers();
-		testSetSelectedMap();
-		testSetSelectedTerritory();
-		testAddPlayer();
-		testNextState();
-		testNextPhase();
-		testRemovePlayer();
-		testStartGame();
-		testAttackCompatible();
-		testMoveCompatible();
-	}
-	
-	@Test
 	public void testSetPlayers() {
 		String[] names = {"player1", "player2"};
 		Color[] colors = {Color.red, Color.blue};
@@ -40,10 +26,10 @@ public class WarbornTest {
 		int[] backgrounds = {0, 0};
 		model.setPlayers(names, colors, races, backgrounds);
 		Player[] players = model.getPlayers();
+		assertTrue(players[0].getName().equals(names[0]));
 		assertTrue(players[1].getName().equals(names[1]));
-		assertTrue(players[2].getName().equals(names[2]));
+		assertTrue(players[0].getColor().equals(colors[0]));
 		assertTrue(players[1].getColor().equals(colors[1]));
-		assertTrue(players[2].getColor().equals(colors[2]));
 	}
 	@Test
 	public void testSetSelectedMap() {
@@ -55,6 +41,7 @@ public class WarbornTest {
 	@Test
 	public void testSetSelectedTerritory() {
 		model.setSelectedTerritory(4);
+		assertTrue(model.getSelectedTerritoryIndex() == 4);
 		
 	}
 	@Test

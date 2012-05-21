@@ -6,31 +6,23 @@ import org.junit.Test;
 
 
 public class SoulTombTest {
-
-	@Test
-	public void testClass(){
-		testDrawSoul();
-	}
 	
 	@Test
 	public void testDrawSoul() {
-	/**	ImageIcon infImg = new ImageIcon("images/infantry.jpg");
-		ImageIcon cavImg = new ImageIcon("images/cavalry.jpg");
-		ImageIcon artImg = new ImageIcon("images/artillery.jpg");*/
 		SoulTomb deck = new SoulTomb();
 		Soul card;
 		for (int i=0; i<5; i++){
-			card = deck.drawCard();
+			card = deck.drawSoul();
 			assertTrue(card.getIndex()==0 || card.getIndex()==1 || card.getIndex()==2);
 			switch(card.getIndex()){
 			case 0:
-				assertTrue(card.getName().equals("Infantry"));
+				assertTrue(card.getName().equals("Lesser Soul"));
 				break;
 			case 1:
-				assertTrue(card.getName().equals("Cavalry"));
+				assertTrue(card.getName().equals("Common Soul"));
 				break;
 			case 2:
-				assertTrue(card.getName().equals("Artillery"));
+				assertTrue(card.getName().equals("Greater Soul"));
 				break;
 			default:
 				fail();

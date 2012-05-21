@@ -230,7 +230,7 @@ public class Warborn extends Observable implements SpellTargetable{
 				}
 			}
 			if(players.get(currentPlayer).hasConquered()){
-				players.get(currentPlayer).addCard(deck.drawCard());
+				players.get(currentPlayer).addCard(deck.drawSoul());
 			}
 			this.currentPlayer = (++this.currentPlayer)%players.size();
 			for(int i = 0; i < players.size(); i++){

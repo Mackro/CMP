@@ -18,15 +18,6 @@ public class TerritoryTest {
 		t3 = new Territory("Terr3", 3);
 		t4 = new Territory("Terr4", 4);
 	}
-	@Test
-	public void testClass(){
-		testTerritory();
-		testSetOwner();
-		testSetNbrOfUnits();
-		testIncrementUnit();
-		testHasConnectionAddConnection();
-		testEquals();
-	}
 	
 	@Test
 	public void testTerritory() {

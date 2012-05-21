@@ -10,15 +10,6 @@ import org.junit.Test;
 
 
 public class PlayerTest {
-	
-	@Test
-	public void testClass(){
-		testPlayer();
-		testGetNbrOfTerritories();
-		testAddCard();
-		testRemoveCard();
-		testCanExchangeCards();
-	}
 
 	@Test
 	public void testPlayer() {
@@ -53,11 +44,11 @@ public class PlayerTest {
 	public void testAddCard() {
 		Player test = new Player("name", 8, Color.CYAN, 0, 0);
 		SoulTomb deck = new SoulTomb();
-		test.addCard(deck.drawCard());
-		test.addCard(deck.drawCard());
-		test.addCard(deck.drawCard());
-		test.addCard(deck.drawCard());
-		Soul c = deck.drawCard();
+		test.addCard(deck.drawSoul());
+		test.addCard(deck.drawSoul());
+		test.addCard(deck.drawSoul());
+		test.addCard(deck.drawSoul());
+		Soul c = deck.drawSoul();
 		test.addCard(c);
 		assertTrue(test.getCard(4) == c);
 	}
@@ -66,12 +57,12 @@ public class PlayerTest {
 	public void testRemoveCard() {
 		Player test = new Player("name", 4, Color.DARK_GRAY, 0, 0);
 		SoulTomb deck = new SoulTomb();
-		test.addCard(deck.drawCard());
-		Soul c = deck.drawCard();
+		test.addCard(deck.drawSoul());
+		Soul c = deck.drawSoul();
 		test.addCard(c);
-		Soul c2 = deck.drawCard();
+		Soul c2 = deck.drawSoul();
 		test.addCard(c2);
-		test.addCard(deck.drawCard());
+		test.addCard(deck.drawSoul());
 		
 		test.removeCard(c.getIndex());
 		
@@ -83,7 +74,7 @@ public class PlayerTest {
 	public void testCanExchangeCards() {
 		Player test = new Player("name", 3, Color.GRAY, 0, 0);
 		SoulTomb deck = new SoulTomb();
-		Soul c = deck.drawCard();
+		Soul c = deck.drawSoul();
 		test.addCard(c);
 		test.addCard(c);
 		assertTrue(!test.canExchangeSouls());

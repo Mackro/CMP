@@ -7,7 +7,7 @@ import warborn.model.Warborn;
 
 public class SpellInvokerTest {
 	SpellInvoker spellInvoker;
-	Armageddon armageddon;
+	Deception deception;
 	Protect protect;
 	FireBall fireBall;
 	HolyLight holyLight;
@@ -15,31 +15,27 @@ public class SpellInvokerTest {
 	@Before
 	public void before(){
 		spellInvoker = new SpellInvoker(new Warborn());
-		armageddon = new Armageddon(1);
+		deception = new Deception(1);
 		protect = new Protect(2);
 		fireBall = new FireBall(3);
 		holyLight = new HolyLight(4);
 	}
-	
-	public void testClass(){
-		testSetSelectedSpell();
-	}
-	
+
 	@Test
 	public void testSetSelectedSpell(){
-		spellInvoker.setSelectedSpell(armageddon);
-		assertTrue(spellInvoker.getSelectedSpell()==armageddon);
+		spellInvoker.setSelectedSpell(deception);
+		assertTrue(spellInvoker.getSelectedSpell()==deception);
 
 		spellInvoker.setSelectedSpell(protect);
 		assertTrue(spellInvoker.getSelectedSpell()==protect);
-		assertFalse(spellInvoker.getSelectedSpell()==armageddon);
+		assertFalse(spellInvoker.getSelectedSpell()==deception);
 
 		spellInvoker.setSelectedSpell(fireBall);
 		assertTrue(spellInvoker.getSelectedSpell()==fireBall);
 
 		spellInvoker.setSelectedSpell(holyLight);
 		assertTrue(spellInvoker.getSelectedSpell()==holyLight);
-		assertFalse(spellInvoker.getSelectedSpell()==armageddon);
+		assertFalse(spellInvoker.getSelectedSpell()==deception);
 	}
 	
 	//tested through usertesting
