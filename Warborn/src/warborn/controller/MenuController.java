@@ -12,6 +12,7 @@ import javax.swing.JFrame;
 
 import warborn.model.Warborn;
 import warborn.view.MenuView;
+import warborn.view.TooManyPlayersException;
 
 public class MenuController implements ActionListener, ItemListener{
 	
