@@ -38,26 +38,15 @@ public class ScreenManager {
 	}
 
 	//Makes new frame fullScreen
-	public void setFullScreen(DisplayMode mode){
-		setFullScreen(mode, new JFrame(videoCard.getDefaultConfiguration()));
+	public void setFullScreen(){
+		setFullScreen(new JFrame(videoCard.getDefaultConfiguration()));
 	}
 
 	//Makes frame fullScreen
-	public void setFullScreen(DisplayMode mode, JFrame frame){
-		//frame.setUndecorated(true);
-		//frame.setResizable(false);
+	public void setFullScreen(JFrame frame){
 		videoCard.setFullScreenWindow(frame);
 		frame.validate();
-
-		/*if(mode != null && videoCard.isDisplayChangeSupported()){
-			try{
-				videoCard.setDisplayMode(mode);
-			}catch(Exception e){
-				e.printStackTrace();
-			}
-		}*/
 		frame.createBufferStrategy(2);
-
 	}
 
 	//Restore screen to normal i.e. Exit program

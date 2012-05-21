@@ -23,25 +23,10 @@ public class IntroMovie {
 	public static void play(JFrame frame, KeyAction keyAction) {
 		File intro = new File("WarbornData/images/CMP1920.avi");
 		URL mediaUrl = null;
-		byte[] b = new byte[2];
 		try {
 			mediaUrl = intro.toURL();
-			
-			
-/*
-			BufferedReader buffer = new BufferedReader(new FileReader(intro));
-			String totalLine = "";
-			for(String line = buffer.readLine(); line != null; line = buffer.readLine()){
-				totalLine += line;
-				System.out.println("Loop");
-			}
-			b = totalLine.getBytes();
-			*/
 		} catch (MalformedURLException e) {
 			System.err.println( "Could not create URL for the file" );
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
 		if(mediaUrl != null){
 			GridBagConstraints c = new GridBagConstraints();
@@ -51,7 +36,7 @@ public class IntroMovie {
 			c.gridx = 0;
 			c.gridy = 0;
 			c.weighty = 1;
-			mediaPanel = new MediaPanel( mediaUrl, b );
+			mediaPanel = new MediaPanel( mediaUrl);
 			frame.add( mediaPanel, c, 0);
 
 			mediaPanel.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, MODIFIER), "skip");
@@ -70,7 +55,7 @@ public class IntroMovie {
 
 	public static boolean isPlaying() {
 		
-		return System.currentTimeMillis() - startTime >= 35000?false:(!forceStopPlay);
+		return System.currentTimeMillis() - startTime >= 33000?false:(!forceStopPlay);
 	}
 	
 	public static void stopPlaying(JFrame frame){

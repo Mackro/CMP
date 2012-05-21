@@ -24,7 +24,6 @@ public class Launcher implements Observer{
 	private ScreenManager screen;
 	private HudView hud;
 	private Map map;
-	private DisplayMode compatibleDM;
 
 	/**
 	 * Launch the application.
@@ -42,7 +41,7 @@ public class Launcher implements Observer{
 		frame = new MainFrame(screen.getDefaultGraphicsConfiguration(), model);
 		keyAction = new KeyAction(model, this, frame);
 		IntroMovie.play(frame, keyAction);
-		screen.setFullScreen(compatibleDM, frame);
+		screen.setFullScreen(frame);
 		while(IntroMovie.isPlaying()){
 			try {
 				Thread.sleep(200);
@@ -68,8 +67,7 @@ public class Launcher implements Observer{
 	public void setLauncherParameters(){
 		screen = new ScreenManager();
 		model = new Warborn();
-		compatibleDM = screen.getHighestResolutionDisplayMode();
-		model.setDimensions(compatibleDM.getWidth(), compatibleDM.getHeight());
+		model.setDimensions(screen.getWidth(), screen.getHeight());
 	}
 
 	/**
@@ -88,7 +86,7 @@ public class Launcher implements Observer{
 		frame.add(menu, c, 0);
 		frame.validate();
 		frame.repaint();
-		screen.setFullScreen(compatibleDM, frame);
+		screen.setFullScreen(frame);
 		//frame.setVisible(true);
 	}
 	
