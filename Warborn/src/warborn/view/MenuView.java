@@ -228,8 +228,8 @@ public class MenuView extends JPanel {
 		pSelection.updateMap();
 	}
 	
-	public void addPlayer(){
-		pSelection.addPlayer();
+	public JButton addPlayer(){
+		return pSelection.addPlayer();
 	}
 	
 	public void removePlayer(){

@@ -57,7 +57,11 @@ public class MenuController implements ActionListener, ItemListener{
 		}else if(buttonPressed == this.view.getButtonArray()[BACK2]){
 			view.openNewGameMenu();
 		}else if(buttonPressed == this.view.getButtonArray()[ADDPLAYER]){
-			view.addPlayer();
+			try{
+				view.addPlayer().addActionListener(this);
+			}
+			catch (tooManyPlayersException tmpe){
+			}
 		}else if(buttonPressed == this.view.getButtonArray()[REMOVEPLAYER]){
 			view.removePlayer();
 		}else if(buttonPressed == this.view.getButtonArray()[STARTGAME]){

@@ -209,15 +209,18 @@ public class SelectionPanel extends JPanel {
 		repaint();
 	}
 	
-	public void addPlayer(){
+	public JButton addPlayer() throws tooManyPlayersException{
 		if(pPlayer.getComponentCount() < 4){
-			pPlayer.add(new PlayerSelectionPanel(pPlayer.getComponentCount()+1));
+			PlayerSelectionPanel newPanel = new PlayerSelectionPanel(pPlayer.getComponentCount()+1);
+			pPlayer.add(newPanel);
 			pPlayer.revalidate();
 			btRemovePlayer.setEnabled(true);
 			if(pPlayer.getComponentCount() > 3){
 				btAddPlayer.setEnabled(false);
 			}
+			return newPanel.getColorButton();
 		}
+		throw new tooManyPlayersException();
 	}
 	
 	public void removePlayer(){
