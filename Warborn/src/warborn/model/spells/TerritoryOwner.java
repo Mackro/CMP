@@ -20,4 +20,6 @@ public interface TerritoryOwner{
 
 	void changeMana(int i);
 
+	void setSpellCasted(boolean b);
+
 }

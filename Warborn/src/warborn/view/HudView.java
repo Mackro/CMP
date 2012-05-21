@@ -230,7 +230,9 @@ public class HudView extends JPanel implements Observer{
 			next.setEnabled(false);
 			spellbookButton.setEnabled(false);
 		}else{
-			spellbookButton.setEnabled(true);
+			if(!model.getCurrentPlayer().getSpellCasted()){
+				spellbookButton.setEnabled(true);
+			}
 		}
 		
 	}

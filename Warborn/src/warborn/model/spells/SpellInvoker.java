@@ -32,6 +32,7 @@ public class SpellInvoker implements Observer{
 		if(spell.validTarget(target) && target.getCurrentPlayer().getMana() >= spell.getManaCost()){
 			target.getCurrentPlayer().changeMana(-(spell.getManaCost()));
 			spell.invoke(target);
+			target.getCurrentPlayer().setSpellCasted(true);
 			if(spell.getTimer() > 0){
 				activeSpells.add(spell);
 			}

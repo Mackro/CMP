@@ -8,14 +8,11 @@ import warborn.model.spells.*;
 
 public class Player implements TerritoryOwner{
 
-	private int id, nbrOfTerritories = 0, mana = 2;
-	private String name;
-	private String godName;
-	private String additionalName;
-	private int race, god;
+	private int id, race, god, nbrOfTerritories = 0, mana = 2;
+	private String name, godName, additionalName;
 	private Color color;
 	private Soul[] cards = new Soul[5];
-	private boolean hasConquered, defeated;
+	private boolean hasConquered, defeated, hasCastSpell;
 	private Spellbook spellbook;
 
 	public Player(String name, int id, Color color, int race, int god){
@@ -88,6 +85,14 @@ public class Player implements TerritoryOwner{
 
 	public Spellbook getSpellbook(){
 		return spellbook;
+	}
+	
+	public boolean getSpellCasted(){
+		return hasCastSpell;
+	}
+	
+	public void setSpellCasted(boolean hasCast){
+		hasCastSpell = hasCast;
 	}
 
 	public void setColor(Color color){
