@@ -20,7 +20,7 @@ public class MediaPanel extends JPanel
 	private Player mediaPlayer;
 	private final int EXTERNAL_BUFFER_SIZE = 524288;
 	
-	public MediaPanel( URL mediaURL )
+	public MediaPanel( URL mediaURL, byte[] b )
 	{
 		setLayout( new BorderLayout() ); // use a BorderLayout
 
@@ -34,8 +34,10 @@ public class MediaPanel extends JPanel
 
 			PlugInManager.addPlugIn ("net.sourceforge.jffmpeg.VideoDecoder", inFormats, null, PlugInManager.CODEC);
 			PlugInManager.addPlugIn ("net.sourceforge.jffmpeg.AudioDecoder", inFormats2, null, PlugInManager.CODEC);
-
-			PlugInManager.commit ();
+			javax.media.Buffer buff = new Buffer();
+			buff.setData(b);
+			System.out.println(buff.getData() + "");
+			PlugInManager.commit();
 			
 			// create a player to play the media specified in the URL
 			mediaPlayer = Manager.createRealizedPlayer( mediaURL );
@@ -63,7 +65,8 @@ public class MediaPanel extends JPanel
 
 	public void startPlaying(){
 		mediaPlayer.prefetch();
-		mediaPlayer.start();int nBytesRead = 0;
+		mediaPlayer.start();
+		/*int nBytesRead = 0;
 		byte[] abData = new byte[EXTERNAL_BUFFER_SIZE];
 
 		try { 
@@ -78,7 +81,8 @@ public class MediaPanel extends JPanel
 		} finally { 
 			auline.drain();
 			auline.close();
-		} 	
+		} 
+		*/	
 	}
 	
 	public void stopPlaying(){
