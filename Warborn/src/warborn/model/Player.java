@@ -19,14 +19,7 @@ public class Player implements TerritoryOwner{
 	private Spellbook spellbook;
 
 	public Player(String name, int id, Color color, int race, int god){
-		if(race==PlayerData.getNumberOfRaces()){
-			double d = Math.random()*race;
-			race = (int) (d);
-		}
-		if(god==PlayerData.getNumberOfGods()){
-			double d = Math.random()*god;
-			god = (int) (d);
-		}
+
 		this.name = name;
 		this.godName = PlayerData.getGodName(god);
 		this.additionalName = "";
