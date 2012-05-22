@@ -21,6 +21,8 @@ import warborn.sound.Sound;
 
 public class MenuView extends JPanel {
 	private final static long serialVersionUID = 1L;
+	private final static String QUICKSTARTTOOLTIP = "Start a game with 2 Players in Land of the Asgauter";
+	private final static String STARTGAMETOOLTIP = "Create a new game with custom settings";
 	private int height, width;
 	private JButton btNewGame, btCredits, btExit, btQuickStart, btStart, btBack, btBack2;
 	private SelectionPanel pSelection;
@@ -63,12 +65,14 @@ public class MenuView extends JPanel {
 		btQuickStart.setLocation(100, model.getHeight()-250);
 		btQuickStart.setSize(width, height);
 		btQuickStart.setVisible(false);
+		btQuickStart.setToolTipText(QUICKSTARTTOOLTIP);
 		add(btQuickStart, 0);
 		
 		btStart = new GenericButton("Start Game");
 		btStart.setLocation(300, model.getHeight()-250);
 		btStart.setSize(width, height);
 		btStart.setVisible(false);
+		btStart.setToolTipText(STARTGAMETOOLTIP);
 		add(btStart, 0);
 		
 		btBack = new GenericButton("Back");

@@ -38,7 +38,7 @@ public class SpellInvoker implements Observer{
 			}
 		}
 		target.changed();
-		target.getSelectedTerritory();
+		target.resetSelectedTerritory();
 		selectedSpell = null;
 	}
 

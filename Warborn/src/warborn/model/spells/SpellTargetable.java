@@ -32,4 +32,6 @@ public interface SpellTargetable{
 
 	void addObserver(Observer observer);
 
+	void resetSelectedTerritory();
+
 }

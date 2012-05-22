@@ -8,7 +8,7 @@ import warborn.constants.PlayerData;
 
 public class PlayerSelectionPanel extends JPanel {
 	private static final long serialVersionUID = 1L;
-	
+	private static final String COLORBUTTONTOOLTIP = "Click to change the color of your player";
 	public JTextField tfPlayerName;
 	public JButton btColor;
 	public JComboBox<String> cbRace, cbGod;
@@ -46,6 +46,7 @@ public class PlayerSelectionPanel extends JPanel {
 		btColor.setLocation(20, 20);
 		btColor.setSize(50, 50);
 		btColor.setBackground(color);
+		btColor.setToolTipText(COLORBUTTONTOOLTIP);
 		add(btColor);
 		
 		tfPlayerName = new JTextField(name);
