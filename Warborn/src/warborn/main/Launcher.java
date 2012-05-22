@@ -30,10 +30,10 @@ public class Launcher implements Observer{
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
-		
+
 		new Launcher();
 	}
-	
+
 	/**
 	 * Create the application.
 	 */
@@ -41,23 +41,19 @@ public class Launcher implements Observer{
 		setLauncherParameters();
 		frame = new MainFrame(screen.getDefaultGraphicsConfiguration(), model);
 		keyAction = new KeyAction(model, this, frame);
-		try{
-			IntroMovie.play(frame, keyAction);
-			screen.setFullScreen(frame);
-			while(IntroMovie.isPlaying()){
-				try {
-					Thread.sleep(200);
-				} catch (InterruptedException e) {
-				}
+		IntroMovie.play(frame, keyAction);
+		screen.setFullScreen(frame);
+		while(IntroMovie.isPlaying()){
+			try {
+				Thread.sleep(200);
+			} catch (InterruptedException e) {
 			}
-			IntroMovie.stopPlaying(frame);
-		}catch(BufferUnderflowException bue){
-			System.out.println("hej");
 		}
+		IntroMovie.stopPlaying(frame);
 		initialize();
 		model.addObserver(this);
 	}
-	
+
 	/**
 	 * Create the application.
 	 */
@@ -68,12 +64,12 @@ public class Launcher implements Observer{
 		initialize();
 		model.addObserver(this);
 	}
-	
+
 	public final void setLauncherParameters(){
 		screen = new ScreenManager();
 		model = new Warborn();
 		model.setDimensions((int)screen.getDefaultGraphicsConfiguration().getBounds().getWidth(),
-							(int)screen.getDefaultGraphicsConfiguration().getBounds().getHeight());
+				(int)screen.getDefaultGraphicsConfiguration().getBounds().getHeight());
 	}
 
 	/**
@@ -94,7 +90,7 @@ public class Launcher implements Observer{
 		frame.repaint();
 		screen.setFullScreen(frame);
 	}
-	
+
 	/**
 	 * Initialize all the views and controllers
 	 */
@@ -105,21 +101,21 @@ public class Launcher implements Observer{
 		new BattleController(model, frame, battle);
 		EndGameView end = new EndGameView(model, frame, System.currentTimeMillis());
 		new EndGameController(end, frame, this);
-		
+
 		model.addObserver(move);
 		model.addObserver(battle);
 		model.addObserver(end);
 	}
 
-	
+
 	public void createGame(int mapIndex){
-		
+
 		frame.remove(menu);
 		model.addObserver(new StatePanelViewCreator(frame));
 		init();
-		
+
 		GridBagConstraints c = new GridBagConstraints();
-		
+
 		Map[] mapList = getMapList();
 		map = mapList[mapIndex];
 		new MapController(model, map);
@@ -136,8 +132,8 @@ public class Launcher implements Observer{
 		map.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_F10, 0), "options");
 		map.getInputMap().put(KeyStroke.getKeyStroke(KeyEvent.VK_F10, 0), "options");
 		map.getActionMap().put("options", keyAction);
-		
-		
+
+
 		hud = new HudView(model);
 		new HudController(model, frame, hud);
 		model.addObserver(hud);
@@ -146,8 +142,8 @@ public class Launcher implements Observer{
 		c.weighty = 0.2;
 		frame.add((JPanel)hud, c);
 		hud.update(model, null);
-		
-		
+
+
 	}
 
 	@Override
@@ -157,22 +153,22 @@ public class Launcher implements Observer{
 			createGame(model.getMapIndex());
 		}
 	}
-	
+
 	public void reset(){
 		frame.remove(map);
 		frame.remove(hud);
 		menu.killMusic();
 		new Launcher(frame);
-		
+
 	}
-	
+
 	public Map[] getMapList(){
 		return new Map[] {
 				new GothenburgMapView(model),
 				new HellboundArchipelagoMapView(model),
 		};
 	}
-	
+
 	public void exit(){
 		screen.restoreScreen();
 		System.exit(0);
