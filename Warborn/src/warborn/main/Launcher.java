@@ -3,6 +3,7 @@ package warborn.main;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
+import java.nio.BufferUnderflowException;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -40,15 +41,19 @@ public class Launcher implements Observer{
 		setLauncherParameters();
 		frame = new MainFrame(screen.getDefaultGraphicsConfiguration(), model);
 		keyAction = new KeyAction(model, this, frame);
-		IntroMovie.play(frame, keyAction);
-		screen.setFullScreen(frame);
-		while(IntroMovie.isPlaying()){
-			try {
-				Thread.sleep(200);
-			} catch (InterruptedException e) {
+		try{
+			IntroMovie.play(frame, keyAction);
+			screen.setFullScreen(frame);
+			while(IntroMovie.isPlaying()){
+				try {
+					Thread.sleep(200);
+				} catch (InterruptedException e) {
+				}
 			}
+			IntroMovie.stopPlaying(frame);
+		}catch(BufferUnderflowException bue){
+			System.out.println("hej");
 		}
-		IntroMovie.stopPlaying(frame);
 		initialize();
 		model.addObserver(this);
 	}
