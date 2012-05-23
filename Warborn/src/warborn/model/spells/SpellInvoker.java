@@ -37,9 +37,9 @@ public class SpellInvoker implements Observer{
 				activeSpells.add(spell);
 			}
 		}
-		target.changed();
 		target.resetSelectedTerritory();
 		selectedSpell = null;
+		target.changed();
 	}
 
 	@Override
