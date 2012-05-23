@@ -229,11 +229,6 @@ public class HudView extends JPanel implements Observer{
 			currentState.setText("Reinforce");
 			next.setEnabled(false);
 			spellbookButton.setEnabled(false);
-		}else{
-			if(!model.getCurrentPlayer().getSpellCasted()){
-				spellbookButton.setEnabled(true);
-			}
-		}
-		
+		}		
 	}
 }

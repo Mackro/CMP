@@ -229,7 +229,6 @@ public class Warborn extends Observable implements SpellTargetable{
 					player.defeated(true);
 				}
 			}
-			players.get(currentPlayer).setSpellCasted(false);
 			if(players.get(currentPlayer).hasConquered()){
 				players.get(currentPlayer).addCard(deck.drawSoul());
 			}
